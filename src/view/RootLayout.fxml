@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="rootLayout" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RootLayoutController">
+	<left>
+		<Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+			<children>
+				<Label id="programName" fx:id="lblProgramName" layoutX="14.0" layoutY="42.0" prefWidth="134.0" text="Data Editor" />
+				<Button id="skillsButton" fx:id="btnClasses" layoutX="14.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleClassesAction" prefHeight="34.960837500002526" prefWidth="134.0" text="Classes" />
+				<Button id="combatStatsButton" fx:id="btnFeats" layoutX="14.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleFeatsAction" prefHeight="34.960837500002526" prefWidth="134.00009999999747" text="Feats" />
+				<Button id="itemsButton" fx:id="btnItems" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleItemsAction" prefHeight="34.9609375" prefWidth="134.0" text="Items" />
+				<Button id="racesButton" fx:id="btnRace" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleRaceAction" pickOnBounds="false" prefHeight="34.960837500002526" prefWidth="134.0" text="Races" />
+				<Button id="spellsButton" fx:id="btnSpells" layoutX="14.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleSpellsAction" prefHeight="34.960845947265625" prefWidth="134.0" text="Spells" />
+			</children>
+		</Pane>
+	</left>
+</BorderPane>
