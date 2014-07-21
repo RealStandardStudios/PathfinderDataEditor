@@ -16,12 +16,12 @@ import jefXif.Gui;
 import com.sun.istack.internal.logging.Logger;
 
 /**
- * @author Real Standard Studios - Matthew Meehan
- * Loads and Initializes the main program
+ * @author Real Standard Studios - Matthew Meehan Loads and Initializes the main
+ *         program
  */
 public class Interface extends Gui {
 	private RootLayoutController rootLayoutController;
-	
+
 	public Interface(Stage primaryStage) {
 		super(primaryStage);
 		// TODO Auto-generated constructor stub
@@ -53,7 +53,7 @@ public class Interface extends Gui {
 	@Override
 	public void loadPartials() throws IOException {
 		HashMap<String, Node> windowPartials = new HashMap<>();
-		String[] Windows = { };
+		String[] Windows = { "Classes", "Feats", "Items", "Races", "Spells" };
 		for (String string : Windows) {
 			windowPartials.put(string, loadPartial(string));
 		}
