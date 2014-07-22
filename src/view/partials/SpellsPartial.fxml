@@ -5,6 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="view.partials.SpellsController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.SpellsController">
 	<!-- TODO Add Nodes -->
 </AnchorPane>
