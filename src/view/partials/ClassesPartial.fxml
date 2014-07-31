@@ -11,9 +11,9 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="7.0" layoutY="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableClasses" layoutX="7.0" layoutY="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="152.0" text="Classes" />
+                      <TableColumn fx:id="columnClassName" prefWidth="152.0" text="Classes" />
                     </columns>
                   </TableView>
                </children>
@@ -50,6 +50,14 @@
                                           <Label text="Skill Ranks per Level" GridPane.rowIndex="5" />
                                           <Label text="Weapon Proficiency" GridPane.rowIndex="6" />
                                           <Label text="Armor Proficiency" GridPane.rowIndex="7" />
+                                          <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" />
+                                          <Label fx:id="lblRole" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="lblAlignments" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="lblHitDie" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label fx:id="lblClassSkills" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label fx:id="lblSkillPerLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="lblWeaponProf" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Label fx:id="lblArmorProf" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                        </children>
                                     </GridPane>
                                  </children>
