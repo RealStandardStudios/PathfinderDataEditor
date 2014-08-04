@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,11 +8,11 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.RacesController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" layoutX="7.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.23497267759562843" layoutX="7.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="8.0" layoutY="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView layoutX="8.0" layoutY="6.0" prefHeight="698.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn prefWidth="257.0" text="Race Name" />
                     </columns>
@@ -22,8 +23,8 @@
                <children>
                   <GridPane prefHeight="89.0" prefWidth="756.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="0.0" prefWidth="138.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="630.0" minWidth="0.0" prefWidth="630.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="0.0" prefWidth="136.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="0.0" prefWidth="701.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
@@ -56,13 +57,104 @@
                         <Label text="Racial Traits" GridPane.rowIndex="11" />
                         <Label text="Weapon Familiarity" GridPane.rowIndex="12" />
                         <Label text="Languages" GridPane.rowIndex="13" />
-                        <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="111.0" text="Name" GridPane.columnIndex="1" />
-                        <TextArea fx:id="descriptionTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Races Description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextArea fx:id="physicalDescriptionTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Races physcial description" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextArea fx:id="societyTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="A description of the Races Society" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextArea fx:id="raceRelationsTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Relations of the race with other races" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextArea fx:id="alignmentTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="Alignment and Religions" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextArea fx:id="adventuresTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The kinds of adventures the race would get up to" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="111.0" text="Name" GridPane.columnIndex="1">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></Label>
+                        <TextArea fx:id="descriptionTextArea" editable="false" prefHeight="70.0" prefWidth="228.0" text="The Races Description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="80.0" />
+                           </GridPane.margin></TextArea>
+                        <TextArea fx:id="physicalDescriptionTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Races physcial description" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="80.0" />
+                           </GridPane.margin></TextArea>
+                        <TextArea fx:id="societyTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="A description of the Races Society" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="80.0" />
+                           </GridPane.margin></TextArea>
+                        <TextArea fx:id="raceRelationsTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Relations of the race with other races" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="80.0" />
+                           </GridPane.margin></TextArea>
+                        <TextArea fx:id="alignmentTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="Alignment and Religions" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="80.0" />
+                           </GridPane.margin></TextArea>
+                        <TextArea fx:id="adventuresTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="The kinds of adventures the race would get up to" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="80.0" />
+                           </GridPane.margin></TextArea>
+                        <Button fx:id="btnEditDescription" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditPhysDescription" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditSociety" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditRaceRelations" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAliandRel" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditName" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures1" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures2" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures3" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures4" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures5" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures6" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnEditAdventures7" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                           <GridPane.margin>
+                              <Insets left="630.0" />
+                           </GridPane.margin>
+                        </Button>
                      </children>
                   </GridPane>
                </children></AnchorPane>
