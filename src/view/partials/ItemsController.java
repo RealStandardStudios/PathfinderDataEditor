@@ -49,8 +49,7 @@ public class ItemsController extends WindowController implements LoadablePartial
 	@Override
 	public Node loadPartial(String name) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(this.getClass().getResource(
-				Strings.FileLoc+ "itemPartials/" + name + "Partial.fxml"));
+		loader.setLocation(this.getClass().getResource("itemPartials/" + name + "Partial.fxml"));
 		
 		AnchorPane partial = loader.load();
 		return partial;
