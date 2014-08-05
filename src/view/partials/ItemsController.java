@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import jefXif.LoadablePartials;
-import jefXif.Strings;
 import jefXif.WindowController;
 
 public class ItemsController extends WindowController implements LoadablePartials{
