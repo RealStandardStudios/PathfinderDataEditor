@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="437.0" prefWidth="465.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="383.0" prefWidth="465.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="68.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="397.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Feat Name" />
+            <Label text="Prerequisite" GridPane.rowIndex="1" />
+            <Label text="Benifit" GridPane.rowIndex="2" />
+            <Label text="Effect" GridPane.rowIndex="3" />
+            <TextField fx:id="txtFeatName" GridPane.columnIndex="1" />
+            <ComboBox prefHeight="25.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <top>
+                  <ComboBox prefHeight="25.0" prefWidth="396.0" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <AnchorPane fx:id="EffectPartialPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </GridPane>
+      <Button fx:id="btnCancel" layoutX="324.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="60.0" text="Cancel" />
+      <Button fx:id="btnOkay" layoutX="391.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleOkay" prefHeight="25.0" prefWidth="60.0" text="Okay" />
+   </children>
+</AnchorPane>
