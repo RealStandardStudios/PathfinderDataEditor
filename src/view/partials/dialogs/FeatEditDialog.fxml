@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="437.0" prefWidth="465.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="437.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.FeatEditDialogController">
    <children>
       <GridPane layoutX="14.0" layoutY="14.0" prefHeight="383.0" prefWidth="465.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -25,11 +24,11 @@
             <Label text="Benifit" GridPane.rowIndex="2" />
             <Label text="Effect" GridPane.rowIndex="3" />
             <TextField fx:id="txtFeatName" GridPane.columnIndex="1" />
-            <ComboBox prefHeight="25.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cboPrerequisiteFeat" prefHeight="25.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="txtaBenifit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <top>
-                  <ComboBox prefHeight="25.0" prefWidth="396.0" BorderPane.alignment="CENTER" />
+                  <ComboBox fx:id="cboEffect" onAction="#handleChangedEffect" prefHeight="25.0" prefWidth="396.0" BorderPane.alignment="CENTER" />
                </top>
                <center>
                   <AnchorPane fx:id="EffectPartialPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
