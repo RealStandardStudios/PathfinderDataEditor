@@ -35,6 +35,7 @@ import pathfinder.data.Effects.NonValued.OnCritEffect;
 import pathfinder.data.Feats.Feat;
 
 public class FeatEditDialogController extends DialogController {
+	Boolean okayClicked = false;
 	ObservableList<Effect> effects;
 	Feat feat;
 
@@ -58,7 +59,7 @@ public class FeatEditDialogController extends DialogController {
 	
 	@FXML
 	private void handleOkay() {
-		
+		okayClicked = true;
 	}
 	
 	/**
@@ -73,6 +74,9 @@ public class FeatEditDialogController extends DialogController {
 	 */
 	public void setFeat(Feat feat) {
 		this.feat = feat;
+		
+		txtFeatName.setText(feat.getName());
+		txtaBenifit.setText(feat.getBenefit());
 	}
 	
 	public FeatEditDialogController() {
@@ -105,5 +109,8 @@ public class FeatEditDialogController extends DialogController {
 	@Override
 	public void initialize() {
 		cboEffect.setItems(effects);
+	}
+	public boolean isOkayClicked() {
+		return this.okayClicked;
 	}
 }

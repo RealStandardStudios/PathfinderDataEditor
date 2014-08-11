@@ -4,5 +4,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/JefXif"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/PathfinderData"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/JefXif/lib/controlsfx-8.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

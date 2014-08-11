@@ -3,6 +3,8 @@ package view.partials;
 import java.io.IOException;
 import java.util.logging.Level;
 
+import org.controlsfx.dialog.Dialogs;
+
 import com.sun.istack.internal.logging.Logger;
 
 import javafx.collections.FXCollections;
@@ -61,6 +63,16 @@ public class FeatsController extends WindowController {
 
 	@FXML
 	public void handleEditPerson() {
+		Feat selectedFeat = tableFeats.getSelectionModel().getSelectedItem();
+		if(selectedFeat!=null) {
+			boolean okClicked = showEditFeatDialog(selectedFeat);
+		}
+		else {
+			Dialogs.create().title("No Selection").masthead("No Feat selected").message("Select a Feat from the table.").showWarning();
+		}
+	}
+
+	private boolean showEditFeatDialog(Feat feat) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(this.getClass().getResource(
@@ -76,12 +88,13 @@ public class FeatsController extends WindowController {
 
 			FeatEditDialogController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
-			controller
-					.setFeat(tableFeats.getSelectionModel().getSelectedItem());
+			controller.setFeat(feat);
+			dialogStage.showAndWait();
+			return controller.isOkayClicked();
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
+			return false;
 		}
-
 	}
 
 }
