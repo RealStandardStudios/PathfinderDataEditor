@@ -55,7 +55,7 @@ public class Interface extends Gui {
 		HashMap<String, Node> windowPartials = new HashMap<>();
 		String[] Windows = { "Classes", "Feats", "Items", "Races", "Spells" };
 		for (String string : Windows) {
-			windowPartials.put(string, loadPartial(string));
+			windowPartials.put(string, loadPartial(string, this));
 		}
 		rootLayoutController.setWindowPartials(windowPartials);
 	}

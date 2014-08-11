@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import jefXif.DialogController;
+import jefXif.Gui;
 import jefXif.LoadablePartials;
 import jefXif.WindowController;
 
@@ -35,7 +37,7 @@ public class ItemsController extends WindowController implements LoadablePartial
 		try {
 			String[] partials = {"BasicGoods"};
 			for (String string : partials) {
-				this.partials.put(string, loadPartial(string));
+				this.partials.put(string, loadPartial(string, this.getInterface()));
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -45,7 +47,7 @@ public class ItemsController extends WindowController implements LoadablePartial
 	}
 	
 	@Override
-	public Node loadPartial(String name) throws IOException {
+	public Node loadPartial(String name, Gui ui) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource("itemPartials/" + name + "Partial.fxml"));
 		
