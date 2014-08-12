@@ -128,7 +128,7 @@ public class SpellsController extends WindowController{
 			savingThrowLabel.setText(spell.getSavingThrow());
 			spellResistanceLabel.setText(spell.isSpellResistance());
 			descriptionLabel.setText(spell.getDescription());
-			descriptionLabel.setWrapText(true);
+			//descriptionLabel.setWrapText(true);
 			descriptionLabel.setPadding(new Insets(50, 0, 0, 0));
 			// need a loop that reads from an array and if has data, places data
 			// into tableImageViews

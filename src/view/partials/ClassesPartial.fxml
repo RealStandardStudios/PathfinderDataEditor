@@ -29,10 +29,10 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <GridPane prefHeight="303.0" prefWidth="912.0">
+                                    <GridPane prefHeight="303.0" prefWidth="800.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="117.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="795.0" minWidth="10.0" prefWidth="742.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="122.0" />
+                                        <ColumnConstraints maxWidth="795.0" minWidth="10.0" prefWidth="691.0" />
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -54,11 +54,11 @@
                                           <Label text="Skill Ranks per Level" GridPane.rowIndex="5" />
                                           <Label text="Weapon Proficiency" GridPane.rowIndex="6" />
                                           <Label text="Armor Proficiency" GridPane.rowIndex="7" />
-                                          <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" />
-                                          <Label fx:id="lblRole" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="lblDescription" text="Label" wrapText="true" GridPane.columnIndex="1" />
+                                          <Label fx:id="lblRole" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
                                           <Label fx:id="lblAlignments" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label fx:id="lblHitDice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Label fx:id="lblClassSkills" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label fx:id="lblClassSkills" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
                                           <Label fx:id="lblSkillRanksPerLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                           <Label fx:id="lblWeaponProf" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                           <Label fx:id="lblArmorProf" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
