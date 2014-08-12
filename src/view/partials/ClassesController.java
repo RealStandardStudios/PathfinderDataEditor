@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import jefXif.DataLoader;
 import jefXif.WindowController;
 import pathfinder.data.DiceType;
 import pathfinder.data.Character.Alignment;
@@ -23,7 +24,7 @@ import pathfinder.data.Items.ArmorType;
 import pathfinder.data.Items.WeaponType;
 import pathfinder.data.Skills.Skill;
 
-public class ClassesController extends WindowController {
+public class ClassesController extends WindowController implements DataLoader {
 
 	@FXML
 	private TableView<Class> tableClasses;
@@ -102,7 +103,7 @@ public class ClassesController extends WindowController {
 				.addListener(
 						(observable, oldValue, newValue) -> showClassDetails(newValue));
 
-		readSummary();
+		//readSummary();
 
 	}
 
@@ -141,17 +142,12 @@ public class ClassesController extends WindowController {
 	 * Reads class summary data
 	 */
 	private void readSummary() {
-		String[] heading;
 		Scanner reader;
 
 		try {
 			reader = new Scanner(new FileReader(
 					"data/Classes - Class summaries.tsv"));
 			String readLine = reader.nextLine();
-
-			// Read the first line. The first line contains the HEADINGS. Split
-			// by tabs to obtain each heading.
-			heading = readLine.split("\t");
 
 			// Continue to read the rest of the file.
 			while (reader.hasNextLine()) {
@@ -197,5 +193,11 @@ public class ClassesController extends WindowController {
 			Logger.getLogger(ClassesController.class.toString()).log(
 					Level.SEVERE, null, e);
 		}
+	}
+
+	@Override
+	public void loadData() {
+		//load data through jefxif
+		readSummary();
 	}
 }

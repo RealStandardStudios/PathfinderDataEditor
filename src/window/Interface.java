@@ -5,13 +5,14 @@ import java.util.HashMap;
 import java.util.logging.Level;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import view.RootLayoutController;
+import jefXif.DataLoader;
 import jefXif.Gui;
+import jefXif.WindowController;
+import view.RootLayoutController;
 
 import com.sun.istack.internal.logging.Logger;
 
@@ -52,7 +53,7 @@ public class Interface extends Gui {
 
 	@Override
 	public void loadPartials() throws IOException {
-		HashMap<String, Node> windowPartials = new HashMap<>();
+		HashMap<String, WindowController> windowPartials = new HashMap<>();
 		String[] Windows = { "Classes", "Feats", "Items", "Races", "Spells" };
 		for (String string : Windows) {
 			windowPartials.put(string, loadPartial(string, this));
@@ -72,6 +73,19 @@ public class Interface extends Gui {
 			loadPartials();
 		} catch (IOException e) {
 			Logger.getLogger(this.getClass()).log(Level.SEVERE, null, e);
+		}
+		loadData();
+	}
+
+	@Override
+	public void loadData() {
+		// this is where all the views will load the data from their files
+		for (WindowController controller : rootLayoutController.getWindowPartials().values()) {
+			// If the interface DataLoader is implemented on the current controller
+			if(DataLoader.class.isAssignableFrom(controller.getClass())) {
+				DataLoader loader = (DataLoader) controller;
+				loader.loadData();
+			}	
 		}
 	}
 }

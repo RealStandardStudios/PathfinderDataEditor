@@ -13,40 +13,40 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import jefXif.DataLoader;
 import jefXif.WindowController;
 import pathfinder.data.Spells.Spell;
 
 /**
  * @author Kenneth Cooper
- *@description A controller class for Spells that interacts with 
+ * @description A controller class for Spells that interacts with
  */
-public class SpellsController extends WindowController{
+public class SpellsController extends WindowController implements DataLoader {
 
 	private ObservableList<Spell> spellData = FXCollections
 			.observableArrayList();
-	
-	
+
 	public SpellsController() {
 		// Test data for now
-		//spellData
-		//		.add(new Spell(
-		//				"Ablative Barrier",
-		//				"conjuration (creation) [force]",
-		//				new String[] { "alchemist", "magus", "sorceror/wizard",
-		//						"summoner" },
-		//				new int[] { 2, 2, 3, 2 },
-		//				"1 standard action",
-		//				"V, S, M (a piece of metal cut from a shield)",
-		//				"touch",
-		//				"creature touched",
-		//				null,
-		//				null,
-		//				"1 hour/level or until discharged",
-		//				"Will negates (harmless)",
-		//				"no",
-		//				"Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
-		//				null));
-		readData();
+		// spellData
+		// .add(new Spell(
+		// "Ablative Barrier",
+		// "conjuration (creation) [force]",
+		// new String[] { "alchemist", "magus", "sorceror/wizard",
+		// "summoner" },
+		// new int[] { 2, 2, 3, 2 },
+		// "1 standard action",
+		// "V, S, M (a piece of metal cut from a shield)",
+		// "touch",
+		// "creature touched",
+		// null,
+		// null,
+		// "1 hour/level or until discharged",
+		// "Will negates (harmless)",
+		// "no",
+		// "Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
+		// null));
+		// readData();
 	}
 
 	/**
@@ -135,19 +135,31 @@ public class SpellsController extends WindowController{
 			if (spell.getTablePicture() != null) {
 				switch (spell.getTablePicture().length) {
 				case 1:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[0]));
+					tableOneImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePicture()[0]));
 					tableTwoImageView.setImage(null);
 					tableThreeImageView.setImage(null);
 					break;
 				case 2:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[0]));
-					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[1]));
+					tableOneImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePicture()[0]));
+					tableTwoImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePicture()[1]));
 					tableThreeImageView.setImage(null);
 					break;
 				case 3:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[0]));
-					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[1]));
-					tableThreeImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[2]));
+					tableOneImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePicture()[0]));
+					tableTwoImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePicture()[1]));
+					tableThreeImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePicture()[2]));
 					break;
 				default:
 					tableOneImageView.setImage(null);
@@ -156,8 +168,7 @@ public class SpellsController extends WindowController{
 					break;
 				}
 			}
-			
-			
+
 		} else {
 			// Spell is null, remove all text
 			schoolLabel.setText("");
@@ -175,76 +186,87 @@ public class SpellsController extends WindowController{
 			tableThreeImageView.setImage(null);
 		}
 	}
-	
+
 	private void readData() {
 		try {
-			Scanner scn = new Scanner(new FileReader("data/Spell Data - Sheet1.tsv"));
-			
+			Scanner scn = new Scanner(new FileReader(
+					"data/Spell Data - Sheet1.tsv"));
+
 			scn.nextLine();
 			String line;
-			
+
 			// System.out.println(line); // The information for one spell
-			int number = 0;
 			while (scn.hasNextLine()) {
 				line = scn.nextLine();
-				
-				String[] parts = line.split("\t"); // Spell is split into each of it's component parts
-				
-				String[] levelParts = parts[2].split(","); // Splits the Spell level into the different classes
-				
-				String[] classParts = null; // Holds the levelParts split up into the formula [string] [int]
-				String[] className = new String[levelParts.length];  // holds class names
-				int[] levelNum = new int[levelParts.length];  // holds class levels
-				
+
+				String[] parts = line.split("\t"); // Spell is split into each
+													// of it's component parts
+
+				String[] levelParts = parts[2].split(","); // Splits the Spell
+															// level into the
+															// different classes
+
+				String[] classParts = null; // Holds the levelParts split up
+											// into the formula [string] [int]
+				String[] className = new String[levelParts.length]; // holds
+																	// class
+																	// names
+				int[] levelNum = new int[levelParts.length]; // holds class
+																// levels
+
 				for (String string : levelParts) {
 					classParts = string.trim().split(" ");
-					
-					for (int i = 0; i < classParts.length;i++) {
+
+					for (int i = 0; i < classParts.length; i++) {
 						if (i % 2 == 0) {
-							className[i/2] = classParts[i];
-						}
-						else {
-							levelNum[i/2] = Integer.parseInt(classParts[i]);
+							className[i / 2] = classParts[i];
+						} else {
+							levelNum[i / 2] = Integer.parseInt(classParts[i]);
 						}
 					}
 				}
-				
+
 				String[] tableParts = null;
-				
+
 				if (parts.length == 14) {
 					tableParts = parts[13].trim().split(",");
 				}
-				
-				
+
 				// Test data for now
-				//spellData
-				//		.add(new Spell(
-				//				"Ablative Barrier",
-				//				"conjuration (creation) [force]",
-				//				new String[] { "alchemist", "magus", "sorceror/wizard",
-				//						"summoner" },
-				//				new int[] { 2, 2, 3, 2 },
-				//				"1 standard action",
-				//				"V, S, M (a piece of metal cut from a shield)",
-				//				"touch",
-				//				"creature touched",
-				//				null,
-				//				null,
-				//				"1 hour/level or until discharged",
-				//				"Will negates (harmless)",
-				//				"no",
-				//				"Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
-				//				null));
-				spellData.add(new Spell(parts[0],parts[1],className,levelNum,parts[3],parts[4],parts[5],parts[6],parts[7],parts[8],parts[9],parts[10],parts[11],parts[12],tableParts));
-				System.out.println(number);
-				number++;
+				// spellData
+				// .add(new Spell(
+				// "Ablative Barrier",
+				// "conjuration (creation) [force]",
+				// new String[] { "alchemist", "magus", "sorceror/wizard",
+				// "summoner" },
+				// new int[] { 2, 2, 3, 2 },
+				// "1 standard action",
+				// "V, S, M (a piece of metal cut from a shield)",
+				// "touch",
+				// "creature touched",
+				// null,
+				// null,
+				// "1 hour/level or until discharged",
+				// "Will negates (harmless)",
+				// "no",
+				// "Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
+				// null));
+				spellData.add(new Spell(parts[0], parts[1], className,
+						levelNum, parts[3], parts[4], parts[5], parts[6],
+						parts[7], parts[8], parts[9], parts[10], parts[11],
+						parts[12], tableParts));
 			}
-			
-			
+
 			scn.close();
+		} catch (FileNotFoundException e) {
+
 		}
-		catch (FileNotFoundException e) {
-			
-		}
+	}
+
+	@Override
+	public void loadData() {
+		// This is where it will read in the file saved through the program or
+		// use the tsvs as a fallback
+		readData();
 	}
 }

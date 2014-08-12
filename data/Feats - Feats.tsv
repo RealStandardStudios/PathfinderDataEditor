@@ -1,0 +1,179 @@
+feats	Is Combat Feat	prerequisites	benefits	EffectType
+Acrobatic	FALSE	-	+2 bonus on Acrobatics and Fly checks	SkillEffect
+Agile Maneuvers*	TRUE	-	Use your Dex bonus when calculating your CMB	CombatManeuverBonusEffect
+Alertness	FALSE	-	+2 bonus on Perception and Sense Motive checks	SkillEffect
+Alignment Channel	FALSE	Channel energy class feature	Channel energy can heal or harm outsiders	MiscEffect
+Animal Affinity	FALSE	-	+2 bonus on Handle Animal and Ride checks	SkillEffect
+Arcane Armor Training*	TRUE	Armor Proficiency Light, caster level 3rd	Reduce your arcane spell failure chance by 10%	MiscEffect
+Arcane Armor Mastery*	TRUE	Arcane Armor Training, Armor Proficiency Medium, caster level 7th	Reduce your arcane spell failure chance by 20%	MiscEffect
+Arcane Strike*	TRUE	Ability to cast arcane spells	+1 damage and weapons are considered magic	DamageEffect
+Armor Proficiency Light	FALSE	-	No penalties on attack rolls while wearing light armor	MiscEffect
+Armor Proficiency Medium	FALSE	Armor Proficiency Light	No penalties on attack rolls while wearing medium armor	MiscEffect
+Armor Proficiency Heavy	FALSE	Armor Proficiency Medium	No penalties on attack rolls while wearing heavy armor	MiscEffect
+Athletic	FALSE	-	+2 bonus on Climb and Swim checks	SkillEffect
+Augment Summoning	FALSE	Spell Focus (conjuration)	Summoned creatures gain +4 Str and Con	MiscEffect
+Blind-Fight*	TRUE	-	Reroll miss chances for concealment	MiscEffect
+Catch Off-Guard*	TRUE	-	No penalties for improvised melee weapons	MiscEffect
+Channel Smite*	TRUE	Channel energy class feature	Channel energy through your attack	MiscEffect
+Combat Casting	FALSE	-	+4 bonus on concentration checks for defensive casting	MiscEffect
+Combat Expertise*	TRUE	Int 13	Trade attack bonus for AC bonus	MiscEffect
+Improved Disarm*	TRUE	Combat Expertise	+2 bonus on disarm attempts no attack of opportunity	ActionEffect
+Greater Disarm*	TRUE	Improved Disarm, base attack bonus +6	Disarmed weapons are knocked away from your enemy	MiscEffect
+Improved Feint*	TRUE	Combat Expertise	Feint as a move action	ActionToMoveEffect
+Greater Feint*	TRUE	Improved Feint, base attack bonus +6	Enemies you feint lose their Dex bonus for 1 round	FeintActionEffect
+Improved Trip*	TRUE	Combat Expertise	+2 bonus on trip attempts no attack of opportunity	MiscEffect
+Greater Trip*	TRUE	Improved Trip, base attack bonus +6	Enemies you trip provoke attacks of opportunity	MiscEffect
+Whirlwind Attack*	TRUE	Dex 13, Combat Expertise, Spring Attack, base attack bonus +4	Make one melee attack against all foes within reach	MiscEffect
+Combat Reflexes*	TRUE	-	Make additional attacks of opportunity	MiscEffect
+Stand Still*	TRUE	Combat Reflexes	Stop enemies from moving past you	MiscEffect
+Command Undead	FALSE	Channel negative energy class feature	Channel energy can be used to control undead	MiscEffect
+Critical Focus*	TRUE	Base attack bonus +9	+4 bonus on attack rolls made to confirm critical hits	MiscEffect
+Bleeding Critical*	TRUE	Critical Focus, base attack bonus +11	Whenever you score a critical hit the target takes 2d6 bleed	MiscEffect
+Blinding Critical*	TRUE	Critical Focus, base attack bonus +15	Whenever you score a critical hit the target is blinded	OnCritEffect
+Critical Mastery*	TRUE	Any two critical feats, 14th-level fighter	Apply two effects to your critical hits	MiscEffect
+Deafening Critical*	TRUE	Critical Focus, base attack bonus +13	Whenever you score a critical hit the target is deafened	OnCritEffect
+Sickening Critical*	TRUE	Critical Focus, base attack bonus +11	Whenever you score a critical hit the target is sickened	OnCritEffect
+Staggering Critical*	TRUE	Critical Focus, base attack bonus +13	Whenever you score a critical hit the target is staggered	OnCritEffect
+Stunning Critical*	TRUE	Staggering Critical, base attack bonus +17	Whenever you score a critical hit the target is stunned	OnCritEffect
+Tiring Critical*	TRUE	Critical Focus, base attack bonus +13	Whenever you score a critical hit the target is fatigued	OnCritEffect
+Exhausting Critical*	TRUE	Tiring Critical, base attack bonus +15	Whenever you score a critical hit the target is exhausted	OnCritEffect
+Deadly Aim*	TRUE	Dex 13, base attack bonus +1	Trade ranged attack bonus for damage	MiscEffect
+Deceitful	FALSE	-	+2 bonus on Bluff and Disguise checks	SkillEffect
+Defensive Combat Training*	TRUE	-	Use your total Hit Dice as your base attack bonus for CMD	MiscEffect
+Deft Hands	FALSE	-	+2 bonus on Disable Device and Sleight of Hand checks	SkillEffect
+Disruptive*	TRUE	6th-level fighter	Increases the DC to cast spells adjacent to you	MiscEffect
+Spellbreaker*	TRUE	Disruptive, 10th-level fighter	Enemies provoke attacks if their spells fail	MiscEffect
+Dodge*	TRUE	Dex 13	+1 dodge bonus to AC	ArmorClassEffect
+Mobility*	TRUE	Dodge	+4 AC against attacks of opportunity from movement	ArmorClassEffect
+Spring Attack*	TRUE	Mobility, base attack bonus +4	Move before and after melee attack	MiscEffect
+Wind Stance*	TRUE	Dex 15, Dodge, base attack bonus +6	Gain 20% concealment if you move	MiscEffect
+Lightning Stance*	TRUE	Dex 17, Wind Stance, base attack bonus +11	Gain 50% concealment if you move	MiscEffect
+Elemental Channel	FALSE	Channel energy class feature	Channel energy can harm or heal elementals	MiscEffect
+Endurance	FALSE	-	+4 bonus on checks to avoid nonlethal damage	MiscEffect
+Diehard	FALSE	Endurance	Automatically stabilize and remain conscious below 0 hp	MiscEffect
+Eschew Materials	FALSE	-	Cast spells without material components	MiscEffect
+Exotic Weapon Proficiency*	TRUE	Base attack bonus +1	No penalty on attacks made with one exotic weapon	MiscEffect
+Extra Channel	FALSE	Channel energy class feature	Channel energy two additional times per day	MiscEffect
+Extra Ki	FALSE	Ki pool class feature	Increase your ki pool by 2 points	MiscEffect
+Extra Lay On Hands	FALSE	Lay on hands class feature	Use lay on hands two additional times per day	MiscEffect
+Extra Mercy	FALSE	Mercy class feature	Your lay on hands benefits from one additional mercy	MiscEffect
+Extra Performance	FALSE	Bardic performance class feature	Use bardic performance for 6 additional rounds per day	MiscEffect
+Extra Rage	FALSE	Rage class feature	Use rage for 6 additional rounds per day	MiscEffect
+Fleet	FALSE	-	Your base speed increases by 5 feet	MiscEffect
+Great Fortitude	FALSE	-	+2 on Fortitude saves	SaveAttributeEffect
+Improved Great Fortitude	FALSE	Great Fortitude	Once per day you may reroll a Fortitude save	MiscEffect
+Improved Channel	FALSE	Channel energy class feature	+2 bonus on channel energy DC	MiscEffect
+Improved Counterspell	FALSE	-	Counterspell with spell of the same school	MiscEffect
+Improved Critical*	TRUE	Proficiency with weapon, base attack bonus +8	Double the threat range of one weapon	MiscEffect
+Improved Familiar	FALSE	Ability to acquire a familiar see feat	Gain a more powerful familiar	MiscEffect
+Improved Initiative*	TRUE	-	+4 bonus on initiative checks	InitiativeEffect
+Improved Unarmed Strike*	TRUE	-	Always considered armed	MiscEffect
+Deflect Arrows*	TRUE	Dex 13, Improved Unarmed Strike	Avoid one ranged attack per round	MiscEffect
+Snatch Arrows*	TRUE	Dex 15, Deflect Arrows	Catch one ranged attack per round	MiscEffect
+Improved Grapple*	TRUE	Dex 13, Improved Unarmed Strike	+2 bonus on grapple attempts no attack of opportunity	MiscEffect
+Greater Grapple*	TRUE	Improved Grapple, base attack bonus +6	Maintain your grapple as a move action	ActionToMoveEffect
+Scorpion Style*	TRUE	Improved Unarmed Strike	Reduce target's speed to 5 ft.	MiscEffect
+Gorgon's Fist*	TRUE	Scorpion Style, base attack bonus +6	Stagger a foe whose speed is reduced	MiscEffect
+Medusa's Wrath*	TRUE	Gorgon's Fist, base attack bonus +11	Make 2 extra attacks against a hindered foe	MiscEffect
+Stunning Fist*	TRUE	Dex 13, Wis 13, Improved Unarmed Strike, base attack bonus +8	Stun opponent with an unarmed strike	MiscEffect
+Improvised Weapon Mastery*	TRUE	Catch Off-Guard or Throw Anything, base attack bonus +8	Make an improvised weapon deadly	MiscEffect
+Intimidating Prowess*	TRUE	-	Add Str to Intimidate in addition to Cha	MiscEffect
+Iron Will	FALSE	-	+2 bonus on Will saves	SaveAttributeEffect
+Improved Iron Will	FALSE	Iron Will	Once per day you may reroll a Will save	MiscEffect
+Leadership	FALSE	Character level 7th	Gain a cohort and followers	MiscEffect
+Lightning Reflexes	FALSE	-	+2 bonus on Reflex saves	SaveAttributeEffect
+Improved Lightning Reflexes	FALSE	Lightning Reflexes	Once per day you may reroll a Reflex save	MiscEffect
+Lunge*	TRUE	Base attack bonus +6	Take a –2 penalty to your AC to attack with reach	MiscEffect
+Magical Aptitude	FALSE	-	+2 bonus on Spellcraft and Use Magic Device checks	SkillEffect
+Martial Weapon Proficiency	FALSE	-	No penalty on attacks made with one martial weapon	MiscEffect
+Master Craftsman	FALSE	5 ranks in any Craft or Profession skill	You can craft magic items without being a spellcaster	MiscEffect
+Mounted Combat*	TRUE	Ride 1 rank	Avoid attacks on mount with Ride check	MiscEffect
+Mounted Archery*	TRUE	Mounted Combat	Halve the penalty for ranged attacks while mounted	MiscEffect
+Ride-By Attack*	TRUE	Mounted Combat	Move before and after a charge attack while mounted	MiscEffect
+Spirited Charge*	TRUE	Ride-By Attack	Double damage on a mounted charge	MiscEffect
+Trample*	TRUE	Mounted Combat	Overrun targets while mounted	MiscEffect
+Unseat*	TRUE	Improved Bull Rush, Mounted Combat	Knock opponents from their mounts	MiscEffect
+Natural Spell	FALSE	Wis 13, wild shape class feature	Cast spells while using wild shape	MiscEffect
+Nimble Moves	FALSE	Dex 13	Ignore 5 feet of difficult terrain when you move	MiscEffect
+Acrobatic Steps	FALSE	Dex 15, Nimble Moves	Ignore 20 feet of difficult terrain when you move	MiscEffect
+Persuasive	FALSE	-	+2 bonus on Diplomacy and Intimidate checks	SkillEffect
+Point-Blank Shot*	TRUE	-	+1 attack and damage on targets within 30 feet	MiscEffect
+Far Shot*	TRUE	Point-Blank Shot	Decrease ranged penalties by half	MiscEffect
+Precise Shot*	TRUE	Point-Blank Shot	No penalty for shooting into melee	MiscEffect
+Improved PreciseShot*	TRUE	Dex 19, Precise Shot, base attack bonus +11	No cover or concealment chance on ranged attacks	MiscEffect
+Pinpoint Targeting*	TRUE	Improved Precise Shot, base attack bonus +16	No armor or shield bonus on one ranged attack	MiscEffect
+Shot on the Run*	TRUE	Dex 13, Mobility, Point-Blank Shot, base attack bonus +4	Make ranged attack at any point during movement	MiscEffect
+Rapid Shot*	TRUE	Dex 13, Point-Blank Shot	Make one extra ranged attack	MiscEffect
+Manyshot*	TRUE	Dex 17, Rapid Shot, base attack bonus +6	Shoot two arrows simultaneously	MiscEffect
+Power Attack*	TRUE	Str 13, base attack bonus +1	Trade melee attack bonus for damage	MiscEffect
+Cleave*	TRUE	Power Attack	Make an additional attack if the first one hits	MiscEffect
+Great Cleave*	TRUE	Cleave, base attack bonus +4	Make an additional attack after each attack hits	MiscEffect
+Improved Bull Rush*	TRUE	Power Attack	+2 bonus on bull rush attempts no attack of opportunity	MiscEffect
+Greater Bull Rush*	TRUE	Improved Bull Rush, base attack bonus +6	Enemies you bull rush provoke attacks of opportunity	MiscEffect
+Improved Overrun*	TRUE	Power Attack	+2 bonus on overrun attempts no attack of opportunity	MiscEffect
+Greater Overrun*	TRUE	Improved Overrun, base attack bonus +6	Enemies you overrun provoke attacks of opportunity	MiscEffect
+Improved Sunder*	TRUE	Power Attack	+2 bonus on sunder attempts no attack of opportunity	MiscEffect
+Greater Sunder*	TRUE	Improved Sunder, base attack bonus +6	Damage from sunder attempts transfers to your enemy	MiscEffect
+Quick Draw*	TRUE	Base attack bonus +1	Draw weapon as a free action	ActionToFreeEffect
+Rapid Reload*	TRUE	Weapon proficiency (crossbow)	Reload crossbow quickly	MiscEffect
+Run	FALSE	-	Run at 5 times your normal speed	MiscEffect
+Selective Channeling	FALSE	Cha 13, channel energy class feature	Choose whom to affect with channel energy	MiscEffect
+Self-Sufficient	FALSE	-	+2 bonus on Heal and Survival checks	MiscEffect
+Shield Proficiency	FALSE	-	No penalties on attack rolls when using a shield	MiscEffect
+Improved Shield Bash*	TRUE	Shield Proficiency	Keep your shield bonus when shield bashing	MiscEffect
+Shield Slam*	TRUE	Improved Shield Bash, Two-Weapon Fighting, base attack bonus +6	Free bull rush with a bash attack	MiscEffect
+Shield Master*	TRUE	Shield Slam base attack bonus +11	No two-weapon penalties when attacking with a shield	MiscEffect
+Shield Focus*	TRUE	Shield Proficiency base attack bonus +1	Gain a +1 bonus to your AC when using a shield	ArmorClassEffect
+Greater Shield Focus*	TRUE	Shield Focus 8th-level fighter	Gain a +1 bonus to your AC when using a shield	MiscEffect
+Tower Shield Proficiency*	TRUE	Shield Proficiency	No penalties on attack rolls when using a tower shield	MiscEffect
+Simple Weapon Proficiency	FALSE	-	No penalty on attacks made with simple weapons	MiscEffect
+Skill Focus	FALSE	-	+3 bonus on one skill (+6 at 10 ranks)	MiscEffect
+Spell Focus	FALSE	-	+1 bonus on save DCs for one school	MiscEffect
+Greater Spell Focus	FALSE	Spell Focus	+1 bonus on save DCs for one school	MiscEffect
+Spell Mastery	FALSE	1st-level Wizard	Prepare some spells without a spellbook	MiscEffect
+Spell Penetration	FALSE	-	+2 bonus on level checks to beat spell resistance	MiscEffect
+Greater Spell Penetration	FALSE	Spell Penetration	+2 bonus on level checks to beat spell resistance	MiscEffect
+Stealthy	FALSE	-	+2 bonus on Escape Artist and Stealth checks	MiscEffect
+Step Up*	TRUE	Base attack bonus +1	Take a 5-foot step as an immediate action	ActionToImmediateEffect
+Strike Back*	TRUE	Base attack bonus +11	Attack foes that strike you while using reach	MiscEffect
+Throw Anything*	TRUE	-	No penalties for improvised ranged weapons	MiscEffect
+Toughness	FALSE	-	+3 hit points +1 per Hit Die beyond 3	MiscEffect
+Turn Undead	FALSE	Channel positive energy classfeature	Channel energy can be used to make undead flee	MiscEffect
+Two-Weapon Fighting*	TRUE	Dex 15	Reduce two-weapon fighting penalties	MiscEffect
+Double Slice*	TRUE	Two-Weapon Fighting	Add your Str bonus to off-hand damage rolls	MiscEffect
+Two-Weapon Rend*	TRUE	Double Slice, Improved Two-Weapon Fighting, base attack bonus +11	Rend a foe hit by both your weapons	MiscEffect
+Improved Two-Weapon Fighting*	TRUE	Dex 17, Two-Weapon Fighting, base attack bonus +6	Gain additional off-hand attack	MiscEffect
+Greater Two-Weapon Fighting*	TRUE	Dex 19, Improved Two-Weapon Fighting, base attack bonus +11	Gain a third off-hand attack	MiscEffect
+Two-Weapon Defense*	TRUE	Two-Weapon Fighting	Gain +1 shield bonus when fighting with two weapons	MiscEffect
+Vital Strike*	TRUE	Base attack bonus +6	Deal twice the normal damage on a single attack	MiscEffect
+Improved Vital Strike*	TRUE	Vital Strike, base attack bonus +11	Deal three times the normal damage on a single attack	MiscEffect
+Greater Vital Strike*	TRUE	Improved Vital Strike, base attack bonus +16	Deal four times the normal damage on a single attack	MiscEffect
+Weapon Finesse*	TRUE	-	Use Dex instead of Str on attack rolls with light weapons	MiscEffect
+Weapon Focus*	TRUE	Proficiency with weapon, base attack bonus +1	+1 bonus on attack rolls with one weapon	MiscEffect
+Dazzling Display*	TRUE	Weapon Focus	Intimidate all foes within 30 feet	MiscEffect
+Shatter Defenses*	TRUE	Dazzling Display, base attack bonus +6	Hindered foes are flat-footed	MiscEffect
+Deadly Stroke*	TRUE	Greater Weapon Focus, Shatter Defenses, base attack bonus +11	Deal double damage plus 1 Con bleed	DamageMultiplierEffect
+Greater Weapon Focus*	TRUE	Weapon Focus, 8th-level fighter	+1 bonus on attack rolls with one weapon	AttackBonusEffect
+Penetrating Strike*	TRUE	Weapon Focus, 12th-level fighter	Your attacks ignore 5 points of damage reduction	MiscEffect
+Greater Penetrating Strike*	TRUE	Penetrating Strike, 16th-level fighter	Your attacks ignore 10 points of damage reduction	MiscEffect
+Weapon Specialization*	TRUE	Weapon Focus, 4th-level fighter	+2 bonus on damage rolls with one weapon	DamageEffect
+Greater Weapon Specialization*	TRUE	Weapon Specialization, 12th-level fighter	+2 bonus on damage rolls with one weapon	DamageEffect
+				
+Brew Potion	FALSE	Caster level 3rd	Create magic potions	ItemCreationEffect
+Craft Magic Arms and Armor	FALSE	Caster level 5th	Create magic armors shields and weapons	ItemCreationEffect
+Craft Rod	FALSE	Caster level 9th	Create magic rods	ItemCreationEffect
+Craft Staff	FALSE	Caster level 11th	Create magic staves	ItemCreationEffect
+Craft Wand	FALSE	Caster level 5th	Create magic wands	ItemCreationEffect
+Craft Wondrous Item	FALSE	Caster level 3rd	Create magic wondrous items	ItemCreationEffect
+Forge Ring	FALSE	Caster level 7th	Create magic rings	ItemCreationEffect
+Scribe Scroll	FALSE	Caster level 1st	Create magic scrolls	ItemCreationEffect
+				
+Empower Spell	FALSE	-	Increase spell variables by 50%	MetaMagicEffect
+Enlarge Spell	FALSE	-	Double spell range	MetaMagicEffect
+Extend Spell	FALSE	-	Double spell duration	MetaMagicEffect
+Heighten Spell	FALSE	-	Treat spell as a higher level	MetaMagicEffect
+Maximize Spell	FALSE	-	Maximize spell variables	MetaMagicEffect
+Quicken Spell	FALSE	-	Cast spell as a swift action	ActionToSwiftEffect
+Silent Spell	FALSE	-	Cast spell without verbal components	MetaMagicEffect
+Still Spell	FALSE	-	Cast spell without somatic components	MetaMagicEffect
+Widen Spell	FALSE	-	Double spell area	MetaMagicEffect

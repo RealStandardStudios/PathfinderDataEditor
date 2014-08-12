@@ -8,21 +8,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import jefXif.DialogController;
+import jefXif.DataLoader;
 import jefXif.Gui;
-import jefXif.LoadablePartials;
+import jefXif.PartialLoader;
 import jefXif.WindowController;
 
-public class ItemsController extends WindowController implements LoadablePartials{
+public class ItemsController extends WindowController implements PartialLoader, DataLoader{
 
-	private HashMap<String, Node> partials;
+	private HashMap<String, WindowController> partials;
 	
 	@FXML
 	AnchorPane ItemsPartialPane;
 	
 	@FXML
 	public void handleGoodsServices(ActionEvent event) {
-		SwapPartial(partials.get("BasicGoods"));
+		SwapPartial(partials.get("BasicGoods").getNode());
 	}
 	
 	private void SwapPartial(Node node) {
@@ -47,12 +47,19 @@ public class ItemsController extends WindowController implements LoadablePartial
 	}
 	
 	@Override
-	public Node loadPartial(String name, Gui ui) throws IOException {
+	public WindowController loadPartial(String name, Gui ui) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource("itemPartials/" + name + "Partial.fxml"));
 		
-		AnchorPane partial = loader.load();
-		return partial;
+		/*AnchorPane partial = */
+		loader.load();
+		WindowController controller = loader.getController();
+		return controller;
+	}
+
+	@Override
+	public void loadData() {
+		// Josh this is where you will read the data from the file that is saved through the program or fall back to reading in the tsv files if it fails		
 	}
 
 }

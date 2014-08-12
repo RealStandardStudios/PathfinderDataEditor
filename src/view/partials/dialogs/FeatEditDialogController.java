@@ -36,6 +36,7 @@ import pathfinder.data.Feats.Feat;
 
 public class FeatEditDialogController extends DialogController {
 	Boolean okayClicked = false;
+	ObservableList<Feat> prerequistes;
 	ObservableList<Effect> effects;
 	Feat feat;
 
@@ -59,7 +60,11 @@ public class FeatEditDialogController extends DialogController {
 	
 	@FXML
 	private void handleOkay() {
+		feat.nameProperty().setValue(txtFeatName.getText());
+		feat.benifitProperty().setValue(txtaBenifit.getText());
+		feat.prerequisitePropety().setValue(cboPrerequisiteFeat.getValue());
 		okayClicked = true;
+		this.getDialogStage().close();
 	}
 	
 	/**
@@ -112,5 +117,15 @@ public class FeatEditDialogController extends DialogController {
 	}
 	public boolean isOkayClicked() {
 		return this.okayClicked;
+	}
+	public void setPrerequisites(ObservableList<Feat> feats) {
+		this.prerequistes = FXCollections.observableArrayList();
+		for (Feat feat : feats) {
+			if(!feat.equals(this.feat))
+				prerequistes.add(feat);
+		}
+		prerequistes.add(0, Feat.NullFeat);
+		cboPrerequisiteFeat.setItems(prerequistes);
+		cboPrerequisiteFeat.selectionModelProperty().getValue().select((Feat) feat.prerequisitePropety().getValue());
 	}
 }
