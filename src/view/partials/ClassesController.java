@@ -172,7 +172,7 @@ public class ClassesController extends WindowController {
 							lines[2], 0, Alignments.Any, DiceType.d12, 
 							Integer.parseInt(lines[8]), 
 							Integer.parseInt(lines[6]),
-							lines[5].split(", "),
+							lines[5].split(","),
 							new Feature[] { new Feature() },
 							new WeaponType[] { WeaponType.Simple },
 							new ArmorType[] { ArmorType.LightArmor },
