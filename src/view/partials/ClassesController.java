@@ -15,14 +15,12 @@ import javafx.scene.control.TableView;
 import jefXif.DataLoader;
 import jefXif.WindowController;
 import pathfinder.data.DiceType;
-import pathfinder.data.Character.Alignment;
 import pathfinder.data.Classes.Barbarian;
 import pathfinder.data.Classes.Class;
 import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Classes.Objects.LevelTableRow;
 import pathfinder.data.Items.ArmorType;
 import pathfinder.data.Items.WeaponType;
-import pathfinder.data.Skills.Skill;
 
 public class ClassesController extends WindowController implements DataLoader {
 
@@ -81,16 +79,12 @@ public class ClassesController extends WindowController implements DataLoader {
 
 		// Clear person details
 		showClassDetails(null);
-
-		// Dummy test data
-		// obsListClasses.add(new Druid("Water bender", "Bends water somehow.",
-		// "Bends water, of course.", 9001, new
-		// Alignment[]{Alignment.LawfulGood}, null, 2, 30, null, null, null,
-		// null, null, null));
-		// obsListClasses.add(new Druid("Fire bender", "Bends fire somehow.",
-		// "Bends fire, of course.", 9001, new
-		// Alignment[]{Alignment.ChaoticEvil}, null, 2, 30, null, null, null,
-		// null, null, null));
+		//lblDescription.get
+		// find the longest label that is not a valued one
+		// set the second row of labels X value to the largest + some 'padding' space (probably 10)
+		// for each label
+		// place second label 10 from the top, move first row label to the center Y of the frist label
+		// set 'top' to the bottom of the last 2nd row's label bottom
 
 		// Set data from the observable list of classes to display in the table
 		tableClasses.setItems(obsListClasses);
@@ -117,8 +111,9 @@ public class ClassesController extends WindowController implements DataLoader {
 		if (c != null) {
 			lblDescription.setText(c.getName());
 			lblRole.setText(c.getRole());
+			lblRole.setWrapText(true);
 			lblAlignments.setText(c.getAlignments());
-			lblHitDice.setText(c.getHitDice().toString());
+			lblHitDice.setText("D"+c.getHitDice().toString());
 			lblClassSkills.setText(c.getClassSkillsToString());
 			lblSkillRanksPerLevel.setText(c.getSkillRanksToString().toString());
 			lblWeaponProf.setText(c.getWeaponProfsToString());
@@ -158,11 +153,6 @@ public class ClassesController extends WindowController implements DataLoader {
 
 				// className = lines[0];
 				// obsListClasses.add(new Class());
-				Alignment[] any = new Alignment[] { Alignment.LawfulGood,
-						Alignment.NeutralGood, Alignment.ChaoticGood,
-						Alignment.LawfulNeutral, Alignment.Neutral,
-						Alignment.ChaoticNeutral, Alignment.LawfulEvil,
-						Alignment.NeutralEvil, Alignment.ChaoticEvil };
 
 				switch (lines[0]) {
 
@@ -171,16 +161,16 @@ public class ClassesController extends WindowController implements DataLoader {
 					// requireAlignments, hitDice, startingWealthD6,
 					// skillRanksPerLevel, classSkills lines[5], features,
 					// weaponProficiencies, armorProficiencies, levelTable)
-					obsListClasses.add(new Barbarian(lines[0], lines[1],
-							lines[2], 0, any, DiceType.d12, 
-							Integer.parseInt(lines[8]), 
-							Integer.parseInt(lines[6]),
-							new Skill[] { new Skill() },
-							new Feature[] { new Feature() },
-							new WeaponType[] { WeaponType.Simple },
-							new ArmorType[] { ArmorType.LightArmor },
-							new LevelTableRow[] { new LevelTableRow() })
-					);
+//					obsListClasses.add(new Barbarian(lines[0], lines[1],
+//							lines[2], 0, Alignments.Any, DiceType.d12, 
+//							Integer.parseInt(lines[8]), 
+//							Integer.parseInt(lines[6]),
+//							lines[5].split(","),
+//							new Feature[] { new Feature() },
+//							new WeaponType[] { WeaponType.Simple },
+//							new ArmorType[] { ArmorType.LightArmor },
+//							new LevelTableRow[] { new LevelTableRow() })
+//					);
 
 					break;
 
