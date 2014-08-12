@@ -133,21 +133,21 @@ public class SpellsController extends WindowController{
 			// need a loop that reads from an array and if has data, places data
 			// into tableImageViews
 			if (spell.getTablePicture() != null) {
-				switch (spell.getTablePicture().length) {
+				switch (spell.getTablePictures().length) {
 				case 1:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[0]));
+					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[0]));
 					tableTwoImageView.setImage(null);
 					tableThreeImageView.setImage(null);
 					break;
 				case 2:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[0]));
-					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[1]));
+					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[0]));
+					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[1]));
 					tableThreeImageView.setImage(null);
 					break;
 				case 3:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[0]));
-					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[1]));
-					tableThreeImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePicture()[2]));
+					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[0]));
+					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[1]));
+					tableThreeImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[2]));
 					break;
 				default:
 					tableOneImageView.setImage(null);
