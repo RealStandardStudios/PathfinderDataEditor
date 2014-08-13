@@ -7,43 +7,41 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import jefXif.DialogController;
-import pathfinder.data.Effects.AbilityEffect;
+import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Effects.ArmorClassEffect;
 import pathfinder.data.Effects.AttackBonusEffect;
-import pathfinder.data.Effects.CasterLevelModifierEffect;
 import pathfinder.data.Effects.CombatManeuverBonusEffect;
-import pathfinder.data.Effects.CombatManeuverDefenseEffect;
-import pathfinder.data.Effects.CritBonusEffect;
+import pathfinder.data.Effects.DamageEffect;
+import pathfinder.data.Effects.DamageMultiplierEffect;
 import pathfinder.data.Effects.Effect;
 import pathfinder.data.Effects.InitiativeEffect;
-import pathfinder.data.Effects.NaturalArmorEffect;
-import pathfinder.data.Effects.ResistanceBonusEffect;
 import pathfinder.data.Effects.SaveAttributeEffect;
-import pathfinder.data.Effects.SavingThrowEffect;
 import pathfinder.data.Effects.SkillEffect;
-import pathfinder.data.Effects.SpeedEffect;
-import pathfinder.data.Effects.SpellResistanceEffect;
 import pathfinder.data.Effects.Actions.ActionToFreeEffect;
-import pathfinder.data.Effects.Actions.ActionToImmediateEffect;
 import pathfinder.data.Effects.Actions.ActionToMoveEffect;
 import pathfinder.data.Effects.Actions.ActionToSwiftEffect;
 import pathfinder.data.Effects.Actions.FeintActionEffect;
-import pathfinder.data.Effects.Actions.TripActionEffect;
+import pathfinder.data.Effects.NonValued.ItemCreationEffect;
+import pathfinder.data.Effects.NonValued.MetaMagicEffect;
 import pathfinder.data.Effects.NonValued.MiscEffect;
 import pathfinder.data.Effects.NonValued.OnCritEffect;
 import pathfinder.data.Feats.Feat;
 
 public class FeatEditDialogController extends DialogController {
 	Boolean okayClicked = false;
-	ObservableList<Feat> prerequistes;
+	ObservableList<FeatPrerequisite> prerequistes;
 	ObservableList<Effect> effects;
 	Feat feat;
 
 	@FXML
+	AnchorPane EffectPartialPane;
+	
+	@FXML
 	TextField txtFeatName;
 	@FXML
-	ComboBox<Feat> cboPrerequisiteFeat;
+	ComboBox<FeatPrerequisite> cboPrerequisiteFeat;
 	@FXML
 	TextArea txtaBenifit;
 	@FXML
@@ -86,29 +84,22 @@ public class FeatEditDialogController extends DialogController {
 	
 	public FeatEditDialogController() {
 		effects = FXCollections.observableArrayList();
-		effects.add(new AbilityEffect());
 		effects.add(new ArmorClassEffect());
 		effects.add(new AttackBonusEffect());
-		effects.add(new CasterLevelModifierEffect());
 		effects.add(new CombatManeuverBonusEffect());
-		effects.add(new CombatManeuverDefenseEffect());
-		effects.add(new CritBonusEffect());
 		effects.add(new InitiativeEffect());
-		effects.add(new NaturalArmorEffect());
-		effects.add(new ResistanceBonusEffect());
 		effects.add(new SaveAttributeEffect());
-		effects.add(new SavingThrowEffect());
 		effects.add(new SkillEffect());
-		effects.add(new SpeedEffect());
-		effects.add(new SpellResistanceEffect());
 		effects.add(new ActionToFreeEffect());
-		effects.add(new ActionToImmediateEffect());
 		effects.add(new ActionToMoveEffect());
 		effects.add(new ActionToSwiftEffect());
 		effects.add(new FeintActionEffect());
-		effects.add(new TripActionEffect());
 		effects.add(new MiscEffect());
 		effects.add(new OnCritEffect());
+		effects.add(new DamageEffect());
+		effects.add(new DamageMultiplierEffect());
+		effects.add(new ItemCreationEffect());
+		effects.add(new MetaMagicEffect());
 	}
 	
 	@Override

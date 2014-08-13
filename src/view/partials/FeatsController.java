@@ -3,6 +3,7 @@ package view.partials;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 
@@ -104,7 +105,10 @@ public class FeatsController extends WindowController implements DataLoader {
 	}
 
 	private void readFeatData() {
+		// Need to Split the prerequisite field up and check all parts for a feat
+		// Would like to allow for prerequisites to be chosen as a racial feature/class feature
 		String fileLoc = "data/Feats - Feats.tsv";
+		HashMap<String, Feat> feats = new HashMap<>();
 		try {
 			Scanner scn = new Scanner(new FileReader(fileLoc));
 			String line = scn.nextLine();
@@ -142,10 +146,12 @@ public class FeatsController extends WindowController implements DataLoader {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					feats.add(new Feat(parts[0], new Feat(), parts[3], effect));
+					if(feats.get(parts[2]) != null) feats.put(parts[0], (new Feat(parts[0],feats.get(parts[2]), parts[3], effect)));
+					else feats.put(parts[0], (new Feat(parts[0],new Feat(), parts[3], effect)));
 				}
 				// System.out.println();
 			}
+			this.feats.setAll(feats.values());
 			scn.close();
 		} catch (FileNotFoundException e) {
 			Dialogs.create().title("File not Found")

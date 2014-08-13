@@ -21,8 +21,8 @@ Improved Disarm*	TRUE	Combat Expertise	+2 bonus on disarm attempts no attack of 
 Greater Disarm*	TRUE	Improved Disarm, base attack bonus +6	Disarmed weapons are knocked away from your enemy	MiscEffect
 Improved Feint*	TRUE	Combat Expertise	Feint as a move action	ActionToMoveEffect
 Greater Feint*	TRUE	Improved Feint, base attack bonus +6	Enemies you feint lose their Dex bonus for 1 round	FeintActionEffect
-Improved Trip*	TRUE	Combat Expertise	+2 bonus on trip attempts no attack of opportunity	MiscEffect
-Greater Trip*	TRUE	Improved Trip, base attack bonus +6	Enemies you trip provoke attacks of opportunity	MiscEffect
+Improved Trip*	TRUE	Combat Expertise	+2 bonus on trip attempts no attack of opportunity	TripActionEffect
+Greater Trip*	TRUE	Improved Trip, base attack bonus +6	Enemies you trip provoke attacks of opportunity	TripActionEffect
 Whirlwind Attack*	TRUE	Dex 13, Combat Expertise, Spring Attack, base attack bonus +4	Make one melee attack against all foes within reach	MiscEffect
 Combat Reflexes*	TRUE	-	Make additional attacks of opportunity	MiscEffect
 Stand Still*	TRUE	Combat Reflexes	Stop enemies from moving past you	MiscEffect
@@ -124,7 +124,7 @@ Improved Shield Bash*	TRUE	Shield Proficiency	Keep your shield bonus when shield
 Shield Slam*	TRUE	Improved Shield Bash, Two-Weapon Fighting, base attack bonus +6	Free bull rush with a bash attack	MiscEffect
 Shield Master*	TRUE	Shield Slam base attack bonus +11	No two-weapon penalties when attacking with a shield	MiscEffect
 Shield Focus*	TRUE	Shield Proficiency base attack bonus +1	Gain a +1 bonus to your AC when using a shield	ArmorClassEffect
-Greater Shield Focus*	TRUE	Shield Focus 8th-level fighter	Gain a +1 bonus to your AC when using a shield	MiscEffect
+Greater Shield Focus*	TRUE	Shield Focus 8th-level fighter	Gain a +1 bonus to your AC when using a shield	ArmorClassEffect
 Tower Shield Proficiency*	TRUE	Shield Proficiency	No penalties on attack rolls when using a tower shield	MiscEffect
 Simple Weapon Proficiency	FALSE	-	No penalty on attacks made with simple weapons	MiscEffect
 Skill Focus	FALSE	-	+3 bonus on one skill (+6 at 10 ranks)	MiscEffect
