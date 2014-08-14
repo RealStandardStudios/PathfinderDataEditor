@@ -2,6 +2,7 @@ package view.partials;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
@@ -135,19 +136,31 @@ public class SpellsController extends WindowController implements DataLoader {
 			if (spell.getTablePicture() != null) {
 				switch (spell.getTablePicture().length()) {
 				case 1:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[0]));
+					tableOneImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePictures()[0]));
 					tableTwoImageView.setImage(null);
 					tableThreeImageView.setImage(null);
 					break;
 				case 2:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[0]));
-					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[1]));
+					tableOneImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePictures()[0]));
+					tableTwoImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePictures()[1]));
 					tableThreeImageView.setImage(null);
 					break;
 				case 3:
-					tableOneImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[0]));
-					tableTwoImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[1]));
-					tableThreeImageView.setImage(new Image("file:resources/images/SpellTables/" + spell.getTablePictures()[2]));
+					tableOneImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePictures()[0]));
+					tableTwoImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePictures()[1]));
+					tableThreeImageView.setImage(new Image(
+							"file:resources/images/SpellTables/"
+									+ spell.getTablePictures()[2]));
 					break;
 				default:
 					tableOneImageView.setImage(null);
@@ -196,21 +209,20 @@ public class SpellsController extends WindowController implements DataLoader {
 
 				String[] classParts = null; // Holds the levelParts split up
 											// into the formula [string] [int]
-				String[] className = new String[levelParts.length]; // holds
-																	// class
-																	// names
-				int[] levelNum = new int[levelParts.length]; // holds class
-																// levels
+				HashMap<String, Integer> spellLevels = new HashMap<>();
 
 				for (String string : levelParts) {
 					classParts = string.trim().split(" ");
+					String className = "";
+					int levelNum = 0;
 
 					for (int i = 0; i < classParts.length; i++) {
 						if (i % 2 == 0) {
-							className[i / 2] = classParts[i];
+							className = classParts[i];
 						} else {
-							levelNum[i / 2] = Integer.parseInt(classParts[i]);
+							levelNum = Integer.parseInt(classParts[i]);
 						}
+						spellLevels.put(className, levelNum);
 					}
 				}
 
@@ -239,10 +251,10 @@ public class SpellsController extends WindowController implements DataLoader {
 				// "no",
 				// "Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
 				// null));
-				spellData.add(new Spell(parts[0], parts[1], className,
-						levelNum, parts[3], parts[4], parts[5], parts[6],
-						parts[7], parts[8], parts[9], parts[10], parts[11],
-						parts[12], tableParts));
+				spellData.add(new Spell(parts[0], parts[1], spellLevels,
+						parts[3], parts[4], parts[5], parts[6], parts[7],
+						parts[8], parts[9], parts[10], parts[11], parts[12],
+						tableParts));
 			}
 
 			scn.close();
