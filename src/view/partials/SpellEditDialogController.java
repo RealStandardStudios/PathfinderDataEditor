@@ -153,10 +153,10 @@ public class SpellEditDialogController {
 		String errorMessage = "";
 		
 		if (spellNameField.getText() == null || spellNameField.getText().length() == 0) {
-            errorMessage += "No valid spell name!\n"; 
+            errorMessage += "No valid spell Name!\n"; 
         }
 		if (schoolNameField.getText() == null || schoolNameField.getText().length() == 0) {
-            errorMessage += "No valid school name!\n"; 
+            errorMessage += "No valid school Name!\n"; 
         }
 		if (spellLevelField.getText() == null || spellLevelField.getText().length() == 0) {
             errorMessage += "No valid spell levels!\n"; 

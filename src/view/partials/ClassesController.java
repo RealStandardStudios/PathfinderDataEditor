@@ -73,7 +73,7 @@ public class ClassesController extends WindowController implements DataLoader {
 	public void initialize() {
 		// TODO Auto-generated method stub
 
-		// Init the Classes table with the column for class name
+		// Init the Classes table with the column for class Name
 		columnClassName.setCellValueFactory(cellData -> cellData.getValue()
 				.getNameProperty());
 

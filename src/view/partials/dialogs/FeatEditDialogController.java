@@ -37,7 +37,7 @@ public class FeatEditDialogController extends DialogController {
 
 	@FXML
 	AnchorPane EffectPartialPane;
-	
+
 	@FXML
 	TextField txtFeatName;
 	@FXML
@@ -46,16 +46,18 @@ public class FeatEditDialogController extends DialogController {
 	TextArea txtaBenifit;
 	@FXML
 	ComboBox<Effect> cboEffect;
+
 	@FXML
 	private void handleChangedEffect(ActionEvent event) {
 		Effect selectedEffect = cboEffect.getValue();
 		System.out.println(selectedEffect.getClass().toString());
 	}
+
 	@FXML
 	private void handleCancel(ActionEvent event) {
 		getDialogStage().close();
 	}
-	
+
 	@FXML
 	private void handleOkay() {
 		feat.nameProperty().setValue(txtFeatName.getText());
@@ -64,7 +66,7 @@ public class FeatEditDialogController extends DialogController {
 		okayClicked = true;
 		this.getDialogStage().close();
 	}
-	
+
 	/**
 	 * @return the feat
 	 */
@@ -73,15 +75,16 @@ public class FeatEditDialogController extends DialogController {
 	}
 
 	/**
-	 * @param feat the feat to set
+	 * @param feat
+	 *            the feat to set
 	 */
 	public void setFeat(Feat feat) {
 		this.feat = feat;
-		
+
 		txtFeatName.setText(feat.getName());
 		txtaBenifit.setText(feat.getBenefit());
 	}
-	
+
 	public FeatEditDialogController() {
 		effects = FXCollections.observableArrayList();
 		effects.add(new ArmorClassEffect());
@@ -101,22 +104,27 @@ public class FeatEditDialogController extends DialogController {
 		effects.add(new ItemCreationEffect());
 		effects.add(new MetaMagicEffect());
 	}
-	
+
 	@Override
 	public void initialize() {
 		cboEffect.setItems(effects);
 	}
+
 	public boolean isOkayClicked() {
 		return this.okayClicked;
 	}
+
 	public void setPrerequisites(ObservableList<Feat> feats) {
 		this.prerequistes = FXCollections.observableArrayList();
 		for (Feat feat : feats) {
-			if(!feat.equals(this.feat))
+			if (!feat.equals(this.feat))
 				prerequistes.add(feat);
 		}
 		prerequistes.add(0, Feat.NullFeat);
 		cboPrerequisiteFeat.setItems(prerequistes);
-		cboPrerequisiteFeat.selectionModelProperty().getValue().select((Feat) feat.prerequisitePropety().getValue());
+		if (feat.prerequisitePropety().getValue().getClass()
+				.isAssignableFrom(Feat.class))
+			cboPrerequisiteFeat.selectionModelProperty().getValue()
+					.select((Feat) feat.prerequisitePropety().getValue());
 	}
 }

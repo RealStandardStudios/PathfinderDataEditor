@@ -23,7 +23,8 @@ import jefXif.WindowController;
 
 import org.controlsfx.dialog.Dialogs;
 
-import pathfinder.data.Effects.*;
+import pathfinder.data.FeatPrerequisite;
+import pathfinder.data.Effects.Effect;
 import pathfinder.data.Feats.Feat;
 import view.partials.dialogs.FeatEditDialogController;
 
@@ -59,8 +60,7 @@ public class FeatsController extends WindowController implements DataLoader {
 		tableFeats.setItems(feats);
 		featNameColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.nameProperty());
-		prerequisiteColumn.setCellValueFactory(cellData -> ((Feat) cellData
-				.getValue().prerequisitePropety().getValue()).nameProperty());
+		prerequisiteColumn.setCellValueFactory(cellData -> cellData.getValue().getPrerequisite().Name);
 		benifitColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.benifitProperty());
 		effectColumn.setCellValueFactory(cellData -> cellData.getValue()
@@ -105,8 +105,10 @@ public class FeatsController extends WindowController implements DataLoader {
 	}
 
 	private void readFeatData() {
-		// Need to Split the prerequisite field up and check all parts for a feat
-		// Would like to allow for prerequisites to be chosen as a racial feature/class feature
+		// Need to Split the prerequisite field up and check all parts for a
+		// feat
+		// Would like to allow for prerequisites to be chosen as a racial
+		// feature/class feature
 		String fileLoc = "data/Feats - Feats.tsv";
 		HashMap<String, Feat> feats = new HashMap<>();
 		try {
@@ -114,7 +116,8 @@ public class FeatsController extends WindowController implements DataLoader {
 			String line = scn.nextLine();
 			while (scn.hasNextLine()) {
 				line = scn.nextLine();
-				if (!line.equals(null) && !line.equals("")&&!line.equals("\t\t\t\t")) {
+				if (!line.equals(null) && !line.equals("")
+						&& !line.equals("\t\t\t\t")) {
 					String[] parts = line.split("\t");
 					// System.out.println(string);
 					Effect effect = null;
@@ -138,18 +141,37 @@ public class FeatsController extends WindowController implements DataLoader {
 							} catch (InstantiationException
 									| IllegalAccessException
 									| ClassNotFoundException e2) {
-								// TODO Auto-generated catch block
 								e2.printStackTrace();
 							}
 						}
 					} catch (InstantiationException | IllegalAccessException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					if(feats.get(parts[2]) != null) feats.put(parts[0], (new Feat(parts[0],feats.get(parts[2]), parts[3], effect)));
-					else feats.put(parts[0], (new Feat(parts[0],new Feat(), parts[3], effect)));
+					FeatPrerequisite prer = null;
+					if (feats.get(parts[2]) != null)
+						prer = feats.get(parts[2]);
+					else {
+						String[] pre = null;
+						if (parts[2].contains(",")) {
+							pre = parts[2].split(",");
+							for (String string : pre) {
+								if (feats.get(string) != null)
+									prer = feats.get(string);
+							}
+						} else {
+							prer = new FeatPrerequisite();
+							prer.Name.set(parts[0] + " prerequisite");
+							prer.Description.set(parts[2]);
+						}
+					}
+					if (prer != null)
+						feats.put(parts[0], (new Feat(parts[0], prer,
+								parts[3], effect)));
+					else
+						feats.put(parts[0], (new Feat(parts[0], new Feat(),
+								parts[3], effect)));
+					// System.out.println();
 				}
-				// System.out.println();
 			}
 			this.feats.setAll(feats.values());
 			scn.close();
