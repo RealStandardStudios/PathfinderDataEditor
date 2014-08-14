@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicArmorController">
    <children>
       <GridPane layoutX="10.0" layoutY="97.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
@@ -48,22 +48,22 @@
                </GridPane.margin>
             </Label>
             <Label text="Construction:" GridPane.rowIndex="13" />
-            <Label text="Label" GridPane.columnIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Label fx:id="lblACBonus" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblMaxDex" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="lblArmorCheckPenalty" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblArcaneSpellFalure" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lblSpeed30ft" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="lblSpeed20ft" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblSlot" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="lblAuraStrength" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="lblPrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
          </children>
       </GridPane>
-      <Label layoutX="137.0" layoutY="14.0" text="No Magic Armor Selected">
+      <Label fx:id="lblArmorName" layoutX="137.0" layoutY="14.0" text="No Magic Armor Selected">
          <font>
             <Font size="24.0" />
          </font>
