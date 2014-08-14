@@ -1,4 +1,6 @@
-package view.partials;
+package view.partials.dialogs;
+
+import java.util.HashMap;
 
 import org.controlsfx.dialog.Dialogs;
 
@@ -65,7 +67,7 @@ public class SpellEditDialogController {
 	 * 
 	 * @param spell
 	 */
-	private void setSpell(Spell spell) {
+	public void setSpell(Spell spell) {
 		this.spell = spell;
 		
 		spellNameField.setText(spell.getName());
@@ -100,23 +102,23 @@ public class SpellEditDialogController {
 			// fancy code for setting spell level
 			String[] parts = spellLevelField.getText().split(",");			
 			String[] classParts = null; // Holds the levelParts split up into the formula [string] [int]
-			String[] className = new String[parts.length];  // holds class names
-			int[] levelNum = new int[parts.length];  // holds class levels
-			
+			HashMap<String, Integer> spellLevels = new HashMap<>();
+
 			for (String string : parts) {
 				classParts = string.trim().split(" ");
-				
-				for (int i = 0; i < classParts.length;i++) {
+				String className = "";
+				int levelNum = 0;
+
+				for (int i = 0; i < classParts.length; i++) {
 					if (i % 2 == 0) {
-						className[i/2] = classParts[i];
+						className = classParts[i];
+					} else {
+						levelNum = Integer.parseInt(classParts[i]);
 					}
-					else {
-						levelNum[i/2] = Integer.parseInt(classParts[i]);
-					}
+					spellLevels.put(className, levelNum);
 				}
 			}
-			spell.setClassName(className);
-			spell.setSpellLevel(levelNum);
+			spell.setSpellLevel(spellLevels);
 			spell.setCastingTime(castingTimeField.getText());
 			spell.setComponents(componentsField.getText());
 			spell.setRange(rangeField.getText());
@@ -153,10 +155,10 @@ public class SpellEditDialogController {
 		String errorMessage = "";
 		
 		if (spellNameField.getText() == null || spellNameField.getText().length() == 0) {
-            errorMessage += "No valid spell Name!\n"; 
+            errorMessage += "No valid spell name!\n"; 
         }
 		if (schoolNameField.getText() == null || schoolNameField.getText().length() == 0) {
-            errorMessage += "No valid school Name!\n"; 
+            errorMessage += "No valid school name!\n"; 
         }
 		if (spellLevelField.getText() == null || spellLevelField.getText().length() == 0) {
             errorMessage += "No valid spell levels!\n"; 

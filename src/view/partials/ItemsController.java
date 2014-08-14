@@ -12,6 +12,10 @@ import jefXif.DataLoader;
 import jefXif.Gui;
 import jefXif.PartialLoader;
 import jefXif.WindowController;
+import pathfinder.data.Items.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
 
 public class ItemsController extends WindowController implements PartialLoader, DataLoader{
 
@@ -21,12 +25,22 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	AnchorPane ItemsPartialPane;
 	
 	@FXML
+	TableView<Item> itemTable;
+	@FXML
+	TableColumn<Item, String> nameColumn;
+	
+	@FXML
 	public void handleGoodsServices(ActionEvent event) {
 		SwapPartial(partials.get("BasicGoods").getNode());
 	}
 	
+	@FXML
+	public void handleBasicArmor(ActionEvent event) {
+		SwapPartial(partials.get("BasicArmor").getNode());
+	}
+	
 	private void SwapPartial(Node node) {
-		ItemsPartialPane.getChildren().set(0, node);		
+		ItemsPartialPane.getChildren().set(0, node);	
 	}
 	
 	public ItemsController() {
@@ -35,7 +49,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	@Override
 	public void initialize() {
 		try {
-			String[] partials = {"BasicGoods"};
+			String[] partials = {"BasicGoods","BasicArmor"};
 			for (String string : partials) {
 				this.partials.put(string, loadPartial(string, this.getInterface()));
 			}
@@ -52,8 +66,9 @@ public class ItemsController extends WindowController implements PartialLoader, 
 		loader.setLocation(this.getClass().getResource("itemPartials/" + name + "Partial.fxml"));
 		
 		/*AnchorPane partial = */
-		loader.load();
-		WindowController controller = loader.getController();
+		Node node = loader.load();
+		WindowController controller = loader.getController();// YUDODIS
+		controller.setNode(node);
 		return controller;
 	}
 
@@ -61,5 +76,4 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	public void loadData() {
 		// Josh this is where you will read the data from the file that is saved through the program or fall back to reading in the tsv files if it fails		
 	}
-
 }
