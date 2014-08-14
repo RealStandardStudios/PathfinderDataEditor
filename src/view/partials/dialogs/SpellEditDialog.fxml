@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="581.0" prefWidth="777.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="581.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.SpellEditDialogController">
    <children>
       <GridPane layoutX="8.0" layoutY="7.0" prefHeight="469.0" prefWidth="769.0">
         <columnConstraints>
@@ -45,21 +44,21 @@
             </Label>
             <Label text="Spell Tables" GridPane.rowIndex="11" />
             <Label text="Spell Name" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <TextField prefHeight="172.0" prefWidth="625.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="spellNameField" GridPane.columnIndex="1" />
+            <TextField fx:id="schoolNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="spellLevelField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="castingTimeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="componentsField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="rangeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="targetEffectAreaField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="durationField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="savingThrowField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="spellResistanceField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="descriptionField" prefHeight="172.0" prefWidth="625.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="spellTableField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
          </children>
       </GridPane>
-      <Button layoutX="637.0" layoutY="542.0" mnemonicParsing="false" text="OK" />
-      <Button layoutX="688.0" layoutY="542.0" mnemonicParsing="false" text="Cancel" />
+      <Button layoutX="637.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleOK" text="OK" />
+      <Button layoutX="688.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
    </children>
 </AnchorPane>
