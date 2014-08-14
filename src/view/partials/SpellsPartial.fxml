@@ -76,7 +76,7 @@
                   <ImageView fx:id="tableOneImageView" fitHeight="216.0" fitWidth="242.0" layoutX="14.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="tableTwoImageView" fitHeight="216.0" fitWidth="242.0" layoutX="256.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="tableThreeImageView" fitHeight="216.0" fitWidth="242.0" layoutX="498.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="759.0" layoutY="639.0" mnemonicParsing="false" text="Edit" />
+                  <Button layoutX="759.0" layoutY="639.0" mnemonicParsing="false" onAction="#handleEditSpell" text="Edit" />
                </children>
             </AnchorPane>
         </items>

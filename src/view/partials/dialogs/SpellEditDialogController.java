@@ -1,4 +1,4 @@
-package view.partials;
+package view.partials.dialogs;
 
 import org.controlsfx.dialog.Dialogs;
 
@@ -65,7 +65,7 @@ public class SpellEditDialogController {
 	 * 
 	 * @param spell
 	 */
-	private void setSpell(Spell spell) {
+	public void setSpell(Spell spell) {
 		this.spell = spell;
 		
 		spellNameField.setText(spell.getName());
