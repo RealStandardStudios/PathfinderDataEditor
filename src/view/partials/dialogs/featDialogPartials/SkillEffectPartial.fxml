@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="150.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.featDialogPartials.SkillEffectPartialController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Name" />
+      <Label layoutX="14.0" layoutY="41.0" text="Value" />
+      <Label layoutX="14.0" layoutY="69.0" text="Skill Name" />
+      <TextField fx:id="txtEffectName" layoutX="73.0" layoutY="10.0" prefHeight="25.0" prefWidth="308.0" />
+      <TextField fx:id="txtEffectValue" layoutX="73.0" layoutY="37.0" prefHeight="25.0" prefWidth="308.0" />
+      <TextField fx:id="txtSkillName" layoutX="73.0" layoutY="64.0" prefHeight="25.0" prefWidth="308.0" />
+      <TextField fx:id="txtBonusType" layoutX="73.0" layoutY="91.0" prefHeight="25.0" prefWidth="308.0" />
+      <Label layoutX="11.0" layoutY="95.0" text="Bonus Type" />
+      <TextField fx:id="txtBonusVs" layoutX="73.0" layoutY="118.0" prefHeight="25.0" prefWidth="308.0" />
+      <Label layoutX="22.0" layoutY="122.0" text="Bonus Vs" />
+   </children>
+</AnchorPane>

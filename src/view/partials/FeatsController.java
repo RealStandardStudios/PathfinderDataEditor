@@ -99,7 +99,9 @@ public class FeatsController extends WindowController implements DataLoader {
 			dialogStage.showAndWait();
 			return controller.isOkayClicked();
 		} catch (IOException e) {
-			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
 			return false;
 		}
 	}

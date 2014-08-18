@@ -5,13 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="150.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.featDialogPartials.MiscEffectPartialController">
+<AnchorPane prefHeight="150.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.featDialogPartials.DamageEffectPartialController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Name" />
       <Label layoutX="14.0" layoutY="43.0" text="Value" />
-      <Label layoutX="16.0" layoutY="75.0" text="Effect" />
       <TextField fx:id="txtEffectName" layoutX="73.0" layoutY="10.0" prefHeight="25.0" prefWidth="308.0" />
       <TextField fx:id="txtEffectValue" layoutX="73.0" layoutY="39.0" prefHeight="25.0" prefWidth="308.0" />
-      <TextArea fx:id="txtaEffect" layoutX="73.0" layoutY="72.0" prefHeight="68.0" prefWidth="308.0" />
    </children>
 </AnchorPane>

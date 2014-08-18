@@ -63,7 +63,7 @@ public class Interface extends Gui {
 
 	@Override
 	public void initialize() {
-		this.getPrimaryStage().setTitle("RPG Applicaiton");
+		this.getPrimaryStage().setTitle("Data Editor");
 		this.getPrimaryStage().getIcons()
 				.add(new Image("file:resources/images/Icon.png"));
 

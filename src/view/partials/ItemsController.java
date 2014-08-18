@@ -2,6 +2,9 @@ package view.partials;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.logging.Level;
+
+import com.sun.istack.internal.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,8 +57,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 				this.partials.put(string, loadPartial(string, this.getInterface()));
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
 		}
 		
 	}
