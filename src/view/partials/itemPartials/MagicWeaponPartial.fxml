@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicWeaponController">
    <children>
       <GridPane layoutX="14.0" layoutY="147.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
@@ -41,21 +41,21 @@
             <Label text="Range:" GridPane.rowIndex="3" />
             <Label text="Type:" GridPane.rowIndex="4" />
             <Label text="Special:" GridPane.rowIndex="5" />
-            <Label text="Label" GridPane.columnIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label fx:id="lblDMGS" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblDMGM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="lblCritical" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblRange" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lblType" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="lblSpecial" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblAura" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
          </children>
       </GridPane>
-      <Label layoutX="126.0" layoutY="14.0" text="No Magic Weapon Selected">
+      <Label fx:id="lblName" layoutX="126.0" layoutY="14.0" text="No Magic Weapon Selected">
          <font>
             <Font size="24.0" />
          </font>

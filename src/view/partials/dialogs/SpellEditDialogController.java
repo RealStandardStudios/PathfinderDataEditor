@@ -12,7 +12,7 @@ import pathfinder.data.Spells.Spell;
 /**
  * Dialog to edit spell details
  * 
- * @author Kenneth Cooper
+ * @author Real Standard Studios - Kenneth Cooper
  */
 public class SpellEditDialogController {
 	@FXML
