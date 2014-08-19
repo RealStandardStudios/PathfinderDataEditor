@@ -29,44 +29,14 @@ import pathfinder.data.Spells.Spell;
 import view.partials.dialogs.SpellEditDialogController;
 
 /**
- * @author Kenneth Cooper
- * @description A controller class for Spells that interacts with
+ * A controller class for Spells that interacts with
+ * 
+ * @author Real Standard Studios - Kenneth Cooper
  */
 public class SpellsController extends WindowController implements DataLoader {
 
 	private ObservableList<Spell> spellData = FXCollections
 			.observableArrayList();
-
-	public SpellsController() {
-		// Test data for now
-		// spellData
-		// .add(new Spell(
-		// "Ablative Barrier",
-		// "conjuration (creation) [force]",
-		// new String[] { "alchemist", "magus", "sorceror/wizard",
-		// "summoner" },
-		// new int[] { 2, 2, 3, 2 },
-		// "1 standard action",
-		// "V, S, M (a piece of metal cut from a shield)",
-		// "touch",
-		// "creature touched",
-		// null,
-		// null,
-		// "1 hour/level or until discharged",
-		// "Will negates (harmless)",
-		// "no",
-		// "Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
-		// null));
-		// readData();
-	}
-
-	/**
-	 * 
-	 * @returns an ObservableList of Spells
-	 */
-	public ObservableList<Spell> getSpellData() {
-		return spellData;
-	}
 
 	@FXML
 	private TableView<Spell> spellTable;
@@ -119,6 +89,39 @@ public class SpellsController extends WindowController implements DataLoader {
 				.selectedItemProperty()
 				.addListener(
 						(observable, oldValue, newValue) -> showSpellDetails(newValue));
+	}
+	
+	/**
+	 * Empty Controller
+	 */
+	public SpellsController() {
+		// Test data for now
+		// spellData
+		// .add(new Spell(
+		// "Ablative Barrier",
+		// "conjuration (creation) [force]",
+		// new String[] { "alchemist", "magus", "sorceror/wizard",
+		// "summoner" },
+		// new int[] { 2, 2, 3, 2 },
+		// "1 standard action",
+		// "V, S, M (a piece of metal cut from a shield)",
+		// "touch",
+		// "creature touched",
+		// null,
+		// null,
+		// "1 hour/level or until discharged",
+		// "Will negates (harmless)",
+		// "no",
+		// "Invisible layers of solid force surround and protect the target, granting that target a +2 armor bonus to AC. Additionally, the first 5 points of lethal damage the target takes from each attack are converted into nonlethal damage. Against attacks that already deal nonlethal damage, the target gains DR 5/—. Once this spell has converted 5 points of damage to nonlethal damage per caster level (maximum 50 points), the spell is discharged.",
+		// null));
+		// readData();
+	}
+
+	/**
+	 * @returns an ObservableList of Spells
+	 */
+	public ObservableList<Spell> getSpellData() {
+		return spellData;
 	}
 
 	/**
@@ -198,6 +201,10 @@ public class SpellsController extends WindowController implements DataLoader {
 		}
 	}
 
+	/**
+	 * reads Spell data from a .tsv file and breaks it into it's
+	 * component parts
+	 */
 	private void readData() {
 		try {
 			Scanner scn = new Scanner(new FileReader(

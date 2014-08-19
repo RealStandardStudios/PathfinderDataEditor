@@ -44,6 +44,12 @@ import pathfinder.data.Classes.Objects.LevelTableRow;
 import pathfinder.data.Classes.Objects.SpellLevelTableRow;
 import pathfinder.data.Spells.Spell;
 
+/**
+ * the controller for the layout of the Classes section 
+ * of the data editor
+ * 
+ * @author Real Standard Studios - Matthew Meehan, Ian Larsen
+ */
 public class ClassesController extends WindowController implements DataLoader {
 
 	@FXML
@@ -91,6 +97,9 @@ public class ClassesController extends WindowController implements DataLoader {
 		return obsListClasses;
 	}
 
+	/**
+	 * the initialisation method
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
@@ -101,6 +110,7 @@ public class ClassesController extends WindowController implements DataLoader {
 
 		// Clear person details
 		showClassDetails(null);
+		
 		//lblDescription.get
 		// find the longest label that is not a valued one
 		// set the second row of labels X value to the largest + some 'padding' space (probably 10)
@@ -126,8 +136,7 @@ public class ClassesController extends WindowController implements DataLoader {
 	/**
 	 * Populate Class Details labels with data from the selected Class
 	 * 
-	 * @param c
-	 *            : selected Class
+	 * @param c : selected Class
 	 */
 	private void showClassDetails(Class c) {
 		if (c != null) {
@@ -155,7 +164,8 @@ public class ClassesController extends WindowController implements DataLoader {
 	}
 
 	/**
-	 * Reads class summary data
+	 * Reads class summary data from a .tsv file and breaks it
+	 * into it's component parts
 	 */
 	private void readSummary() {
 		Scanner reader;
@@ -482,6 +492,9 @@ public class ClassesController extends WindowController implements DataLoader {
 		}
 	}
 
+	/**
+	 * loads data
+	 */
 	@Override
 	public void loadData() {
 		//load data through jefxif

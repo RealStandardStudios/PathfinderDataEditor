@@ -15,6 +15,6 @@
             <TableColumn fx:id="effectColumn" prefWidth="282.0" text="Effect type" />
         </columns>
       </TableView>
-      <Button fx:id="btnEdit" layoutX="1042.0" layoutY="583.0" mnemonicParsing="false" onAction="#handleEditPerson" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.rightAnchor="2.0" />
+      <Button fx:id="btnEdit" layoutX="1042.0" layoutY="583.0" mnemonicParsing="false" onAction="#handleEditFeat" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.rightAnchor="2.0" />
    </children>
 </AnchorPane>
