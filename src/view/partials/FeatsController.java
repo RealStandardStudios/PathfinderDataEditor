@@ -31,6 +31,8 @@ import view.partials.dialogs.FeatEditDialogController;
 import com.sun.istack.internal.logging.Logger;
 
 /**
+ * the controller for the layout of the Feats section
+ * of the data editor
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
@@ -51,10 +53,16 @@ public class FeatsController extends WindowController implements DataLoader {
 
 	ObservableList<Feat> feats = FXCollections.observableArrayList();
 
+	/**
+	 * 
+	 */
 	public FeatsController() {
 
 	}
 
+	/**
+	 * initialises the controller
+	 */
 	@Override
 	public void initialize() {
 		tableFeats.setItems(feats);
@@ -67,8 +75,11 @@ public class FeatsController extends WindowController implements DataLoader {
 				.effectProperty().getValue().NameProperty());
 	}
 
+	/**
+	 * corresponds to the edit button for feats
+	 */
 	@FXML
-	public void handleEditPerson() {
+	public void handleEditFeat() {
 		Feat selectedFeat = tableFeats.getSelectionModel().getSelectedItem();
 		if (selectedFeat != null) {
 			boolean okClicked = showEditFeatDialog(selectedFeat);
@@ -78,6 +89,12 @@ public class FeatsController extends WindowController implements DataLoader {
 		}
 	}
 
+	/**
+	 * shows a Dialog for editing Feats
+	 * 
+	 * @param feat
+	 * @return
+	 */
 	private boolean showEditFeatDialog(Feat feat) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -106,6 +123,9 @@ public class FeatsController extends WindowController implements DataLoader {
 		}
 	}
 
+	/**
+	 * reads Feat data from a .tsv file and breaks it up to be useful
+	 */
 	private void readFeatData() {
 		// Need to Split the prerequisite field up and check all parts for a
 		// feat

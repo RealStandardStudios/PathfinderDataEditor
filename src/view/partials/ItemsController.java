@@ -19,7 +19,6 @@ import pathfinder.data.Items.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-
 public class ItemsController extends WindowController implements PartialLoader, DataLoader{
 
 	private HashMap<String, WindowController> partials;
@@ -29,6 +28,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	
 	@FXML
 	TableView<Item> itemTable;
+	
 	@FXML
 	TableColumn<Item, String> nameColumn;
 	
