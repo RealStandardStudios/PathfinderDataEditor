@@ -23,4 +23,12 @@ public class MiscEffectPartialController extends EffectPartialController {
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtaEffect.setText(((MiscEffect)this.effect).getEffect());
 	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((MiscEffect)this.effect).setEffect(txtaEffect.getText());
+		return this.effect;
+	}
 }

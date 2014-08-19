@@ -1,4 +1,4 @@
-package view.partials.dialogs.featDialogPartials;
+ package view.partials.dialogs.featDialogPartials;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -28,5 +28,15 @@ public class SkillEffectPartialController extends EffectPartialController {
 		this.txtSkillName.setText(((SkillEffect)this.effect).getSkillName());
 		this.txtBonusType.setText(((SkillEffect)this.effect).getBonusType());
 		this.txtBonusVs.setText(((SkillEffect)this.effect).getBonusVs());
+	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((SkillEffect)this.effect).setSkillName(txtSkillName.getText());
+		((SkillEffect)this.effect).setBonusType(txtBonusType.getText());
+		((SkillEffect)this.effect).setBonusVs(txtBonusVs.getText());
+		return this.effect;
 	}
 }

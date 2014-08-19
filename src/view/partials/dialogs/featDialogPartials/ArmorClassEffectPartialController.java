@@ -23,4 +23,12 @@ public class ArmorClassEffectPartialController extends EffectPartialController {
 
 	}
 
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((ArmorClassEffect)this.effect).setBonusType(txtaBonusType.getText());
+		return this.effect;
+	}
+
 }

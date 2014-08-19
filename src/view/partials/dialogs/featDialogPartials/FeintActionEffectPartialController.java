@@ -23,4 +23,12 @@ public class FeintActionEffectPartialController extends EffectPartialController 
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtaDescription.setText(((FeintActionEffect)this.effect).getDescription());
 	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((FeintActionEffect)this.effect).setDescription(txtaDescription.getText());
+		return this.effect;
+	}
 }

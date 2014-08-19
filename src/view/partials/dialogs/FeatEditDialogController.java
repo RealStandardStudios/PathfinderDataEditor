@@ -16,8 +16,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import jefXif.DialogController;
 import jefXif.PartialLoader;
+import jefXif.WindowController;
 import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Feats.Feat;
+import view.partials.dialogs.featDialogPartials.EffectPartialController;
 
 import com.sun.istack.internal.logging.Logger;
 
@@ -34,7 +36,7 @@ public class FeatEditDialogController extends DialogController implements
 	Boolean okayClicked = false;
 	ObservableList<FeatPrerequisite> prerequistes;
 	ObservableList<String> effects;
-	HashMap<String, Node> effectPartials;
+	HashMap<String, EffectPartialController> effectPartials;
 	Feat feat;
 
 	@FXML
@@ -53,7 +55,7 @@ public class FeatEditDialogController extends DialogController implements
 	private void handleChangedEffect(ActionEvent event) {
 		if (cboEffect.getValue() != "" || !cboEffect.getValue().equals(null))
 			EffectPartialPane.getChildren().setAll(
-					effectPartials.get(cboEffect.getValue()));
+					effectPartials.get(cboEffect.getValue()).getNode());
 	}
 
 	@FXML
@@ -69,6 +71,7 @@ public class FeatEditDialogController extends DialogController implements
 				.isInstance(Feat.class))
 			feat.prerequisitePropety().setValue(cboPrerequisiteFeat.getValue());
 		okayClicked = true;
+		this.feat.effectProperty().set(effectPartials.get(cboEffect.getValue()).getEffect());;
 		this.getDialogStage().close();
 	}
 
@@ -103,21 +106,22 @@ public class FeatEditDialogController extends DialogController implements
 		effectPartials = new HashMap<>();
 		try {
 			for (String string : partials) {
-				this.effectPartials.put(string, loadPartial(string));
+				this.effectPartials.put(string, (EffectPartialController) loadPartial(string));
 			}
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
 		}
 	}
 
-	private Node loadPartial(String name) throws IOException {
+	private WindowController loadPartial(String name) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource(
 				"featDialogPartials/" + name + "Partial.fxml"));
 
 		Node node = loader.load();
-
-		return node;
+		WindowController controller = loader.getController();
+		controller.setNode(node);
+		return controller;
 	}
 
 	public boolean isOkayClicked() {

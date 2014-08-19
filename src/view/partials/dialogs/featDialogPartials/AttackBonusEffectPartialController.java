@@ -26,4 +26,13 @@ public class AttackBonusEffectPartialController extends EffectPartialController 
 		this.txtBonusVs.setText(((AttackBonusEffect)this.effect).getBonusVs());
 		this.txtBonusType.setText(((AttackBonusEffect)this.effect).getBonusType());
 	}
+	
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((AttackBonusEffect)this.effect).setBonusVs(txtBonusVs.getText());
+		((AttackBonusEffect)this.effect).setBonusType(txtBonusType.getText());
+		return this.effect;
+	}
 }

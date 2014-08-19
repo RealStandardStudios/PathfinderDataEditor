@@ -23,4 +23,12 @@ public class SaveAttributeEffectPartialController extends EffectPartialControlle
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtSaveAttributeName.setText(((SaveAttributeEffect)this.effect).getAttributeName());
 	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((SaveAttributeEffect)this.effect).setAttributeName(txtSaveAttributeName.getText());
+		return this.effect;
+	}
 }

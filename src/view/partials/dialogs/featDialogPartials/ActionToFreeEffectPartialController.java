@@ -23,4 +23,11 @@ public class ActionToFreeEffectPartialController extends EffectPartialController
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtSpecifiedAction.setText(((ActionToFreeEffect)this.effect).getAction());
 	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		return this.effect;
+	}
 }

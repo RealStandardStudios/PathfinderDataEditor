@@ -14,4 +14,6 @@ public abstract class EffectPartialController extends WindowController {
 	public TextField txtEffectValue;
 
 	public abstract void setEffect(Effect effect);
+	
+	public abstract Effect getEffect();
 }

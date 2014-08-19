@@ -23,4 +23,12 @@ public class MetaMagicEffectPartialController extends EffectPartialController {
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtSpellEffect.setText(((MetaMagicEffect)this.effect).getEffect());
 	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((MetaMagicEffect)this.effect).setEffect(txtSpellEffect.getText());
+		return this.effect;
+	}
 }

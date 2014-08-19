@@ -23,4 +23,12 @@ public class ActionToMoveEffectPartialController extends EffectPartialController
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtSpecifiedAction.setText(((ActionToMoveEffect)this.effect).getAction());
 	}
+	
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((ActionToMoveEffect)this.effect).setAction(txtSpecifiedAction.getText());
+		return this.effect;
+	}
 }

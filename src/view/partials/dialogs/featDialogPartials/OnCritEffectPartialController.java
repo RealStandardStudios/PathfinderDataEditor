@@ -23,4 +23,12 @@ public class OnCritEffectPartialController extends EffectPartialController {
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtaEffect.setText(((OnCritEffect)this.effect).getEffect());
 	}
+
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((OnCritEffect)this.effect).setEffect(txtaEffect.getText());
+		return null;
+	}
 }

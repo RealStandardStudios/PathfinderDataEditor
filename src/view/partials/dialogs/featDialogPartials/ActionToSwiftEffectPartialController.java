@@ -23,4 +23,12 @@ public class ActionToSwiftEffectPartialController extends EffectPartialControlle
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtSpecifiedAction.setText(((ActionToSwiftEffect)this.effect).getAction());
 	}
+	
+	@Override
+	public Effect getEffect() {
+		this.effect.setName(txtEffectName.getText());
+		this.effect.setValue(Integer.parseInt(txtEffectValue.getText()));
+		((ActionToSwiftEffect)this.effect).setAction(txtSpecifiedAction.getText());
+		return this.effect;
+	}
 }
