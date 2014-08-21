@@ -28,7 +28,7 @@ public class FeatEditDialogController extends DialogController implements
 
 	String[] partials = { "MiscEffect", "ArmorClassEffect",
 			"CombatManeuverBonusEffect", "InitiativeEffect",
-			"SaveAttributeEffect", "SkillEffect", "ActionToFreeEffect",
+			"SaveAttributeEffect", "SkillEffect", "ActionEffect", "ActionToFreeEffect",
 			"ActionToSwiftEffect", "ActionToMoveEffect", "FeintActionEffect",
 			"MiscEffect", "OnCritEffect", "DamageEffect", "DamageEffect",
 			"DamageMultiplierEffect", "ItemCreationEffect", "MetaMagicEffect" };
@@ -104,6 +104,7 @@ public class FeatEditDialogController extends DialogController implements
 	public void initialize() {
 		cboEffect.setItems(effects);
 		effectPartials = new HashMap<>();
+		// this doesnt apear to work properly cause there were only 4 things
 		try {
 			for (String string : partials) {
 				this.effectPartials.put(string, (EffectPartialController) loadPartial(string));
@@ -128,26 +129,34 @@ public class FeatEditDialogController extends DialogController implements
 		return this.okayClicked;
 	}
 
-	public void setPrerequisites(ObservableList<Feat> feats) {
+	public void setData(ObservableList<Feat> feats) {
 		this.prerequistes = FXCollections.observableArrayList();
+		// add each feat to the prerequisites except for the chosen feat
 		for (Feat feat : feats) {
 			if (!feat.equals(this.feat))
 				prerequistes.add(feat);
 		}
+		// add an empty feat for if there is no pre-requisite
 		prerequistes.add(0, Feat.NullFeat);
 		cboPrerequisiteFeat.setItems(prerequistes);
+		// if the prerequisite is a feat
 		if (feat.prerequisitePropety().getValue().getClass()
 				.isInstance(Feat.class))
+			// select the feat from the prerequisite combo box
 			cboPrerequisiteFeat.selectionModelProperty().getValue()
 					.select((Feat) feat.prerequisitePropety().getValue());
 		else
+			// there is no feat, don't display the combo box
 			cboPrerequisiteFeat.setDisable(true);
 		String className = feat.effectProperty().getValue().getClass()
 				.toString();
 		String[] parts = className.replace('.', ',').split(",");
+		// gets the name of the effect used on the feat and moves the partial to view by changing the combo box
 		if (parts.length == 5)
 			this.cboEffect.selectionModelProperty().getValue().select(parts[4]);
 		else
 			this.cboEffect.selectionModelProperty().getValue().select(parts[3]);
+		// sets the feat on the previously chosen partial
+		this.effectPartials.get(cboEffect.getValue()).setEffect(feat.effectProperty().get());
 	}
 }

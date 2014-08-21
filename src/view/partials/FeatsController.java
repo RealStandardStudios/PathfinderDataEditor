@@ -112,7 +112,7 @@ public class FeatsController extends WindowController implements DataLoader {
 			FeatEditDialogController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setFeat(feat);
-			controller.setPrerequisites(feats);
+			controller.setData(feats);
 			dialogStage.showAndWait();
 			return controller.isOkayClicked();
 		} catch (IOException e) {
