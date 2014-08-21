@@ -54,6 +54,9 @@ import pathfinder.data.Spells.Spell;
  */
 public class ClassesController extends WindowController implements DataLoader {
 
+	/*
+	 * Link Class table fxml entities to the Controller
+	 */
 	@FXML
 	private TableView<Class> tableClasses;
 
@@ -86,6 +89,31 @@ public class ClassesController extends WindowController implements DataLoader {
 
 	@FXML
 	private Label lblStartingWealthD6;
+	
+	/*
+	 * Link Class Progression table fxml entities to the Controller
+	 */
+	@FXML
+	private TableView<LevelTableRow> tableLevelTable;
+	
+	@FXML
+	private TableColumn<LevelTableRow, Integer> columnLevel;
+	
+	@FXML
+	private TableColumn<LevelTableRow, String> columnBAB;
+	
+	@FXML
+	private TableColumn<LevelTableRow, Integer> columnFort;
+	
+	@FXML
+	private TableColumn<LevelTableRow, Integer> columnRef;
+	
+	@FXML
+	private TableColumn<LevelTableRow, Integer> columnWill;
+	
+	@FXML
+	private TableColumn<LevelTableRow, String> columnSpecial;
+	
 
 	private ObservableList<Class> obsListClasses = FXCollections
 			.observableArrayList();
@@ -109,18 +137,10 @@ public class ClassesController extends WindowController implements DataLoader {
 		// TODO Auto-generated method stub
 
 		// Init the Classes table with the column for class Name
-		columnClassName.setCellValueFactory(cellData -> cellData.getValue()
-				.getNameProperty());
+		columnClassName.setCellValueFactory(cellData -> cellData.getValue().getNameProperty());
 
 		// Clear person details
 		showClassDetails(null);
-		
-		//lblDescription.get
-		// find the longest label that is not a valued one
-		// set the second row of labels X value to the largest + some 'padding' space (probably 10)
-		// for each label
-		// place second label 10 from the top, move first row label to the center Y of the frist label
-		// set 'top' to the bottom of the last 2nd row's label bottom
 
 		// Set data from the observable list of classes to display in the table
 		tableClasses.setItems(obsListClasses);
@@ -132,9 +152,15 @@ public class ClassesController extends WindowController implements DataLoader {
 				.selectedItemProperty()
 				.addListener(
 						(observable, oldValue, newValue) -> showClassDetails(newValue));
-
-		//readSummary();
-
+		
+		// Init the Class Progression Level Table with columns
+		columnLevel.setCellValueFactory(cellData -> cellData.getValue().getLevelNumProperty());
+		columnBAB.setCellValueFactory(cellData -> cellData.getValue().getBABProperty());
+		columnFort.setCellValueFactory(cellData -> cellData.getValue().getFortSave().getBaseValueProperty());
+		columnRef.setCellValueFactory(cellData -> cellData.getValue().getRefSave().getBaseValueProperty());
+		columnWill.setCellValueFactory(cellData -> cellData.getValue().getWillSave().getBaseValueProperty());
+		columnSpecial.setCellValueFactory(cellData -> cellData.getValue().getSpecialProperty());
+		
 	}
 
 	/**
@@ -165,11 +191,20 @@ public class ClassesController extends WindowController implements DataLoader {
 			lblArmorProf.setText("");
 			lblStartingWealthD6.setText("");
 		}
+		showClassProgression(c);
+	}
+	
+	private void showClassProgression(Class c) {
+		if (c != null) {
+			tableLevelTable.setItems(FXCollections.observableArrayList(c.getLeveltableRow()));
+		} else {
+			tableLevelTable.setItems(null);
+		}
 	}
 
 	/**
-	 * Reads class summary data from a .tsv file and breaks it
-	 * into it's component parts
+	 * Reads class summary data from a .tsv file
+	 * breaks it into component parts
 	 */
 	private void readSummary() {
 		Scanner reader;
@@ -512,10 +547,10 @@ public class ClassesController extends WindowController implements DataLoader {
 			int count = 0;
 			while(reader.hasNextLine()) {
 				readLine = reader.nextLine();
-				
 				// Make an array of Strings to hold the data
 				String[] lines = readLine.split("\t");
-				// Split the line on '/' for science
+				int levelNum = Integer.parseInt(lines[0]);
+				// Split lines[1] (BAB) on '/' to handle BAB data for higher levels
 				String[] babString = lines[1].split("/");
 				// make an array of ints the same length
 				int[] babs = new int[babString.length];
@@ -523,8 +558,10 @@ public class ClassesController extends WindowController implements DataLoader {
 				for(int i=0;i<babString.length;i++){
 					babs[i] = Integer.parseInt(babString[i].replace("+",""));
 				}
-				//Make a new tableRow(base attack bonus', FortitudeSave, ReflexSave, WillSave, String[])
-				LevelTableRow tableRow = new LevelTableRow(babs,
+				//Make a new tableRow(levelNum, BaseAttackBonus, FortitudeSave, ReflexSave, WillSave, String[])
+				LevelTableRow tableRow = new LevelTableRow(
+						levelNum,
+						babs,
 						new SaveAttribute("Fortitude",AbilityName.Constitution,Integer.parseInt(lines[2])),
 						new SaveAttribute("Reflex",AbilityName.Dexterity,Integer.parseInt(lines[3])),
 						new SaveAttribute("Will",AbilityName.Wisdom,Integer.parseInt(lines[4])),
@@ -534,7 +571,7 @@ public class ClassesController extends WindowController implements DataLoader {
 				count++;
 			}
 
-			classes.get(filename).SetLevelTable(levelTable);
+			classes.get(filename).SetLevelTable(FXCollections.observableArrayList(levelTable));
 		}
 		
 		catch (FileNotFoundException e) {
@@ -543,6 +580,7 @@ public class ClassesController extends WindowController implements DataLoader {
 					Level.SEVERE, null, e);
 		}
 	}
+	
 
 	/**
 	 * loads data
@@ -551,7 +589,7 @@ public class ClassesController extends WindowController implements DataLoader {
 	public void loadData() {
 		//load data through jefxif
 		readSummary();
-		//load the levelTable for barbarian NOTE THIS NEEDS TO BE PUT INTO THE LEVELTABLE ON THE GUI NOW**************************************************
+		//load the levelTable for barbarian
 		readMeleeClass("Barbarian");
 		
 		obsListClasses.setAll(classes.values());

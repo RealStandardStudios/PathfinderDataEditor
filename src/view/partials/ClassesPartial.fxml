@@ -80,14 +80,14 @@
                                           <content>
                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <TableView prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="tableLevelTable" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
-                                                            <TableColumn prefWidth="70.0" text="Level" />
-                                                            <TableColumn prefWidth="109.99999237060547" text="Base Attack Bonus" />
-                                                            <TableColumn prefWidth="70.0" text="Fort Save" />
-                                                            <TableColumn prefWidth="70.0" text="Ref Save" />
-                                                            <TableColumn prefWidth="75.0" text="Will Save" />
-                                                            <TableColumn prefWidth="396.0000305175781" text="Special" />
+                                                            <TableColumn fx:id="columnLevel" prefWidth="70.0" text="Level" />
+                                                            <TableColumn fx:id="columnBAB" prefWidth="109.99999237060547" text="Base Attack Bonus" />
+                                                            <TableColumn fx:id="columnFort" prefWidth="70.0" text="Fort Save" />
+                                                            <TableColumn fx:id="columnRef" prefWidth="70.0" text="Ref Save" />
+                                                            <TableColumn fx:id="columnWill" prefWidth="75.0" text="Will Save" />
+                                                            <TableColumn fx:id="columnSpecial" prefWidth="396.0000305175781" text="Special" />
                                                          </columns>
                                                       </TableView>
                                                    </children>
@@ -98,17 +98,17 @@
                                           <content>
                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <TableView prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="tableSpellLevelTable" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
-                                                            <TableColumn prefWidth="70.0" text="1st" />
-                                                            <TableColumn prefWidth="70.0" text="2nd" />
-                                                            <TableColumn prefWidth="70.0" text="3rd" />
-                                                            <TableColumn prefWidth="70.0" text="4th" />
-                                                            <TableColumn prefWidth="70.0" text="5th" />
-                                                            <TableColumn prefWidth="70.0" text="6th" />
-                                                            <TableColumn prefWidth="70.0" text="7th" />
-                                                            <TableColumn prefWidth="70.0" text="8th" />
-                                                            <TableColumn prefWidth="70.0" text="9th" />
+                                                            <TableColumn fx:id="column1st" prefWidth="70.0" text="1st" />
+                                                            <TableColumn fx:id="column2nd" prefWidth="70.0" text="2nd" />
+                                                            <TableColumn fx:id="column3rd" prefWidth="70.0" text="3rd" />
+                                                            <TableColumn fx:id="column4th" prefWidth="70.0" text="4th" />
+                                                            <TableColumn fx:id="column5th" prefWidth="70.0" text="5th" />
+                                                            <TableColumn fx:id="column6th" prefWidth="70.0" text="6th" />
+                                                            <TableColumn fx:id="column7th" prefWidth="70.0" text="7th" />
+                                                            <TableColumn fx:id="column8th" prefWidth="70.0" text="8th" />
+                                                            <TableColumn fx:id="column9th" prefWidth="70.0" text="9th" />
                                                          </columns>
                                                          <columnResizePolicy>
                                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
