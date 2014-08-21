@@ -1,0 +1,89 @@
+Gauntlet	Unarmed Attacks	Simple Weapons	2 gp	1d2	1d3	×2	—	1 lb.	B	—
+Unarmed strike	Unarmed Attacks	Simple Weapons	—	1d2	1d3	×2	—	—	B	nonlethal
+Dagger	Light Melee Weapons	Simple Weapons	2 gp	1d3	1d4	19–20/×2	10 ft.	1 lb.	P or S	—
+Dagger, punching	Light Melee Weapons	Simple Weapons	2 gp	1d3	1d4	×3	—	1 lb.	P	—
+Gauntlet, spiked	Light Melee Weapons	Simple Weapons	5 gp	1d3	1d4	×2	—	1 lb.	P	—
+Mace, light	Light Melee Weapons	Simple Weapons	5 gp	1d4	1d6	×2	—	4 lbs.	B	—
+Sickle	Light Melee Weapons	Simple Weapons	6 gp	1d4	1d6	×2	—	2 lbs.	S	trip
+Club	One-Handed Melee Weapons	Simple Weapons	—	1d4	1d6	×2	10 ft.	3 lbs.	B	—
+Mace, heavy	One-Handed Melee Weapons	Simple Weapons	12 gp	1d6	1d8	×2	—	8 lbs.	B	—
+Morningstar	One-Handed Melee Weapons	Simple Weapons	8 gp	1d6	1d8	×2	—	6 lbs.	B and P	—
+Shortspear	One-Handed Melee Weapons	Simple Weapons	1 gp	1d4	1d6	×2	20 ft.	3 lbs.	P	—
+Longspear	Two-Handed Melee Weapons	Simple Weapons	5 gp	1d6	1d8	×3	—	9 lbs.	P	brace, reach
+Quarterstaff	Two-Handed Melee Weapons	Simple Weapons	—	1d4/1d4	1d6/1d6	×2	—	4 lbs.	B	double, monk
+Spear	Two-Handed Melee Weapons	Simple Weapons	2 gp	1d6	1d8	×3	20 ft.	6 lbs.	P	brace
+Blowgun	Ranged Weapons	Simple Weapons	2 gp	1	1d2	×2	20 ft.	1 lb.	P	—
+Darts, blowgun (10)	Ranged Weapons	Simple Weapons	5 sp	—	—	—	—	—	—	—
+Crossbow, heavy	Ranged Weapons	Simple Weapons	50 gp	1d8	1d10	19–20/×2	120 ft.	8 lbs.	P	—
+Bolts, crossbow (10)	Ranged Weapons	Simple Weapons	1 gp	—	—	—	—	1 lb.	—	—
+Crossbow, light	Ranged Weapons	Simple Weapons	35 gp	1d6	1d8	19–20/×2	80 ft.	4 lbs.	P	—
+Bolts, crossbow (10)	Ranged Weapons	Simple Weapons	1 gp	—	—	—	—	1 lb.	—	—
+Dart	Ranged Weapons	Simple Weapons	5 sp	1d3	1d4	×2	20 ft.	1/2 lb.	P	—
+Javelin	Ranged Weapons	Simple Weapons	1 gp	1d4	1d6	×2	30 ft.	2 lbs.	P	—
+Sling	Ranged Weapons	Simple Weapons	—	1d3	1d4	×2	50 ft.	—	B	—
+Bullets, sling (10)	Ranged Weapons	Simple Weapons	1 sp	—	—	—	—	5 lbs.	—	—
+Axe, throwing	Light Melee Weapons	Martial Weapons	8 gp	1d4	1d6	×2	10 ft.	2 lbs.	S	—
+Hammer, light	Light Melee Weapons	Martial Weapons	1 gp	1d3	1d4	×2	20 ft.	2 lbs.	B	—
+Handaxe	Light Melee Weapons	Martial Weapons	6 gp	1d4	1d6	×3	—	3 lbs.	S	—
+Kukri	Light Melee Weapons	Martial Weapons	8 gp	1d3	1d4	18–20/×2	—	2 lbs.	S	—
+Pick, light	Light Melee Weapons	Martial Weapons	4 gp	1d3	1d4	×4	—	3 lbs.	P	—
+Sap	Light Melee Weapons	Martial Weapons	1 gp	1d4	1d6	×2	—	2 lbs.	B	nonlethal
+Shield, light	Light Melee Weapons	Martial Weapons	special	1d2	1d3	×2	—	special	B	—
+Spiked armor	Light Melee Weapons	Martial Weapons	special	1d4	1d6	×2	—	special	P	—
+Spiked shield, light	Light Melee Weapons	Martial Weapons	special	1d3	1d4	×2	—	special	P	—
+Starknife	Light Melee Weapons	Martial Weapons	24 gp	1d3	1d4	×3	20 ft.	3 lbs.	P	—
+Short Sword	Light Melee Weapons	Martial Weapons	10 gp	1d4	1d6	19–20/×2	—	2 lbs.	P	—
+Battleaxe	One-Handed Melee Weapons	Martial Weapons	10 gp	1d6	1d8	×3	—	6 lbs.	S	—
+Flail	One-Handed Melee Weapons	Martial Weapons	8 gp	1d6	1d8	×2	—	5 lbs.	B	disarm, trip
+Longsword	One-Handed Melee Weapons	Martial Weapons	15 gp	1d6	1d8	19–20/×2	—	4 lbs.	S	—
+Pick, heavy	One-Handed Melee Weapons	Martial Weapons	8 gp	1d4	1d6	×4	—	6 lbs.	P	—
+Rapier	One-Handed Melee Weapons	Martial Weapons	20 gp	1d4	1d6	18–20/×2	—	2 lbs.	P	—
+Scimitar	One-Handed Melee Weapons	Martial Weapons	15 gp	1d4	1d6	18–20/×2	—	4 lbs.	S	—
+Shield, heavy	One-Handed Melee Weapons	Martial Weapons	special	1d3	1d4	×2	—	special	B	—
+Spiked shield, heavy	One-Handed Melee Weapons	Martial Weapons	special	1d4	1d6	×2	—	special	P	—
+Trident	One-Handed Melee Weapons	Martial Weapons	15 gp	1d6	1d8	×2	10 ft.	4 lbs.	P	brace
+Warhammer	One-Handed Melee Weapons	Martial Weapons	12 gp	1d6	1d8	×3	—	5 lbs.	B	—
+Falchion	Two-Handed Melee Weapons	Martial Weapons	75 gp	1d6	2d4	18–20/×2	—	8 lbs.	S	—
+Glaive	Two-Handed Melee Weapons	Martial Weapons	8 gp	1d8	1d10	×3	—	10 lbs.	S	reach
+Greataxe	Two-Handed Melee Weapons	Martial Weapons	20 gp	1d10	1d12	×3	—	12 lbs.	S	—
+Greatclub	Two-Handed Melee Weapons	Martial Weapons	5 gp	1d8	1d10	×2	—	8 lbs.	B	—
+Flail, heavy	Two-Handed Melee Weapons	Martial Weapons	15 gp	1d8	1d10	19–20/×2	—	10 lbs.	B	disarm, trip
+Greatsword	Two-Handed Melee Weapons	Martial Weapons	50 gp	1d10	2d6	19–20/×2	—	8 lbs.	S	—
+Guisarme	Two-Handed Melee Weapons	Martial Weapons	9 gp	1d6	2d4	×3	—	12 lbs.	S	reach, trip
+Halberd	Two-Handed Melee Weapons	Martial Weapons	10 gp	1d8	1d10	×3	—	12 lbs.	P or S	brace, trip
+Lance	Two-Handed Melee Weapons	Martial Weapons	10 gp	1d6	1d8	×3	—	10 lbs.	P	reach
+Ranseur	Two-Handed Melee Weapons	Martial Weapons	10 gp	1d6	2d4	×3	—	12 lbs.	P	disarm, reach
+Scythe	Two-Handed Melee Weapons	Martial Weapons	18 gp	1d6	2d4	×4	—	10 lbs.	P or S	trip
+Longbow	Ranged Weapons	Martial Weapons	75 gp	1d6	1d8	×3	100 ft.	3 lbs.	P	—
+Arrows (20)	Ranged Weapons	Martial Weapons	1 gp	—	—	—	—	3 lbs.	—	—
+Longbow, composite	Ranged Weapons	Martial Weapons	100 gp	1d6	1d8	×3	110 ft.	3 lbs.	P	—
+Arrows (20)	Ranged Weapons	Martial Weapons	1 gp	—	—	—	—	3 lbs.	—	—
+Shortbow	Ranged Weapons	Martial Weapons	30 gp	1d4	1d6	×3	60 ft.	2 lbs.	P	—
+Arrows (20)	Ranged Weapons	Martial Weapons	1 gp	—	—	—	—	3 lbs.	—	—
+Shortbow, composite	Ranged Weapons	Martial Weapons	75 gp	1d4	1d6	×3	70 ft.	2 lbs.	P	—
+Arrows (20)	Ranged Weapons	Martial Weapons	1 gp	—	—	—	—	3 lbs.	—	—
+Kama	Light Melee Weapons	Exotic Weapons	2 gp	1d4	1d6	×2	—	2 lbs.	S	monk, trip
+Nunchaku	Light Melee Weapons	Exotic Weapons	2 gp	1d4	1d6	×2	—	2 lbs.	B	disarm, monk
+Sai	Light Melee Weapons	Exotic Weapons	1 gp	1d3	1d4	×2	—	1 lb.	B	disarm, monk
+Siangham	Light Melee Weapons	Exotic Weapons	3 gp	1d4	1d6	×2	—	1 lb.	P	monk
+Sword, bastard	One-Handed Melee Weapons	Exotic Weapons	35 gp	1d8	1d10	19–20/×2	—	6 lbs.	S	—
+Waraxe, dwarven	One-Handed Melee Weapons	Exotic Weapons	30 gp	1d8	1d10	×3	—	8 lbs.	S	—
+Whip	One-Handed Melee Weapons	Exotic Weapons	1 gp	1d2	1d3	×2	—	2 lbs.	S	disarm, nonlethal, reach, trip
+Axe, orc double	Two-Handed Melee Weapons	Exotic Weapons	60 gp	1d6/1d6	1d8/1d8	×3	—	15 lbs.	S	double
+Chain, spiked	Two-Handed Melee Weapons	Exotic Weapons	25 gp	1d6	2d4	×2	—	10 lbs.	P	disarm, trip
+Curve blade, elven	Two-Handed Melee Weapons	Exotic Weapons	80 gp	1d8	1d10	18–20/×2	—	7 lbs.	S	—
+Flail, dire	Two-Handed Melee Weapons	Exotic Weapons	90 gp	1d6/1d6	1d8/1d8	×2	—	10 lbs.	B	disarm, double, trip
+Hammer, gnome hooked	Two-Handed Melee Weapons	Exotic Weapons	20 gp	1d6/1d4	1d8/1d6	×3/×4	—	6 lbs.	B or P	double, trip
+Sword, two-bladed	Two-Handed Melee Weapons	Exotic Weapons	100 gp	1d6/1d6	1d8/1d8	19–20/×2	—	10 lbs.	S	double
+Urgrosh, dwarven	Two-Handed Melee Weapons	Exotic Weapons	50 gp	1d6/1d4	1d8/1d6	×3	—	12 lbs.	P or S	brace, double
+Bolas	Ranged Weapons	Exotic Weapons	5 gp	1d3	1d4	×2	10 ft.	2 lbs.	B	nonlethal, trip
+Crossbow, hand	Ranged Weapons	Exotic Weapons	100 gp	1d3	1d4	19–20/×2	30 ft.	2 lbs.	P	—
+Bolts (10)	Ranged Weapons	Exotic Weapons	1 gp	—	—	—	—	1 lb.	—	—
+Crossbow, repeating heavy	Ranged Weapons	Exotic Weapons	400 gp	1d8	1d10	19–20/×2	120 ft.	12 lbs.	P	—
+Bolts (5)	Ranged Weapons	Exotic Weapons	1 gp	—	—	—	—	1 lb.	—	—
+Crossbow, repeating light	Ranged Weapons	Exotic Weapons	250 gp	1d6	1d8	19–20/×2	80 ft.	6 lbs.	P	—
+Bolts (5)	Ranged Weapons	Exotic Weapons	1 gp	—	—	—	—	1 lb.	—	—
+Net	Ranged Weapons	Exotic Weapons	20 gp	—	—	—	10 ft.	6 lbs.	—	—
+Shuriken (5)	Ranged Weapons	Exotic Weapons	1 gp	1	1d2	×2	10 ft.	1/2 lb.	P	monk
+Sling staff, halfling	Ranged Weapons	Exotic Weapons	20 gp	1d6	1d8	×3	80 ft.	3 lbs.	B	—
+Bullets, sling (10)	Ranged Weapons	Exotic Weapons	1 sp	—	—	—	—	5 lbs.	—	—

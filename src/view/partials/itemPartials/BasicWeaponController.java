@@ -43,7 +43,7 @@ public class BasicWeaponController extends WindowController {
 			lblCritical.setText(weapon.getCritical());
 			lblRange.setText(weapon.getRange());
 			lblWeight.setText(weapon.getWeight());
-			lblType.setText(weapon.getType());
+			lblType.setText(weapon.getWeaponDmgType());
 			lblSpecial.setText(weapon.getSpecial());
 		}
 		else
