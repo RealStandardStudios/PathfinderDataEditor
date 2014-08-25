@@ -2,7 +2,6 @@ package view.partials.dialogs;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.logging.Level;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,16 +20,14 @@ import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Feats.Feat;
 import view.partials.dialogs.featDialogPartials.EffectPartialController;
 
-import com.sun.istack.internal.logging.Logger;
-
 public class FeatEditDialogController extends DialogController implements
 		PartialLoader {
 
 	String[] partials = { "MiscEffect", "ArmorClassEffect",
 			"CombatManeuverBonusEffect", "InitiativeEffect",
-			"SaveAttributeEffect", "SkillEffect", "ActionEffect", "ActionToFreeEffect",
-			"ActionToSwiftEffect", "ActionToMoveEffect", "FeintActionEffect",
-			"MiscEffect", "OnCritEffect", "DamageEffect", "DamageEffect",
+			"SaveAttributeEffect", "SkillEffect", "ActionEffect",
+			"ActionToFreeEffect", "ActionToSwiftEffect", "ActionToMoveEffect",
+			"FeintActionEffect", "MiscEffect", "OnCritEffect", "DamageEffect",
 			"DamageMultiplierEffect", "ItemCreationEffect", "MetaMagicEffect" };
 
 	Boolean okayClicked = false;
@@ -71,7 +68,8 @@ public class FeatEditDialogController extends DialogController implements
 				.isInstance(Feat.class))
 			feat.prerequisitePropety().setValue(cboPrerequisiteFeat.getValue());
 		okayClicked = true;
-		this.feat.effectProperty().set(effectPartials.get(cboEffect.getValue()).getEffect());;
+		this.feat.effectProperty().set(
+				effectPartials.get(cboEffect.getValue()).getEffect());
 		this.getDialogStage().close();
 	}
 
@@ -104,13 +102,14 @@ public class FeatEditDialogController extends DialogController implements
 	public void initialize() {
 		cboEffect.setItems(effects);
 		effectPartials = new HashMap<>();
-		// this doesnt apear to work properly cause there were only 4 things
-		try {
-			for (String string : partials) {
-				this.effectPartials.put(string, (EffectPartialController) loadPartial(string));
+		for (String string : partials) {
+			try {
+				this.effectPartials.put(string,
+						(EffectPartialController) loadPartial(string));
+			} catch (IOException e) {
+				//Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
+				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
 		}
 	}
 
@@ -151,12 +150,14 @@ public class FeatEditDialogController extends DialogController implements
 		String className = feat.effectProperty().getValue().getClass()
 				.toString();
 		String[] parts = className.replace('.', ',').split(",");
-		// gets the name of the effect used on the feat and moves the partial to view by changing the combo box
+		// gets the name of the effect used on the feat and moves the partial to
+		// view by changing the combo box
 		if (parts.length == 5)
 			this.cboEffect.selectionModelProperty().getValue().select(parts[4]);
 		else
 			this.cboEffect.selectionModelProperty().getValue().select(parts[3]);
 		// sets the feat on the previously chosen partial
-		this.effectPartials.get(cboEffect.getValue()).setEffect(feat.effectProperty().get());
+		this.effectPartials.get(cboEffect.getValue()).setEffect(
+				feat.effectProperty().get());
 	}
 }

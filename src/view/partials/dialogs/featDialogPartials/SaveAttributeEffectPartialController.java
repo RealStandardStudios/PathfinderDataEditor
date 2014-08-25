@@ -1,14 +1,14 @@
 package view.partials.dialogs.featDialogPartials;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import pathfinder.data.Effects.Effect;
 import pathfinder.data.Effects.SaveAttributeEffect;
 
 public class SaveAttributeEffectPartialController extends EffectPartialController {
 
 	@FXML
-	TextArea txtSaveAttributeName;
+	TextField txtSaveAttributeName;
 	
 	@Override
 	public void initialize() {
