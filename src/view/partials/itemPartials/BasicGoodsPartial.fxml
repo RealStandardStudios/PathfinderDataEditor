@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.BasicGoodsController">
+<AnchorPane prefHeight="698.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.BasicGoodsController">
    <children>
-      <GridPane layoutX="10.0" layoutY="47.0" prefHeight="52.0" prefWidth="527.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <GridPane layoutX="10.0" layoutY="47.0" prefHeight="52.0" prefWidth="527.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="187.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.0" minWidth="10.0" prefWidth="340.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="144.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="463.0" minWidth="10.0" prefWidth="463.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -20,12 +20,19 @@
          <children>
             <Label text="Weight" />
             <Label text="Cost" GridPane.rowIndex="1" />
+            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Label layoutX="179.0" layoutY="14.0" text="Basic Good Name">
+      <Label fx:id="lblName" layoutX="419.0" layoutY="14.0" text="Basic Good Name">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="itemTable" layoutX="14.0" layoutY="14.0" prefHeight="698.0" prefWidth="287.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="itemNameColumn" prefWidth="302.0" text="Basic Goods" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

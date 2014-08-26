@@ -1,12 +1,19 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import jefXif.WindowController;
-import pathfinder.data.Items.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import pathfinder.data.Items.Item;
 
-public class BasicGoodsController extends WindowController {
+public class BasicGoodsController extends ItemPartialController {
 	
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	
@@ -19,14 +26,14 @@ public class BasicGoodsController extends WindowController {
 	@Override
 	public void initialize() {
 	}
-	
-	public void setBasicGoods(Goods goods)
-	{
-		if(goods != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblName.setText(goods.getName());
-			lblCost.setText(goods.getCost());
-			lblWeight.setText(goods.getWeight());
+			lblName.setText(item.getName());
+			lblCost.setText(item.getCost());
+			lblWeight.setText(item.getWeight());
 		}
 		else
 		{
@@ -34,6 +41,15 @@ public class BasicGoodsController extends WindowController {
 			lblCost.setText("");
 			lblWeight.setText("");
 		}
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }

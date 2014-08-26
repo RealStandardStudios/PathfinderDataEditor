@@ -1,12 +1,20 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import jefXif.WindowController;
 import pathfinder.data.Items.*;
 
-public class BasicWeaponController extends WindowController {
+public class BasicWeaponController extends ItemPartialController {
 
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	@FXML
@@ -31,20 +39,20 @@ public class BasicWeaponController extends WindowController {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setBasicWeapon(Weapon weapon)
-	{
-		if(weapon != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblName.setText(weapon.getName());
-			lblCost.setText(weapon.getCost());
-			lblDMGS.setText(weapon.getDmgS());
-			lblDMGM.setText(weapon.getDmgM());
-			lblCritical.setText(weapon.getCritical());
-			lblRange.setText(weapon.getRange());
-			lblWeight.setText(weapon.getWeight());
-			lblType.setText(weapon.getWeaponDmgType());
-			lblSpecial.setText(weapon.getSpecial());
+			lblName.setText(((Weapon)item).getName());
+			lblCost.setText(((Weapon)item).getCost());
+			lblDMGS.setText(((Weapon)item).getDmgS());
+			lblDMGM.setText(((Weapon)item).getDmgM());
+			lblCritical.setText(((Weapon)item).getCritical());
+			lblRange.setText(((Weapon)item).getRange());
+			lblWeight.setText(((Weapon)item).getWeight());
+			lblType.setText(((Weapon)item).getWeaponDmgType());
+			lblSpecial.setText(((Weapon)item).getSpecial());
 		}
 		else
 		{
@@ -58,6 +66,16 @@ public class BasicWeaponController extends WindowController {
 			lblType.setText("");
 			lblSpecial.setText("");
 		}
+		
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }

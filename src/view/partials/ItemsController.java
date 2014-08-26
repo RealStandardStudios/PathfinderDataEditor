@@ -13,13 +13,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import jefXif.DataLoader;
 import jefXif.Gui;
 import jefXif.PartialLoader;
 import jefXif.WindowController;
+
+import org.controlsfx.dialog.Dialogs;
+
 import pathfinder.data.Items.Armor;
 import pathfinder.data.Items.CursedItem;
 import pathfinder.data.Items.Goods;
@@ -31,83 +32,96 @@ import pathfinder.data.Items.Rods;
 import pathfinder.data.Items.Staves;
 import pathfinder.data.Items.Weapon;
 import pathfinder.data.Items.WondrousGood;
+import view.partials.itemPartials.ItemPartialController;
 
 import com.sun.istack.internal.logging.Logger;
 
 public class ItemsController extends WindowController implements PartialLoader, DataLoader{
 
-	private HashMap<String, WindowController> partials;
+	private HashMap<String, ItemPartialController> partials;
 	
 	@FXML
 	AnchorPane ItemsPartialPane;
 	
-	@FXML
-	TableView<Item> itemTable;
-	
-	@FXML
-	TableColumn<Item, String> nameColumn;
-	
-	ObservableList<Armor> armors = FXCollections.observableArrayList();
-	ObservableList<Weapon> weapons = FXCollections.observableArrayList();
-	ObservableList<MagicArmor> magicArmors = FXCollections.observableArrayList();
-	ObservableList<MagicWeapon> magicWeapons = FXCollections.observableArrayList();
-	ObservableList<CursedItem> cursedItems = FXCollections.observableArrayList();
-	ObservableList<MagicRing> magicRings = FXCollections.observableArrayList();
-	ObservableList<Rods> rods = FXCollections.observableArrayList();
-	ObservableList<Goods> goodsAndServices = FXCollections.observableArrayList();
-	ObservableList<Staves> staves = FXCollections.observableArrayList();
-	ObservableList<WondrousGood> wondrousGoods = FXCollections.observableArrayList();
+	ObservableList<Item> armors = FXCollections.observableArrayList();
+	ObservableList<Item> weapons = FXCollections.observableArrayList();
+	ObservableList<Item> magicArmors = FXCollections.observableArrayList();
+	ObservableList<Item> magicWeapons = FXCollections.observableArrayList();
+	ObservableList<Item> cursedItems = FXCollections.observableArrayList();
+	ObservableList<Item> magicRings = FXCollections.observableArrayList();
+	ObservableList<Item> rods = FXCollections.observableArrayList();
+	ObservableList<Item> goodsAndServices = FXCollections.observableArrayList();
+	ObservableList<Item> staves = FXCollections.observableArrayList();
+	ObservableList<Item> wondrousGoods = FXCollections.observableArrayList();
 	
 	@FXML
 	public void handleGoodsServices(ActionEvent event) {
-		SwapPartial(partials.get("BasicGoods").getNode());
+		ItemPartialController p = partials.get("BasicGoods");
+		p.inView(goodsAndServices);
+		SwapPartial(p.getNode());
 	}
 	
 	@FXML
 	public void handleBasicArmor(ActionEvent event) {
-		SwapPartial(partials.get("BasicArmor").getNode());
+		ItemPartialController p = partials.get("BasicArmor"); 
+		SwapPartial(p.getNode());
+		p.inView(armors);
 	}
 	
 	@FXML
 	public void handleBasicWeapon(ActionEvent event)
 	{
-		SwapPartial(partials.get("BasicWeapon").getNode());
+		ItemPartialController p = partials.get("BasicWeapon"); 
+		SwapPartial(p.getNode());
+		p.inView(weapons);
 	}
 	
 	@FXML
 	public void handleMagicArmor(ActionEvent event)
 	{
-		SwapPartial(partials.get("MagicArmor").getNode());
-	}
+		ItemPartialController p = partials.get("MagicArmor"); 
+		SwapPartial(p.getNode());
+		p.inView(magicArmors);
+		}
 	
 	@FXML
 	public void handleMagicWeapon(ActionEvent event)
-	{
-		SwapPartial(partials.get("MagicWeapon").getNode());
+	{		
+		ItemPartialController p = partials.get("MagicWeapon"); 
+		SwapPartial(p.getNode());
+		p.inView(magicWeapons);
 	}
 	
 	@FXML
 	public void handleMagicRing(ActionEvent event)
 	{
-		SwapPartial(partials.get("MagicRing").getNode());
+		ItemPartialController p = partials.get("MagicRing"); 
+		SwapPartial(p.getNode());
+		p.inView(magicRings);
 	}
 	
 	@FXML
 	public void handleMagicRod(ActionEvent event)
 	{
-		SwapPartial(partials.get("MagicRod").getNode());
+		ItemPartialController p = partials.get("MagicRod"); 
+		SwapPartial(p.getNode());
+		p.inView(rods);
 	}
 	
 	@FXML
 	public void handleMagicStave(ActionEvent event)
-	{
-		SwapPartial(partials.get("MagicStaves").getNode());
+	{	
+		ItemPartialController p = partials.get("MagicStaves"); 
+		SwapPartial(p.getNode());
+		p.inView(staves);
 	}
 	
 	@FXML
 	public void handleWondrousItems(ActionEvent event)
 	{
-		SwapPartial(partials.get("WondrousItems").getNode());
+		ItemPartialController p = partials.get("WondrousItems"); 
+		SwapPartial(p.getNode());
+		p.inView(wondrousGoods);
 	}
 	
 	private void SwapPartial(Node node) {
@@ -131,13 +145,13 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	}
 	
 	@Override
-	public WindowController loadPartial(String name, Gui ui) throws IOException {
+	public ItemPartialController loadPartial(String name, Gui ui) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource("itemPartials/" + name + "Partial.fxml"));
 		
 		/*AnchorPane partial = */
 		Node node = loader.load();
-		WindowController controller = loader.getController();// YUDODIS
+		ItemPartialController controller = loader.getController();// YUDODIS
 		controller.setNode(node);
 		return controller;
 	}
@@ -265,12 +279,9 @@ public class ItemsController extends WindowController implements PartialLoader, 
 		catch(FileNotFoundException e)
 		{			
 			//e.printStackTrace();
-			
-			/*
 			Dialogs.create().title("File not Found")
 			.masthead("No File was Found")
 			.message(e.getMessage() + "\nNo file at " + fileLoc);
-			*/
 		}
 	}
 	

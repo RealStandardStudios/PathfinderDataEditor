@@ -1,13 +1,21 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import pathfinder.data.Items.*;
 import jefXif.WindowController;
 
-public class MagicStavesController extends WindowController {
+public class MagicStavesController extends ItemPartialController {
 
 
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	@FXML
@@ -28,18 +36,18 @@ public class MagicStavesController extends WindowController {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setStave(Staves stave)
-	{
-		if(stave != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblName.setText(stave.getName());
-			lblAura.setText(stave.getAuraStrength());
-			lblCasterLevel.setText(stave.getCasterLevel());
-			lblPrice.setText(stave.getCost());
-			lblWeight.setText(stave.getWeight());
-			lblDescription.setText(stave.getDescription());
-			lblConstruction.setText(stave.getConstruction());
+			lblName.setText(((Staves)item).getName());
+			lblAura.setText(((Staves)item).getAuraStrength());
+			lblCasterLevel.setText(((Staves)item).getCasterLevel());
+			lblPrice.setText(((Staves)item).getCost());
+			lblWeight.setText(((Staves)item).getWeight());
+			lblDescription.setText(((Staves)item).getDescription());
+			lblConstruction.setText(((Staves)item).getConstruction());
 		}
 		else
 		{
@@ -51,6 +59,16 @@ public class MagicStavesController extends WindowController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 		}
+		
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }

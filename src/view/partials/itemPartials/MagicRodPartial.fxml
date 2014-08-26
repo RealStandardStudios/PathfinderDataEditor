@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicRodController">
+<AnchorPane prefHeight="698.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicRodController">
    <children>
-      <GridPane layoutX="39.0" layoutY="55.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <GridPane layoutX="39.0" layoutY="55.0" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="172.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.0" minWidth="10.0" prefWidth="355.0" />
@@ -36,10 +36,15 @@
             <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="185.0" layoutY="14.0" text="No Rod Selected">
+      <Label fx:id="lblName" layoutX="473.0" layoutY="14.0" text="No Rod Selected">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="itemTable" prefHeight="698.0" prefWidth="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="0.0">
+         <columns>
+            <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Rods" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -1,13 +1,21 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import pathfinder.data.Items.*;
 import jefXif.WindowController;
 
 
-public class MagicWeaponController extends WindowController {
+public class MagicWeaponController extends ItemPartialController {
 
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	@FXML
@@ -40,24 +48,24 @@ public class MagicWeaponController extends WindowController {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setBasicWeapon(MagicWeapon weapon)
-	{
-		if(weapon != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblName.setText(weapon.getName());
-			lblCost.setText(weapon.getCost());
-			lblDMGS.setText(weapon.getDmgS());
-			lblDMGM.setText(weapon.getDmgM());
-			lblCritical.setText(weapon.getCritical());
-			lblRange.setText(weapon.getRange());
-			lblWeight.setText(weapon.getWeight());
-			lblType.setText(weapon.getWeaponDmgType());
-			lblSpecial.setText(weapon.getSpecial());
-			lblAura.setText(weapon.getAuraStrength());
-			lblCasterLevel.setText(weapon.getCasterLevel());
-			lblDescription.setText(weapon.getDescription());
-			lblConstruction.setText(weapon.getConstruction());
+			lblName.setText(((MagicWeapon)item).getName());
+			lblCost.setText(((MagicWeapon)item).getCost());
+			lblDMGS.setText(((MagicWeapon)item).getDmgS());
+			lblDMGM.setText(((MagicWeapon)item).getDmgM());
+			lblCritical.setText(((MagicWeapon)item).getCritical());
+			lblRange.setText(((MagicWeapon)item).getRange());
+			lblWeight.setText(((MagicWeapon)item).getWeight());
+			lblType.setText(((MagicWeapon)item).getWeaponDmgType());
+			lblSpecial.setText(((MagicWeapon)item).getSpecial());
+			lblAura.setText(((MagicWeapon)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicWeapon)item).getCasterLevel());
+			lblDescription.setText(((MagicWeapon)item).getDescription());
+			lblConstruction.setText(((MagicWeapon)item).getConstruction());
 		}
 		else
 		{
@@ -75,6 +83,16 @@ public class MagicWeaponController extends WindowController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 		}
+		
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }
