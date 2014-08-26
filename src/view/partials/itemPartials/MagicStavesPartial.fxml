@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicStavesController">
+<AnchorPane prefHeight="698.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicStavesController">
    <children>
-      <GridPane layoutX="10.0" layoutY="74.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <GridPane layoutX="10.0" layoutY="74.0" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
          <children>
             <Label text="Aura:" />
             <Label text="Caster Level:" GridPane.rowIndex="1" />
@@ -36,10 +36,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Label fx:id="lblName" layoutX="178.0" layoutY="14.0" text="No Stave Selected" AnchorPane.topAnchor="14.0">
+      <Label fx:id="lblName" layoutX="460.0" layoutY="14.0" text="No Stave Selected" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="itemTable" prefHeight="698.0" prefWidth="302.0">
+         <columns>
+            <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Staves" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

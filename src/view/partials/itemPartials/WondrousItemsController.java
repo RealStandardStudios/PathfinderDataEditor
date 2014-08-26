@@ -1,13 +1,20 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import pathfinder.data.Items.*;
-import jefXif.WindowController;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import pathfinder.data.Items.Item;
+import pathfinder.data.Items.WondrousGood;
 
-public class WondrousItemsController extends WindowController {
+public class WondrousItemsController extends ItemPartialController {
 
-
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	@FXML
@@ -30,19 +37,19 @@ public class WondrousItemsController extends WindowController {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setStave(WondrousGood item)
-	{
-		if(item != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(((WondrousGood)item) != null)
 		{
-			lblName.setText(item.getName());
-			lblAura.setText(item.getAuraStrength());
-			lblCasterLevel.setText(item.getCasterLevel());
-			lblPrice.setText(item.getCost());
-			lblWeight.setText(item.getWeight());
-			lblDescription.setText(item.getDescription());
-			lblConstruction.setText(item.getConstruction());
-			lblSlot.setText(item.getSlot());
+			lblName.setText(((WondrousGood)item).getName());
+			lblAura.setText(((WondrousGood)item).getAuraStrength());
+			lblCasterLevel.setText(((WondrousGood)item).getCasterLevel());
+			lblPrice.setText(((WondrousGood)item).getCost());
+			lblWeight.setText(((WondrousGood)item).getWeight());
+			lblDescription.setText(((WondrousGood)item).getDescription());
+			lblConstruction.setText(((WondrousGood)item).getConstruction());
+			lblSlot.setText(((WondrousGood)item).getSlot());
 		}
 		else
 		{
@@ -55,6 +62,15 @@ public class WondrousItemsController extends WindowController {
 			lblConstruction.setText("");
 			lblSlot.setText("");
 		}
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }

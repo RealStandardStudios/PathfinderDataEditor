@@ -1,12 +1,20 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import jefXif.WindowController;
 import pathfinder.data.Items.*;
 
-public class MagicArmorController extends WindowController {
+public class MagicArmorController extends ItemPartialController {
 
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblArmorName;
 	@FXML
@@ -42,24 +50,24 @@ public class MagicArmorController extends WindowController {
 
 	}
 	
-	public void setMagicArmor(MagicArmor magicArmor)
-	{
-		if(magicArmor != null)
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblArmorName.setText(magicArmor.getName());
-			lblACBonus.setText(magicArmor.getArmorBonus() + "");
-			lblMaxDex.setText(magicArmor.getMaxDexBonus() + "");
-			lblArmorCheckPenalty.setText(magicArmor.getArmorCheckPenalty()+"");
-			lblArcaneSpellFalure.setText(magicArmor.getArcaneSpellFailiure()+"");
-			lblSpeed30ft.setText(magicArmor.getSpeed30feet() +"");
-			lblSpeed20ft.setText(magicArmor.getSpeed20feet()+"");
-			lblSlot.setText(magicArmor.getSlot());
-			lblAuraStrength.setText(magicArmor.getAuraStrength());
-			lblCasterLevel.setText(magicArmor.getCasterLevel());
-			lblPrice.setText(magicArmor.getCost());
-			lblWeight.setText(magicArmor.getWeight());
-			lblDescription.setText(magicArmor.getDescription());
-			lblConstruction.setText(magicArmor.getConstruction());
+			lblArmorName.setText(((MagicArmor)item).getName());
+			lblACBonus.setText(((MagicArmor)item).getArmorBonus() + "");
+			lblMaxDex.setText(((MagicArmor)item).getMaxDexBonus() + "");
+			lblArmorCheckPenalty.setText(((MagicArmor)item).getArmorCheckPenalty()+"");
+			lblArcaneSpellFalure.setText(((MagicArmor)item).getArcaneSpellFailiure()+"");
+			lblSpeed30ft.setText(((MagicArmor)item).getSpeed30feet() +"");
+			lblSpeed20ft.setText(((MagicArmor)item).getSpeed20feet()+"");
+			lblSlot.setText(((MagicArmor)item).getSlot());
+			lblAuraStrength.setText(((MagicArmor)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicArmor)item).getCasterLevel());
+			lblPrice.setText(((MagicArmor)item).getCost());
+			lblWeight.setText(((MagicArmor)item).getWeight());
+			lblDescription.setText(((MagicArmor)item).getDescription());
+			lblConstruction.setText(((MagicArmor)item).getConstruction());
 		}
 		else
 		{
@@ -78,6 +86,16 @@ public class MagicArmorController extends WindowController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 		}
+		
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }

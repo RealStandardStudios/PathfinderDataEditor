@@ -1,12 +1,20 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import jefXif.WindowController;
 import pathfinder.data.Items.*;
 
-public class MagicRodController extends WindowController {
+public class MagicRodController extends ItemPartialController {
 
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	@FXML
@@ -27,18 +35,18 @@ public class MagicRodController extends WindowController {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setRod(Rods rod)
-	{
-		if(rod != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblName.setText(rod.getName());
-			lblAura.setText(rod.getAuraStrength());
-			lblCasterLevel.setText(rod.getCasterLevel());
-			lblPrice.setText(rod.getCost());
-			lblWeight.setText(rod.getWeight());
-			lblDescription.setText(rod.getDescription());
-			lblConstruction.setText(rod.getConstruction());
+			lblName.setText(((Rods)item).getName());
+			lblAura.setText(((Rods)item).getAuraStrength());
+			lblCasterLevel.setText(((Rods)item).getCasterLevel());
+			lblPrice.setText(((Rods)item).getCost());
+			lblWeight.setText(((Rods)item).getWeight());
+			lblDescription.setText(((Rods)item).getDescription());
+			lblConstruction.setText(((Rods)item).getConstruction());
 		}
 		else
 		{
@@ -50,6 +58,16 @@ public class MagicRodController extends WindowController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 		}
+		
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
 	}
 
 }

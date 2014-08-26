@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="698.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.BasicWeaponController">
+<AnchorPane prefHeight="698.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.BasicWeaponController">
    <children>
-      <GridPane layoutX="10.0" layoutY="31.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <GridPane layoutX="14.0" layoutY="49.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="49.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="152.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="285.0" />
@@ -42,10 +42,15 @@
             <Label fx:id="lblSpecial" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="117.0" layoutY="14.0" text="No Weapon Selected" AnchorPane.topAnchor="14.0">
+      <Label fx:id="lblName" layoutX="413.0" layoutY="14.0" text="No Weapon Selected" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="itemTable" layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="itemNameColumn" prefWidth="302.0" text="Weapon" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

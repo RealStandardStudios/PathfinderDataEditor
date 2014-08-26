@@ -1,12 +1,21 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import jefXif.WindowController;
-import pathfinder.data.Items.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import pathfinder.data.Items.Armor;
+import pathfinder.data.Items.Item;
 
-public class BasicArmorController extends WindowController {
+public class BasicArmorController extends ItemPartialController {
 
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
+	
 	@FXML
 	private Label lblArmorName;
 	
@@ -40,19 +49,21 @@ public class BasicArmorController extends WindowController {
 
 	}
 	
-	public void setArmor(Armor armor)
-	{
-		if(armor != null)
+	
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblArmorName.setText(armor.getName());
-			lblCost.setText(armor.getCost() + " gp");
-			lblACBonus.setText(armor.getArmorBonus() + "");
-			lblMaxDexBonus.setText(armor.getMaxDexBonus() + "");
-			lblArmorCheckPenalty.setText(armor.getArmorCheckPenalty() + "");
-			lblArcaneSpellFailure.setText(armor.getArcaneSpellFailiure() + "%");
-			lblSpeed30.setText(armor.getSpeed30feet() + " ft");
-			lblSpeed20.setText(armor.getSpeed20feet() + " ft");
-			lblWeight.setText(armor.getWeight() + " lbs");
+			lblArmorName.setText(((Armor)item).getName());
+			lblCost.setText(((Armor)item).getCost() + "");
+			lblACBonus.setText(((Armor)item).getArmorBonus() + "");
+			lblMaxDexBonus.setText(((Armor)item).getMaxDexBonus() + "");
+			lblArmorCheckPenalty.setText(((Armor)item).getArmorCheckPenalty() + "");
+			lblArcaneSpellFailure.setText(((Armor)item).getArcaneSpellFailiure() + "");
+			lblSpeed30.setText(((Armor)item).getSpeed30feet() + "");
+			lblSpeed20.setText(((Armor)item).getSpeed20feet() + "");
+			lblWeight.setText(((Armor)item).getWeight() + "");
 		}
 		else
 		{
@@ -66,6 +77,17 @@ public class BasicArmorController extends WindowController {
 			lblSpeed20.setText("");
 			lblWeight.setText("");
 		}
+		
+	}
+
+
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}
 
 }

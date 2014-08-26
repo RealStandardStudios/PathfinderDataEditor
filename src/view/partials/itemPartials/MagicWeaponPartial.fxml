@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicWeaponController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicWeaponController">
    <children>
-      <GridPane layoutX="14.0" layoutY="147.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
+      <GridPane layoutX="14.0" layoutY="147.0" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="177.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="350.0" />
@@ -55,10 +55,15 @@
             <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="126.0" layoutY="14.0" text="No Magic Weapon Selected">
+      <Label fx:id="lblName" layoutX="376.0" layoutY="14.0" text="No Magic Weapon Selected">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="itemTable" prefHeight="698.0" prefWidth="302.0">
+         <columns>
+            <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Magic Weapon" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

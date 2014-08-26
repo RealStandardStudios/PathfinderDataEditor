@@ -1,12 +1,20 @@
 package view.partials.itemPartials;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import jefXif.WindowController;
 import pathfinder.data.Items.*;
 
-public class MagicRingController extends WindowController {
+public class MagicRingController extends ItemPartialController {
 	
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblName;
 	@FXML
@@ -25,17 +33,17 @@ public class MagicRingController extends WindowController {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setMagicRing(MagicRing ring)
-	{
-		if(ring != null)
+
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblName.setText(ring.getName());
-			lblAura.setText(ring.getAuraStrength());
-			lblCasterLevel.setText(ring.getCasterLevel());
-			lblPrice.setText(ring.getCost());
-			lblDescription.setText(ring.getDescription());
-			lblConstruction.setText(ring.getConstruction());
+			lblName.setText(((MagicRing)item).getName());
+			lblAura.setText(((MagicRing)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicRing)item).getCasterLevel());
+			lblPrice.setText(((MagicRing)item).getCost());
+			lblDescription.setText(((MagicRing)item).getDescription());
+			lblConstruction.setText(((MagicRing)item).getConstruction());
 		}
 		else
 		{
@@ -46,6 +54,15 @@ public class MagicRingController extends WindowController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 		}
+		
+	}
+
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}
 
 }
