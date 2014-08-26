@@ -92,8 +92,6 @@ public class ClassesController extends WindowController implements DataLoader {
 	
 	/*
 	 * Link Class Progression table fxml entities to the Controller
-	 * 
-	 * All classes:
 	 */
 	@FXML
 	private TableView<LevelTableRow> tableLevelTable;
@@ -141,7 +139,7 @@ public class ClassesController extends WindowController implements DataLoader {
 		// Init the Classes table with the column for class Name
 		columnClassName.setCellValueFactory(cellData -> cellData.getValue().getNameProperty());
 
-		// Clear Class details
+		// Clear person details
 		showClassDetails(null);
 
 		// Set data from the observable list of classes to display in the table
@@ -562,7 +560,6 @@ public class ClassesController extends WindowController implements DataLoader {
 				// Make an array of Strings to hold the data
 				String[] lines = readLine.split("\t");
 				int levelNum = Integer.parseInt(lines[0]);
-				
 				// Split lines[1] (BAB) on '/' to handle BAB data for higher levels
 				String[] babString = lines[1].split("/");
 				// make an array of ints the same length
@@ -571,63 +568,6 @@ public class ClassesController extends WindowController implements DataLoader {
 				for(int i=0;i<babString.length;i++){
 					babs[i] = Integer.parseInt(babString[i].replace("+",""));
 				}
-				
-				int fortSave = Integer.parseInt(lines[2]);
-				int refSave = Integer.parseInt(lines[3]);
-				int willSave = Integer.parseInt(lines[4]);
-				SaveAttribute fortSaveAtt = new SaveAttribute("Fortitude",AbilityName.Constitution,fortSave);
-				SaveAttribute refSaveAtt = new SaveAttribute("Reflex",AbilityName.Dexterity,refSave);
-				SaveAttribute willSaveAtt = new SaveAttribute("Will",AbilityName.Wisdom,willSave);
-				
-				//Make a new tableRow(levelNum, BaseAttackBonus, FortitudeSave, ReflexSave, WillSave, String[])
-				LevelTableRow tableRow = new LevelTableRow(
-						levelNum,
-						babs,
-						fortSaveAtt, refSaveAtt, willSaveAtt,
-						lines[5].split(",")
-				);
-				levelTable[count] = tableRow;
-				count++;
-			}
-
-			classes.get(filename).SetLevelTable(FXCollections.observableArrayList(levelTable));
-		}
-		
-		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			Logger.getLogger(ClassesController.class.toString()).log(
-					Level.SEVERE, null, e);
-		}
-	}
-	
-	private void readCasterClass(String filename) {
-		Scanner reader;
-		try {
-			reader = new Scanner(new FileReader(
-					"data/class_progression/prog_" + filename.toLowerCase()+".tsv"));
-			String readLine = reader.nextLine(); //the heading line
-			LevelTableRow[] levelTable = new LevelTableRow[20];
-			// Continue to read the rest of the file
-			int count = 0;
-			while(reader.hasNextLine()) {
-				readLine = reader.nextLine();
-				
-				// Make an array of Strings to hold the data
-				String[] lines = readLine.split("\t");
-				int levelNum = Integer.parseInt(lines[0]);
-
-				// Split lines[1] (BAB) on '/' to handle BAB data for higher levels
-				String[] babString = lines[1].split("/");
-
-				// make an array of ints the same length
-				int[] babs = new int[babString.length];
-
-				// set all the babs to the values in the string one, remove the pluses
-				for(int i=0;i<babString.length;i++){
-					babs[i] = Integer.parseInt(babString[i].replace("+",""));
-				}
-				
-				
 				//Make a new tableRow(levelNum, BaseAttackBonus, FortitudeSave, ReflexSave, WillSave, String[])
 				LevelTableRow tableRow = new LevelTableRow(
 						levelNum,
@@ -649,7 +589,12 @@ public class ClassesController extends WindowController implements DataLoader {
 			Logger.getLogger(ClassesController.class.toString()).log(
 					Level.SEVERE, null, e);
 		}
-	}	
+	}
+	
+	private void readCasterClass(String filename) {
+		
+	}
+	
 
 	/**
 	 * loads data
@@ -658,9 +603,14 @@ public class ClassesController extends WindowController implements DataLoader {
 	public void loadData() {
 		//load data through jefxif
 		readSummary();
-		//load the class levelTables
+		//load the levelTable for barbarian
 		readMeleeClass("Barbarian");
+		readMeleeClass("Cavalier");
 		readMeleeClass("Fighter");
+		readMeleeClass("Gunslinger");
+		readMeleeClass("Ninja");
+		readMeleeClass("Rogue");
+		readMeleeClass("Samurai");
 		
 		obsListClasses.setAll(classes.values());
 	}
