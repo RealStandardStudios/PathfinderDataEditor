@@ -201,6 +201,7 @@ public class ClassesController extends WindowController implements DataLoader {
 			tableLevelTable.setItems(null);
 		}
 	}
+	
 
 	/**
 	 * Reads class summary data from a .tsv file
@@ -241,6 +242,14 @@ public class ClassesController extends WindowController implements DataLoader {
 							new String[] { lines[7] },
 							new String[] { lines[7] },
 							new LevelTableRow[] { new LevelTableRow() })
+							/* Level Table Row:
+							 * Secondary reader to read in LevelTableRow from the data file for each class.
+							 * Add the LevelTableRow to the LevelTableRow[] array.
+							 * Repeat for the 20 rows.
+							 * 
+							 * Make a method to do that ^ and call it from here.
+							 * Probably need to conditionalise the method for each Class so it gets the right data.
+							 */
 					);
 					break;
 					
@@ -581,6 +590,10 @@ public class ClassesController extends WindowController implements DataLoader {
 		}
 	}
 	
+	private void readCasterClass(String filename) {
+		
+	}
+	
 
 	/**
 	 * loads data
@@ -591,6 +604,12 @@ public class ClassesController extends WindowController implements DataLoader {
 		readSummary();
 		//load the levelTable for barbarian
 		readMeleeClass("Barbarian");
+		readMeleeClass("Cavalier");
+		readMeleeClass("Fighter");
+		readMeleeClass("Gunslinger");
+		readMeleeClass("Ninja");
+		readMeleeClass("Rogue");
+		readMeleeClass("Samurai");
 		
 		obsListClasses.setAll(classes.values());
 	}
