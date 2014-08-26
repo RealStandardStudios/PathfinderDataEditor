@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.logging.Level;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,8 +26,6 @@ import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Effects.Effect;
 import pathfinder.data.Feats.Feat;
 import view.partials.dialogs.FeatEditDialogController;
-
-import com.sun.istack.internal.logging.Logger;
 
 /**
  * the controller for the layout of the Feats section

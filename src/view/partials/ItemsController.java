@@ -1,6 +1,5 @@
 package view.partials;
 
-import java.io.Console;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,25 +7,32 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import org.controlsfx.dialog.Dialogs;
-
-import com.sun.istack.internal.logging.Logger;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import jefXif.DataLoader;
 import jefXif.Gui;
 import jefXif.PartialLoader;
 import jefXif.WindowController;
-import pathfinder.data.Feats.Feat;
-import pathfinder.data.Items.*;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import pathfinder.data.Items.Armor;
+import pathfinder.data.Items.CursedItem;
+import pathfinder.data.Items.Goods;
+import pathfinder.data.Items.Item;
+import pathfinder.data.Items.MagicArmor;
+import pathfinder.data.Items.MagicRing;
+import pathfinder.data.Items.MagicWeapon;
+import pathfinder.data.Items.Rods;
+import pathfinder.data.Items.Staves;
+import pathfinder.data.Items.Weapon;
+import pathfinder.data.Items.WondrousGood;
+
+import com.sun.istack.internal.logging.Logger;
 
 public class ItemsController extends WindowController implements PartialLoader, DataLoader{
 
