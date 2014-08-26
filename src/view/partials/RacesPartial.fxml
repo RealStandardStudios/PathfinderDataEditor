@@ -12,9 +12,9 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="8.0" layoutY="6.0" prefHeight="698.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableRaces" layoutX="8.0" layoutY="6.0" prefHeight="698.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="257.0" text="Race Name" />
+                      <TableColumn fx:id="tableNameColumn" prefWidth="257.0" text="Race Name" />
                     </columns>
                   </TableView>
                </children>
