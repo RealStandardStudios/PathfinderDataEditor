@@ -12,38 +12,29 @@ public class BasicArmorController extends ItemPartialController {
 
 	@FXML
 	TableView<Item> itemTable;
-	
 	@FXML
 	TableColumn<Item, String> itemNameColumn;
 	
 	@FXML
 	private Label lblArmorName;
-	
 	@FXML
 	private Label lblCost;
-	
 	@FXML
 	private Label lblACBonus;
-	
 	@FXML
 	private Label lblMaxDexBonus;
-	
 	@FXML
 	private Label lblArmorCheckPenalty;
-	
 	@FXML
 	private Label lblArcaneSpellFailure;
-	
 	@FXML
 	private Label lblSpeed30;
-	
 	@FXML
 	private Label lblSpeed20;
-	
 	@FXML
 	private Label lblWeight;
-	
 	@Override
+	
 	public void initialize() {
 		// TODO Auto-generated method stub
 
