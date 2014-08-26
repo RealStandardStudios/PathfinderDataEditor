@@ -30,7 +30,11 @@ public class BasicWeaponController extends ItemPartialController {
 	@FXML
 	private Label lblWeight;
 	@FXML
-	private Label lblType;
+	private Label lblDmgType;
+	@FXML
+	private Label lblWeaponType;
+	@FXML
+	private Label lblWieldStyle;
 	@FXML
 	private Label lblSpecial;
 	
@@ -51,8 +55,10 @@ public class BasicWeaponController extends ItemPartialController {
 			lblCritical.setText(((Weapon)item).getCritical());
 			lblRange.setText(((Weapon)item).getRange());
 			lblWeight.setText(((Weapon)item).getWeight());
-			lblType.setText(((Weapon)item).getWeaponDmgType());
+			lblDmgType.setText(((Weapon)item).getWeaponDmgType());
 			lblSpecial.setText(((Weapon)item).getSpecial());
+			lblWeaponType.setText(((Weapon)item).getWeaponType());
+			lblWieldStyle.setText(((Weapon)item).getWieldStyle());
 		}
 		else
 		{
@@ -63,8 +69,10 @@ public class BasicWeaponController extends ItemPartialController {
 			lblCritical.setText("");
 			lblRange.setText("");
 			lblWeight.setText("");
-			lblType.setText("");
+			lblDmgType.setText("");
 			lblSpecial.setText("");
+			lblWeaponType.setText("");
+			lblWieldStyle.setText("");
 		}
 		
 	}

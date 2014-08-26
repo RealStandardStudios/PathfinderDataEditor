@@ -31,7 +31,11 @@ public class MagicWeaponController extends ItemPartialController {
 	@FXML
 	private Label lblWeight;
 	@FXML
-	private Label lblType;
+	private Label lblDmgType;
+	@FXML
+	private Label lblWeaponType;
+	@FXML
+	private Label lblWieldStyle;
 	@FXML
 	private Label lblSpecial;
 	@FXML
@@ -60,12 +64,14 @@ public class MagicWeaponController extends ItemPartialController {
 			lblCritical.setText(((MagicWeapon)item).getCritical());
 			lblRange.setText(((MagicWeapon)item).getRange());
 			lblWeight.setText(((MagicWeapon)item).getWeight());
-			lblType.setText(((MagicWeapon)item).getWeaponDmgType());
+			lblDmgType.setText(((MagicWeapon)item).getWeaponDmgType());
 			lblSpecial.setText(((MagicWeapon)item).getSpecial());
 			lblAura.setText(((MagicWeapon)item).getAuraStrength());
 			lblCasterLevel.setText(((MagicWeapon)item).getCasterLevel());
 			lblDescription.setText(((MagicWeapon)item).getDescription());
 			lblConstruction.setText(((MagicWeapon)item).getConstruction());
+			lblWeaponType.setText(((MagicWeapon)item).getWeaponType());
+			lblWieldStyle.setText(((MagicWeapon)item).getWieldStyle());
 		}
 		else
 		{
@@ -76,12 +82,14 @@ public class MagicWeaponController extends ItemPartialController {
 			lblCritical.setText("");
 			lblRange.setText("");
 			lblWeight.setText("");
-			lblType.setText("");
+			lblDmgType.setText("");
 			lblSpecial.setText("");
 			lblAura.setText("");
 			lblCasterLevel.setText("");
 			lblDescription.setText("");
 			lblConstruction.setText("");
+			lblWeaponType.setText("");
+			lblWieldStyle.setText("");
 		}
 		
 	}

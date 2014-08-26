@@ -20,6 +20,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -29,30 +31,34 @@
             <RowConstraints maxHeight="30.0" minHeight="8.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Aura Strenth:" GridPane.rowIndex="6" />
-            <Label text="Caster Level:" GridPane.rowIndex="7" />
-            <Label text="Price:" GridPane.rowIndex="8" />
-            <Label text="Weight:" GridPane.rowIndex="9" />
-            <Label text="Description:" GridPane.rowIndex="10" />
-            <Label text="Construction:" GridPane.rowIndex="12" />
-            <Label text="Dmg(S):" />
-            <Label text="Dmg(M):" GridPane.rowIndex="1" />
-            <Label text="Critical:" GridPane.rowIndex="2" />
-            <Label text="Range:" GridPane.rowIndex="3" />
-            <Label text="Type:" GridPane.rowIndex="4" />
-            <Label text="Special:" GridPane.rowIndex="5" />
-            <Label fx:id="lblDMGS" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="lblDMGM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lblCritical" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="lblRange" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lblType" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="lblSpecial" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="lblAura" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Aura Strenth:" GridPane.rowIndex="8" />
+            <Label text="Caster Level:" GridPane.rowIndex="9" />
+            <Label text="Price:" GridPane.rowIndex="10" />
+            <Label text="Weight:" GridPane.rowIndex="11" />
+            <Label text="Description:" GridPane.rowIndex="12" />
+            <Label text="Construction:" GridPane.rowIndex="14" />
+            <Label text="Dmg(S):" GridPane.rowIndex="2" />
+            <Label text="Dmg(M):" GridPane.rowIndex="3" />
+            <Label text="Critical:" GridPane.rowIndex="4" />
+            <Label text="Range:" GridPane.rowIndex="5" />
+            <Label text="Damage Type:" GridPane.rowIndex="6" />
+            <Label text="Special:" GridPane.rowIndex="7" />
+            <Label fx:id="lblDMGS" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblDMGM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lblCritical" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="lblRange" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblDmgType" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="lblSpecial" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="lblAura" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="Weapon Type:" />
+            <Label text="Wield Style:" GridPane.rowIndex="1" />
+            <Label fx:id="lblWeaponType" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblWieldStyle" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Label fx:id="lblName" layoutX="376.0" layoutY="14.0" text="No Magic Weapon Selected">
