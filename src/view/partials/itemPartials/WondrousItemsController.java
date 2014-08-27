@@ -73,4 +73,10 @@ public class WondrousItemsController extends ItemPartialController {
 		
 	}
 
+	@Override
+	public boolean showItemEditDialog(Item item) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
