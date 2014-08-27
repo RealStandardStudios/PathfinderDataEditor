@@ -133,14 +133,6 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	}
 	@Override
 	public void initialize() {
-		try {
-			String[] partials = {"BasicGoods","BasicArmor","BasicWeapon","MagicArmor","MagicWeapon","MagicRing","MagicRod","MagicStaves","WondrousItems"};
-			for (String string : partials) {
-				this.partials.put(string, loadPartial(string, this.getInterface()));
-			}
-		} catch (IOException e) {
-			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
-		}
 		
 	}
 	
@@ -153,6 +145,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 		Node node = loader.load();
 		ItemPartialController controller = loader.getController();// YUDODIS
 		controller.setNode(node);
+		controller.setInterface(ui);
 		return controller;
 	}
 
@@ -161,6 +154,15 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	 */
 	@Override
 	public void loadData() {
+		try {
+			String[] partials = {"BasicGoods","BasicArmor","BasicWeapon","MagicArmor","MagicWeapon","MagicRing","MagicRod","MagicStaves","WondrousItems"};
+			for (String string : partials) {
+				this.partials.put(string, loadPartial(string, this.getInterface()));
+			}
+		} catch (IOException e) {
+			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
+		}
+		
 		loadArmor();
 		loadWeapon();
 		loadCursedItems();

@@ -1,12 +1,23 @@
 package view.partials.itemPartials;
 
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import jefXif.WindowController;
-import pathfinder.data.Items.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import org.controlsfx.dialog.Dialogs;
+
+import pathfinder.data.Items.Item;
+import pathfinder.data.Items.Weapon;
+import view.partials.itemPartials.dialogs.BasicWeaponEditController;
 
 public class BasicWeaponController extends ItemPartialController {
 
@@ -84,6 +95,56 @@ public class BasicWeaponController extends ItemPartialController {
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		
+	}
+
+	@FXML
+	private void handleEditWeapon() {
+	    Item selectedWeapon = itemTable.getSelectionModel().getSelectedItem();
+	    if (selectedWeapon != null) {
+	        boolean okClicked = showItemEditDialog(selectedWeapon);
+	        if (okClicked) {
+	            setItemDetails(selectedWeapon);
+	        }
+
+	    } else {
+	        // Nothing selected.
+	        Dialogs.create()
+	            .title("No Selection")
+	            .masthead("No Weapon Selected")
+	            .message("Please select a weapon in the table.")
+	            .showWarning();
+	    }
+	}
+	
+	@Override
+	public boolean showItemEditDialog(Item item) {
+		try {
+	        // Load the fxml file and create a new stage for the popup dialog.
+	        FXMLLoader loader =new FXMLLoader();
+	        loader.setLocation(this.getClass().getResource("dialogs/BasicWeaponEditDialog.fxml"));
+	        AnchorPane page = (AnchorPane) loader.load();
+
+	        // Create the dialog Stage.
+	        Stage dialogStage = new Stage();
+	        dialogStage.setTitle("Edit Weapon");
+	        dialogStage.initModality(Modality.WINDOW_MODAL);
+	        dialogStage.initOwner(this.getInterface().getPrimaryStage());
+	        Scene scene = new Scene(page);
+	        dialogStage.setScene(scene);
+
+	        // Set the person into the controller.
+	        BasicWeaponEditController controller = loader.getController();
+	        controller.setDialogStage(dialogStage);
+	        controller.setWeapon((Weapon)item);
+
+	        // Show the dialog and wait until the user closes it
+	        dialogStage.showAndWait();
+
+	        return controller.isOkClicked();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
 
 }

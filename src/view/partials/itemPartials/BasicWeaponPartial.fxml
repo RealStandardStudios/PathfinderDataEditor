@@ -58,5 +58,6 @@
           <TableColumn fx:id="itemNameColumn" prefWidth="302.0" text="Weapon" />
         </columns>
       </TableView>
+      <Button layoutX="819.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleEditWeapon" text="Edit" />
    </children>
 </AnchorPane>

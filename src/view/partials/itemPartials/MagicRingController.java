@@ -65,4 +65,10 @@ public class MagicRingController extends ItemPartialController {
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}
 
+	@Override
+	public boolean showItemEditDialog(Item item) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

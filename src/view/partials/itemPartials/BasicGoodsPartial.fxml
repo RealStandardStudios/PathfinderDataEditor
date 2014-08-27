@@ -34,5 +34,6 @@
           <TableColumn fx:id="itemNameColumn" prefWidth="302.0" text="Basic Goods" />
         </columns>
       </TableView>
+      <Button layoutX="826.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleEditGoods" text="Edit" />
    </children>
 </AnchorPane>
