@@ -160,8 +160,13 @@ public class RacesController extends WindowController implements DataLoader {
 					
 					r.setSize(Sizes.get(parts[3]));
 					
-					r.setSpeedLoss(false);
+					r.setSpeed(Integer.parseInt(parts[5]));
 					
+					if(parts[6].equals("0"))
+						r.setSpeedLoss(false);
+					else
+						r.setSpeedLoss(true);
+					// new VisionType(distance, name)
 					r.setVisionTypes(new VisionType[]{});
 					
 					r.setRacialTraits(new ArrayList<Trait>(){{
