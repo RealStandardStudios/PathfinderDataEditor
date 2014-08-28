@@ -29,10 +29,10 @@ import pathfinder.data.Races.Traits.Trait;
 public class RacesController extends WindowController implements DataLoader {
 	@FXML
 	TableView<Race> tableRaces;
-	
+
 	@FXML
-	TableColumn<Race,String> tableNameColumn;
-	
+	TableColumn<Race, String> tableNameColumn;
+
 	@FXML
 	Label lblName;
 
@@ -55,6 +55,22 @@ public class RacesController extends WindowController implements DataLoader {
 	TextArea txtaAdventures;
 
 	@FXML
+	Label labelRacialModifiers;
+
+	@FXML
+	Label labelSize;
+	@FXML
+	Label labelSpeed;
+	@FXML
+	Label labelVision;
+	@FXML
+	Label labelTraits;
+	@FXML
+	Label labelWeapons;
+	@FXML
+	Label labelLanguages;
+
+	@FXML
 	Button btnEditSheet;
 
 	@FXML
@@ -68,14 +84,35 @@ public class RacesController extends WindowController implements DataLoader {
 	@Override
 	public void initialize() {
 		tableRaces.setItems(races);
-		
+
 		showRaceDetails(null);
-		
-		tableNameColumn.setCellValueFactory(celldata->celldata.getValue().getNameProperty());
+
+		tableNameColumn.setCellValueFactory(celldata -> celldata.getValue()
+				.getNameProperty());
+		tableRaces
+				.getSelectionModel()
+				.selectedItemProperty()
+				.addListener(
+						(observable, oldValue, newValue) -> showRaceDetails(newValue));
 	}
 
 	private void showRaceDetails(Race r) {
-				
+		if (r != null) {
+			lblName.setText(r.getName());
+			txtaDescription.setText(r.getDescription());
+			txtaPDescription.setText(r.getPhysicalDescription());
+			txtaSociety.setText(r.getSociety());
+			txtaRelations.setText(r.getRelations());
+			txtaReligion.setText(r.getAlignmentAndReligion());
+			txtaAdventures.setText(r.getAdventures());
+			labelRacialModifiers.setText(r.getRacialModifierString());
+			labelSize.setText(r.getSize().name());
+			labelSpeed.setText(Integer.toString(r.getSpeed()));
+			labelVision.setText(r.getVisionString());
+			labelTraits.setText(r.getTraitsString());
+			labelWeapons.setText(r.getWeaponsString());
+			labelLanguages.setText(r.getLanguagesString());
+		}
 	}
 
 	@FXML
@@ -88,34 +125,40 @@ public class RacesController extends WindowController implements DataLoader {
 
 	}
 
+	@SuppressWarnings("serial")
 	@Override
 	public void loadData() {
-		AbilityNames = new HashMap<String, AbilityName>(){{
-			put(AbilityName.Charisma.name(),AbilityName.Charisma);
-			put(AbilityName.Constitution.name(), AbilityName.Constitution);
-			put(AbilityName.Dexterity.name(),AbilityName.Dexterity);
-			put(AbilityName.Intelligence.name(), AbilityName.Intelligence);
-			put(AbilityName.Strength.name(), AbilityName.Strength);
-			put(AbilityName.Wisdom.name(), AbilityName.Wisdom);
-		}};
-		
-		Sizes = new HashMap<String, Size>(){{
-			put(Size.Colossal.name(), Size.Colossal);
-			put(Size.Diminutive.name(), Size.Diminutive);
-			put(Size.Fine.name(), Size.Fine);
-			put(Size.Gargantuan.name(), Size.Gargantuan);
-			put(Size.Huge.name(), Size.Huge);
-			put(Size.Large.name(), Size.Large);
-			put(Size.Medium.name(), Size.Medium);
-			put(Size.Small.name(), Size.Small);
-			put(Size.Tiny.name(), Size.Tiny);
-		}};
+		AbilityNames = new HashMap<String, AbilityName>() {
+			{
+				put(AbilityName.Charisma.name(), AbilityName.Charisma);
+				put(AbilityName.Constitution.name(), AbilityName.Constitution);
+				put(AbilityName.Dexterity.name(), AbilityName.Dexterity);
+				put(AbilityName.Intelligence.name(), AbilityName.Intelligence);
+				put(AbilityName.Strength.name(), AbilityName.Strength);
+				put(AbilityName.Wisdom.name(), AbilityName.Wisdom);
+			}
+		};
+
+		Sizes = new HashMap<String, Size>() {
+			{
+				put(Size.Colossal.name(), Size.Colossal);
+				put(Size.Diminutive.name(), Size.Diminutive);
+				put(Size.Fine.name(), Size.Fine);
+				put(Size.Gargantuan.name(), Size.Gargantuan);
+				put(Size.Huge.name(), Size.Huge);
+				put(Size.Large.name(), Size.Large);
+				put(Size.Medium.name(), Size.Medium);
+				put(Size.Small.name(), Size.Small);
+				put(Size.Tiny.name(), Size.Tiny);
+			}
+		};
 		raceList = new HashMap<>();
 		loadRaceSheet();
 		loadRaceTraits();
 		races.setAll(raceList.values());
 	}
 
+	@SuppressWarnings("serial")
 	private void loadRaceTraits() {
 		try {
 			Scanner kb = new Scanner(new FileReader("data/RaceTraits.tsv"));
@@ -130,51 +173,78 @@ public class RacesController extends WindowController implements DataLoader {
 					String[] traits = parts[1].split(",");
 					switch (traits.length) {
 					case 1:
-						r.setRacialModifiers(new AbilityEffect[] { 
-							new AbilityEffect(new Integer(traits[0].trim().substring(0, 2)), name, null) 
-						});
+						r.setRacialModifiers(new AbilityEffect[] { new AbilityEffect(
+								new Integer(traits[0].trim().substring(0, 2)),
+								name, null) });
 						break;
 					case 2:
-						r.setRacialModifiers(new AbilityEffect[] { 
-							new AbilityEffect(new Integer(traits[0].trim().substring(0, 2)), name, AbilityNames.get(traits[0].substring(3).trim())),
-							new AbilityEffect(new Integer(traits[1].trim().substring(0, 2)),name, AbilityNames.get(traits[1].substring(3).trim()))
-						});
+						r.setRacialModifiers(new AbilityEffect[] {
+								new AbilityEffect(new Integer(traits[0].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[0].substring(3).trim())),
+								new AbilityEffect(new Integer(traits[1].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[1].substring(3).trim())) });
 						break;
 					case 3:
-						r.setRacialModifiers(new AbilityEffect[] { 
-							new AbilityEffect(new Integer(traits[0].trim().substring(0, 2)), name, AbilityNames.get(traits[0].substring(3).trim())),
-							new AbilityEffect(new Integer(traits[1].trim().substring(0, 2)),name, AbilityNames.get(traits[1].substring(3).trim())),
-							new AbilityEffect(new Integer(traits[2].trim().substring(0, 2)),name, AbilityNames.get(traits[2].substring(3).trim()))
-						});
+						r.setRacialModifiers(new AbilityEffect[] {
+								new AbilityEffect(new Integer(traits[0].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[0].substring(3).trim())),
+								new AbilityEffect(new Integer(traits[1].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[1].substring(3).trim())),
+								new AbilityEffect(new Integer(traits[2].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[2].substring(3).trim())) });
 						break;
 					case 4:
-						r.setRacialModifiers(new AbilityEffect[] { 
-							new AbilityEffect(new Integer(traits[0].trim().substring(0, 2)), name, AbilityNames.get(traits[0].substring(3).trim())),
-							new AbilityEffect(new Integer(traits[1].trim().substring(0, 2)),name, AbilityNames.get(traits[1].substring(3).trim())),
-							new AbilityEffect(new Integer(traits[2].trim().substring(0, 2)),name, AbilityNames.get(traits[2].substring(3).trim())),
-							new AbilityEffect(new Integer(traits[3].trim().substring(0, 2)),name, AbilityNames.get(traits[3].substring(3).trim()))
-						});
+						r.setRacialModifiers(new AbilityEffect[] {
+								new AbilityEffect(new Integer(traits[0].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[0].substring(3).trim())),
+								new AbilityEffect(new Integer(traits[1].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[1].substring(3).trim())),
+								new AbilityEffect(new Integer(traits[2].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[2].substring(3).trim())),
+								new AbilityEffect(new Integer(traits[3].trim()
+										.substring(0, 2)), name, AbilityNames
+										.get(traits[3].substring(3).trim())) });
 					default:
 						break;
 					}
-					
+
 					r.setSize(Sizes.get(parts[3]));
-					
+
 					r.setSpeed(Integer.parseInt(parts[5]));
-					
-					if(parts[6].equals("0"))
+
+					if (parts[6].equals("0"))
 						r.setSpeedLoss(false);
 					else
 						r.setSpeedLoss(true);
 					// new VisionType(distance, name)
-					r.setVisionTypes(new VisionType[]{});
-					
-					r.setRacialTraits(new ArrayList<Trait>(){{
-						
-					}});
-					
-					r.setWeaponFamiliarity(new Weapon[]{});
-					r.setLanguages(new Language[]{});
+					ArrayList<VisionType> VisionTypes = new ArrayList<>();
+					VisionTypes.add(new VisionType(60, "Normal"));
+					if (parts[7].equals("-"))
+						VisionTypes.add(new VisionType(30, "Low-Light Vision"));
+					if (parts[7].contains("Superior Darkvision"))
+						VisionTypes.add(new VisionType(120, "Darkvision"));
+					else if (parts[7].contains("Darkvision"))
+						VisionTypes.add(new VisionType(30, "Low-Light Vision"));
+					VisionTypes.add(new VisionType(60, "Darkvision"));
+					if (parts[7].contains("Low-Light Vision"))
+						VisionTypes.add(new VisionType(60, "Low-Light Vision"));
+
+					r.setRacialTraits(new ArrayList<Trait>() {
+						{
+
+						}
+					});
+
+					r.setWeaponFamiliarity(new Weapon[] {});
+					r.setLanguages(new Language[] {});
 				}
 			}
 			kb.close();
