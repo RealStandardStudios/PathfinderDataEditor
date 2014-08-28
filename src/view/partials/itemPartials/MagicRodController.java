@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Item;
-import pathfinder.data.Items.Rods;
+import pathfinder.data.Items.MagicRod;
 import view.partials.itemPartials.dialogs.MagicRodEditController;
 
 public class MagicRodController extends ItemPartialController {
@@ -51,13 +51,13 @@ public class MagicRodController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((Rods)item).getName());
-			lblAura.setText(((Rods)item).getAuraStrength());
-			lblCasterLevel.setText(((Rods)item).getCasterLevel());
-			lblPrice.setText(((Rods)item).getCost());
-			lblWeight.setText(((Rods)item).getWeight());
-			lblDescription.setText(((Rods)item).getDescription());
-			lblConstruction.setText(((Rods)item).getConstruction());
+			lblName.setText(((MagicRod)item).getName());
+			lblAura.setText(((MagicRod)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicRod)item).getCasterLevel());
+			lblPrice.setText(((MagicRod)item).getCost());
+			lblWeight.setText(((MagicRod)item).getWeight());
+			lblDescription.setText(((MagicRod)item).getDescription());
+			lblConstruction.setText(((MagicRod)item).getConstruction());
 		}
 		else
 		{
@@ -118,7 +118,7 @@ public class MagicRodController extends ItemPartialController {
 	        // Set the person into the controller.
 	        MagicRodEditController controller = loader.getController();
 	        controller.setDialogStage(dialogStage);
-	        controller.setRod((Rods)item);
+	        controller.setRod((MagicRod)item);
 
 	        // Show the dialog and wait until the user closes it
 	        dialogStage.showAndWait();

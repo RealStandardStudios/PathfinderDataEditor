@@ -17,7 +17,6 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicWeapon;
-import pathfinder.data.Items.Weapon;
 import view.partials.itemPartials.dialogs.MagicWeaponEditController;
 
 

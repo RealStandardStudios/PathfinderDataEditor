@@ -28,7 +28,7 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicArmor;
 import pathfinder.data.Items.MagicRing;
 import pathfinder.data.Items.MagicWeapon;
-import pathfinder.data.Items.Rods;
+import pathfinder.data.Items.MagicRod;
 import pathfinder.data.Items.Staves;
 import pathfinder.data.Items.Weapon;
 import pathfinder.data.Items.WondrousGood;
@@ -398,7 +398,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	private void loadRod()
 	{
 		String fileLoc = "data/items/Rods.tsv";
-		HashMap<String, Rods> rods = new HashMap<String, Rods>();
+		HashMap<String, MagicRod> rods = new HashMap<String, MagicRod>();
 		try
 		{
 			Scanner fileRead = new Scanner(new FileReader(fileLoc));
@@ -409,7 +409,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 			{
 				line = fileRead.nextLine();
 				String[] parts = line.split("\t");
-				Rods rod = new Rods(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+				MagicRod rod = new MagicRod(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
 				rods.put(parts[0], rod);
 			}
 			fileRead.close();

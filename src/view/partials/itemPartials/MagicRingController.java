@@ -16,9 +16,7 @@ import javafx.stage.Stage;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Item;
-import pathfinder.data.Items.MagicArmor;
 import pathfinder.data.Items.MagicRing;
-import view.partials.itemPartials.dialogs.MagicArmorEditController;
 import view.partials.itemPartials.dialogs.MagicRingEditController;
 
 public class MagicRingController extends ItemPartialController {

@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 
 import org.controlsfx.dialog.Dialogs;
 
-import pathfinder.data.Items.Armor;
 import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicArmor;
 import view.partials.itemPartials.dialogs.MagicArmorEditController;
