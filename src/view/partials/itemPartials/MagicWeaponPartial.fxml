@@ -71,5 +71,6 @@
             <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Magic Weapon" />
          </columns>
       </TableView>
+      <Button layoutX="854.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleEditWeapon" text="Edit" />
    </children>
 </AnchorPane>
