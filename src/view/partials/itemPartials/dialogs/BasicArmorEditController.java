@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
-
 import pathfinder.data.Items.Armor;
 
 public class BasicArmorEditController extends DialogController {
