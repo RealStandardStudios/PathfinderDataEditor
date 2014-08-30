@@ -1,12 +1,23 @@
 package view.partials.itemPartials;
 
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import pathfinder.data.Items.*;
-import jefXif.WindowController;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import org.controlsfx.dialog.Dialogs;
+
+import pathfinder.data.Items.Item;
+import pathfinder.data.Items.MagicStaves;
+import view.partials.itemPartials.dialogs.MagicStaveEditController;
 
 public class MagicStavesController extends ItemPartialController {
 
@@ -41,13 +52,13 @@ public class MagicStavesController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((Staves)item).getName());
-			lblAura.setText(((Staves)item).getAuraStrength());
-			lblCasterLevel.setText(((Staves)item).getCasterLevel());
-			lblPrice.setText(((Staves)item).getCost());
-			lblWeight.setText(((Staves)item).getWeight());
-			lblDescription.setText(((Staves)item).getDescription());
-			lblConstruction.setText(((Staves)item).getConstruction());
+			lblName.setText(((MagicStaves)item).getName());
+			lblAura.setText(((MagicStaves)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicStaves)item).getCasterLevel());
+			lblPrice.setText(((MagicStaves)item).getCost());
+			lblWeight.setText(((MagicStaves)item).getWeight());
+			lblDescription.setText(((MagicStaves)item).getDescription());
+			lblConstruction.setText(((MagicStaves)item).getConstruction());
 		}
 		else
 		{
@@ -71,10 +82,54 @@ public class MagicStavesController extends ItemPartialController {
 		
 	}
 
+	@FXML
+	private void handleEditMagicStave() {
+	    Item selectedStave = itemTable.getSelectionModel().getSelectedItem();
+	    if (selectedStave != null) {
+	        boolean okClicked = showItemEditDialog(selectedStave);
+	        if (okClicked) {
+	            setItemDetails(selectedStave);
+	        }
+
+	    } else {
+	        // Nothing selected.
+	        Dialogs.create()
+	            .title("No Selection")
+	            .masthead("No Stave Selected")
+	            .message("Please select a stave in the table.")
+	            .showWarning();
+	    }
+	}
+	
 	@Override
 	public boolean showItemEditDialog(Item item) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+	        // Load the fxml file and create a new stage for the popup dialog.
+	        FXMLLoader loader =new FXMLLoader();
+	        loader.setLocation(this.getClass().getResource("dialogs/MagicStaveEditDialog.fxml"));
+	        AnchorPane page = (AnchorPane) loader.load();
+
+	        // Create the dialog Stage.
+	        Stage dialogStage = new Stage();
+	        dialogStage.setTitle("Edit Wondrous Good");
+	        dialogStage.initModality(Modality.WINDOW_MODAL);
+	        dialogStage.initOwner(this.getInterface().getPrimaryStage());
+	        Scene scene = new Scene(page);
+	        dialogStage.setScene(scene);
+
+	        // Set the person into the controller.
+	        MagicStaveEditController controller = loader.getController();
+	        controller.setDialogStage(dialogStage);
+	        controller.setMagicStave((MagicStaves)item);
+
+	        // Show the dialog and wait until the user closes it
+	        dialogStage.showAndWait();
+
+	        return controller.isOkClicked();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
 
 }

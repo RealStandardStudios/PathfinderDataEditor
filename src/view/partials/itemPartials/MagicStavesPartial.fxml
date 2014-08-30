@@ -46,5 +46,6 @@
             <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Staves" />
          </columns>
       </TableView>
+      <Button layoutX="836.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleEditMagicStave" text="Edit" />
    </children>
 </AnchorPane>

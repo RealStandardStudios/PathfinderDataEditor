@@ -118,7 +118,7 @@ public class MagicRodController extends ItemPartialController {
 	        // Set the person into the controller.
 	        MagicRodEditController controller = loader.getController();
 	        controller.setDialogStage(dialogStage);
-	        controller.setRod((MagicRod)item);
+	        controller.setMagicRod((MagicRod)item);
 
 	        // Show the dialog and wait until the user closes it
 	        dialogStage.showAndWait();

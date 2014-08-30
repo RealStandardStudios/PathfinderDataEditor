@@ -105,7 +105,7 @@ public class MagicRingController extends ItemPartialController {
 
 	        // Create the dialog Stage.
 	        Stage dialogStage = new Stage();
-	        dialogStage.setTitle("Edit Magic Armor");
+	        dialogStage.setTitle("Edit Magic Ring");
 	        dialogStage.initModality(Modality.WINDOW_MODAL);
 	        dialogStage.initOwner(this.getInterface().getPrimaryStage());
 	        Scene scene = new Scene(page);
