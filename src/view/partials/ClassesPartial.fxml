@@ -100,6 +100,8 @@
                                                    <children>
                                                       <TableView fx:id="tableSpellLevelTable" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
+                                                            <TableColumn fx:id="columnLevelSpells" prefWidth="75.0" text="Level" />
+                                                            <TableColumn fx:id="column0" prefWidth="70.0" text="0" />
                                                             <TableColumn fx:id="column1st" prefWidth="70.0" text="1st" />
                                                             <TableColumn fx:id="column2nd" prefWidth="70.0" text="2nd" />
                                                             <TableColumn fx:id="column3rd" prefWidth="70.0" text="3rd" />
@@ -122,11 +124,13 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <TableView fx:id="tableSpellLevelTable1" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="tableSpellsKnown" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columnResizePolicy>
                                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                                          </columnResizePolicy>
                                                          <columns>
+                                                            <TableColumn fx:id="columnLevelSpellsKnown" prefWidth="75.0" text="Level" />
+                                                            <TableColumn fx:id="column0Known" prefWidth="75.0" text="0" />
                                                             <TableColumn fx:id="column1stKnown" prefWidth="70.0" text="1st" />
                                                             <TableColumn fx:id="column2ndKnown" prefWidth="70.0" text="2nd" />
                                                             <TableColumn fx:id="column3rdKnown" prefWidth="70.0" text="3rd" />
