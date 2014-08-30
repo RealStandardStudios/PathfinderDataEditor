@@ -1,5 +1,6 @@
 package view.partials;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jefXif.DataLoader;
-import jefXif.WindowController;
+import jefXif.MainPartialController;
 
 import org.controlsfx.dialog.Dialogs;
 
@@ -33,7 +34,7 @@ import view.partials.dialogs.SpellEditDialogController;
  * 
  * @author Real Standard Studios - Kenneth Cooper
  */
-public class SpellsController extends WindowController implements DataLoader {
+public class SpellsController extends MainPartialController implements DataLoader {
 
 	private ObservableList<Spell> spellData = FXCollections
 			.observableArrayList();
@@ -281,7 +282,7 @@ public class SpellsController extends WindowController implements DataLoader {
 	}
 
 	@Override
-	public void loadData() {
+	public void loadData(File file) {
 		// This is where it will read in the file saved through the program or
 		// use the tsvs as a fallback
 		readData();
@@ -346,5 +347,17 @@ public class SpellsController extends WindowController implements DataLoader {
 				.message("Please select a spell in the table.")
 				.showWarning();
 		}
+	}
+
+	@Override
+	public void saveDataToFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadDataFromFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }

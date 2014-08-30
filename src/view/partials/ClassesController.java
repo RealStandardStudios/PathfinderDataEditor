@@ -1,7 +1,9 @@
 package view.partials;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -14,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import jefXif.DataLoader;
-import jefXif.WindowController;
+import jefXif.MainPartialController;
 import pathfinder.data.DiceType;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Attributes.SaveAttribute;
@@ -51,7 +53,7 @@ import pathfinder.data.Spells.Spell;
  * 
  * @author Real Standard Studios - Matthew Meehan, Ian Larsen
  */
-public class ClassesController extends WindowController implements DataLoader {
+public class ClassesController extends MainPartialController implements DataLoader {
 
 	/*
 	 * Link Class table fxml entities to the Controller
@@ -636,7 +638,7 @@ public class ClassesController extends WindowController implements DataLoader {
 	 * loads data
 	 */
 	@Override
-	public void loadData() {
+	public void loadData(File file) {
 		// load data through jefxif
 		readSummary();
 		// load the levelTable for barbarian
@@ -664,5 +666,17 @@ public class ClassesController extends WindowController implements DataLoader {
 		readMeleeClass("Wizard");
 
 		obsListClasses.setAll(classes.values());
+	}
+
+	@Override
+	public void saveDataToFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadDataFromFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }

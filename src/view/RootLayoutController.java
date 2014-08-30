@@ -1,12 +1,14 @@
 package view;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
-import jefXif.WindowController;
+import jefXif.MainPartialController;
 import window.Interface;
 
 /**
@@ -17,7 +19,10 @@ import window.Interface;
 public class RootLayoutController {
 	private Interface ui;
 	
-	private HashMap<String, WindowController> windowPartials;
+	private HashMap<String, MainPartialController> windowPartials;
+	
+	@FXML
+	MenuItem menuItemSaveItems;
 	
 	@FXML
 	private BorderPane rootLayout;
@@ -72,6 +77,28 @@ public class RootLayoutController {
 		SwapWindow(windowPartials.get("Items").getNode());
 	}
 	
+	@FXML
+	private void handleSaveItems(ActionEvent event) {
+		MainPartialController itemController = windowPartials.get("Items");
+		try {
+			itemController.saveDataToFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleOpenItems(ActionEvent event) {
+		MainPartialController itemController = windowPartials.get("Items");
+		try {
+			itemController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Takes in a node and puts it in the center
 	 * 
@@ -98,14 +125,14 @@ public class RootLayoutController {
 	/**
 	 * @param windowPartials
 	 */
-	public void setWindowPartials(HashMap<String, WindowController>windowPartials) {
+	public void setWindowPartials(HashMap<String, MainPartialController>windowPartials) {
 		this.windowPartials = windowPartials;
 	}
 	
 	/**
 	 * @returns a hashmap made up of window controllers
 	 */
-	public HashMap<String,WindowController> getWindowPartials() {
+	public HashMap<String,MainPartialController> getWindowPartials() {
 		return this.windowPartials;
 	}
 }

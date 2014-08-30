@@ -7,7 +7,6 @@ import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 
-import pathfinder.data.Items.Armor;
 import pathfinder.data.Items.MagicRod;
 
 public class MagicRodEditController extends DialogController {

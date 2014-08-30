@@ -7,8 +7,6 @@ import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 
-import pathfinder.data.Items.Armor;
-import pathfinder.data.Items.MagicRod;
 import pathfinder.data.Items.MagicWeapon;
 
 public class MagicWeaponEditController extends DialogController {

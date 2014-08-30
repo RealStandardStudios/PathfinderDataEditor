@@ -8,7 +8,6 @@ import jefXif.DialogController;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicArmor;
-import pathfinder.data.Items.MagicRing;
 
 public class MagicArmorEditController extends DialogController {
 
