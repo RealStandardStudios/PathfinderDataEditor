@@ -26,9 +26,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="AC Bonus:" />
@@ -42,12 +42,12 @@
             <Label text="Caster Level:" GridPane.rowIndex="8" />
             <Label text="Price:" GridPane.rowIndex="9" />
             <Label text="Weight:" GridPane.rowIndex="10" />
-            <Label text="Description:" GridPane.rowIndex="11">
+            <Label text="Description:" GridPane.rowIndex="13">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label text="Construction:" GridPane.rowIndex="13" />
+            <Label text="Construction:" GridPane.rowIndex="12" />
             <Label fx:id="lblACBonus" text="Label" GridPane.columnIndex="1" />
             <Label fx:id="lblMaxDex" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="lblArmorCheckPenalty" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -59,8 +59,8 @@
             <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <Label fx:id="lblPrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Label fx:id="lblDescription" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="13" GridPane.vgrow="ALWAYS" />
+            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
          </children>
       </GridPane>
       <Label fx:id="lblArmorName" layoutX="434.0" layoutY="14.0" text="No Magic Armor Selected">
