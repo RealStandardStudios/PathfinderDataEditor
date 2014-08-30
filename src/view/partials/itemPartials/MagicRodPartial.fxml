@@ -46,6 +46,6 @@
             <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Rods" />
          </columns>
       </TableView>
-      <Button layoutX="828.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleEditMagicRod" text="Edit" />
+      <Button layoutX="869.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleEditMagicRod" text="Edit" />
    </children>
 </AnchorPane>

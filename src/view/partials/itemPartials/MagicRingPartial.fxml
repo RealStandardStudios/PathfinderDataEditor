@@ -43,6 +43,6 @@
           <TableColumn fx:id="itemNameColumn" prefWidth="301.0" text="Magic Rings" />
         </columns>
       </TableView>
-      <Button layoutX="854.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleEditMagicRing" text="Edit" />
+      <Button layoutX="869.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleEditMagicRing" text="Edit" />
    </children>
 </AnchorPane>

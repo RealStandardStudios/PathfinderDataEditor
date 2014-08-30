@@ -73,6 +73,6 @@
           <TableColumn fx:id="itemNameColumn" prefWidth="301.0" text="Magic Armor" />
         </columns>
       </TableView>
-      <Button layoutX="869.0" layoutY="470.0" mnemonicParsing="false" onAction="#handleEditMagicArmor" text="Edit" />
+      <Button layoutX="869.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleEditMagicArmor" text="Edit" />
    </children>
 </AnchorPane>

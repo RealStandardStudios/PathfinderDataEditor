@@ -49,6 +49,6 @@
             <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Wondrous Goods" />
          </columns>
       </TableView>
-      <Button layoutX="816.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleEditWondrousGood" text="Edit" />
+      <Button layoutX="869.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleEditWondrousGood" text="Edit" />
    </children>
 </AnchorPane>
