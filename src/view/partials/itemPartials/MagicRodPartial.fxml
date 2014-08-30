@@ -18,22 +18,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Aura:" />
             <Label text="Caster Level:" GridPane.rowIndex="1" />
             <Label text="Price:" GridPane.rowIndex="2" />
             <Label text="Weight:" GridPane.rowIndex="3" />
-            <Label text="Description:" GridPane.rowIndex="4" />
-            <Label text="Construction:" GridPane.rowIndex="5" />
+            <Label text="Description:" GridPane.rowIndex="5" />
+            <Label text="Construction:" GridPane.rowIndex="4" />
             <Label fx:id="lblAura" text="Label" GridPane.columnIndex="1" />
             <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="lblPrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblDescription" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Label fx:id="lblName" layoutX="473.0" layoutY="14.0" text="No Rod Selected">
@@ -46,6 +46,6 @@
             <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Rods" />
          </columns>
       </TableView>
-      <Button layoutX="828.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleEditMagicRod" text="Edit" />
+      <Button layoutX="869.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleEditMagicRod" text="Edit" />
    </children>
 </AnchorPane>

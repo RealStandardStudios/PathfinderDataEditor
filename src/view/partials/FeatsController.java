@@ -1,5 +1,6 @@
 package view.partials;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,7 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jefXif.DataLoader;
-import jefXif.WindowController;
+import jefXif.MainPartialController;
 
 import org.controlsfx.dialog.Dialogs;
 
@@ -33,7 +34,7 @@ import view.partials.dialogs.FeatEditDialogController;
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
-public class FeatsController extends WindowController implements DataLoader {
+public class FeatsController extends MainPartialController implements DataLoader {
 
 	@FXML
 	TableView<Feat> tableFeats;
@@ -202,10 +203,22 @@ public class FeatsController extends WindowController implements DataLoader {
 	}
 
 	@Override
-	public void loadData() {
+	public void loadData(File file) {
 		// This is where it will read in the data from the files saved through
 		// the program or use the tsvs as a fallback
 		readFeatData();
+	}
+
+	@Override
+	public void saveDataToFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadDataFromFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

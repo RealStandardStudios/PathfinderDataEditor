@@ -1,7 +1,9 @@
 package view.partials;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -16,7 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import jefXif.DataLoader;
-import jefXif.WindowController;
+import jefXif.MainPartialController;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Items.Weapon;
@@ -26,7 +28,7 @@ import pathfinder.data.Races.Objects.Size;
 import pathfinder.data.Races.Objects.VisionType;
 import pathfinder.data.Races.Traits.Trait;
 
-public class RacesController extends WindowController implements DataLoader {
+public class RacesController extends MainPartialController implements DataLoader {
 	@FXML
 	TableView<Race> tableRaces;
 
@@ -127,7 +129,7 @@ public class RacesController extends WindowController implements DataLoader {
 
 	@SuppressWarnings("serial")
 	@Override
-	public void loadData() {
+	public void loadData(File file) {
 		AbilityNames = new HashMap<String, AbilityName>() {
 			{
 				put(AbilityName.Charisma.name(), AbilityName.Charisma);
@@ -278,6 +280,18 @@ public class RacesController extends WindowController implements DataLoader {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void saveDataToFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadDataFromFile(File filePath) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -3,18 +3,19 @@ package view.partials.itemPartials.dialogs;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 
-import pathfinder.data.Items.MagicRod;
+import pathfinder.data.Items.WondrousGood;
 
-public class MagicRodEditController extends DialogController {
-
+public class WondrousGoodEditController {
+	
 	@FXML
 	private TextField rodNameField;
 	@FXML
 	private TextField casterLevelField;
+	@FXML
+	private TextField slotField;
 	@FXML
 	private TextField priceField;
 	@FXML
@@ -28,7 +29,7 @@ public class MagicRodEditController extends DialogController {
 	
 	
 	private Stage dialogStage;
-    private MagicRod rod;
+    private WondrousGood good;
     private boolean okClicked = false;
     
     public void initialize() {
@@ -43,18 +44,19 @@ public class MagicRodEditController extends DialogController {
         this.dialogStage = dialogStage;
     }
     
-    public void setMagicRod(MagicRod r) {
-    	rod = r;
-    	rodNameField.setText(r.getName());
-    	casterLevelField.setText(r.getCasterLevel());
-    	priceField.setText(r.getCost());
-    	descriptionField.setText(r.getDescription());
-    	constructionField.setText(r.getConstruction());
-    	auraStrengthField.setText(r.getAuraStrength());
-    	weightField.setText(r.getWeight());
-		
-	}
-
+    public void setWondrousGood(WondrousGood g)
+    {
+    	good = g;
+    	rodNameField.setText(g.getName());
+    	casterLevelField.setText(g.getCasterLevel());
+    	slotField.setText(g.getSlot());
+    	priceField.setText(g.getCost());
+    	descriptionField.setText(g.getDescription());
+    	constructionField.setText(g.getConstruction());
+    	auraStrengthField.setText(g.getAuraStrength());
+    	weightField.setText(g.getWeight());
+    }    
+    
     public boolean isOkClicked() {
         return okClicked;
     }
@@ -70,15 +72,17 @@ public class MagicRodEditController extends DialogController {
      * Called when the user clicks cancel.
      */
     
-    
     private boolean isInputValid() {
-    	String errorMessage = "";
+        String errorMessage = "";
 
         if (rodNameField.getText() == null || rodNameField.getText().length() == 0) {
             errorMessage += "No valid item name is set!\n"; 
         }        
         if (casterLevelField.getText() == null || casterLevelField.getText().length() == 0) {
             errorMessage += "No valid caster level is set!\n"; 
+        }
+        if (slotField.getText() == null || slotField.getText().length() == 0) {
+            errorMessage += "No valid slot is set!\n"; 
         }
         if (priceField.getText() == null || priceField.getText().length() == 0) {
             errorMessage += "No valid price is set!\n"; 
@@ -116,14 +120,15 @@ public class MagicRodEditController extends DialogController {
     
     @FXML
     private void handleOk() {
-    	if (isInputValid()) {            
-            rod.setName(rodNameField.getText());
-            rod.setAuraStrength(auraStrengthField.getText());
-            rod.setConstruction(constructionField.getText());
-            rod.setCost(priceField.getText());
-            rod.setDescription(descriptionField.getText());
-            rod.setCasterLevel(casterLevelField.getText());
-            rod.setWeight(weightField.getText());
+        if (isInputValid()) {            
+            good.setName(rodNameField.getText());
+            good.setAuraStrength(auraStrengthField.getText());
+            good.setConstruction(constructionField.getText());
+            good.setSlot(slotField.getText());
+            good.setCost(priceField.getText());
+            good.setDescription(descriptionField.getText());
+            good.setCasterLevel(casterLevelField.getText());
+            good.setWeight(weightField.getText());
 
             okClicked = true;
             dialogStage.close();
