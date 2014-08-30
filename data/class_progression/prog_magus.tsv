@@ -1,5 +1,4 @@
-Level	Base Attack Bonus	Fort Save	Ref Save	Will Save	Special	Spells per Day						
-						0	1st	2nd	3rd	4th	5th	6th
+Level	Base Attack Bonus	Fort Save	Ref Save	Will Save	Special	0	1st	2nd	3rd	4th	5th	6th
 1	+0	+2	+0	+2	Arcane Pool, Cantrips, Spell Combat	3	1	—	—	—	—	—
 2	+1	+3	+0	+3	Spellstrike	4	2	—	—	—	—	—
 3	+2	+3	+1	+3	Magus Arcana	4	3	—	—	—	—	—
