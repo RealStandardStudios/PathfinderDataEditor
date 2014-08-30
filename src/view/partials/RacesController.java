@@ -215,8 +215,9 @@ public class RacesController extends WindowController implements DataLoader {
 					default:
 						break;
 					}
+					String[] sizeparts = parts[3].split(":");
 
-					r.setSize(Sizes.get(parts[3]));
+					r.setSize(Sizes.get(sizeparts[0]));
 
 					r.setSpeed(Integer.parseInt(parts[5]));
 
