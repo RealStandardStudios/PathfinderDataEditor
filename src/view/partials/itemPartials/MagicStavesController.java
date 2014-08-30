@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import pathfinder.data.Items.*;
-import jefXif.WindowController;
+import pathfinder.data.Items.Item;
+import pathfinder.data.Items.MagicStaves;
 
 public class MagicStavesController extends ItemPartialController {
 
@@ -41,13 +41,13 @@ public class MagicStavesController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((Staves)item).getName());
-			lblAura.setText(((Staves)item).getAuraStrength());
-			lblCasterLevel.setText(((Staves)item).getCasterLevel());
-			lblPrice.setText(((Staves)item).getCost());
-			lblWeight.setText(((Staves)item).getWeight());
-			lblDescription.setText(((Staves)item).getDescription());
-			lblConstruction.setText(((Staves)item).getConstruction());
+			lblName.setText(((MagicStaves)item).getName());
+			lblAura.setText(((MagicStaves)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicStaves)item).getCasterLevel());
+			lblPrice.setText(((MagicStaves)item).getCost());
+			lblWeight.setText(((MagicStaves)item).getWeight());
+			lblDescription.setText(((MagicStaves)item).getDescription());
+			lblConstruction.setText(((MagicStaves)item).getConstruction());
 		}
 		else
 		{

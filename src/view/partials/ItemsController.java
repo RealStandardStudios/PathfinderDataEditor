@@ -29,7 +29,7 @@ import pathfinder.data.Items.MagicArmor;
 import pathfinder.data.Items.MagicRing;
 import pathfinder.data.Items.MagicWeapon;
 import pathfinder.data.Items.MagicRod;
-import pathfinder.data.Items.Staves;
+import pathfinder.data.Items.MagicStaves;
 import pathfinder.data.Items.Weapon;
 import pathfinder.data.Items.WondrousGood;
 import view.partials.itemPartials.ItemPartialController;
@@ -51,7 +51,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	ObservableList<Item> magicRings = FXCollections.observableArrayList();
 	ObservableList<Item> rods = FXCollections.observableArrayList();
 	ObservableList<Item> goodsAndServices = FXCollections.observableArrayList();
-	ObservableList<Item> staves = FXCollections.observableArrayList();
+	ObservableList<Item> MagicStaves = FXCollections.observableArrayList();
 	ObservableList<Item> wondrousGoods = FXCollections.observableArrayList();
 	
 	@FXML
@@ -111,9 +111,9 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	@FXML
 	public void handleMagicStave(ActionEvent event)
 	{	
-		ItemPartialController p = partials.get("MagicStaves"); 
+		ItemPartialController p = partials.get("MagicMagicStaves"); 
 		SwapPartial(p.getNode());
-		p.inView(staves);
+		p.inView(MagicStaves);
 	}
 	
 	@FXML
@@ -169,7 +169,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 		loadMagicRing();
 		loadGoodsAndServices();
 		loadRod();
-		loadStaves();
+		loadMagicStaves();
 		loadWondrousGoods();
 	}
 	
@@ -461,13 +461,13 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	}
 	
 	/**
-	 * this is the load method for importing Staves from a tab delimited file and storing it in a observable list
+	 * this is the load method for importing MagicStaves from a tab delimited file and storing it in a observable list
 	 */
 	
-	private void loadStaves()
+	private void loadMagicStaves()
 	{
-		String fileLoc = "data/items/Staves.tsv";
-		HashMap<String, Staves> staves = new HashMap<String, Staves>();
+		String fileLoc = "data/items/MagicStaves.tsv";
+		HashMap<String, MagicStaves> MagicStaves = new HashMap<String, MagicStaves>();
 		try
 		{
 			Scanner fileRead = new Scanner(new FileReader(fileLoc));
@@ -478,11 +478,11 @@ public class ItemsController extends WindowController implements PartialLoader, 
 			{
 				line = fileRead.nextLine();
 				String[] parts = line.split("\t");
-				Staves stave = new Staves(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
-				staves.put(parts[0], stave);
+				MagicStaves stave = new MagicStaves(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+				MagicStaves.put(parts[0], stave);
 			}
 			fileRead.close();
-			this.staves.setAll(staves.values());
+			this.MagicStaves.setAll(MagicStaves.values());
 		}
 		catch(FileNotFoundException e)
 		{
