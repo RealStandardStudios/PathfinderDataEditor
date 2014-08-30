@@ -2,6 +2,7 @@ package view.partials;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -112,7 +113,88 @@ public class ClassesController extends WindowController implements DataLoader {
 
 	@FXML
 	private TableColumn<LevelTableRow, String> columnSpecial;
+	
+	/*
+	 * Link Class Progression Spells Per Day Table fxml entities to the Controller
+	 */
+	
+	@FXML
+	private TableView<SpellLevelTableRow> tableSpellLevelTable;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> columnLevelSpells;
 
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column0;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column1st;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column2nd;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column3rd;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column4th;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column5th;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column6th;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column7th;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column8th;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column9th;
+	
+	/*
+	 * Link Class Progression Spells Known Table fxml entities to the Controller
+	 */
+	
+	@FXML
+	private TableView<SpellLevelTableRow> tableSpellsKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> columnLevelSpellsKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column0Known;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column1stKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column2ndKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column3rdKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column4thKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column5thKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column6thKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column7thKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column8thKnown;
+	
+	@FXML
+	private TableColumn<SpellLevelTableRow, Integer> column9thKnown;
+	
+	
 	private ObservableList<Class> obsListClasses = FXCollections
 			.observableArrayList();
 
@@ -165,7 +247,54 @@ public class ClassesController extends WindowController implements DataLoader {
 				.getWillSave().getBaseValueProperty());
 		columnSpecial.setCellValueFactory(cellData -> cellData.getValue()
 				.getSpecialProperty());
-
+		
+		// Init the Class Progression Spell Level Table with columns
+		columnLevelSpells.setCellValueFactory(cellData -> cellData.getValue()
+				.getLevelNumProperty());
+		column0.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column1st.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column2nd.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column3rd.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column4th.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column5th.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column6th.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column7th.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column8th.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column9th.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		
+		// Init the Class Progression Spells Known Table with columns
+		columnLevelSpellsKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getLevelNumProperty());
+		column0Known.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column1stKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column2ndKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column3rdKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column4thKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column5thKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column6thKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column7thKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column8thKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
+		column9thKnown.setCellValueFactory(cellData -> cellData.getValue()
+				.getSpellsPerDayProperty());
 	}
 
 	/**
@@ -203,11 +332,21 @@ public class ClassesController extends WindowController implements DataLoader {
 	}
 
 	private void showClassProgression(Class c) {
+		// We were here last, there is no spell shit showing up
 		if (c != null) {
-			tableLevelTable.setItems(FXCollections.observableArrayList(c
-					.getLeveltableRow()));
+			tableLevelTable.setItems(c.getLeveltableRow());
+			if(c.getLeveltableRow().getClass().isAssignableFrom(SpellLevelTableRow.class)) {
+				ArrayList<SpellLevelTableRow> spellcaster = new ArrayList<SpellLevelTableRow>();
+				for (LevelTableRow levelTableRow : c.getLeveltableRow()) {
+					spellcaster.add((SpellLevelTableRow)levelTableRow);
+				}
+				
+				tableSpellLevelTable.setItems(FXCollections.observableArrayList(spellcaster));
+				tableSpellsKnown.setItems(FXCollections.observableArrayList(spellcaster));
+			}			
 		} else {
 			tableLevelTable.setItems(null);
+			tableSpellLevelTable.setItems(null);
 		}
 	}
 
@@ -579,20 +718,24 @@ public class ClassesController extends WindowController implements DataLoader {
 	 * Read the class level progression table from the appropriate data file
 	 */
 
-	private void readMeleeClass(String filename) {
+	private void readCommonLevelTable(String filename) {
 		Scanner reader;
 		try {
 			reader = new Scanner(new FileReader("data/class_progression/prog_"
 					+ filename.toLowerCase() + ".tsv"));
 			String readLine = reader.nextLine(); // the heading line
+
 			LevelTableRow[] levelTable = new LevelTableRow[20];
 			// Continue to read the rest of the file
 			int count = 0;
 			while (reader.hasNextLine()) {
 				readLine = reader.nextLine();
 				// Make an array of Strings to hold the data
+				// lines[0] Level; [1] BAB; [2] Fort; [3] Ref; [4] Will; [5] Special
 				String[] lines = readLine.split("\t");
+				
 				int levelNum = Integer.parseInt(lines[0]);
+				
 				// Split lines[1] (BAB) on '/' to handle BAB data for higher
 				// levels
 				String[] babString = lines[1].split("/");
@@ -615,7 +758,15 @@ public class ClassesController extends WindowController implements DataLoader {
 						lines[5].split(","));
 				levelTable[count] = tableRow;
 				count++;
-			}
+				
+				// lines[0]-[5] is common data.  [6]+ is Spell Level Table data.
+				// If lines has more than 5 parts, send filename and lines to the method to handle Spell Level Data
+				if(lines.length > 5) {
+					readSpellLevelTable(filename, lines);
+				}
+
+				
+			} //End while next line
 
 			classes.get(filename).SetLevelTable(
 					FXCollections.observableArrayList(levelTable));
@@ -626,11 +777,61 @@ public class ClassesController extends WindowController implements DataLoader {
 			Logger.getLogger(ClassesController.class.toString()).log(
 					Level.SEVERE, null, e);
 		}
-	}
+	} //End readGenericLevelTable
+	
+	private void readSpellLevelTable(String filename, String[] lines) {		
+		SpellLevelTableRow[] levelTable = new SpellLevelTableRow[20];
+		int count = 0;
+		
+		//Spells per day Levels 0-9
+		if(filename == "cleric" || filename == "druid" || filename == "wizard" || filename == "witch") {
+			
+		}
+		
+		//Spells per day Levels 1-9, Spells Known 0-9
+		else if(filename == "sorcerer" || filename == "oracle") {
+			for (int i = 1; i < lines.length; i++) {
+				int levelNum = Integer.parseInt(lines[0]);
+				
+			}
+		}
+		
+		//Spells per day Levels 1-6, Spells Known 0-6
+		else if(filename == "bard" || filename == "inquisitor" || filename == "summoner") {
+			for (int i = 1; i < lines.length; i++) {
+				int levelNum = Integer.parseInt(lines[0]);
+				
+			}
+		}
+		
+		//Spells per day Levels 1-4
+		else if(filename == "paladin" || filename == "ranger") {
+			for (int i = 1; i < lines.length; i++) {
+				int levelNum = Integer.parseInt(lines[0]);
+				
+			}
+		}
+		
+		//Spells per day Levels 0-6
+		else if (filename == "magus") {
+			for (int i = 1; i < lines.length; i++) {
+				int levelNum = Integer.parseInt(lines[0]);
+				
+			}
+		}
+		
+		//Spells per day Levels 1-6: "alchemist" - the only one left
+		else {
+			for (int i = 1; i < lines.length; i++) {
+				int levelNum = Integer.parseInt(lines[0]);
+				
+			}
+		}
 
-	private void readCasterClass(String filename) {
-
-	}
+			classes.get(filename).SetLevelTable(
+					FXCollections.observableArrayList(levelTable));
+		} //End readSpellLevelTable	
+	
 
 	/**
 	 * loads data
@@ -639,29 +840,31 @@ public class ClassesController extends WindowController implements DataLoader {
 	public void loadData() {
 		// load data through jefxif
 		readSummary();
-		// load the levelTable for barbarian
-		readMeleeClass("Barbarian");
-		readMeleeClass("Cavalier");
-		readMeleeClass("Fighter");
-		readMeleeClass("Gunslinger");
-		readMeleeClass("Ninja");
-		readMeleeClass("Rogue");
-		readMeleeClass("Samurai");
 		
-		//Casters - test
-		readMeleeClass("Alchemist");
-		readMeleeClass("Bard");
-		readMeleeClass("Cleric");
-		readMeleeClass("Druid");
-		readMeleeClass("Inquisitor");
-		readMeleeClass("Magus");
-		readMeleeClass("Oracle");
-		readMeleeClass("Paladin");
-		readMeleeClass("Ranger");
-		readMeleeClass("Sorcerer");
-		readMeleeClass("Summoner");
-		readMeleeClass("Witch");
-		readMeleeClass("Wizard");
+		// Melee classes.  Generic Level Table information is fine.
+		
+		readCommonLevelTable("Barbarian");
+		readCommonLevelTable("Cavalier");
+		readCommonLevelTable("Fighter");
+		readCommonLevelTable("Gunslinger");
+		readCommonLevelTable("Ninja");
+		readCommonLevelTable("Rogue");
+		readCommonLevelTable("Samurai");
+				
+		// Caster classes.  Use Generic Level Table, add on Spell Level Table information.
+		readCommonLevelTable("Alchemist");
+		readCommonLevelTable("Bard");
+		readCommonLevelTable("Cleric");
+		readCommonLevelTable("Druid");
+		readCommonLevelTable("Inquisitor");
+		readCommonLevelTable("Magus");
+		readCommonLevelTable("Oracle");
+		readCommonLevelTable("Paladin");
+		readCommonLevelTable("Ranger");
+		readCommonLevelTable("Sorcerer");
+		readCommonLevelTable("Summoner");
+		readCommonLevelTable("Witch");
+		readCommonLevelTable("Wizard");
 
 		obsListClasses.setAll(classes.values());
 	}
