@@ -27,9 +27,9 @@ import pathfinder.data.Items.Goods;
 import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicArmor;
 import pathfinder.data.Items.MagicRing;
-import pathfinder.data.Items.MagicWeapon;
 import pathfinder.data.Items.MagicRod;
 import pathfinder.data.Items.MagicStaves;
+import pathfinder.data.Items.MagicWeapon;
 import pathfinder.data.Items.Weapon;
 import pathfinder.data.Items.WondrousGood;
 import view.partials.itemPartials.ItemPartialController;
@@ -466,8 +466,8 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	
 	private void loadMagicStaves()
 	{
-		String fileLoc = "data/items/MagicStaves.tsv";
-		HashMap<String, MagicStaves> MagicStaves = new HashMap<String, MagicStaves>();
+		String fileLoc = "data/items/Staves.tsv";
+		HashMap<String, MagicStaves> staves = new HashMap<String, MagicStaves>();
 		try
 		{
 			Scanner fileRead = new Scanner(new FileReader(fileLoc));
@@ -479,10 +479,10 @@ public class ItemsController extends WindowController implements PartialLoader, 
 				line = fileRead.nextLine();
 				String[] parts = line.split("\t");
 				MagicStaves stave = new MagicStaves(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
-				MagicStaves.put(parts[0], stave);
+				staves.put(parts[0], stave);
 			}
 			fileRead.close();
-			this.MagicStaves.setAll(MagicStaves.values());
+			this.MagicStaves.setAll(staves.values());
 		}
 		catch(FileNotFoundException e)
 		{
