@@ -21,11 +21,13 @@ import jefXif.DataLoader;
 import jefXif.MainPartialController;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
+import pathfinder.data.Effects.NonValued.MiscEffect;
 import pathfinder.data.Items.Weapon;
 import pathfinder.data.Races.Race;
 import pathfinder.data.Races.Objects.Language;
 import pathfinder.data.Races.Objects.Size;
 import pathfinder.data.Races.Objects.VisionType;
+import pathfinder.data.Races.Traits.MiscTrait;
 import pathfinder.data.Races.Traits.Trait;
 
 public class RacesController extends MainPartialController implements DataLoader {
@@ -228,21 +230,24 @@ public class RacesController extends MainPartialController implements DataLoader
 					else
 						r.setSpeedLoss(true);
 					// new VisionType(distance, name)
-					ArrayList<VisionType> VisionTypes = new ArrayList<>();
-					VisionTypes.add(new VisionType(60, "Normal"));
+					ArrayList<VisionType> visionTypes = new ArrayList<>();
+					visionTypes.add(new VisionType(60, "Normal"));
 					if (parts[7].equals("-"))
-						VisionTypes.add(new VisionType(30, "Low-Light Vision"));
+						visionTypes.add(new VisionType(30, "Low-Light Vision"));
 					if (parts[7].contains("Superior Darkvision"))
-						VisionTypes.add(new VisionType(120, "Darkvision"));
+						visionTypes.add(new VisionType(120, "Darkvision"));
 					else if (parts[7].contains("Darkvision"))
-						VisionTypes.add(new VisionType(30, "Low-Light Vision"));
-					VisionTypes.add(new VisionType(60, "Darkvision"));
+						visionTypes.add(new VisionType(30, "Low-Light Vision"));
+					visionTypes.add(new VisionType(60, "Darkvision"));
 					if (parts[7].contains("Low-Light Vision"))
-						VisionTypes.add(new VisionType(60, "Low-Light Vision"));
-
+						visionTypes.add(new VisionType(60, "Low-Light Vision"));
+					
+					r.setVisionTypes(visionTypes.toArray(new VisionType[]{}));
+					String[] traitParts = parts[8].split(":");
 					r.setRacialTraits(new ArrayList<Trait>() {
 						{
-
+							new MiscTrait(traitParts[0],new MiscEffect(traitParts[0]+" Effect",traitParts[1]));
+							
 						}
 					});
 
