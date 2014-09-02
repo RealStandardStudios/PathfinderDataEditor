@@ -1,8 +1,10 @@
 package view.partials;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -15,16 +17,28 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jefXif.DataLoader;
-import jefXif.WindowController;
+import jefXif.MainPartialController;
+import jefXif.io.Data;
 
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Effects.Effect;
 import pathfinder.data.Feats.Feat;
+import pathfinder.data.Items.Armor;
+import pathfinder.data.Items.CursedItem;
+import pathfinder.data.Items.Goods;
+import pathfinder.data.Items.MagicArmor;
+import pathfinder.data.Items.MagicRing;
+import pathfinder.data.Items.MagicRod;
+import pathfinder.data.Items.MagicStaves;
+import pathfinder.data.Items.MagicWeapon;
+import pathfinder.data.Items.Weapon;
+import pathfinder.data.Items.WondrousGood;
 import view.partials.dialogs.FeatEditDialogController;
 
 /**
@@ -33,7 +47,7 @@ import view.partials.dialogs.FeatEditDialogController;
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
-public class FeatsController extends WindowController implements DataLoader {
+public class FeatsController extends MainPartialController implements DataLoader {
 
 	@FXML
 	TableView<Feat> tableFeats;
@@ -202,10 +216,62 @@ public class FeatsController extends WindowController implements DataLoader {
 	}
 
 	@Override
-	public void loadData() {
+	public void loadData(File file) {
 		// This is where it will read in the data from the files saved through
 		// the program or use the tsvs as a fallback
 		readFeatData();
 	}
 
+	@Override
+	public void saveDataToFile(File filePath) throws IOException {
+//        if (filePath != null) {
+//			Data.Write(filePath+Gui.DataFileLoc+"Armors.idf", armors.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"Weapons.idf", weapons.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"MagicArmors.idf", magicArmors.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"MagicWeapons.idf", magicWeapons.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"CursedItems.idf", cursedItems.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"MagicRings.idf", magicRings.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"Rods.idf", rods.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"GoodsAndServices.idf", goodsAndServices.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"Staves.idf", staves.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"WonderousGoods.idf", wondrousGoods.toArray());
+//        } else {
+        	DirectoryChooser directoryChooser = new DirectoryChooser();
+        	
+        	directoryChooser.setTitle("Data Directory");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	if(defaultDirectory.exists())
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	else {
+        		defaultDirectory.mkdirs();
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	}
+            // Show the directory chooser
+            File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+
+            if (file != null) {
+                Data.Write(file.getPath()+"\\Feats.idf", feats.toArray());
+            }
+        }
+
+	@Override
+	public void loadDataFromFile(File file) throws IOException {
+		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+		File featsFile = new File(file.getPath()+"\\Feats.idf");
+			if(!featsFile.exists()) {			
+				readFeatData();
+			}
+			else {
+				feats.setAll(readDataFile(featsFile, Feat.class));
+			}
+	}
+
+	private <T>ArrayList<T> readDataFile(File file, Class<Feat> featClass) throws IOException {
+		ArrayList<T> arrayList = new ArrayList<T>();
+		Object[] readItems = Data.Read(file.getPath(), Object[].class);
+		for (Object object : readItems) {
+			arrayList.add((T)object);
+		}
+		return arrayList;
+	}
 }

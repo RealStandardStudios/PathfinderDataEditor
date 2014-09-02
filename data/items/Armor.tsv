@@ -2,22 +2,22 @@ Armor		Cost	Armor/Shield Bonus	Maximum Dex Bonus	Armor Check Penalty	Arcane Spel
 	Armor Type						30 ft.	20 ft.	
 Padded	Light Armor	5 gp	1	8	0	5%	30 ft.	20 ft.	10 lbs.
 Leather	Light Armor	10 gp	2	6	0	10%	30 ft.	20 ft.	15 lbs.
-Studded leather	Light Armor	25 gp	3	5	–1	15%	30 ft.	20 ft.	20 lbs.
-Chain shirt	Light Armor	100 gp	4	4	–2	20%	30 ft.	20 ft.	25 lbs.
-Hide	Medium Armor	15 gp	4	4	–3	20%	20 ft.	15 ft.	25 lbs.
-Scale mail	Medium Armor	50 gp	5	3	–4	25%	20 ft.	15 ft.	30 lbs.
-Chainmail	Medium Armor	150 gp	6	2	–5	30%	20 ft.	15 ft.	40 lbs.
-Breastplate	Medium Armor	200 gp	6	3	–4	25%	20 ft.	15 ft.	30 lbs.
-Splint mail	Heavy Armor	200 gp	7	0	–7	40%	20 ft.	15 ft.	45 lbs.
-Banded mail	Heavy Armor	250 gp	7	1	–6	35%	20 ft.	15 ft.	35 lbs.
-Half-plate	Heavy Armor	600 gp	8	0	–7	40%	20 ft.	15 ft.	50 lbs.
-Full plate	Heavy Armor	1,500 gp	9	1	–6	35%	20 ft.	15 ft.	50 lbs.
-Buckler	Shield	5 gp	1	—	–1	5%	—	—	5 lbs.
-Shield, light wooden	Shield	3 gp	1	—	–1	5%	—	—	5 lbs.
-Shield, light steel	Shield	9 gp	1	—	–1	5%	—	—	6 lbs.
-Shield, heavy wooden	Shield	7 gp	2	—	–2	15%	—	—	10 lbs.
-Shield, heavy steel	Shield	20 gp	2	—	–2	15%	—	—	15 lbs.
-Shield, tower	Shield	30 gp	4	2	–10	50%	—	—	45 lbs.
-Armor spikes	Extra	50 gp	—	—	—	—	—	—	10 lbs.
-Gauntlet, locked	Extra	8 gp	—	—	special	n/a	—	—	5 lbs.
-Shield spikes	Extra	10 gp	—	—	—	—	—	—	5 lbs.
+Studded leather	Light Armor	25 gp	3	5	-1	15%	30 ft.	20 ft.	20 lbs.
+Chain shirt	Light Armor	100 gp	4	4	-2	20%	30 ft.	20 ft.	25 lbs.
+Hide	Medium Armor	15 gp	4	4	-3	20%	20 ft.	15 ft.	25 lbs.
+Scale mail	Medium Armor	50 gp	5	3	-4	25%	20 ft.	15 ft.	30 lbs.
+Chainmail	Medium Armor	150 gp	6	2	-5	30%	20 ft.	15 ft.	40 lbs.
+Breastplate	Medium Armor	200 gp	6	3	-4	25%	20 ft.	15 ft.	30 lbs.
+Splint mail	Heavy Armor	200 gp	7	0	-7	40%	20 ft.	15 ft.	45 lbs.
+Banded mail	Heavy Armor	250 gp	7	1	-6	35%	20 ft.	15 ft.	35 lbs.
+Half-plate	Heavy Armor	600 gp	8	0	-7	40%	20 ft.	15 ft.	50 lbs.
+Full plate	Heavy Armor	1,500 gp	9	1	-6	35%	20 ft.	15 ft.	50 lbs.
+Buckler	Shield	5 gp	1	-	-1	5%	-	-	5 lbs.
+Shield, light wooden	Shield	3 gp	1	-	-1	5%	-	-	5 lbs.
+Shield, light steel	Shield	9 gp	1	-	-1	5%	-	-	6 lbs.
+Shield, heavy wooden	Shield	7 gp	2	-	-2	15%	-	-	10 lbs.
+Shield, heavy steel	Shield	20 gp	2	-	-2	15%	-	-	15 lbs.
+Shield, tower	Shield	30 gp	4	2	-10	50%	-	-	45 lbs.
+Armor spikes	Extra	50 gp	-	-	-	-	-	-	10 lbs.
+Gauntlet, locked	Extra	8 gp	-	-	special	n/a	-	-	5 lbs.
+Shield spikes	Extra	10 gp	-	-	-	-	-	-	5 lbs.

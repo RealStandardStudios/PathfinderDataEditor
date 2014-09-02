@@ -18,4 +18,41 @@
 			</children>
 		</Pane>
 	</left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="Open...">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleOpenItems" text="Open Items" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenFeats" text="Open Feats" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Save...">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Save Classes" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleSaveFeats" text="Save Feats" />
+                        <MenuItem fx:id="menuItemSaveItems" mnemonicParsing="false" onAction="#handleSaveItems" text="Save Items" />
+                        <MenuItem mnemonicParsing="false" text="Save Races" />
+                        <MenuItem mnemonicParsing="false" text="Save Spells" />
+                        <MenuItem mnemonicParsing="false" text="Save All" />
+                    </items>
+                  </Menu>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
 </BorderPane>

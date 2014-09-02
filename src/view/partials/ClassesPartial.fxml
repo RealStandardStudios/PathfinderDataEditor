@@ -100,6 +100,8 @@
                                                    <children>
                                                       <TableView fx:id="tableSpellLevelTable" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
+                                                            <TableColumn fx:id="columnLevelSpells" prefWidth="75.0" text="Level" />
+                                                            <TableColumn fx:id="column0" prefWidth="70.0" text="0" />
                                                             <TableColumn fx:id="column1st" prefWidth="70.0" text="1st" />
                                                             <TableColumn fx:id="column2nd" prefWidth="70.0" text="2nd" />
                                                             <TableColumn fx:id="column3rd" prefWidth="70.0" text="3rd" />
@@ -118,6 +120,32 @@
                                                 </AnchorPane>
                                           </content>
                                         </Tab>
+                                          <Tab fx:id="tabSpellsKnown" text="Spells Known">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TableView fx:id="tableSpellsKnown" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                         <columns>
+                                                            <TableColumn fx:id="columnLevelSpellsKnown" prefWidth="75.0" text="Level" />
+                                                            <TableColumn fx:id="column0Known" prefWidth="75.0" text="0" />
+                                                            <TableColumn fx:id="column1stKnown" prefWidth="70.0" text="1st" />
+                                                            <TableColumn fx:id="column2ndKnown" prefWidth="70.0" text="2nd" />
+                                                            <TableColumn fx:id="column3rdKnown" prefWidth="70.0" text="3rd" />
+                                                            <TableColumn fx:id="column4thKnown" prefWidth="70.0" text="4th" />
+                                                            <TableColumn fx:id="column5thKnown" prefWidth="70.0" text="5th" />
+                                                            <TableColumn fx:id="column6thKnown" prefWidth="70.0" text="6th" />
+                                                            <TableColumn fx:id="column7thKnown" prefWidth="70.0" text="7th" />
+                                                            <TableColumn fx:id="column8thKnown" prefWidth="70.0" text="8th" />
+                                                            <TableColumn fx:id="column9thKnown" prefWidth="70.0" text="9th" />
+                                                         </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
                                       </tabs>
                                     </TabPane>
                                  </children>

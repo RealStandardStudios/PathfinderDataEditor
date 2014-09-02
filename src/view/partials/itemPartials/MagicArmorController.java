@@ -1,12 +1,31 @@
 package view.partials.itemPartials;
 
+import java.io.IOException;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import jefXif.WindowController;
-import pathfinder.data.Items.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-public class MagicArmorController extends WindowController {
+import org.controlsfx.dialog.Dialogs;
 
+import pathfinder.data.Items.Item;
+import pathfinder.data.Items.MagicArmor;
+import view.partials.itemPartials.dialogs.MagicArmorEditController;
+
+public class MagicArmorController extends ItemPartialController {
+
+	@FXML
+	TableView<Item> itemTable;
+	
+	@FXML
+	TableColumn<Item, String> itemNameColumn;
 	@FXML
 	private Label lblArmorName;
 	@FXML
@@ -42,24 +61,24 @@ public class MagicArmorController extends WindowController {
 
 	}
 	
-	public void setMagicArmor(MagicArmor magicArmor)
-	{
-		if(magicArmor != null)
+	@Override
+	public void setItemDetails(Item item) {
+		if(item != null)
 		{
-			lblArmorName.setText(magicArmor.getName());
-			lblACBonus.setText(magicArmor.getArmorBonus() + "");
-			lblMaxDex.setText(magicArmor.getMaxDexBonus() + "");
-			lblArmorCheckPenalty.setText(magicArmor.getArmorCheckPenalty()+"");
-			lblArcaneSpellFalure.setText(magicArmor.getArcaneSpellFailiure()+"");
-			lblSpeed30ft.setText(magicArmor.getSpeed30feet() +"");
-			lblSpeed20ft.setText(magicArmor.getSpeed20feet()+"");
-			lblSlot.setText(magicArmor.getSlot());
-			lblAuraStrength.setText(magicArmor.getAuraStrength());
-			lblCasterLevel.setText(magicArmor.getCasterLevel());
-			lblPrice.setText(magicArmor.getCost());
-			lblWeight.setText(magicArmor.getWeight());
-			lblDescription.setText(magicArmor.getDescription());
-			lblConstruction.setText(magicArmor.getConstruction());
+			lblArmorName.setText(((MagicArmor)item).getName());
+			lblACBonus.setText(((MagicArmor)item).getArmorBonus() + "");
+			lblMaxDex.setText(((MagicArmor)item).getMaxDexBonus() + "");
+			lblArmorCheckPenalty.setText(((MagicArmor)item).getArmorCheckPenalty()+"");
+			lblArcaneSpellFalure.setText(((MagicArmor)item).getArcaneSpellFailiure()+"");
+			lblSpeed30ft.setText(((MagicArmor)item).getSpeed30feet() +"");
+			lblSpeed20ft.setText(((MagicArmor)item).getSpeed20feet()+"");
+			lblSlot.setText(((MagicArmor)item).getSlot());
+			lblAuraStrength.setText(((MagicArmor)item).getAuraStrength());
+			lblCasterLevel.setText(((MagicArmor)item).getCasterLevel());
+			lblPrice.setText(((MagicArmor)item).getCost());
+			lblWeight.setText(((MagicArmor)item).getWeight());
+			lblDescription.setText(((MagicArmor)item).getDescription());
+			lblConstruction.setText(((MagicArmor)item).getConstruction());
 		}
 		else
 		{
@@ -78,6 +97,65 @@ public class MagicArmorController extends WindowController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 		}
+		
 	}
 
+	@Override
+	public void inView(ObservableList<Item> items) {
+		itemTable.setItems(items);
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemTable.getSelectionModel().selectedItemProperty().addListener
+		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
+		
+	}
+	
+	@FXML
+	private void handleEditMagicArmor() {
+	    Item selectedArmor = itemTable.getSelectionModel().getSelectedItem();
+	    if (selectedArmor != null) {
+	        boolean okClicked = showItemEditDialog(selectedArmor);
+	        if (okClicked) {
+	            setItemDetails(selectedArmor);
+	        }
+
+	    } else {
+	        // Nothing selected.
+	        Dialogs.create()
+	            .title("No Selection")
+	            .masthead("No Magic Armor Selected")
+	            .message("Please select a magic armor in the table.")
+	            .showWarning();
+	    }
+	}
+
+	@Override
+	public boolean showItemEditDialog(Item item) {
+		try {
+	        // Load the fxml file and create a new stage for the popup dialog.
+	        FXMLLoader loader =new FXMLLoader();
+	        loader.setLocation(this.getClass().getResource("dialogs/MagicArmorEditDialog.fxml"));
+	        AnchorPane page = (AnchorPane) loader.load();
+
+	        // Create the dialog Stage.
+	        Stage dialogStage = new Stage();
+	        dialogStage.setTitle("Edit Magic Armor");
+	        dialogStage.initModality(Modality.WINDOW_MODAL);
+	        dialogStage.initOwner(this.getInterface().getPrimaryStage());
+	        Scene scene = new Scene(page);
+	        dialogStage.setScene(scene);
+
+	        // Set the person into the controller.
+	        MagicArmorEditController controller = loader.getController();
+	        controller.setDialogStage(dialogStage);
+	        controller.setArmor((MagicArmor)item);
+
+	        // Show the dialog and wait until the user closes it
+	        dialogStage.showAndWait();
+
+	        return controller.isOkClicked();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
 }

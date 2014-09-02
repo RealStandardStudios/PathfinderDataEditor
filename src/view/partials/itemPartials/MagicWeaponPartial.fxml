@@ -6,59 +6,70 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicWeaponController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicWeaponController">
    <children>
-      <GridPane layoutX="14.0" layoutY="147.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
+      <GridPane layoutX="318.0" layoutY="49.0" prefHeight="607.0" prefWidth="588.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="49.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="177.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="350.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="8.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="84.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="105.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Aura Strenth:" GridPane.rowIndex="6" />
-            <Label text="Caster Level:" GridPane.rowIndex="7" />
-            <Label text="Price:" GridPane.rowIndex="8" />
-            <Label text="Weight:" GridPane.rowIndex="9" />
-            <Label text="Description:" GridPane.rowIndex="10" />
+            <Label text="Aura Strenth:" GridPane.rowIndex="8" />
+            <Label text="Caster Level:" GridPane.rowIndex="9" />
+            <Label text="Price:" GridPane.rowIndex="10" />
+            <Label text="Weight:" GridPane.rowIndex="11" />
+            <Label text="Description:" GridPane.rowIndex="13" />
             <Label text="Construction:" GridPane.rowIndex="12" />
-            <Label text="Dmg(S):" />
-            <Label text="Dmg(M):" GridPane.rowIndex="1" />
-            <Label text="Critical:" GridPane.rowIndex="2" />
-            <Label text="Range:" GridPane.rowIndex="3" />
-            <Label text="Type:" GridPane.rowIndex="4" />
-            <Label text="Special:" GridPane.rowIndex="5" />
-            <Label fx:id="lblDMGS" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="lblDMGM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lblCritical" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="lblRange" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lblType" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="lblSpecial" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="lblAura" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label fx:id="lblDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Dmg(S):" GridPane.rowIndex="2" />
+            <Label text="Dmg(M):" GridPane.rowIndex="3" />
+            <Label text="Critical:" GridPane.rowIndex="4" />
+            <Label text="Range:" GridPane.rowIndex="5" />
+            <Label text="Damage Type:" GridPane.rowIndex="6" />
+            <Label text="Special:" GridPane.rowIndex="7" />
+            <Label fx:id="lblDMGS" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblDMGM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lblCritical" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="lblRange" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblDmgType" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="lblSpecial" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="lblAura" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label fx:id="lblDescription" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="13" GridPane.vgrow="ALWAYS" />
             <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Weapon Type:" />
+            <Label text="Wield Style:" GridPane.rowIndex="1" />
+            <Label fx:id="lblWeaponType" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblWieldStyle" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="126.0" layoutY="14.0" text="No Magic Weapon Selected">
+      <Label fx:id="lblName" layoutX="376.0" layoutY="14.0" text="No Magic Weapon Selected">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="itemTable" prefHeight="698.0" prefWidth="302.0">
+         <columns>
+            <TableColumn fx:id="itemNameColumn" prefWidth="304.0" text="Magic Weapon" />
+         </columns>
+      </TableView>
+      <Button layoutX="869.0" layoutY="656.0" mnemonicParsing="false" onAction="#handleEditWeapon" text="Edit" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
    </children>
 </AnchorPane>

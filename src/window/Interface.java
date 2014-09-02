@@ -1,5 +1,6 @@
 package window;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -11,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import jefXif.DataLoader;
 import jefXif.Gui;
+import jefXif.MainPartialController;
 import jefXif.WindowController;
 import view.RootLayoutController;
 
@@ -25,7 +27,7 @@ public class Interface extends Gui {
 
 	public Interface(Stage primaryStage) {
 		super(primaryStage);
-		// TODO Auto-generated constructor stub
+		setProgramFilePath(new File(this.getClass().getResource("").toString()+"../../../"));
 	}
 
 	@Override
@@ -53,10 +55,10 @@ public class Interface extends Gui {
 
 	@Override
 	public void loadPartials() throws IOException {
-		HashMap<String, WindowController> windowPartials = new HashMap<>();
+		HashMap<String, MainPartialController> windowPartials = new HashMap<>();
 		String[] Windows = { "Classes", "Feats", "Items", "Races", "Spells" };
 		for (String string : Windows) {
-			windowPartials.put(string, loadPartial(string, this));
+			windowPartials.put(string, (MainPartialController) loadPartial(string, this));
 		}
 		rootLayoutController.setWindowPartials(windowPartials);
 	}
@@ -84,7 +86,7 @@ public class Interface extends Gui {
 			// If the interface DataLoader is implemented on the current controller
 			if(DataLoader.class.isAssignableFrom(controller.getClass())) {
 				DataLoader loader = (DataLoader) controller;
-				loader.loadData();
+				loader.loadData(new File(this.getClass().getResource("").toString()));
 			}	
 		}
 	}

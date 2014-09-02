@@ -1,8 +1,10 @@
 package view.partials;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -13,101 +15,117 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import jefXif.DataLoader;
 import jefXif.Gui;
+import jefXif.MainPartialController;
 import jefXif.PartialLoader;
-import jefXif.WindowController;
+import jefXif.io.Data;
+
+import org.controlsfx.dialog.Dialogs;
+
 import pathfinder.data.Items.Armor;
 import pathfinder.data.Items.CursedItem;
 import pathfinder.data.Items.Goods;
 import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicArmor;
 import pathfinder.data.Items.MagicRing;
+import pathfinder.data.Items.MagicRod;
+import pathfinder.data.Items.MagicStaves;
 import pathfinder.data.Items.MagicWeapon;
-import pathfinder.data.Items.Rods;
-import pathfinder.data.Items.Staves;
 import pathfinder.data.Items.Weapon;
 import pathfinder.data.Items.WondrousGood;
+import view.partials.itemPartials.ItemPartialController;
 
 import com.sun.istack.internal.logging.Logger;
 
-public class ItemsController extends WindowController implements PartialLoader, DataLoader{
+public class ItemsController extends MainPartialController implements PartialLoader, DataLoader{
 
-	private HashMap<String, WindowController> partials;
+	private HashMap<String, ItemPartialController> partials;
 	
 	@FXML
 	AnchorPane ItemsPartialPane;
 	
-	@FXML
-	TableView<Item> itemTable;
-	
-	@FXML
-	TableColumn<Item, String> nameColumn;
-	
-	ObservableList<Armor> armors = FXCollections.observableArrayList();
-	ObservableList<Weapon> weapons = FXCollections.observableArrayList();
-	ObservableList<MagicArmor> magicArmors = FXCollections.observableArrayList();
-	ObservableList<MagicWeapon> magicWeapons = FXCollections.observableArrayList();
-	ObservableList<CursedItem> cursedItems = FXCollections.observableArrayList();
-	ObservableList<MagicRing> magicRings = FXCollections.observableArrayList();
-	ObservableList<Rods> rods = FXCollections.observableArrayList();
-	ObservableList<Goods> goodsAndServices = FXCollections.observableArrayList();
-	ObservableList<Staves> staves = FXCollections.observableArrayList();
-	ObservableList<WondrousGood> wondrousGoods = FXCollections.observableArrayList();
+	ObservableList<Item> armors = FXCollections.observableArrayList();
+	ObservableList<Item> weapons = FXCollections.observableArrayList();
+	ObservableList<Item> magicArmors = FXCollections.observableArrayList();
+	ObservableList<Item> magicWeapons = FXCollections.observableArrayList();
+	ObservableList<Item> cursedItems = FXCollections.observableArrayList();
+	ObservableList<Item> magicRings = FXCollections.observableArrayList();
+	ObservableList<Item> rods = FXCollections.observableArrayList();
+	ObservableList<Item> goodsAndServices = FXCollections.observableArrayList();
+	ObservableList<Item> staves = FXCollections.observableArrayList();
+	ObservableList<Item> wondrousGoods = FXCollections.observableArrayList();
 	
 	@FXML
 	public void handleGoodsServices(ActionEvent event) {
-		SwapPartial(partials.get("BasicGoods").getNode());
+		ItemPartialController p = partials.get("BasicGoods");
+		p.inView(goodsAndServices);
+		SwapPartial(p.getNode());
 	}
 	
 	@FXML
 	public void handleBasicArmor(ActionEvent event) {
-		SwapPartial(partials.get("BasicArmor").getNode());
+		ItemPartialController p = partials.get("BasicArmor"); 
+		SwapPartial(p.getNode());
+		p.inView(armors);
 	}
 	
 	@FXML
 	public void handleBasicWeapon(ActionEvent event)
 	{
-		SwapPartial(partials.get("BasicWeapon").getNode());
+		ItemPartialController p = partials.get("BasicWeapon"); 
+		SwapPartial(p.getNode());
+		p.inView(weapons);
 	}
 	
 	@FXML
 	public void handleMagicArmor(ActionEvent event)
 	{
-		SwapPartial(partials.get("MagicArmor").getNode());
-	}
+		ItemPartialController p = partials.get("MagicArmor"); 
+		SwapPartial(p.getNode());
+		p.inView(magicArmors);
+		}
 	
 	@FXML
 	public void handleMagicWeapon(ActionEvent event)
-	{
-		SwapPartial(partials.get("MagicWeapon").getNode());
+	{		
+		ItemPartialController p = partials.get("MagicWeapon"); 
+		SwapPartial(p.getNode());
+		p.inView(magicWeapons);
 	}
 	
 	@FXML
 	public void handleMagicRing(ActionEvent event)
 	{
-		SwapPartial(partials.get("MagicRing").getNode());
+		ItemPartialController p = partials.get("MagicRing"); 
+		SwapPartial(p.getNode());
+		p.inView(magicRings);
 	}
 	
 	@FXML
 	public void handleMagicRod(ActionEvent event)
 	{
-		SwapPartial(partials.get("MagicRod").getNode());
+		ItemPartialController p = partials.get("MagicRod"); 
+		SwapPartial(p.getNode());
+		p.inView(rods);
 	}
 	
 	@FXML
 	public void handleMagicStave(ActionEvent event)
-	{
-		SwapPartial(partials.get("MagicStaves").getNode());
+	{	
+		ItemPartialController p = partials.get("MagicMagicStaves"); 
+		SwapPartial(p.getNode());
+		p.inView(staves);
 	}
 	
 	@FXML
 	public void handleWondrousItems(ActionEvent event)
 	{
-		SwapPartial(partials.get("WondrousItems").getNode());
+		ItemPartialController p = partials.get("WondrousItems"); 
+		SwapPartial(p.getNode());
+		p.inView(wondrousGoods);
 	}
 	
 	private void SwapPartial(Node node) {
@@ -119,26 +137,19 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	}
 	@Override
 	public void initialize() {
-		try {
-			String[] partials = {"BasicGoods","BasicArmor","BasicWeapon","MagicArmor","MagicWeapon","MagicRing","MagicRod","MagicStaves","WondrousItems"};
-			for (String string : partials) {
-				this.partials.put(string, loadPartial(string, this.getInterface()));
-			}
-		} catch (IOException e) {
-			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
-		}
 		
 	}
 	
 	@Override
-	public WindowController loadPartial(String name, Gui ui) throws IOException {
+	public ItemPartialController loadPartial(String name, Gui ui) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource("itemPartials/" + name + "Partial.fxml"));
 		
 		/*AnchorPane partial = */
 		Node node = loader.load();
-		WindowController controller = loader.getController();// YUDODIS
+		ItemPartialController controller = loader.getController();// YUDODIS
 		controller.setNode(node);
+		controller.setInterface(ui);
 		return controller;
 	}
 
@@ -146,15 +157,33 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	 * This is the method for loading all items 
 	 */
 	@Override
-	public void loadData() {
-		loadArmor();
-		loadWeapon();
-		loadCursedItems();
-		loadMagicRing();
-		loadGoodsAndServices();
-		loadRod();
-		loadStaves();
-		loadWondrousGoods();
+	public void loadData(File file) {
+		try {
+			String[] partials = {"BasicGoods","BasicArmor","BasicWeapon","MagicArmor","MagicWeapon","MagicRing","MagicRod","MagicStaves","WondrousItems"};
+			for (String string : partials) {
+				this.partials.put(string, loadPartial(string, this.getInterface()));
+			}
+			loadDataFromFile(file);
+		} catch (IOException e) {
+			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
+		}
+	}
+
+	/**
+	 * @param <T>
+	 * @param armorFile
+	 * @param armor
+	 * @throws IOException
+	 */
+	@SuppressWarnings("unchecked")
+	private <T> ArrayList<T> readDataFile(File file, Class<T> dataClass)
+			throws IOException {
+		ArrayList<T> arrayList = new ArrayList<T>();
+		Object[] readItems = Data.Read(file.getPath(), Object[].class);
+		for (Object object : readItems) {
+			arrayList.add((T)object);
+		}
+		return arrayList;
 	}
 	
 	/**
@@ -265,12 +294,9 @@ public class ItemsController extends WindowController implements PartialLoader, 
 		catch(FileNotFoundException e)
 		{			
 			//e.printStackTrace();
-			
-			/*
 			Dialogs.create().title("File not Found")
 			.masthead("No File was Found")
 			.message(e.getMessage() + "\nNo file at " + fileLoc);
-			*/
 		}
 	}
 	
@@ -385,7 +411,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	private void loadRod()
 	{
 		String fileLoc = "data/items/Rods.tsv";
-		HashMap<String, Rods> rods = new HashMap<String, Rods>();
+		HashMap<String, MagicRod> rods = new HashMap<String, MagicRod>();
 		try
 		{
 			Scanner fileRead = new Scanner(new FileReader(fileLoc));
@@ -396,7 +422,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 			{
 				line = fileRead.nextLine();
 				String[] parts = line.split("\t");
-				Rods rod = new Rods(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+				MagicRod rod = new MagicRod(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
 				rods.put(parts[0], rod);
 			}
 			fileRead.close();
@@ -448,13 +474,13 @@ public class ItemsController extends WindowController implements PartialLoader, 
 	}
 	
 	/**
-	 * this is the load method for importing Staves from a tab delimited file and storing it in a observable list
+	 * this is the load method for importing MagicStaves from a tab delimited file and storing it in a observable list
 	 */
 	
-	private void loadStaves()
+	private void loadMagicStaves()
 	{
 		String fileLoc = "data/items/Staves.tsv";
-		HashMap<String, Staves> staves = new HashMap<String, Staves>();
+		HashMap<String, MagicStaves> staves = new HashMap<String, MagicStaves>();
 		try
 		{
 			Scanner fileRead = new Scanner(new FileReader(fileLoc));
@@ -465,7 +491,7 @@ public class ItemsController extends WindowController implements PartialLoader, 
 			{
 				line = fileRead.nextLine();
 				String[] parts = line.split("\t");
-				Staves stave = new Staves(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+				MagicStaves stave = new MagicStaves(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
 				staves.put(parts[0], stave);
 			}
 			fileRead.close();
@@ -514,5 +540,89 @@ public class ItemsController extends WindowController implements PartialLoader, 
 			.message(e.getMessage() + "\nNo file at " + fileLoc);
 			*/
 		}
+	}
+
+	@Override
+	public void saveDataToFile(File filePath) throws IOException {
+//        if (filePath != null) {
+//			Data.Write(filePath+Gui.DataFileLoc+"Armors.idf", armors.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"Weapons.idf", weapons.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"MagicArmors.idf", magicArmors.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"MagicWeapons.idf", magicWeapons.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"CursedItems.idf", cursedItems.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"MagicRings.idf", magicRings.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"Rods.idf", rods.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"GoodsAndServices.idf", goodsAndServices.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"Staves.idf", staves.toArray());
+//    		Data.Write(filePath+Gui.DataFileLoc+"WonderousGoods.idf", wondrousGoods.toArray());
+//        } else {
+        	DirectoryChooser directoryChooser = new DirectoryChooser();
+        	
+        	directoryChooser.setTitle("Data Directory");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	if(defaultDirectory.exists())
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	else {
+        		defaultDirectory.mkdirs();
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	}
+            // Show the directory chooser
+            File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+
+            if (file != null) {
+                Data.Write(file.getPath()+"\\Armors.idf", armors.toArray());
+        		Data.Write(file.getPath()+"\\Weapons.idf", weapons.toArray());
+        		Data.Write(file.getPath()+"\\MagicArmors.idf", magicArmors.toArray());
+        		Data.Write(file.getPath()+"\\MagicWeapons.idf", magicWeapons.toArray());
+        		Data.Write(file.getPath()+"\\CursedItems.idf", cursedItems.toArray());
+        		Data.Write(file.getPath()+"\\MagicRings.idf", magicRings.toArray());
+        		Data.Write(file.getPath()+"\\Rods.idf", rods.toArray());
+        		Data.Write(file.getPath()+"\\GoodsAndServices.idf", goodsAndServices.toArray());
+        		Data.Write(file.getPath()+"\\Staves.idf", staves.toArray());
+        		Data.Write(file.getPath()+"\\WonderousGoods.idf", wondrousGoods.toArray());
+            }
+        }
+//	}
+
+	@Override
+	public void loadDataFromFile(File file) throws IOException {
+		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+		File armorFile = new File(file.getPath()+"\\Armors.idf"),
+				weaponFile = new File(file.getPath()+"\\Weapons.idf"),
+				magicArmorFile = new File(file.getPath()+"\\MagicArmors.idf"),
+				magicWeaponFile = new File(file.getPath()+"\\MagicWeapons.idf"),
+				cursedItemsFile = new File(file.getPath()+"\\CursedItems.idf"),
+				magicRingsFile = new File(file.getPath()+"\\MagicRings.idf"),
+				goodsFile = new File(file.getPath()+"\\GoodsAndServices.idf"),
+				rodsFile = new File(file.getPath()+"\\Rods.idf"),
+				stavesFile = new File(file.getPath()+"\\Staves.idf"),
+				wonderousFile = new File(file.getPath()+"\\WonderousGoods.idf");
+			if(!armorFile.exists()) {			
+				loadArmor();
+				loadWeapon();
+				loadCursedItems();
+				loadMagicRing();
+				loadGoodsAndServices();
+				loadRod();
+				loadMagicStaves();
+				loadWondrousGoods();
+			}
+			else {
+				try {
+					armors.setAll(readDataFile(armorFile, Armor.class));
+					weapons.setAll(readDataFile(weaponFile, Weapon.class));
+					magicArmors.setAll(readDataFile(magicArmorFile, MagicArmor.class));
+					magicWeapons.setAll(readDataFile(magicWeaponFile, MagicWeapon.class));
+					cursedItems.setAll(readDataFile(cursedItemsFile, CursedItem.class));
+					magicRings.setAll(readDataFile(magicRingsFile, MagicRing.class));
+					goodsAndServices.setAll(readDataFile(goodsFile, Goods.class));
+					rods.setAll(readDataFile(rodsFile, MagicRod.class));
+					staves.setAll(readDataFile(stavesFile, MagicStaves.class));
+					wondrousGoods.setAll(readDataFile(wonderousFile, WondrousGood.class));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
 	}
 }
