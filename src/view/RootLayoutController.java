@@ -80,7 +80,9 @@ public class RootLayoutController {
 	@FXML
 	private void handleSaveItems(ActionEvent event) {
 		MainPartialController itemController = windowPartials.get("Items");
+		MainPartialController featsController = windowPartials.get("Feats");
 		try {
+			featsController.saveDataToFile(ui.getProgramFilePath());
 			itemController.saveDataToFile(ui.getProgramFilePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -93,6 +95,28 @@ public class RootLayoutController {
 		MainPartialController itemController = windowPartials.get("Items");
 		try {
 			itemController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleOpenFeats(ActionEvent event) {
+		MainPartialController featsController = windowPartials.get("Feats");
+		try {
+			featsController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleSaveFeats(ActionEvent event) {
+		MainPartialController featsController = windowPartials.get("Feats");
+		try {
+			featsController.saveDataToFile(ui.getProgramFilePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

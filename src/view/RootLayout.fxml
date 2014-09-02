@@ -26,12 +26,13 @@
                   <Menu mnemonicParsing="false" text="Open...">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#handleOpenItems" text="Open Items" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenFeats" text="Open Feats" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Save...">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Save Classes" />
-                      <MenuItem mnemonicParsing="false" text="Save Feats" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleSaveFeats" text="Save Feats" />
                         <MenuItem fx:id="menuItemSaveItems" mnemonicParsing="false" onAction="#handleSaveItems" text="Save Items" />
                         <MenuItem mnemonicParsing="false" text="Save Races" />
                         <MenuItem mnemonicParsing="false" text="Save Spells" />
