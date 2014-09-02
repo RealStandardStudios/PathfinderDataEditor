@@ -222,7 +222,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 		columnClassName.setCellValueFactory(cellData -> cellData.getValue()
 				.getNameProperty());
 
-		// Clear person details
+		// Clear class details
 		showClassDetails(null);
 
 		// Set data from the observable list of classes to display in the table
@@ -253,50 +253,30 @@ public class ClassesController extends MainPartialController implements DataLoad
 		// Init the Class Progression Spell Level Table with columns
 		columnLevelSpells.setCellValueFactory(cellData -> cellData.getValue()
 				.getLevelNumProperty());
-		column0.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column1st.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column2nd.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column3rd.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column4th.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column5th.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column6th.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column7th.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column8th.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column9th.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
+		column0.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[0]);
+		column1st.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[1]);
+		column2nd.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[2]);
+		column3rd.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[3]);
+		column4th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[4]);
+		column5th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[5]);
+		column6th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[6]);
+		column7th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[7]);
+		column8th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[8]);
+		column9th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[9]);
 		
 		// Init the Class Progression Spells Known Table with columns
 		columnLevelSpellsKnown.setCellValueFactory(cellData -> cellData.getValue()
 				.getLevelNumProperty());
-		column0Known.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column1stKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column2ndKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column3rdKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column4thKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column5thKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column6thKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column7thKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column8thKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
-		column9thKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpellsPerDayProperty());
+		column0Known.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[0]);
+		column1stKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[1]);
+		column2ndKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[2]);
+		column3rdKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[3]);
+		column4thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[4]);
+		column5thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[5]);
+		column6thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[6]);
+		column7thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[7]);
+		column8thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[8]);
+		column9thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[9]);
 	}
 
 	/**
@@ -753,20 +733,24 @@ public class ClassesController extends MainPartialController implements DataLoad
 				int fort = Integer.parseInt(lines[2].replace("+", "").trim()), 
 						ref = Integer.parseInt(lines[3].replace("+", "").trim()), 
 						will = Integer.parseInt(lines[4].replace("+", "").trim());
-				LevelTableRow tableRow = new LevelTableRow(levelNum, babs,
-						new SaveAttribute("Fortitude",AbilityName.Constitution,fort), 
-						new SaveAttribute("Reflex",AbilityName.Dexterity,ref), 
-						new SaveAttribute("Will",AbilityName.Wisdom, will), 
-						lines[5].split(","));
+				// lines[0]-[5] is common data.  [6]+ is Spell Level Table data.
+				// If lines has more than 6 parts, send filename and lines to the method to handle Spell Level Data
+				LevelTableRow tableRow = null;
+				if(lines.length > 6) {
+					tableRow = new SpellLevelTableRow(levelNum, babs, new SaveAttribute("Fortitude",AbilityName.Constitution,fort), 
+							new SaveAttribute("Reflex",AbilityName.Dexterity,ref), 
+							new SaveAttribute("Will",AbilityName.Wisdom, will), 
+							lines[5].split(","), new int[10], new int[10]);
+					tableRow = readSpellLevelTable(filename, lines, (SpellLevelTableRow)tableRow);
+				}
+				else
+					tableRow = new LevelTableRow(levelNum, babs,
+							new SaveAttribute("Fortitude",AbilityName.Constitution,fort), 
+							new SaveAttribute("Reflex",AbilityName.Dexterity,ref), 
+							new SaveAttribute("Will",AbilityName.Wisdom, will), 
+							lines[5].split(","));
 				levelTable[count] = tableRow;
 				count++;
-				
-				// lines[0]-[5] is common data.  [6]+ is Spell Level Table data.
-				// If lines has more than 5 parts, send filename and lines to the method to handle Spell Level Data
-				if(lines.length > 5) {
-					readSpellLevelTable(filename, lines);
-				}
-
 				
 			} //End while next line
 
@@ -779,60 +763,45 @@ public class ClassesController extends MainPartialController implements DataLoad
 			Logger.getLogger(ClassesController.class.toString()).log(
 					Level.SEVERE, null, e);
 		}
-	} //End readGenericLevelTable
+	} //End readCommonLevelTable
 	
-	private void readSpellLevelTable(String filename, String[] lines) {		
-		SpellLevelTableRow[] levelTable = new SpellLevelTableRow[20];
-		int count = 0;
-		
+	private LevelTableRow readSpellLevelTable(String filename, String[] lines, SpellLevelTableRow tableRow) {
 		//Spells per day Levels 0-9
 		if(filename == "cleric" || filename == "druid" || filename == "wizard" || filename == "witch") {
-			
+			int[] spd = new int[10];
+			for (int i = 6; i < spd.length; i++) {
+				spd[i] = Integer.parseInt(lines[i]);
+			}
+			tableRow.setSpellsPerDay(spd);
 		}
 		
 		//Spells per day Levels 1-9, Spells Known 0-9
 		else if(filename == "sorcerer" || filename == "oracle") {
-			for (int i = 1; i < lines.length; i++) {
-				int levelNum = Integer.parseInt(lines[0]);
-				
-			}
+			
 		}
 		
 		//Spells per day Levels 1-6, Spells Known 0-6
 		else if(filename == "bard" || filename == "inquisitor" || filename == "summoner") {
-			for (int i = 1; i < lines.length; i++) {
-				int levelNum = Integer.parseInt(lines[0]);
-				
-			}
+			
 		}
 		
 		//Spells per day Levels 1-4
 		else if(filename == "paladin" || filename == "ranger") {
-			for (int i = 1; i < lines.length; i++) {
-				int levelNum = Integer.parseInt(lines[0]);
-				
-			}
-		}
-		
-		//Spells per day Levels 0-6
-		else if (filename == "magus") {
-			for (int i = 1; i < lines.length; i++) {
-				int levelNum = Integer.parseInt(lines[0]);
-				
-			}
-		}
-		
-		//Spells per day Levels 1-6: "alchemist" - the only one left
-		else {
-			for (int i = 1; i < lines.length; i++) {
-				int levelNum = Integer.parseInt(lines[0]);
-				
-			}
+
 		}
 
-			classes.get(filename).SetLevelTable(
-					FXCollections.observableArrayList(levelTable));
-		} //End readSpellLevelTable	
+		//Spells per day Levels 0-6
+		else if (filename == "magus") {
+
+		}
+
+		//Spells per day Levels 1-6: "alchemist" - the only one left
+		else {
+
+		}
+		return tableRow;
+
+	} //End readSpellLevelTable	
 	
 
 	/**
