@@ -16,8 +16,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.DirectoryChooser;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
+import jefXif.io.Data;
 import pathfinder.data.DiceType;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Attributes.SaveAttribute;
@@ -47,14 +49,25 @@ import pathfinder.data.Classes.Wizard;
 import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Classes.Objects.LevelTableRow;
 import pathfinder.data.Classes.Objects.SpellLevelTableRow;
+import pathfinder.data.Items.Armor;
+import pathfinder.data.Items.CursedItem;
+import pathfinder.data.Items.Goods;
+import pathfinder.data.Items.MagicArmor;
+import pathfinder.data.Items.MagicRing;
+import pathfinder.data.Items.MagicRod;
+import pathfinder.data.Items.MagicStaves;
+import pathfinder.data.Items.MagicWeapon;
+import pathfinder.data.Items.Weapon;
+import pathfinder.data.Items.WondrousGood;
 import pathfinder.data.Spells.Spell;
 
 /**
  * the controller for the layout of the Classes section of the data editor
  * 
  * @author Real Standard Studios - Matthew Meehan, Ian Larsen
+ * @param <T>
  */
-public class ClassesController extends MainPartialController implements DataLoader {
+public class ClassesController<T> extends MainPartialController implements DataLoader {
 
 	/*
 	 * Link Class table fxml entities to the Controller
@@ -873,13 +886,51 @@ public class ClassesController extends MainPartialController implements DataLoad
 
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
+        	DirectoryChooser directoryChooser = new DirectoryChooser();
+        	
+        	directoryChooser.setTitle("Data Directory");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	if(defaultDirectory.exists())
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	else {
+        		defaultDirectory.mkdirs();
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	}
+            // Show the directory chooser
+            File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+
+            if (file != null) {
+                Data.Write(file.getPath()+"\\Classes.idf", obsListClasses.toArray());
+            }
+        }
+//	}
 
 	@Override
-	public void loadDataFromFile(File filePath) throws IOException {
-		// TODO Auto-generated method stub
-		
+	public void loadDataFromFile(File file) throws IOException {
+		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+		File classFile = new File(file.getPath()+"\\Classes.idf");
+			if(!classFile.exists()) {			
+				readSummary();
+			}
+			else {
+				try {
+					obsListClasses.setAll(readDataFile(classFile, Class.class));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
 	}
+	
+	@SuppressWarnings("unchecked")
+	private <T> ArrayList<T> readDataFile(File file,  java.lang.Class<T> dataClass)
+			throws IOException {
+		ArrayList<T> arrayList = new ArrayList<T>();
+		Object[] readItems = Data.Read(file.getPath(), Object[].class);
+		for (Object object : readItems) {
+			arrayList.add((T)object);
+		}
+		return arrayList;
+	}
+	
 }

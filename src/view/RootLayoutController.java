@@ -80,9 +80,7 @@ public class RootLayoutController {
 	@FXML
 	private void handleSaveItems(ActionEvent event) {
 		MainPartialController itemController = windowPartials.get("Items");
-		MainPartialController featsController = windowPartials.get("Feats");
 		try {
-			featsController.saveDataToFile(ui.getProgramFilePath());
 			itemController.saveDataToFile(ui.getProgramFilePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -116,6 +114,58 @@ public class RootLayoutController {
 	private void handleSaveFeats(ActionEvent event) {
 		MainPartialController featsController = windowPartials.get("Feats");
 		try {
+			featsController.saveDataToFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleOpenSpells(ActionEvent event) {
+		MainPartialController spellsController = windowPartials.get("Spells");
+		try {
+			spellsController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleSaveSpells(ActionEvent event) {
+		MainPartialController spellsController = windowPartials.get("Spells");
+		try {
+			spellsController.saveDataToFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleOpenAll(ActionEvent event) {
+		MainPartialController spellsController = windowPartials.get("Spells");
+		MainPartialController itemsController = windowPartials.get("Items");
+		MainPartialController featsController = windowPartials.get("Feats");
+		try {
+			spellsController.loadDataFromFile(ui.getProgramFilePath());
+			itemsController.loadDataFromFile(ui.getProgramFilePath());
+			featsController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleSaveAll(ActionEvent event) {
+		MainPartialController spellsController = windowPartials.get("Spells");
+		MainPartialController itemsController = windowPartials.get("Items");
+		MainPartialController featsController = windowPartials.get("Feats");
+		try {
+			spellsController.saveDataToFile(ui.getProgramFilePath());
+			itemsController.saveDataToFile(ui.getProgramFilePath());
 			featsController.saveDataToFile(ui.getProgramFilePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
