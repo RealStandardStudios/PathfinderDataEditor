@@ -27,6 +27,8 @@
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#handleOpenItems" text="Open Items" />
                         <MenuItem mnemonicParsing="false" onAction="#handleOpenFeats" text="Open Feats" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenSpells" text="Open Spells" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenAll" text="Open All" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Save...">
@@ -35,8 +37,8 @@
                       <MenuItem mnemonicParsing="false" onAction="#handleSaveFeats" text="Save Feats" />
                         <MenuItem fx:id="menuItemSaveItems" mnemonicParsing="false" onAction="#handleSaveItems" text="Save Items" />
                         <MenuItem mnemonicParsing="false" text="Save Races" />
-                        <MenuItem mnemonicParsing="false" text="Save Spells" />
-                        <MenuItem mnemonicParsing="false" text="Save All" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveSpells" text="Save Spells" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAll" text="Save All" />
                     </items>
                   </Menu>
               <MenuItem mnemonicParsing="false" text="Close" />

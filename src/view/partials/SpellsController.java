@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -19,13 +20,25 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
+import jefXif.io.Data;
 
 import org.controlsfx.dialog.Dialogs;
 
+import pathfinder.data.Items.Armor;
+import pathfinder.data.Items.CursedItem;
+import pathfinder.data.Items.Goods;
+import pathfinder.data.Items.MagicArmor;
+import pathfinder.data.Items.MagicRing;
+import pathfinder.data.Items.MagicRod;
+import pathfinder.data.Items.MagicStaves;
+import pathfinder.data.Items.MagicWeapon;
+import pathfinder.data.Items.Weapon;
+import pathfinder.data.Items.WondrousGood;
 import pathfinder.data.Spells.Spell;
 import view.partials.dialogs.SpellEditDialogController;
 
@@ -351,13 +364,50 @@ public class SpellsController extends MainPartialController implements DataLoade
 
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
+        	DirectoryChooser directoryChooser = new DirectoryChooser();
+        	
+        	directoryChooser.setTitle("Data Directory");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	if(defaultDirectory.exists())
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	else {
+        		defaultDirectory.mkdirs();
+        		directoryChooser.setInitialDirectory(defaultDirectory);
+        	}
+            // Show the directory chooser
+            File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+
+            if (file != null) {
+                Data.Write(file.getPath()+"\\Spells.idf", spellData.toArray());
+            }
+        }
+//	}
 
 	@Override
-	public void loadDataFromFile(File filePath) throws IOException {
-		// TODO Auto-generated method stub
-		
+	public void loadDataFromFile(File file) throws IOException {
+		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+		File spellFile = new File(file.getPath()+"\\Spells.idf");
+			if(!spellFile.exists()) {			
+				readData();
+			}
+			else {
+				try {
+					spellData.setAll(readDataFile(spellFile, Spell.class));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <T> ArrayList<T> readDataFile(File file, Class<T> dataClass)
+			throws IOException {
+		ArrayList<T> arrayList = new ArrayList<T>();
+		Object[] readItems = Data.Read(file.getPath(), Object[].class);
+		for (Object object : readItems) {
+			arrayList.add((T)object);
+		}
+		return arrayList;
 	}
 }

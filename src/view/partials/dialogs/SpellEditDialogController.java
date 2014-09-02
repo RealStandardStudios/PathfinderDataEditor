@@ -124,9 +124,30 @@ public class SpellEditDialogController {
 			spell.setRange(rangeField.getText());
 			// fancy code for setting target, effect, area
 			String[] parts2 = targetEffectAreaField.getText().trim().split(",");
-			spell.setTarget(parts2[0]);
-			spell.setEffect(parts2[1]);
-			spell.setArea(parts2[2]);
+			if(parts2.length >= 1)
+			{
+				spell.setTarget(parts2[0]);
+			}
+			else
+			{
+				spell.setTarget("-");
+			}
+			if(parts2.length >= 2)
+			{
+				spell.setEffect(parts2[1]);
+			}
+			else
+			{
+				spell.setEffect("-");
+			}
+			if(parts2.length >= 3)
+			{
+				spell.setArea(parts2[2]);
+			}
+			else
+			{
+				spell.setArea("-");
+			}
 			spell.setDuration(durationField.getText());
 			spell.setSavingThrow(savingThrowField.getText());
 			spell.setSpellResistance(spellResistanceField.getText());
@@ -187,7 +208,7 @@ public class SpellEditDialogController {
 		if (descriptionField.getText() == null || descriptionField.getText().length() == 0) {
             errorMessage += "No valid description!\n"; 
         }
-		if (spellTableField.getText() == null || spellTableField.getText().length() == 0) {
+		if (spellTableField.getText() == null ) { //|| spellTableField.getText().length() == 0, currently removed for save testing....
             errorMessage += "No valid table info!\n"; 
         }
 		
