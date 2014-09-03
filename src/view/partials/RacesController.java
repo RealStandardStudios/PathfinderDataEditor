@@ -21,13 +21,21 @@ import jefXif.DataLoader;
 import jefXif.MainPartialController;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
+import pathfinder.data.Effects.ArmorClassEffect;
+import pathfinder.data.Effects.AttackBonusEffect;
+import pathfinder.data.Effects.CombatManeuverBonusEffect;
+import pathfinder.data.Effects.CombatManeuverDefenseEffect;
+import pathfinder.data.Effects.DamageEffect;
+import pathfinder.data.Effects.ResistanceBonusEffect;
+import pathfinder.data.Effects.SavingThrowEffect;
+import pathfinder.data.Effects.SkillEffect;
 import pathfinder.data.Effects.NonValued.MiscEffect;
-import pathfinder.data.Items.Weapon;
+import pathfinder.data.Effects.NonValued.OnLevelEffect;
 import pathfinder.data.Races.Race;
-import pathfinder.data.Races.Objects.Language;
 import pathfinder.data.Races.Objects.Size;
 import pathfinder.data.Races.Objects.VisionType;
 import pathfinder.data.Races.Traits.MiscTrait;
+import pathfinder.data.Races.Traits.SpellTrait;
 import pathfinder.data.Races.Traits.Trait;
 
 public class RacesController extends MainPartialController implements DataLoader {
@@ -162,7 +170,6 @@ public class RacesController extends MainPartialController implements DataLoader
 		races.setAll(raceList.values());
 	}
 
-	@SuppressWarnings("serial")
 	private void loadRaceTraits() {
 		try {
 			Scanner kb = new Scanner(new FileReader("data/RaceTraits.tsv"));
@@ -229,30 +236,72 @@ public class RacesController extends MainPartialController implements DataLoader
 						r.setSpeedLoss(false);
 					else
 						r.setSpeedLoss(true);
+					String[] visionParts = parts[7].split(",");
 					// new VisionType(distance, name)
 					ArrayList<VisionType> visionTypes = new ArrayList<>();
 					visionTypes.add(new VisionType(60, "Normal"));
-					if (parts[7].equals("-"))
-						visionTypes.add(new VisionType(30, "Low-Light Vision"));
-					if (parts[7].contains("Superior Darkvision"))
-						visionTypes.add(new VisionType(120, "Darkvision"));
-					else if (parts[7].contains("Darkvision"))
-						visionTypes.add(new VisionType(30, "Low-Light Vision"));
-					visionTypes.add(new VisionType(60, "Darkvision"));
-					if (parts[7].contains("Low-Light Vision"))
-						visionTypes.add(new VisionType(60, "Low-Light Vision"));
-					
-					r.setVisionTypes(visionTypes.toArray(new VisionType[]{}));
-					String[] traitParts = parts[8].split(":");
-					r.setRacialTraits(new ArrayList<Trait>() {
-						{
-							new MiscTrait(traitParts[0],new MiscEffect(traitParts[0]+" Effect",traitParts[1]));
-							
+					for (String s : visionParts) {
+						if (s.equals("-"))
+							visionTypes.add(new VisionType(30, "Low-Light Vision"));
+						if (s.contains("Superior Darkvision"))
+							visionTypes.add(new VisionType(120, "Darkvision"));
+						else if (s.contains("Darkvision")) {
+							visionTypes.add(new VisionType(30, "Low-Light Vision"));
+							visionTypes.add(new VisionType(60, "Darkvision"));
 						}
-					});
-
-					r.setWeaponFamiliarity(new Weapon[] {});
-					r.setLanguages(new Language[] {});
+						if (s.contains("Low-Light Vision"))
+							visionTypes.add(new VisionType(60, "Low-Light Vision"));
+					}					
+					r.setVisionTypes(visionTypes.toArray(new VisionType[]{}));
+					ArrayList<Trait> racialTraits = new ArrayList<>();
+					for(int i=8;i<17;i++) {
+						if(!parts[i].equals("-")) {
+							String[] traitParts = parts[i].split(";");
+							if(traitParts[0].equals("Misc")) {
+								switch (traitParts[2]) {
+								case "Misc":
+									racialTraits.add(new MiscTrait(traitParts[1], new MiscEffect(traitParts[1]+ " Effect", traitParts[3])));
+									break;
+								case "ArmorClass":
+									racialTraits.add(new MiscTrait(traitParts[1], new ArmorClassEffect(Integer.parseInt(traitParts[3]),traitParts[1]+" Effect",traitParts[4])));
+									break;
+								case "SavingThrow":
+									racialTraits.add(new MiscTrait(traitParts[1], new SavingThrowEffect(Integer.parseInt(traitParts[3]), traitParts[1]+" Effect", traitParts[4], traitParts[5])));
+									break;
+								case "Skill":
+									racialTraits.add(new MiscTrait(traitParts[1], new SkillEffect(Integer.parseInt(traitParts[3]), traitParts[1]+" Effect", traitParts[5], traitParts[4])));
+									break;
+								case "Damage":
+									racialTraits.add(new MiscTrait(traitParts[1], new DamageEffect(Integer.parseInt(traitParts[3]), traitParts[1]+ " Effect")));
+									break;
+								case "AttackBonus":
+									racialTraits.add(new MiscTrait(traitParts[1], new AttackBonusEffect(traitParts[3], traitParts[4], Integer.parseInt(traitParts[5]), traitParts[1]+" Effect")));
+									break;
+								case "CombatManeuverDefense":
+									racialTraits.add(new MiscTrait(traitParts[1], new CombatManeuverDefenseEffect(traitParts[4],traitParts[5], Integer.parseInt(traitParts[3]), traitParts[1]+" Effect")));
+									break;
+								case "OnLevel":
+									racialTraits.add(new MiscTrait(traitParts[1], new OnLevelEffect(Integer.parseInt(traitParts[3]), traitParts[1]+" Effect", traitParts[4])));
+									break;
+								case "ResistanceBonus":
+									racialTraits.add(new MiscTrait(traitParts[1], new ResistanceBonusEffect(Integer.parseInt(traitParts[3]), traitParts[1]+" Effect", traitParts[4])));
+									break;
+								case "CombatManeuverBonus":
+									racialTraits.add(new MiscTrait(traitParts[1], new CombatManeuverBonusEffect(Integer.parseInt(traitParts[3]), traitParts[1]+" Effect")));
+									break;
+								default:
+									System.out.println(parts[0]+", "+traitParts[2]);
+									break;
+								}
+							}
+							else {
+								racialTraits.add(new SpellTrait(traitParts[1], new MiscEffect(traitParts[1]+" Effect", traitParts[4]), traitParts[2], Integer.parseInt(traitParts[3])));
+							}
+						}
+					}
+					r.setRacialTraits(racialTraits);
+					r.setWeaponFamiliarity(new String[] {""});
+					r.setLanguages(new String[] {""});
 				}
 			}
 			kb.close();
