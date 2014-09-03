@@ -10,6 +10,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,16 +51,6 @@ import pathfinder.data.Classes.Wizard;
 import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Classes.Objects.LevelTableRow;
 import pathfinder.data.Classes.Objects.SpellLevelTableRow;
-import pathfinder.data.Items.Armor;
-import pathfinder.data.Items.CursedItem;
-import pathfinder.data.Items.Goods;
-import pathfinder.data.Items.MagicArmor;
-import pathfinder.data.Items.MagicRing;
-import pathfinder.data.Items.MagicRod;
-import pathfinder.data.Items.MagicStaves;
-import pathfinder.data.Items.MagicWeapon;
-import pathfinder.data.Items.Weapon;
-import pathfinder.data.Items.WondrousGood;
 import pathfinder.data.Spells.Spell;
 
 /**
@@ -140,34 +132,34 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	private TableColumn<SpellLevelTableRow, Integer> columnLevelSpells;
 
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column0;
+	private TableColumn<SpellLevelTableRow, String> column0;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column1st;
+	private TableColumn<SpellLevelTableRow, String> column1st;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column2nd;
+	private TableColumn<SpellLevelTableRow, String> column2nd;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column3rd;
+	private TableColumn<SpellLevelTableRow, String> column3rd;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column4th;
+	private TableColumn<SpellLevelTableRow, String> column4th;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column5th;
+	private TableColumn<SpellLevelTableRow, String> column5th;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column6th;
+	private TableColumn<SpellLevelTableRow, String> column6th;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column7th;
+	private TableColumn<SpellLevelTableRow, String> column7th;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column8th;
+	private TableColumn<SpellLevelTableRow, String> column8th;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column9th;
+	private TableColumn<SpellLevelTableRow, String> column9th;
 	
 	/*
 	 * Link Class Progression Spells Known Table fxml entities to the Controller
@@ -180,34 +172,34 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	private TableColumn<SpellLevelTableRow, Integer> columnLevelSpellsKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column0Known;
+	private TableColumn<SpellLevelTableRow, String> column0Known;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column1stKnown;
+	private TableColumn<SpellLevelTableRow, String> column1stKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column2ndKnown;
+	private TableColumn<SpellLevelTableRow, String> column2ndKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column3rdKnown;
+	private TableColumn<SpellLevelTableRow, String> column3rdKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column4thKnown;
+	private TableColumn<SpellLevelTableRow, String> column4thKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column5thKnown;
+	private TableColumn<SpellLevelTableRow, String> column5thKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column6thKnown;
+	private TableColumn<SpellLevelTableRow, String> column6thKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column7thKnown;
+	private TableColumn<SpellLevelTableRow, String> column7thKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column8thKnown;
+	private TableColumn<SpellLevelTableRow, String> column8thKnown;
 	
 	@FXML
-	private TableColumn<SpellLevelTableRow, Integer> column9thKnown;
+	private TableColumn<SpellLevelTableRow, String> column9thKnown;
 	
 	
 	private ObservableList<Class> obsListClasses = FXCollections
@@ -250,46 +242,38 @@ public class ClassesController<T> extends MainPartialController implements DataL
 						(observable, oldValue, newValue) -> showClassDetails(newValue));
 
 		// Init the Class Progression Level Table with columns
-		columnLevel.setCellValueFactory(cellData -> cellData.getValue()
-				.getLevelNumProperty());
-		columnBAB.setCellValueFactory(cellData -> cellData.getValue()
-				.getBABProperty());
-		columnFort.setCellValueFactory(cellData -> cellData.getValue()
-				.getFortSave().getBaseValueProperty());
-		columnRef.setCellValueFactory(cellData -> cellData.getValue()
-				.getRefSave().getBaseValueProperty());
-		columnWill.setCellValueFactory(cellData -> cellData.getValue()
-				.getWillSave().getBaseValueProperty());
-		columnSpecial.setCellValueFactory(cellData -> cellData.getValue()
-				.getSpecialProperty());
+		columnLevel.setCellValueFactory(cellData -> cellData.getValue().getLevelNumProperty());
+		columnBAB.setCellValueFactory(cellData -> cellData.getValue().getBABProperty());
+		columnFort.setCellValueFactory(cellData -> cellData.getValue().getFortSave().getBaseValueProperty());
+		columnRef.setCellValueFactory(cellData -> cellData.getValue().getRefSave().getBaseValueProperty());
+		columnWill.setCellValueFactory(cellData -> cellData.getValue().getWillSave().getBaseValueProperty());
+		columnSpecial.setCellValueFactory(cellData -> cellData.getValue().getSpecialProperty());
 		
 		// Init the Class Progression Spell Level Table with columns
-		columnLevelSpells.setCellValueFactory(cellData -> cellData.getValue()
-				.getLevelNumProperty());
-		column0.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[0]);
-		column1st.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[1]);
-		column2nd.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[2]);
-		column3rd.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[3]);
-		column4th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[4]);
-		column5th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[5]);
-		column6th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[6]);
-		column7th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[7]);
-		column8th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[8]);
-		column9th.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[9]);
+		columnLevelSpells.setCellValueFactory(cellData -> cellData.getValue().getLevelNumProperty());
+		column0.setCellValueFactory(cellData -> cellData.getValue().getSPD()[0]);
+		column1st.setCellValueFactory(cellData -> cellData.getValue().getSPD()[1]);
+		column2nd.setCellValueFactory(cellData -> cellData.getValue().getSPD()[2]);
+		column3rd.setCellValueFactory(cellData -> cellData.getValue().getSPD()[3]);
+		column4th.setCellValueFactory(cellData -> cellData.getValue().getSPD()[4]);
+		column5th.setCellValueFactory(cellData -> cellData.getValue().getSPD()[5]);
+		column6th.setCellValueFactory(cellData -> cellData.getValue().getSPD()[6]);
+		column7th.setCellValueFactory(cellData -> cellData.getValue().getSPD()[7]);
+		column8th.setCellValueFactory(cellData -> cellData.getValue().getSPD()[8]);
+		column9th.setCellValueFactory(cellData -> cellData.getValue().getSPD()[9]);
 		
 		// Init the Class Progression Spells Known Table with columns
-		columnLevelSpellsKnown.setCellValueFactory(cellData -> cellData.getValue()
-				.getLevelNumProperty());
-		column0Known.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[0]);
-		column1stKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[1]);
-		column2ndKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[2]);
-		column3rdKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[3]);
-		column4thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[4]);
-		column5thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[5]);
-		column6thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[6]);
-		column7thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[7]);
-		column8thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[8]);
-		column9thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsPerDay()[9]);
+		columnLevelSpellsKnown.setCellValueFactory(cellData -> cellData.getValue().getLevelNumProperty());
+		column0Known.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[0]);
+		column1stKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[1]);
+		column2ndKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[2]);
+		column3rdKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[3]);
+		column4thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[4]);
+		column5thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[5]);
+		column6thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[6]);
+		column7thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[7]);
+		column8thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[8]);
+		column9thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[9]);
 	}
 
 	/**
@@ -330,7 +314,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
 		// We were here last, there is no spell shit showing up
 		if (c != null) {
 			tableLevelTable.setItems(c.getLeveltableRow());
-			if(c.getLeveltableRow().getClass().isAssignableFrom(SpellLevelTableRow.class)) {
+			if(SpellLevelTableRow.class.isInstance(c.getLeveltableRow().get(0))) {
 				ArrayList<SpellLevelTableRow> spellcaster = new ArrayList<SpellLevelTableRow>();
 				for (LevelTableRow levelTableRow : c.getLeveltableRow()) {
 					spellcaster.add((SpellLevelTableRow)levelTableRow);
@@ -753,7 +737,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
 					tableRow = new SpellLevelTableRow(levelNum, babs, new SaveAttribute("Fortitude",AbilityName.Constitution,fort), 
 							new SaveAttribute("Reflex",AbilityName.Dexterity,ref), 
 							new SaveAttribute("Will",AbilityName.Wisdom, will), 
-							lines[5].split(","), new int[10], new int[10]);
+							lines[5].split(","), new StringProperty[10], new StringProperty[10]);
 					tableRow = readSpellLevelTable(filename, lines, (SpellLevelTableRow)tableRow);
 				}
 				else
@@ -780,12 +764,12 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	
 	private LevelTableRow readSpellLevelTable(String filename, String[] lines, SpellLevelTableRow tableRow) {
 		//Spells per day Levels 0-9
-		if(filename == "cleric" || filename == "druid" || filename == "wizard" || filename == "witch") {
-			int[] spd = new int[10];
-			for (int i = 6; i < spd.length; i++) {
-				spd[i] = Integer.parseInt(lines[i]);
+		if(filename == "Cleric" || filename == "Druid" || filename == "Wizard" || filename == "Witch") {
+			StringProperty[] spd = new StringProperty[10];
+			for (int i = 6; i < lines.length; i++) {
+				spd[i-6] = new SimpleStringProperty(lines[i]);
 			}
-			tableRow.setSpellsPerDay(spd);
+			tableRow.setSPD(spd);
 		}
 		
 		//Spells per day Levels 1-9, Spells Known 0-9

@@ -1,17 +1,17 @@
 Level	Base Attack Bonus	Fort Save	Ref Save	Will Save	Special	1st	2nd	3rd	4th
-1	+1	+2	+2	+0	1st favored enemy, track, wild empathy	—	—	—	—
-2	+2	+3	+3	+0	Combat style feat	—	—	—	—
-3	+3	+3	+3	+1	Endurance, 1st favored terrain	—	—	—	—
-4	+4	+4	+4	+1	Hunter's bond	0	—	—	—
-5	+5	+4	+4	+1	2nd favored enemy	1	—	—	—
-6	+6/+1	+5	+5	+2	Combat style feat	1	—	—	—
-7	+7/+2	+5	+5	+2	Woodland stride	1	0	—	—
-8	+8/+3	+6	+6	+2	Swift tracker, 2nd favored terrain	1	1	—	—
-9	+9/+4	+6	+6	+3	Evasion	2	1	—	—
-10	+10/+5	+7	+7	+3	3rd favored enemy, combat style feat	2	1	0	—
-11	+11/+6/+1	+7	+7	+3	Quarry	2	1	1	—
-12	+12/+7/+2	+8	+8	+4	Camouflage	2	2	1	—
-13	+13/+8/+3	+8	+8	+4	3rd favored terrain	3	2	1	0
+1	+1	+2	+2	+0	1st favored enemy, track, wild empathy	-	-	-	-
+2	+2	+3	+3	+0	Combat style feat	-	-	-	-
+3	+3	+3	+3	+1	Endurance, 1st favored terrain	-	-	-	-
+4	+4	+4	+4	+1	Hunter's bond	-	-	-	-
+5	+5	+4	+4	+1	2nd favored enemy	1	-	-	-
+6	+6/+1	+5	+5	+2	Combat style feat	1	-	-	-
+7	+7/+2	+5	+5	+2	Woodland stride	1	-	-	-
+8	+8/+3	+6	+6	+2	Swift tracker, 2nd favored terrain	1	1	-	-
+9	+9/+4	+6	+6	+3	Evasion	2	1	-	-
+10	+10/+5	+7	+7	+3	3rd favored enemy, combat style feat	2	1	-	-
+11	+11/+6/+1	+7	+7	+3	Quarry	2	1	1	-
+12	+12/+7/+2	+8	+8	+4	Camouflage	2	2	1	-
+13	+13/+8/+3	+8	+8	+4	3rd favored terrain	3	2	1	-
 14	+14/+9/+4	+9	+9	+4	Combat style feat	3	2	1	1
 15	+15/+10/+5	+9	+9	+5	4th favored enemy	3	2	2	1
 16	+16/+11/+6/+1	+10	+10	+5	Improved evasion	3	3	2	1
