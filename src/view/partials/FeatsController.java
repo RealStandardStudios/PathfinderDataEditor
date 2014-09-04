@@ -29,16 +29,6 @@ import org.controlsfx.dialog.Dialogs;
 import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Effects.Effect;
 import pathfinder.data.Feats.Feat;
-import pathfinder.data.Items.Armor;
-import pathfinder.data.Items.CursedItem;
-import pathfinder.data.Items.Goods;
-import pathfinder.data.Items.MagicArmor;
-import pathfinder.data.Items.MagicRing;
-import pathfinder.data.Items.MagicRod;
-import pathfinder.data.Items.MagicStaves;
-import pathfinder.data.Items.MagicWeapon;
-import pathfinder.data.Items.Weapon;
-import pathfinder.data.Items.WondrousGood;
 import view.partials.dialogs.FeatEditDialogController;
 
 /**

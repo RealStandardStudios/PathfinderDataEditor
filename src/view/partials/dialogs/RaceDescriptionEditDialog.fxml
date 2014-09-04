@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="620.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.RaceDescriptionsEditDialogController">
+   <children>
+      <GridPane prefHeight="600.0" prefWidth="386.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="138.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="466.0" minWidth="10.0" prefWidth="462.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="81.0" minHeight="6.0" prefHeight="27.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="122.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Description" GridPane.rowIndex="1" />
+            <TextArea fx:id="txtaDescription" editable="false" prefHeight="70.0" prefWidth="228.0" text="The Races Description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Physical Description" GridPane.rowIndex="2" />
+            <TextArea fx:id="txtaPDescription" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Races physcial description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Society" GridPane.rowIndex="3" />
+            <TextArea fx:id="txtaSociety" editable="false" prefHeight="200.0" prefWidth="200.0" text="A description of the Races Society" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Race Relations" GridPane.rowIndex="4" />
+            <Label text="Alignment and Religions" wrapText="true" GridPane.rowIndex="5" />
+            <Label text="Adventures" GridPane.rowIndex="6" />
+            <TextArea fx:id="txtaReligion" editable="false" prefHeight="200.0" prefWidth="200.0" text="Alignment and Religions" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextArea fx:id="txtaRelations" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Relations of the race with other races" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextArea fx:id="txtaAdventures" editable="false" prefHeight="200.0" prefWidth="200.0" text="The kinds of adventures the race would get up to" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Race Name" />
+            <TextField fx:id="txtRaceName" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="534.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleOkay" text="Okay" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0" />
+      <Button layoutX="475.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="70.0" />
+   </children>
+</AnchorPane>
