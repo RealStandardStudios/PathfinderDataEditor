@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -62,7 +61,7 @@ public class FeatsController extends MainPartialController implements DataLoader
 	}
 
 	/**
-	 * initialises the controller
+	 * Initializes the controller
 	 */
 	@Override
 	public void initialize() {
@@ -115,6 +114,7 @@ public class FeatsController extends MainPartialController implements DataLoader
 			controller.setFeat(feat);
 			controller.setData(feats);
 			dialogStage.showAndWait();
+			feat = controller.getFeat();
 			return controller.isOkayClicked();
 		} catch (IOException e) {
 			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
@@ -214,22 +214,10 @@ public class FeatsController extends MainPartialController implements DataLoader
 
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
-//        if (filePath != null) {
-//			Data.Write(filePath+Gui.DataFileLoc+"Armors.idf", armors.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"Weapons.idf", weapons.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"MagicArmors.idf", magicArmors.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"MagicWeapons.idf", magicWeapons.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"CursedItems.idf", cursedItems.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"MagicRings.idf", magicRings.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"Rods.idf", rods.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"GoodsAndServices.idf", goodsAndServices.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"Staves.idf", staves.toArray());
-//    		Data.Write(filePath+Gui.DataFileLoc+"WonderousGoods.idf", wondrousGoods.toArray());
-//        } else {
         	DirectoryChooser directoryChooser = new DirectoryChooser();
         	
         	directoryChooser.setTitle("Data Directory");
-        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
         	if(defaultDirectory.exists())
         		directoryChooser.setInitialDirectory(defaultDirectory);
         	else {
@@ -240,28 +228,19 @@ public class FeatsController extends MainPartialController implements DataLoader
             File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
 
             if (file != null) {
-                Data.Write(file.getPath()+"\\Feats.idf", feats.toArray());
+                Data.Write(file.getPath()+"\\Feats.fdf", feats.toArray());
             }
         }
 
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
-		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
-		File featsFile = new File(file.getPath()+"\\Feats.idf");
+		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+		File featsFile = new File(file.getPath()+"\\Feats.fdf");
 			if(!featsFile.exists()) {			
 				readFeatData();
 			}
 			else {
 				feats.setAll(readDataFile(featsFile, Feat.class));
 			}
-	}
-
-	private <T>ArrayList<T> readDataFile(File file, Class<Feat> featClass) throws IOException {
-		ArrayList<T> arrayList = new ArrayList<T>();
-		Object[] readItems = Data.Read(file.getPath(), Object[].class);
-		for (Object object : readItems) {
-			arrayList.add((T)object);
-		}
-		return arrayList;
 	}
 }

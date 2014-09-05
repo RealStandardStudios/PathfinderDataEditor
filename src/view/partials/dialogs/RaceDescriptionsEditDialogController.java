@@ -5,10 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jefXif.DialogController;
-import pathfinder.data.Feats.Feat;
 import pathfinder.data.Races.Race;
 
 public class RaceDescriptionsEditDialogController extends DialogController{
+	
+	Boolean okayClicked = false;
 	
 	@FXML
 	TextField txtRaceName;
@@ -44,6 +45,13 @@ public class RaceDescriptionsEditDialogController extends DialogController{
 	 */
 	public void setRace(Race race) {
 		this.race = race;
+		txtRaceName.setText(race.getName());
+		txtaDescription.setText(race.getDescription());
+		txtaPDescription.setText(race.getPhysicalDescription());
+		txtaSociety.setText(race.getSociety());
+		txtaRelations.setText(race.getRelations());
+		txtaReligion.setText(race.getAlignmentAndReligion());
+		txtaAdventures.setText(race.getAdventures());
 	}
 
 	public RaceDescriptionsEditDialogController() {
@@ -57,14 +65,18 @@ public class RaceDescriptionsEditDialogController extends DialogController{
 
 	@FXML
 	private void handleOkay() {
-		this.race.setName(txtRaceName.getText());
-		this.race.setDescription(txtaDescription.getText());
-		this.race.setPhysicalDescription(txtaPDescription.getText());
-		this.race.setSociety(txtaSociety.getText());
-		this.race.setRelations(txtaRelations.getText());
-		this.race.setAlignmentAndReligion(txtaReligion.getText());
-		//this.getDialogStage().close();
+		race.setName(txtRaceName.getText());
+		race.setDescription(txtaDescription.getText());
+		race.setPhysicalDescription(txtaPDescription.getText());
+		race.setSociety(txtaSociety.getText());
+		race.setRelations(txtaRelations.getText());
+		race.setAlignmentAndReligion(txtaReligion.getText());
+		race.setAdventures(txtaAdventures.getText());
+		okayClicked = true;
+		this.getDialogStage().close();
 	}
-	
-	
+
+	public boolean isOkayClicked() {
+		return this.okayClicked;
+	}	
 }

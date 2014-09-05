@@ -842,7 +842,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
         	DirectoryChooser directoryChooser = new DirectoryChooser();
         	
         	directoryChooser.setTitle("Data Directory");
-        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
         	if(defaultDirectory.exists())
         		directoryChooser.setInitialDirectory(defaultDirectory);
         	else {
@@ -853,15 +853,15 @@ public class ClassesController<T> extends MainPartialController implements DataL
             File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
 
             if (file != null) {
-                Data.Write(file.getPath()+"\\Classes.idf", obsListClasses.toArray());
+                Data.Write(file.getPath()+"\\Classes.cldf", obsListClasses.toArray());
             }
         }
 //	}
 
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
-		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
-		File classFile = new File(file.getPath()+"\\Classes.idf");
+		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+		File classFile = new File(file.getPath()+"\\Classes.cldf");
 			if(!classFile.exists()) {			
 				readSummary();
 			}
@@ -874,16 +874,4 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				}
 			}	
 	}
-	
-	@SuppressWarnings("unchecked")
-	private <T> ArrayList<T> readDataFile(File file,  java.lang.Class<T> dataClass)
-			throws IOException {
-		ArrayList<T> arrayList = new ArrayList<T>();
-		Object[] readItems = Data.Read(file.getPath(), Object[].class);
-		for (Object object : readItems) {
-			arrayList.add((T)object);
-		}
-		return arrayList;
-	}
-	
 }

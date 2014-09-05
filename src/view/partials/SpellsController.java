@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -357,7 +356,7 @@ public class SpellsController extends MainPartialController implements DataLoade
         	DirectoryChooser directoryChooser = new DirectoryChooser();
         	
         	directoryChooser.setTitle("Data Directory");
-        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
+        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
         	if(defaultDirectory.exists())
         		directoryChooser.setInitialDirectory(defaultDirectory);
         	else {
@@ -368,15 +367,15 @@ public class SpellsController extends MainPartialController implements DataLoade
             File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
 
             if (file != null) {
-                Data.Write(file.getPath()+"\\Spells.idf", spellData.toArray());
+                Data.Write(file.getPath()+"\\Spells.sdf", spellData.toArray());
             }
         }
 //	}
 
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
-		file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");
-		File spellFile = new File(file.getPath()+"\\Spells.idf");
+		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+		File spellFile = new File(file.getPath()+"\\Spells.sdf");
 			if(!spellFile.exists()) {			
 				readData();
 			}
@@ -388,16 +387,5 @@ public class SpellsController extends MainPartialController implements DataLoade
 					e.printStackTrace();
 				}
 			}	
-	}
-	
-	@SuppressWarnings("unchecked")
-	private <T> ArrayList<T> readDataFile(File file, Class<T> dataClass)
-			throws IOException {
-		ArrayList<T> arrayList = new ArrayList<T>();
-		Object[] readItems = Data.Read(file.getPath(), Object[].class);
-		for (Object object : readItems) {
-			arrayList.add((T)object);
-		}
-		return arrayList;
 	}
 }

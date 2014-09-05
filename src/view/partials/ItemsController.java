@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -167,23 +166,6 @@ public class ItemsController extends MainPartialController implements PartialLoa
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).log(Level.SEVERE, e.getMessage());
 		}
-	}
-
-	/**
-	 * @param <T>
-	 * @param armorFile
-	 * @param armor
-	 * @throws IOException
-	 */
-	@SuppressWarnings("unchecked")
-	private <T> ArrayList<T> readDataFile(File file, Class<T> dataClass)
-			throws IOException {
-		ArrayList<T> arrayList = new ArrayList<T>();
-		Object[] readItems = Data.Read(file.getPath(), Object[].class);
-		for (Object object : readItems) {
-			arrayList.add((T)object);
-		}
-		return arrayList;
 	}
 	
 	/**

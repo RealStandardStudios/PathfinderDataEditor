@@ -8,15 +8,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import org.controlsfx.dialog.Dialogs;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
 import pathfinder.data.Attributes.AbilityName;
@@ -37,6 +44,7 @@ import pathfinder.data.Races.Objects.VisionType;
 import pathfinder.data.Races.Traits.MiscTrait;
 import pathfinder.data.Races.Traits.SpellTrait;
 import pathfinder.data.Races.Traits.Trait;
+import view.partials.dialogs.RaceDescriptionsEditDialogController;
 
 public class RacesController extends MainPartialController implements DataLoader {
 	@FXML
@@ -129,12 +137,46 @@ public class RacesController extends MainPartialController implements DataLoader
 
 	@FXML
 	public void handleEditSheet(ActionEvent event) {
+		Race selectedRace = tableRaces.getSelectionModel().getSelectedItem();
+		if(selectedRace!=null) {
+			boolean okClicked = showEditRaceDescriptions(selectedRace);
+		} else {
+			Dialogs.create().title("No Selection").masthead("No race Selected")
+			.message("Select a race from the table.").showWarning();
+		}
+	}
 
+	private boolean showEditRaceDescriptions(Race race) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource("dialogs/RaceDescriptionsEditDialog.fxml"));
+			AnchorPane pane = (AnchorPane) loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Race Descriptions");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(getInterface().getPrimaryStage());
+			Scene scene = new Scene(pane);
+			dialogStage.setScene(scene);
+			
+			RaceDescriptionsEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setRace(race);
+			dialogStage.showAndWait();
+			race = controller.getRace();
+			showRaceDetails(race);
+			return controller.isOkayClicked();
+		}catch (IOException e) {
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@FXML
 	public void handleEditTraits(ActionEvent event) {
-
+		
 	}
 
 	@SuppressWarnings("serial")
