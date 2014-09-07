@@ -442,7 +442,7 @@ public class RacesController extends MainPartialController implements DataLoader
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
 		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
-		File raceFile = new File(file.getPath()+"\\Feats.fdf");
+		File raceFile = new File(file.getPath()+"\\Races.rdf");
 		if(!raceFile.exists()) {			
 			loadRaceSheet();
 			loadRaceTraits();

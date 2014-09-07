@@ -77,7 +77,13 @@ public class RootLayoutController {
 		SwapWindow(windowPartials.get("Items").getNode());
 	}
 	
-	@FXML private void handleSaveRaces(ActionEvent event) {
+	@FXML
+	private void handleSaveClasses(ActionEvent event) {
+		
+	}
+	
+	@FXML 
+	private void handleSaveRaces(ActionEvent event) {
 		MainPartialController racesController = windowPartials.get("Races");
 		try{
 			racesController.saveDataToFile(ui.getProgramFilePath());
