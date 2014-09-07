@@ -207,40 +207,43 @@ public class FeatsController extends MainPartialController implements DataLoader
 
 	@Override
 	public void loadData(File file) {
-		// This is where it will read in the data from the files saved through
-		// the program or use the tsvs as a fallback
-		readFeatData();
+		try {
+			loadDataFromFile(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
-        	DirectoryChooser directoryChooser = new DirectoryChooser();
-        	
-        	directoryChooser.setTitle("Data Directory");
-        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
-        	if(defaultDirectory.exists())
-        		directoryChooser.setInitialDirectory(defaultDirectory);
-        	else {
-        		defaultDirectory.mkdirs();
-        		directoryChooser.setInitialDirectory(defaultDirectory);
-        	}
-            // Show the directory chooser
-            File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+    	DirectoryChooser directoryChooser = new DirectoryChooser();
+    	
+    	directoryChooser.setTitle("Data Directory");
+    	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+    	if(defaultDirectory.exists())
+    		directoryChooser.setInitialDirectory(defaultDirectory);
+    	else {
+    		defaultDirectory.mkdirs();
+    		directoryChooser.setInitialDirectory(defaultDirectory);
+    	}
+        // Show the directory chooser
+        File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
 
-            if (file != null) {
-                Data.Write(file.getPath()+"\\Feats.fdf", feats.toArray());
-            }
+        if (file != null) {
+            Data.Write(file.getPath()+"\\Feats.fdf", feats.toArray());
         }
+    }
 
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
 		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
 		File featsFile = new File(file.getPath()+"\\Feats.fdf");
-			if(!featsFile.exists()) {			
-				readFeatData();
-			}
-			else {
-				feats.setAll(readDataFile(featsFile, Feat.class));
-			}
+		if(!featsFile.exists()) {			
+			readFeatData();
+		}
+		else {
+			feats.setAll(readDataFile(featsFile, Feat.class));
+		}
 	}
 }

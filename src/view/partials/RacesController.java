@@ -22,10 +22,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
+import jefXif.io.Data;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Effects.ArmorClassEffect;
@@ -38,6 +40,7 @@ import pathfinder.data.Effects.SavingThrowEffect;
 import pathfinder.data.Effects.SkillEffect;
 import pathfinder.data.Effects.NonValued.MiscEffect;
 import pathfinder.data.Effects.NonValued.OnLevelEffect;
+import pathfinder.data.Feats.Feat;
 import pathfinder.data.Races.Race;
 import pathfinder.data.Races.Objects.Size;
 import pathfinder.data.Races.Objects.VisionType;
@@ -242,9 +245,12 @@ public class RacesController extends MainPartialController implements DataLoader
 			}
 		};
 		raceList = new HashMap<>();
-		loadRaceSheet();
-		loadRaceTraits();
-		races.setAll(raceList.values());
+		try {
+			loadDataFromFile(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void loadRaceTraits() {
@@ -257,48 +263,48 @@ public class RacesController extends MainPartialController implements DataLoader
 				String[] parts = line.split("\t");
 				Race r = raceList.get(parts[0]);
 				{
-					String name = "Racial Ability Modifier";
+					String effectName = "Racial Ability Modifier";
 					String[] traits = parts[1].split(",");
 					switch (traits.length) {
 					case 1:
 						r.setRacialModifiers(new AbilityEffect[] { new AbilityEffect(
 								new Integer(traits[0].trim().substring(0, 2)),
-								name, null) });
+								effectName, null) });
 						break;
 					case 2:
 						r.setRacialModifiers(new AbilityEffect[] {
 								new AbilityEffect(new Integer(traits[0].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[0].substring(3).trim())),
 								new AbilityEffect(new Integer(traits[1].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[1].substring(3).trim())) });
 						break;
 					case 3:
 						r.setRacialModifiers(new AbilityEffect[] {
 								new AbilityEffect(new Integer(traits[0].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[0].substring(3).trim())),
 								new AbilityEffect(new Integer(traits[1].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[1].substring(3).trim())),
 								new AbilityEffect(new Integer(traits[2].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[2].substring(3).trim())) });
 						break;
 					case 4:
 						r.setRacialModifiers(new AbilityEffect[] {
 								new AbilityEffect(new Integer(traits[0].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[0].substring(3).trim())),
 								new AbilityEffect(new Integer(traits[1].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[1].substring(3).trim())),
 								new AbilityEffect(new Integer(traits[2].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[2].substring(3).trim())),
 								new AbilityEffect(new Integer(traits[3].trim()
-										.substring(0, 2)), name, AbilityNames
+										.substring(0, 2)), effectName, AbilityNames
 										.get(traits[3].substring(3).trim())) });
 					default:
 						break;
@@ -415,14 +421,36 @@ public class RacesController extends MainPartialController implements DataLoader
 
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
-		// TODO Auto-generated method stub
-		
+		DirectoryChooser directoryChooser = new DirectoryChooser();
+    	
+    	directoryChooser.setTitle("Data Directory");
+    	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+    	if(defaultDirectory.exists())
+    		directoryChooser.setInitialDirectory(defaultDirectory);
+    	else {
+    		defaultDirectory.mkdirs();
+    		directoryChooser.setInitialDirectory(defaultDirectory);
+    	}
+        // Show the directory chooser
+        File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+
+        if (file != null) {
+            Data.Write(file.getPath()+"\\Races.rdf", races.toArray());
+        }
 	}
 
 	@Override
-	public void loadDataFromFile(File filePath) throws IOException {
-		// TODO Auto-generated method stub
-		
+	public void loadDataFromFile(File file) throws IOException {
+		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+		File raceFile = new File(file.getPath()+"\\Feats.fdf");
+		if(!raceFile.exists()) {			
+			loadRaceSheet();
+			loadRaceTraits();
+			races.setAll(raceList.values());
+		}
+		else {
+			races.setAll(readDataFile(raceFile, Race.class));
+		}
 	}
 
 }

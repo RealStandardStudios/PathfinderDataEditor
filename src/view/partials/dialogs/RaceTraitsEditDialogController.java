@@ -1,5 +1,9 @@
 package view.partials.dialogs;
 
+import java.util.HashMap;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -7,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jefXif.DialogController;
+import pathfinder.data.Attributes.AbilityName;
+import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Races.Race;
 import pathfinder.data.Races.Objects.Size;
 import pathfinder.data.Races.Objects.VisionType;
@@ -37,6 +43,10 @@ public class RaceTraitsEditDialogController extends DialogController {
 	TextArea txtaWeaponFamiliarity;
 	@FXML
 	TextArea txtaLanguages;
+	
+	ObservableList<Size> sizes;
+	
+	HashMap<String,AbilityName>AbilityNames;
 	
 	/**
 	 * @return the race
@@ -77,16 +87,46 @@ public class RaceTraitsEditDialogController extends DialogController {
 				break;
 			}
 		}
+		
+		cboSizes.setItems(sizes);
+		cboSizes.setValue(race.getSize());
 	}
 	
+	@SuppressWarnings("serial")
 	public RaceTraitsEditDialogController() {
-		// TODO Auto-generated constructor stub
+		sizes = FXCollections.observableArrayList(
+				Size.Diminutive,Size.Fine,Size.Tiny,Size.Small,
+				Size.Medium,Size.Large,Size.Huge,Size.Colossal,Size.Gargantuan
+			);
+		
+		AbilityNames = new HashMap<String, AbilityName>() {
+			{
+				put(AbilityName.Charisma.name(), AbilityName.Charisma);
+				put(AbilityName.Constitution.name(), AbilityName.Constitution);
+				put(AbilityName.Dexterity.name(), AbilityName.Dexterity);
+				put(AbilityName.Intelligence.name(), AbilityName.Intelligence);
+				put(AbilityName.Strength.name(), AbilityName.Strength);
+				put(AbilityName.Wisdom.name(), AbilityName.Wisdom);
+			}
+		};
 	}
 
 	@FXML
 	public void handleOkay(ActionEvent event) {
 		race.setSpeed(Integer.parseInt(txtSpeed.getText()));
 		race.setSize(cboSizes.getSelectionModel().getSelectedItem());
+		String[] parts = txtaLanguages.getText().split(",");
+		race.setLanguages(parts);
+		parts = txtaWeaponFamiliarity.getText().split(",");
+		race.setWeaponFamiliarity(parts);
+		
+		String effectName = "Racial Ability Modifier";
+		String[] traits = txtRacialModifiers.getText().split(",");
+		AbilityEffect[] abilityEffects = new AbilityEffect[traits.length];
+		for (int i = 0; i < traits.length; i++) {
+			String[] traitParts = traits[i].trim().split(" ");
+			abilityEffects[i] = new AbilityEffect(Integer.parseInt(traitParts[0]), effectName, AbilityNames.get(traitParts[1].trim()));
+		}
 		
 		okayClicked = true;
 		getDialogStage().close();

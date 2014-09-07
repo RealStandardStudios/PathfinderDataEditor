@@ -77,6 +77,27 @@ public class RootLayoutController {
 		SwapWindow(windowPartials.get("Items").getNode());
 	}
 	
+	@FXML private void handleSaveRaces(ActionEvent event) {
+		MainPartialController racesController = windowPartials.get("Races");
+		try{
+			racesController.saveDataToFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleOpenRaces(ActionEvent event) {
+		MainPartialController racesController = windowPartials.get("Races");
+		try {
+			racesController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@FXML
 	private void handleSaveItems(ActionEvent event) {
 		MainPartialController itemController = windowPartials.get("Items");
