@@ -45,6 +45,7 @@ import pathfinder.data.Races.Traits.MiscTrait;
 import pathfinder.data.Races.Traits.SpellTrait;
 import pathfinder.data.Races.Traits.Trait;
 import view.partials.dialogs.RaceDescriptionsEditDialogController;
+import view.partials.dialogs.RaceTraitsEditDialogController;
 
 public class RacesController extends MainPartialController implements DataLoader {
 	@FXML
@@ -176,7 +177,41 @@ public class RacesController extends MainPartialController implements DataLoader
 
 	@FXML
 	public void handleEditTraits(ActionEvent event) {
-		
+		Race selectedRace = tableRaces.getSelectionModel().getSelectedItem();
+		if(selectedRace!=null) {
+			boolean okClicked = showEditRaceTraits(selectedRace);
+		} else {
+			Dialogs.create().title("No Selection").masthead("No race Selected")
+			.message("Select a race from the table.").showWarning();
+		}
+	}
+
+	private boolean showEditRaceTraits(Race race) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource("dialogs/RaceTraitsEditDialog.fxml"));
+			AnchorPane pane = (AnchorPane) loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Race Traits");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(getInterface().getPrimaryStage());
+			Scene scene = new Scene(pane);
+			dialogStage.setScene(scene);
+			
+			RaceTraitsEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setRace(race);
+			dialogStage.showAndWait();
+			race = controller.getRace();
+			showRaceDetails(race);
+			return controller.isOkayClicked();
+		}catch (IOException e) {
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@SuppressWarnings("serial")
