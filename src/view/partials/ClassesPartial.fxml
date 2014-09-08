@@ -80,14 +80,14 @@
                                           <content>
                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <TableView fx:id="tableLevelTable" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="tableLevelTable" cacheShape="false" centerShape="false" focusTraversable="false" onDragDetected="#handleDrag" pickOnBounds="false" prefHeight="554.0" prefWidth="834.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
-                                                            <TableColumn fx:id="columnLevel" prefWidth="70.0" text="Level" />
-                                                            <TableColumn fx:id="columnBAB" prefWidth="109.99999237060547" text="Base Attack Bonus" />
-                                                            <TableColumn fx:id="columnFort" prefWidth="70.0" text="Fort Save" />
-                                                            <TableColumn fx:id="columnRef" prefWidth="70.0" text="Ref Save" />
-                                                            <TableColumn fx:id="columnWill" prefWidth="75.0" text="Will Save" />
-                                                            <TableColumn fx:id="columnSpecial" prefWidth="396.0000305175781" text="Special" />
+                                                            <TableColumn fx:id="columnLevel" editable="false" prefWidth="70.0" resizable="false" sortable="false" text="Level" />
+                                                            <TableColumn fx:id="columnBAB" editable="false" prefWidth="109.99999237060547" resizable="false" sortable="false" text="Base Attack Bonus" />
+                                                            <TableColumn fx:id="columnFort" editable="false" prefWidth="70.0" resizable="false" sortable="false" text="Fort Save" />
+                                                            <TableColumn fx:id="columnRef" editable="false" prefWidth="70.0" resizable="false" sortable="false" text="Ref Save" />
+                                                            <TableColumn fx:id="columnWill" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Will Save" />
+                                                            <TableColumn fx:id="columnSpecial" editable="false" prefWidth="396.0000305175781" resizable="false" sortable="false" text="Special" />
                                                          </columns>
                                                       </TableView>
                                                    </children>

@@ -10,15 +10,21 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableView.ResizeFeatures;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
+import javafx.util.Callback;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
 import jefXif.io.Data;
@@ -121,6 +127,8 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	@FXML
 	private TableColumn<LevelTableRow, String> columnSpecial;
 	
+	TableColumn[] levelTableColumns;
+	
 	/*
 	 * Link Class Progression Spells Per Day Table fxml entities to the Controller
 	 */
@@ -160,6 +168,10 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9th;
+	
+	TableColumn<LevelTableRow,?>[] spellTableColumns = new TableColumn[] {
+			columnLevelSpells, column0, column1st, column2nd, column3rd, column4th, column5th, column6th, column7th, column8th, column9th
+	};
 	
 	/*
 	 * Link Class Progression Spells Known Table fxml entities to the Controller
@@ -215,9 +227,14 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	public ObservableList<Class> getObsListClasses() {
 		return obsListClasses;
 	}
+	
+	@FXML
+	public void handleDrag(MouseEvent event) {
+		System.out.println("I am dragging, no one likes me");
+	}
 
 	/**
-	 * the initialisation method
+	 * the initialization method
 	 */
 	@Override
 	public void initialize() {
@@ -274,6 +291,26 @@ public class ClassesController<T> extends MainPartialController implements DataL
 		column7thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[7]);
 		column8thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[8]);
 		column9thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[9]);
+		
+		levelTableColumns = new TableColumn[] {
+				columnLevel, columnBAB, columnFort, columnRef, columnWill, columnSpecial	
+			};
+		tableLevelTable.getColumns().addListener(new ListChangeListener<TableColumn<LevelTableRow, ?>>(){
+			public boolean suspended;
+			
+			@Override
+			public void onChanged(Change<? extends TableColumn<LevelTableRow, ?>> change) {
+				change.next();
+
+				if(change.wasReplaced() && !suspended) {
+					this.suspended = true;
+	                tableLevelTable.getColumns().setAll(levelTableColumns);
+	                this.suspended = false;
+				}
+				
+			}
+			
+		});
 	}
 
 	/**
@@ -284,6 +321,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	 */
 	private void showClassDetails(Class c) {
 		if (c != null) {
+			tableLevelTable.setDisable(false);
 			lblDescription.setText(c.getName());
 			lblRole.setText(c.getRole());
 			lblRole.setWrapText(true);
@@ -297,6 +335,8 @@ public class ClassesController<T> extends MainPartialController implements DataL
 			lblStartingWealthD6.setText(Integer.toString(c
 					.getStartingWealthD6()));
 		} else {
+			tableLevelTable.setDisable(true);
+			
 			lblDescription.setText("");
 			lblRole.setText("");
 			lblAlignments.setText("");
