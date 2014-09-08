@@ -10,8 +10,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -19,12 +17,11 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.ResizeFeatures;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
-import javafx.util.Callback;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
 import jefXif.io.Data;
@@ -107,6 +104,9 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	 * Link Class Progression table fxml entities to the Controller
 	 */
 	@FXML
+	private Tab tabLevelTable;
+	
+	@FXML
 	private TableView<LevelTableRow> tableLevelTable;
 
 	@FXML
@@ -132,6 +132,8 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	/*
 	 * Link Class Progression Spells Per Day Table fxml entities to the Controller
 	 */
+	@FXML
+	private Tab tabSpellLevelTable;
 	
 	@FXML
 	private TableView<SpellLevelTableRow> tableSpellLevelTable;
@@ -169,13 +171,11 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9th;
 	
-	TableColumn<LevelTableRow,?>[] spellTableColumns = new TableColumn[] {
-			columnLevelSpells, column0, column1st, column2nd, column3rd, column4th, column5th, column6th, column7th, column8th, column9th
-	};
-	
 	/*
 	 * Link Class Progression Spells Known Table fxml entities to the Controller
 	 */
+	@FXML
+	private Tab tabSpellsKnown;
 	
 	@FXML
 	private TableView<SpellLevelTableRow> tableSpellsKnown;
@@ -351,21 +351,33 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	}
 
 	private void showClassProgression(Class c) {
-		// We were here last, there is no spell shit showing up
 		if (c != null) {
+			tabLevelTable.setDisable(false);
 			tableLevelTable.setItems(c.getLeveltableRow());
 			if(SpellLevelTableRow.class.isInstance(c.getLeveltableRow().get(0))) {
+				tabSpellLevelTable.setDisable(false);
+				
 				ArrayList<SpellLevelTableRow> spellcaster = new ArrayList<SpellLevelTableRow>();
 				for (LevelTableRow levelTableRow : c.getLeveltableRow()) {
 					spellcaster.add((SpellLevelTableRow)levelTableRow);
-				}
+				}				
 				
 				tableSpellLevelTable.setItems(FXCollections.observableArrayList(spellcaster));
-				tableSpellsKnown.setItems(FXCollections.observableArrayList(spellcaster));
-			}			
+				if(((SpellLevelTableRow)c.getLeveltableRow().get(0)).getSpellsKnown()[0]!=null) {
+					tabSpellsKnown.setDisable(false);
+					tableSpellsKnown.setItems(FXCollections.observableArrayList(spellcaster));
+				}
+			}
+			else {
+				tabSpellLevelTable.setDisable(true);
+				tabSpellsKnown.setDisable(true);
+				tableSpellLevelTable.setItems(null);
+				tableSpellsKnown.setItems(null);
+			}
 		} else {
-			tableLevelTable.setItems(null);
-			tableSpellLevelTable.setItems(null);
+			tabSpellLevelTable.setDisable(true);
+			tabSpellsKnown.setDisable(true);
+			tabLevelTable.setDisable(true);
 		}
 	}
 
@@ -387,18 +399,9 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				// Make array of Strings to hold all the lines read in.
 				String[] lines = readLine.split("\t");
 
-				// className = lines[0];
-				// obsListClasses.add(new Class());
-
 				switch (lines[0]) {
 
 				case "Barbarian":
-					// barbarian(Classname[0], description[1], role[2],
-					// level(0),
-					// requireAlignments[3], hitDice[4], startingWealthD6[6],
-					// skillRanksPerLevel, classSkills lines[5], features,
-					// weaponProficiencies[7], armorProficiencies[7],
-					// levelTable)
 					classes.put(
 							lines[0],
 							new Barbarian(lines[0], lines[1], lines[2], 0,
@@ -410,16 +413,6 @@ public class ClassesController<T> extends MainPartialController implements DataL
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() })
-					/*
-					 * Level Table Row: Secondary reader to read in
-					 * LevelTableRow from the data file for each class. Add the
-					 * LevelTableRow to the LevelTableRow[] array. Repeat for
-					 * the 20 rows.
-					 * 
-					 * Make a method to do that ^ and call it from here.
-					 * Probably need to conditionalise the method for each Class
-					 * so it gets the right data.
-					 */
 					);
 					break;
 
@@ -727,7 +720,6 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				}
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			Logger.getLogger(ClassesController.class.toString()).log(
 					Level.SEVERE, null, e);
 		}
@@ -736,7 +728,6 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	/**
 	 * Read the class level progression table from the appropriate data file
 	 */
-
 	private void readCommonLevelTable(String filename) {
 		Scanner reader;
 		try {
@@ -803,9 +794,10 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	} //End readCommonLevelTable
 	
 	private LevelTableRow readSpellLevelTable(String filename, String[] lines, SpellLevelTableRow tableRow) {
+		StringProperty[] spd = new StringProperty[10];
+		StringProperty[] spk = new StringProperty[10];
 		//Spells per day Levels 0-9
 		if(filename == "Cleric" || filename == "Druid" || filename == "Wizard" || filename == "Witch") {
-			StringProperty[] spd = new StringProperty[10];
 			for (int i = 6; i < lines.length; i++) {
 				spd[i-6] = new SimpleStringProperty(lines[i]);
 			}
@@ -813,28 +805,56 @@ public class ClassesController<T> extends MainPartialController implements DataL
 		}
 		
 		//Spells per day Levels 1-9, Spells Known 0-9
-		else if(filename == "sorcerer" || filename == "oracle") {
+		else if(filename == "Sorcerer" || filename == "Oracle") {
+			spd[0]=new SimpleStringProperty("-");
+			for (int i = 6; i < lines.length-10; i++) {
+				spd[i-5] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSPD(spd);
 			
+			for (int i = 15; i < lines.length; i++) {
+				spk[i-15] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSpellsKnown(spk);
 		}
 		
 		//Spells per day Levels 1-6, Spells Known 0-6
-		else if(filename == "bard" || filename == "inquisitor" || filename == "summoner") {
+		else if(filename == "Bard" || filename == "Inquisitor" || filename == "Summoner") {
+			spd[0]=new SimpleStringProperty("-");
+			for (int i = 6; i < lines.length-7; i++) {
+				spd[i-5] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSPD(spd);
 			
+			for (int i = 15; i < lines.length; i++) {
+				spk[i-15] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSpellsKnown(spk);
 		}
 		
 		//Spells per day Levels 1-4
-		else if(filename == "paladin" || filename == "ranger") {
-
+		else if(filename == "Paladin" || filename == "ranger") {
+			spd[0]=new SimpleStringProperty("-");
+			for (int i = 6; i < lines.length; i++) {
+				spd[i-5] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSPD(spd);
 		}
 
 		//Spells per day Levels 0-6
-		else if (filename == "magus") {
-
+		else if (filename == "Magus") {
+			for (int i = 6; i < lines.length; i++) {
+				spd[i-6] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSPD(spd);
 		}
 
 		//Spells per day Levels 1-6: "alchemist" - the only one left
 		else {
-
+			for (int i = 6; i < lines.length; i++) {
+				spd[i-6] = new SimpleStringProperty(lines[i]);
+			}
+			tableRow.setSPD(spd);
 		}
 		return tableRow;
 
@@ -909,7 +929,6 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				try {
 					obsListClasses.setAll(readDataFile(classFile, Class.class));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}	
