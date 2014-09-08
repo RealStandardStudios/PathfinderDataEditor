@@ -36,7 +36,7 @@
             <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="473.0" layoutY="14.0" text="No Rod Selected">
+      <Label fx:id="lblName" alignment="CENTER" layoutX="473.0" layoutY="14.0" text="No Rod Selected" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

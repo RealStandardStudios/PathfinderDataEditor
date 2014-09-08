@@ -47,6 +47,8 @@ public class SpellsController extends MainPartialController implements DataLoade
 	private TableColumn<Spell, String> spellColumn;
 
 	@FXML
+	private Label nameLabel;
+	@FXML
 	private Label schoolLabel;
 	@FXML
 	private Label spellLevelLabel;
@@ -135,6 +137,7 @@ public class SpellsController extends MainPartialController implements DataLoade
 	private void showSpellDetails(Spell spell) {
 		if (spell != null) {
 			// Fill the table with info from the Spell object
+			nameLabel.setText(spell.getName());
 			schoolLabel.setText(spell.getSchool());
 			spellLevelLabel.setText(spell.getClassAndSpellLevel());
 			castingTimeLabel.setText(spell.getCastingTime());
@@ -188,6 +191,7 @@ public class SpellsController extends MainPartialController implements DataLoade
 
 		} else {
 			// Spell is null, remove all text
+			nameLabel.setText("");
 			schoolLabel.setText("");
 			spellLevelLabel.setText("");
 			castingTimeLabel.setText("");

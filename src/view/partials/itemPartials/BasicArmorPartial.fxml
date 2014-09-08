@@ -42,7 +42,7 @@
             <Label text="Cost:" GridPane.rowIndex="6" />
          </children>
       </GridPane>
-      <Label fx:id="lblArmorName" layoutX="539.0" layoutY="14.0" text="Armor Name">
+      <Label fx:id="lblArmorName" alignment="CENTER" layoutX="314.0" layoutY="14.0" prefHeight="35.0" prefWidth="592.0" text="Armor Name" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

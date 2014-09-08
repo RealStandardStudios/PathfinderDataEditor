@@ -60,7 +60,7 @@
             <Label fx:id="lblWieldStyle" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="376.0" layoutY="14.0" text="No Magic Weapon Selected">
+      <Label fx:id="lblName" alignment="CENTER" layoutX="376.0" layoutY="14.0" text="No Magic Weapon Selected" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

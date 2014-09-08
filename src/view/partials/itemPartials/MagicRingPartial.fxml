@@ -33,7 +33,7 @@
             <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="467.0" layoutY="14.0" text="No Magic Ring Selected" AnchorPane.topAnchor="14.0">
+      <Label fx:id="lblName" alignment="CENTER" layoutX="467.0" layoutY="14.0" text="No Magic Ring Selected" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

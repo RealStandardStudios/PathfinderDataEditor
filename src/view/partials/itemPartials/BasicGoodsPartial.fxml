@@ -24,7 +24,7 @@
             <Label fx:id="lblCost" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Label fx:id="lblName" layoutX="419.0" layoutY="14.0" text="Basic Good Name">
+      <Label fx:id="lblName" alignment="CENTER" layoutX="419.0" layoutY="14.0" text="Basic Good Name" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

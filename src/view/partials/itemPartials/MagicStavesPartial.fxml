@@ -36,7 +36,7 @@
             <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Label fx:id="lblName" layoutX="460.0" layoutY="14.0" text="No Stave Selected" AnchorPane.topAnchor="14.0">
+      <Label fx:id="lblName" alignment="CENTER" layoutX="460.0" layoutY="14.0" text="No Stave Selected" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

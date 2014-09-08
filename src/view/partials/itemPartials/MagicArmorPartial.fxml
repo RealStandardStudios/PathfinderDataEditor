@@ -63,7 +63,7 @@
             <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
          </children>
       </GridPane>
-      <Label fx:id="lblArmorName" layoutX="434.0" layoutY="14.0" text="No Magic Armor Selected">
+      <Label fx:id="lblArmorName" alignment="CENTER" layoutX="434.0" layoutY="14.0" text="No Magic Armor Selected" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>
