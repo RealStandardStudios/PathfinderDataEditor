@@ -25,6 +25,7 @@
             <items>
                   <Menu mnemonicParsing="false" text="Open...">
                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenClasses" text="Open Classes" />
                         <MenuItem mnemonicParsing="false" onAction="#handleOpenFeats" text="Open Feats" />
                       <MenuItem mnemonicParsing="false" onAction="#handleOpenItems" text="Open Items" />
                         <MenuItem mnemonicParsing="false" onAction="#handleOpenRaces" text="Open Races" />

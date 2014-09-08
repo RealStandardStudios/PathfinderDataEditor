@@ -77,11 +77,6 @@ public class RootLayoutController {
 		SwapWindow(windowPartials.get("Items").getNode());
 	}
 	
-	@FXML
-	private void handleSaveClasses(ActionEvent event) {
-		
-	}
-	
 	@FXML 
 	private void handleSaveRaces(ActionEvent event) {
 		MainPartialController racesController = windowPartials.get("Races");
@@ -160,6 +155,28 @@ public class RootLayoutController {
 	}
 	
 	@FXML
+	private void handleSaveClasses(ActionEvent event) {
+		MainPartialController classesController = windowPartials.get("Classes");
+		try {
+			classesController.saveDataToFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void handleOpenClasses(ActionEvent event) {
+		MainPartialController classesController = windowPartials.get("Classes");
+		try {
+			classesController.loadDataFromFile(ui.getProgramFilePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
 	private void handleSaveSpells(ActionEvent event) {
 		MainPartialController spellsController = windowPartials.get("Spells");
 		try {
@@ -172,13 +189,17 @@ public class RootLayoutController {
 	
 	@FXML
 	private void handleOpenAll(ActionEvent event) {
-		MainPartialController spellsController = windowPartials.get("Spells");
-		MainPartialController itemsController = windowPartials.get("Items");
+		MainPartialController classesController = windowPartials.get("Classes");
 		MainPartialController featsController = windowPartials.get("Feats");
+		MainPartialController itemsController = windowPartials.get("Items");
+		MainPartialController racesController = windowPartials.get("Races");
+		MainPartialController spellsController = windowPartials.get("Spells");
 		try {
-			spellsController.loadDataFromFile(ui.getProgramFilePath());
-			itemsController.loadDataFromFile(ui.getProgramFilePath());
+			classesController.loadDataFromFile(ui.getProgramFilePath());
 			featsController.loadDataFromFile(ui.getProgramFilePath());
+			itemsController.loadDataFromFile(ui.getProgramFilePath());
+			racesController.loadDataFromFile(ui.getProgramFilePath());
+			spellsController.loadDataFromFile(ui.getProgramFilePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -187,13 +208,17 @@ public class RootLayoutController {
 	
 	@FXML
 	private void handleSaveAll(ActionEvent event) {
-		MainPartialController spellsController = windowPartials.get("Spells");
-		MainPartialController itemsController = windowPartials.get("Items");
+		MainPartialController classesController = windowPartials.get("Classes");
 		MainPartialController featsController = windowPartials.get("Feats");
+		MainPartialController itemsController = windowPartials.get("Items");
+		MainPartialController racesController = windowPartials.get("Races");
+		MainPartialController spellsController = windowPartials.get("Spells");
 		try {
-			spellsController.saveDataToFile(ui.getProgramFilePath());
-			itemsController.saveDataToFile(ui.getProgramFilePath());
+			classesController.saveDataToFile(ui.getProgramFilePath());
 			featsController.saveDataToFile(ui.getProgramFilePath());
+			itemsController.saveDataToFile(ui.getProgramFilePath());
+			racesController.saveDataToFile(ui.getProgramFilePath());
+			spellsController.saveDataToFile(ui.getProgramFilePath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
