@@ -52,8 +52,8 @@ import pathfinder.data.Classes.Summoner;
 import pathfinder.data.Classes.Witch;
 import pathfinder.data.Classes.Wizard;
 import pathfinder.data.Classes.Objects.Feature;
-import pathfinder.data.Classes.Objects.LevelTableRow;
-import pathfinder.data.Classes.Objects.SpellLevelTableRow;
+import pathfinder.data.Classes.Objects.LevelTable.LevelTableRow;
+import pathfinder.data.Classes.Objects.LevelTable.SpellLevelTableRow;
 import pathfinder.data.Spells.Spell;
 
 /**
@@ -899,24 +899,23 @@ public class ClassesController<T> extends MainPartialController implements DataL
 
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
-        	DirectoryChooser directoryChooser = new DirectoryChooser();
-        	
-        	directoryChooser.setTitle("Data Directory");
-        	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
-        	if(defaultDirectory.exists())
-        		directoryChooser.setInitialDirectory(defaultDirectory);
-        	else {
-        		defaultDirectory.mkdirs();
-        		directoryChooser.setInitialDirectory(defaultDirectory);
-        	}
-            // Show the directory chooser
-            File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
+    	DirectoryChooser directoryChooser = new DirectoryChooser();
+    	
+    	directoryChooser.setTitle("Data Directory");
+    	File defaultDirectory = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);
+    	if(defaultDirectory.exists())
+    		directoryChooser.setInitialDirectory(defaultDirectory);
+    	else {
+    		defaultDirectory.mkdirs();
+    		directoryChooser.setInitialDirectory(defaultDirectory);
+    	}
+        // Show the directory chooser
+        File file = directoryChooser.showDialog(this.getInterface().getPrimaryStage());
 
-            if (file != null) {
-                Data.Write(file.getPath()+"\\Classes.cldf", obsListClasses.toArray());
-            }
+        if (file != null) {
+            Data.Write(file.getPath()+"\\Classes.cldf", obsListClasses.toArray());
         }
-//	}
+    }
 
 	@Override
 	public void loadDataFromFile(File file) throws IOException {

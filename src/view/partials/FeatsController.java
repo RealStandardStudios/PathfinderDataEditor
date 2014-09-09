@@ -25,9 +25,9 @@ import jefXif.io.Data;
 
 import org.controlsfx.dialog.Dialogs;
 
+import pathfinder.data.Feat;
 import pathfinder.data.FeatPrerequisite;
 import pathfinder.data.Effects.Effect;
-import pathfinder.data.Feats.Feat;
 import view.partials.dialogs.FeatEditDialogController;
 
 /**

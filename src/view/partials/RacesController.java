@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.controlsfx.dialog.Dialogs;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +26,11 @@ import javafx.stage.Stage;
 import jefXif.DataLoader;
 import jefXif.MainPartialController;
 import jefXif.io.Data;
+
+import org.controlsfx.dialog.Dialogs;
+
+import pathfinder.data.Size;
+import pathfinder.data.VisionType;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Effects.ArmorClassEffect;
@@ -40,10 +43,7 @@ import pathfinder.data.Effects.SavingThrowEffect;
 import pathfinder.data.Effects.SkillEffect;
 import pathfinder.data.Effects.NonValued.MiscEffect;
 import pathfinder.data.Effects.NonValued.OnLevelEffect;
-import pathfinder.data.Feats.Feat;
 import pathfinder.data.Races.Race;
-import pathfinder.data.Races.Objects.Size;
-import pathfinder.data.Races.Objects.VisionType;
 import pathfinder.data.Races.Traits.MiscTrait;
 import pathfinder.data.Races.Traits.SpellTrait;
 import pathfinder.data.Races.Traits.Trait;

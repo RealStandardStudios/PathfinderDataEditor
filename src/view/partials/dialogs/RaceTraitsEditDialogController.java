@@ -11,11 +11,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jefXif.DialogController;
+import pathfinder.data.Size;
+import pathfinder.data.VisionType;
 import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Races.Race;
-import pathfinder.data.Races.Objects.Size;
-import pathfinder.data.Races.Objects.VisionType;
 
 public class RaceTraitsEditDialogController extends DialogController {
 	boolean okayClicked = false;
@@ -116,8 +116,14 @@ public class RaceTraitsEditDialogController extends DialogController {
 		race.setSpeed(Integer.parseInt(txtSpeed.getText()));
 		race.setSize(cboSizes.getSelectionModel().getSelectedItem());
 		String[] parts = txtaLanguages.getText().split(",");
+		for (int i = 0; i < parts.length; i++) {
+			parts[i] = parts[i].trim();			
+		}
 		race.setLanguages(parts);
 		parts = txtaWeaponFamiliarity.getText().split(",");
+		for (int i = 0; i < parts.length; i++) {
+			parts[i] = parts[i].trim();			
+		}
 		race.setWeaponFamiliarity(parts);
 		
 		String effectName = "Racial Ability Modifier";

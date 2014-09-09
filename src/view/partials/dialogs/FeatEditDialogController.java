@@ -16,8 +16,8 @@ import javafx.scene.layout.AnchorPane;
 import jefXif.DialogController;
 import jefXif.PartialLoader;
 import jefXif.WindowController;
+import pathfinder.data.Feat;
 import pathfinder.data.FeatPrerequisite;
-import pathfinder.data.Feats.Feat;
 import view.partials.dialogs.featDialogPartials.EffectPartialController;
 
 public class FeatEditDialogController extends DialogController implements
