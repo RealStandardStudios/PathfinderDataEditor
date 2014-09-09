@@ -171,6 +171,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9th;
 	
+	TableColumn[] spellLevelTableColumn;
 	/*
 	 * Link Class Progression Spells Known Table fxml entities to the Controller
 	 */
@@ -213,6 +214,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9thKnown;
 	
+	TableColumn[] spellKnowenTableKnown;
 	
 	private ObservableList<Class> obsListClasses = FXCollections
 			.observableArrayList();
@@ -239,6 +241,8 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
+		
+		
 
 		// Init the Classes table with the column for class Name
 		columnClassName.setCellValueFactory(cellData -> cellData.getValue()
@@ -291,10 +295,11 @@ public class ClassesController<T> extends MainPartialController implements DataL
 		column7thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[7]);
 		column8thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[8]);
 		column9thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[9]);
-		
+		// Array of Table Columns
 		levelTableColumns = new TableColumn[] {
-				columnLevel, columnBAB, columnFort, columnRef, columnWill, columnSpecial	
+				columnLevel, columnBAB, columnFort, columnRef, columnWill, columnSpecial
 			};
+		// table.getcolumns().adListener(new ListChangeListenet<TableColumn<DataType,?>>() { }
 		tableLevelTable.getColumns().addListener(new ListChangeListener<TableColumn<LevelTableRow, ?>>(){
 			public boolean suspended;
 			
@@ -304,7 +309,56 @@ public class ClassesController<T> extends MainPartialController implements DataL
 
 				if(change.wasReplaced() && !suspended) {
 					this.suspended = true;
+					// array of table columns as defined above
 	                tableLevelTable.getColumns().setAll(levelTableColumns);
+	                this.suspended = false;
+				}
+				
+			}
+			
+		});
+		
+		spellLevelTableColumn = new TableColumn[] {
+				columnLevelSpells, column0, column1st, column2nd, column3rd, column4th, column5th, column6th
+				, column7th, column8th, column9th
+			};
+		
+		tableSpellLevelTable.getColumns().addListener(new ListChangeListener<TableColumn<SpellLevelTableRow, ?>>(){
+			public boolean suspended;
+			
+			
+			@Override
+			public void onChanged(Change<? extends TableColumn<SpellLevelTableRow, ?>> change) {
+				change.next();
+
+				if(change.wasReplaced() && !suspended) {
+					this.suspended = true;
+					// array of table columns as defined above
+					tableSpellLevelTable.getColumns().setAll(spellLevelTableColumn);
+	                this.suspended = false;
+				}
+				
+			}
+			
+		});
+		
+		spellKnowenTableKnown = new TableColumn[] {
+				columnLevelSpellsKnown, column0Known, column1stKnown, column2ndKnown, column3rdKnown, column4thKnown
+				, column5thKnown, column6thKnown, column7thKnown, column8thKnown, column9thKnown
+			};
+		
+		tableSpellsKnown.getColumns().addListener(new ListChangeListener<TableColumn<SpellLevelTableRow, ?>>(){
+			public boolean suspended;
+			
+			
+			@Override
+			public void onChanged(Change<? extends TableColumn<SpellLevelTableRow, ?>> change) {
+				change.next();
+
+				if(change.wasReplaced() && !suspended) {
+					this.suspended = true;
+					// array of table columns as defined above
+					tableSpellsKnown.getColumns().setAll(spellKnowenTableKnown);
 	                this.suspended = false;
 				}
 				
