@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import editor.Tools;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -53,6 +54,7 @@ import pathfinder.data.Classes.Witch;
 import pathfinder.data.Classes.Wizard;
 import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Classes.Objects.LevelTable.LevelTableRow;
+import pathfinder.data.Classes.Objects.LevelTable.MonkLevelTableRow;
 import pathfinder.data.Classes.Objects.LevelTable.SpellLevelTableRow;
 import pathfinder.data.Spells.Spell;
 
@@ -60,9 +62,8 @@ import pathfinder.data.Spells.Spell;
  * the controller for the layout of the Classes section of the data editor
  * 
  * @author Real Standard Studios - Matthew Meehan, Ian Larsen
- * @param <T>
  */
-public class ClassesController<T> extends MainPartialController implements DataLoader {
+public class ClassesController extends MainPartialController implements DataLoader {
 
 	/*
 	 * Link Class table fxml entities to the Controller
@@ -214,6 +215,24 @@ public class ClassesController<T> extends MainPartialController implements DataL
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9thKnown;
 	
+	@FXML
+	private Tab tabMonkSpecials; 
+	
+	@FXML
+	private TableView<MonkLevelTableRow> tableMonkTable;
+	
+	@FXML
+	private TableColumn<MonkLevelTableRow, String> columnFOB;
+	
+	@FXML
+	private TableColumn<MonkLevelTableRow, String> columnUnarmed;
+	
+	@FXML
+	private TableColumn<MonkLevelTableRow, String> columnAcBonus;
+	
+	@FXML
+	private TableColumn<MonkLevelTableRow, String> columnFastMovement;
+	
 	TableColumn[] spellKnowenTableKnown;
 	
 	private ObservableList<Class> obsListClasses = FXCollections
@@ -295,6 +314,12 @@ public class ClassesController<T> extends MainPartialController implements DataL
 		column7thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[7]);
 		column8thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[8]);
 		column9thKnown.setCellValueFactory(cellData -> cellData.getValue().getSpellsKnown()[9]);
+		
+		columnFOB.setCellValueFactory(celldata-> celldata.getValue().getFlurryOfBlowsString());
+		columnUnarmed.setCellValueFactory(cellData -> cellData.getValue().getUnarmedDamageProperty());
+		columnAcBonus.setCellValueFactory(cellData -> cellData.getValue().getAcBonusProperty());
+		columnFastMovement.setCellValueFactory(cellData -> cellData.getValue().getFastMovementProperty());
+		
 		// Array of Table Columns
 		levelTableColumns = new TableColumn[] {
 				columnLevel, columnBAB, columnFort, columnRef, columnWill, columnSpecial
@@ -428,10 +453,23 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				tableSpellLevelTable.setItems(null);
 				tableSpellsKnown.setItems(null);
 			}
+			if(c.getName().equals("Monk")) {
+				tabMonkSpecials.setDisable(false);
+				ArrayList<MonkLevelTableRow> monk = new ArrayList<>();
+				for (LevelTableRow levelTableRow : c.getLeveltableRow()) {
+					monk.add((MonkLevelTableRow)levelTableRow);
+				}
+				tableMonkTable.setItems(FXCollections.observableArrayList(monk));
+			}
+			else {
+				tabMonkSpecials.setDisable(true);
+				tableMonkTable.setItems(null);
+			}
 		} else {
 			tabSpellLevelTable.setDisable(true);
 			tabSpellsKnown.setDisable(true);
 			tabLevelTable.setDisable(true);
+			tabMonkSpecials.setDisable(true);
 		}
 	}
 
@@ -800,16 +838,9 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				
 				int levelNum = Integer.parseInt(lines[0]);
 				
-				// Split lines[1] (BAB) on '/' to handle BAB data for higher
-				// levels
-				String[] babString = lines[1].split("/");
-				// make an array of ints the same length
-				int[] babs = new int[babString.length];
-				// set all the babs to the values in the string one, remove the
-				// pluses
-				for (int i = 0; i < babString.length; i++) {
-					babs[i] = Integer.parseInt(babString[i].replace("+", ""));
-				}
+				// Split lines[1] (BAB) on '/' to handle BAB data for higher levels
+				// set all the babs to the values in the string one, remove the pluses
+				int[] babs = Tools.StringToIntArray(lines[1].split("/"), new String[]{"+"}, new String[]{""});
 				// Make a new tableRow(levelNum, BaseAttackBonus, FortitudeSave,
 				// ReflexSave, WillSave, String[])
 				int fort = Integer.parseInt(lines[2].replace("+", "").trim()), 
@@ -819,11 +850,20 @@ public class ClassesController<T> extends MainPartialController implements DataL
 				// If lines has more than 6 parts, send filename and lines to the method to handle Spell Level Data
 				LevelTableRow tableRow = null;
 				if(lines.length > 6) {
-					tableRow = new SpellLevelTableRow(levelNum, babs, new SaveAttribute("Fortitude",AbilityName.Constitution,fort), 
-							new SaveAttribute("Reflex",AbilityName.Dexterity,ref), 
-							new SaveAttribute("Will",AbilityName.Wisdom, will), 
-							lines[5].split(","), new StringProperty[10], new StringProperty[10]);
-					tableRow = readSpellLevelTable(filename, lines, (SpellLevelTableRow)tableRow);
+					if(filename!="Monk") {
+						tableRow = new SpellLevelTableRow(levelNum, babs, new SaveAttribute("Fortitude",AbilityName.Constitution,fort), 
+								new SaveAttribute("Reflex",AbilityName.Dexterity,ref), 
+								new SaveAttribute("Will",AbilityName.Wisdom, will), 
+								lines[5].split(","), new StringProperty[10], new StringProperty[10]);
+						tableRow = readSpellLevelTable(filename, lines, (SpellLevelTableRow)tableRow);
+					}
+					else {
+						String[] fobParts = lines[6].split("/");
+						tableRow = new MonkLevelTableRow(levelNum, babs, new SaveAttribute("Fortitude", AbilityName.Constitution, fort), 
+								new SaveAttribute("Reflex",AbilityName.Dexterity,ref), new SaveAttribute("Will",AbilityName.Wisdom, will), 
+								lines[5].split(","), Tools.StringToIntArray(fobParts, new String[]{"+"}, new String[]{""}), lines[7],
+								lines[8].trim(), lines[9].trim());
+					}
 				}
 				else
 					tableRow = new LevelTableRow(levelNum, babs,
@@ -947,6 +987,7 @@ public class ClassesController<T> extends MainPartialController implements DataL
 		readCommonLevelTable("Summoner");
 		readCommonLevelTable("Witch");
 		readCommonLevelTable("Wizard");
+		readCommonLevelTable("Monk");
 
 		obsListClasses.setAll(classes.values());
 	}

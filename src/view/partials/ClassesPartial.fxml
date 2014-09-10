@@ -146,6 +146,22 @@
                                                 </AnchorPane>
                                              </content>
                                           </Tab>
+                                          <Tab fx:id="tabMonkSpecials" text="Monk Specials">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TableView fx:id="tableMonkTable" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="columnFOB" prefWidth="154.99999392032623" text="Flurry of Blows Attack Bonus" />
+                                                          <TableColumn fx:id="columnUnarmed" minWidth="9.0" prefWidth="150.0" text="Unarmed Damage" />
+                                                            <TableColumn fx:id="columnAcBonus" prefWidth="75.0" text="AC bonus" />
+                                                            <TableColumn fx:id="columnFastMovement" prefWidth="98.0" text="Fast Movement" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
                                       </tabs>
                                     </TabPane>
                                  </children>
