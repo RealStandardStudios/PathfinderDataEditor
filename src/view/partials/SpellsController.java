@@ -152,7 +152,7 @@ public class SpellsController extends MainPartialController implements DataLoade
 			descriptionLabel.setWrapText(true);
 			descriptionLabel.setPadding(new Insets(50, 0, 0, 0));
 
-			if (spell.getTablePicture() != null) {
+			if (!spell.getTablePicture().equals("")) {
 				switch (spell.getTablePicture().length()) {
 				case 1:
 					tableOneImageView.setImage(new Image(

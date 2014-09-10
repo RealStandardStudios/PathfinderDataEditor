@@ -100,17 +100,17 @@
                                                    <children>
                                                       <TableView fx:id="tableSpellLevelTable" prefHeight="554.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
-                                                            <TableColumn fx:id="columnLevelSpells" prefWidth="75.0" text="Level" />
-                                                            <TableColumn fx:id="column0" prefWidth="70.0" text="0" />
-                                                            <TableColumn fx:id="column1st" prefWidth="70.0" text="1st" />
-                                                            <TableColumn fx:id="column2nd" prefWidth="70.0" text="2nd" />
-                                                            <TableColumn fx:id="column3rd" prefWidth="70.0" text="3rd" />
-                                                            <TableColumn fx:id="column4th" prefWidth="70.0" text="4th" />
-                                                            <TableColumn fx:id="column5th" prefWidth="70.0" text="5th" />
-                                                            <TableColumn fx:id="column6th" prefWidth="70.0" text="6th" />
-                                                            <TableColumn fx:id="column7th" prefWidth="70.0" text="7th" />
-                                                            <TableColumn fx:id="column8th" prefWidth="70.0" text="8th" />
-                                                            <TableColumn fx:id="column9th" prefWidth="70.0" text="9th" />
+                                                            <TableColumn fx:id="columnLevelSpells" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="Level" />
+                                                            <TableColumn fx:id="column0" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="0" />
+                                                            <TableColumn fx:id="column1st" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="1st" />
+                                                            <TableColumn fx:id="column2nd" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="2nd" />
+                                                            <TableColumn fx:id="column3rd" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="3rd" />
+                                                            <TableColumn fx:id="column4th" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="4th" />
+                                                            <TableColumn fx:id="column5th" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="5th" />
+                                                            <TableColumn fx:id="column6th" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="6th" />
+                                                            <TableColumn fx:id="column7th" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="7th" />
+                                                            <TableColumn fx:id="column8th" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="8th" />
+                                                            <TableColumn fx:id="column9th" editable="false" maxWidth="50.0" minWidth="75.5" prefWidth="50.0" resizable="false" sortable="false" text="9th" />
                                                          </columns>
                                                          <columnResizePolicy>
                                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -129,17 +129,17 @@
                                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                                          </columnResizePolicy>
                                                          <columns>
-                                                            <TableColumn fx:id="columnLevelSpellsKnown" prefWidth="75.0" text="Level" />
-                                                            <TableColumn fx:id="column0Known" prefWidth="75.0" text="0" />
-                                                            <TableColumn fx:id="column1stKnown" prefWidth="70.0" text="1st" />
-                                                            <TableColumn fx:id="column2ndKnown" prefWidth="70.0" text="2nd" />
-                                                            <TableColumn fx:id="column3rdKnown" prefWidth="70.0" text="3rd" />
-                                                            <TableColumn fx:id="column4thKnown" prefWidth="70.0" text="4th" />
-                                                            <TableColumn fx:id="column5thKnown" prefWidth="70.0" text="5th" />
-                                                            <TableColumn fx:id="column6thKnown" prefWidth="70.0" text="6th" />
-                                                            <TableColumn fx:id="column7thKnown" prefWidth="70.0" text="7th" />
-                                                            <TableColumn fx:id="column8thKnown" prefWidth="70.0" text="8th" />
-                                                            <TableColumn fx:id="column9thKnown" prefWidth="70.0" text="9th" />
+                                                            <TableColumn fx:id="columnLevelSpellsKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="Level" />
+                                                            <TableColumn fx:id="column0Known" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="0" />
+                                                            <TableColumn fx:id="column1stKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="1st" />
+                                                            <TableColumn fx:id="column2ndKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="2nd" />
+                                                            <TableColumn fx:id="column3rdKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="3rd" />
+                                                            <TableColumn fx:id="column4thKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="4th" />
+                                                            <TableColumn fx:id="column5thKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="5th" />
+                                                            <TableColumn fx:id="column6thKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="6th" />
+                                                            <TableColumn fx:id="column7thKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="7th" />
+                                                            <TableColumn fx:id="column8thKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="8th" />
+                                                            <TableColumn fx:id="column9thKnown" editable="false" prefWidth="75.5" resizable="false" sortable="false" text="9th" />
                                                          </columns>
                                                       </TableView>
                                                    </children>
@@ -174,10 +174,10 @@
                                  <children>
                                     <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="98.00000154972076" text="Feature Name" />
-                                        <TableColumn prefWidth="121.99999237060547" text="Feature Type" />
-                                          <TableColumn prefWidth="406.0000305175781" text="Feature Description" />
-                                          <TableColumn minWidth="6.0" prefWidth="143.0" text="Effect" />
+                                        <TableColumn editable="false" prefWidth="98.00000154972076" resizable="false" sortable="false" text="Feature Name" />
+                                        <TableColumn editable="false" prefWidth="121.99999237060547" resizable="false" sortable="false" text="Feature Type" />
+                                          <TableColumn editable="false" prefWidth="406.0000305175781" resizable="false" sortable="false" text="Feature Description" />
+                                          <TableColumn editable="false" minWidth="6.0" prefWidth="143.0" resizable="false" sortable="false" text="Effect" />
                                       </columns>
                                     </TableView>
                                  </children>
