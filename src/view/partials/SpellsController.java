@@ -68,6 +68,8 @@ public class SpellsController extends MainPartialController implements DataLoade
 	private Label spellResistanceLabel;
 	@FXML
 	private Label descriptionLabel;
+	@FXML
+	private Label descriptionTextArea;
 
 	@FXML
 	private ImageView tableOneImageView;
@@ -149,8 +151,8 @@ public class SpellsController extends MainPartialController implements DataLoade
 			savingThrowLabel.setText(spell.getSavingThrow());
 			spellResistanceLabel.setText(spell.isSpellResistance());
 			descriptionLabel.setText(spell.getDescription());
-			descriptionLabel.setWrapText(true);
-			descriptionLabel.setPadding(new Insets(50, 0, 0, 0));
+			//descriptionLabel.setWrapText(true);
+			//descriptionLabel.setPadding(new Insets(50, 0, 0, 0));
 
 			if (!spell.getTablePicture().equals("")) {
 				switch (spell.getTablePicture().length()) {

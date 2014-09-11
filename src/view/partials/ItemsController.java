@@ -114,7 +114,7 @@ public class ItemsController extends MainPartialController implements PartialLoa
     @FXML
     public void handleMagicStave(ActionEvent event)
     {	
-        ItemPartialController p = partials.get("MagicMagicStaves"); 
+        ItemPartialController p = partials.get("MagicStaves"); 
         SwapPartial(p.getNode());
         p.inView(staves);
     }

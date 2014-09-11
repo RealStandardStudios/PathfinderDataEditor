@@ -43,7 +43,6 @@
                         <MenuItem mnemonicParsing="false" onAction="#handleSaveAll" text="Save All" />
                     </items>
                   </Menu>
-              <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
