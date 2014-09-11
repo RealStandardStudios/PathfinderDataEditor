@@ -4,6 +4,10 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/JefXif"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/PathfinderData"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/JefXif/lib/controlsfx-8.0.5.jar"/>
+	<classpathentry kind="lib" path="/JefXif/lib/minlog-1.2.jar"/>
+	<classpathentry kind="lib" path="/JefXif/lib/objenesis-1.2.jar"/>
+	<classpathentry kind="lib" path="/JefXif/lib/reflectasm-1.09-shaded.jar"/>
+	<classpathentry kind="lib" path="/JefXif/lib/controlsfx-8.0.6_20.jar"/>
+	<classpathentry kind="lib" path="/JefXif/lib/kryo-2.24.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

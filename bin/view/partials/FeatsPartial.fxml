@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.FeatsController">
+   <children>
+      <TableView fx:id="tableFeats" layoutX="7.0" layoutY="7.0" prefHeight="700.0" prefWidth="1036.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="featNameColumn" prefWidth="125.0" text="Feat Name" />
+          <TableColumn fx:id="prerequisiteColumn" prefWidth="159.0" text="Prerequisite" />
+            <TableColumn fx:id="benifitColumn" prefWidth="469.0" text="Benifit" />
+            <TableColumn fx:id="effectColumn" prefWidth="282.0" text="Effect type" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnEdit" layoutX="1042.0" layoutY="583.0" mnemonicParsing="false" onAction="#handleEditFeat" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.rightAnchor="2.0" />
+   </children>
+</AnchorPane>
