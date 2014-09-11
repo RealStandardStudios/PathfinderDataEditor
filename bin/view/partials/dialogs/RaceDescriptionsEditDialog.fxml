@@ -44,7 +44,7 @@
             <TextField fx:id="txtRaceName" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="534.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleOkay" text="Okay" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0" />
-      <Button layoutX="475.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="70.0" />
+      <Button layoutX="364.0" layoutY="842.0" mnemonicParsing="false" onAction="#handleOkay" text="Okay" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="90.0" />
+      <Button layoutX="475.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="25.0" />
    </children>
 </AnchorPane>
