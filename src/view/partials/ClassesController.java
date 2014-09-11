@@ -501,7 +501,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() })
@@ -516,7 +516,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -531,7 +531,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -546,7 +546,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -561,7 +561,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() }));
@@ -580,7 +580,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 									Integer.parseInt(lines[8]),
 									Integer.parseInt(lines[6]),
 									lines[5].split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() },
@@ -595,7 +595,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 									Integer.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -610,7 +610,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -625,7 +625,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() }));
@@ -639,7 +639,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -654,7 +654,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -669,7 +669,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -684,7 +684,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() }));
@@ -698,7 +698,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -713,7 +713,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -728,7 +728,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -743,7 +743,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -758,7 +758,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new HashMap<String, Spell>(),
@@ -773,7 +773,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() }));
@@ -787,7 +787,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() }));
@@ -801,7 +801,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 											.parseInt(lines[8]), Integer
 											.parseInt(lines[6]), lines[5]
 											.split(","),
-									new Feature[] { new Feature() },
+									readFeatures(lines[0]),
 									new String[] { lines[7] },
 									new String[] { lines[7] },
 									new LevelTableRow[] { new LevelTableRow() }));
@@ -815,6 +815,29 @@ public class ClassesController extends MainPartialController implements DataLoad
 			Logger.getLogger(ClassesController.class.toString()).log(
 					Level.SEVERE, null, e);
 		}
+	}
+
+	private ArrayList<Feature> readFeatures(String className) {
+		Scanner reader;
+		ArrayList<Feature> features = new ArrayList<>();
+		try {
+			reader = new Scanner(new FileReader("data/class_features/features_"+className.toLowerCase()+".tsv"));
+			String readLine = reader.nextLine();
+			
+			while (reader.hasNextLine()) {
+				readLine = reader.nextLine();
+				
+				String[] lines = readLine.split("\t");
+				
+				features.add(new Feature(lines[0], lines[1], lines[2]));
+			}
+			reader.close();
+		}
+		catch (FileNotFoundException e) {
+			Logger.getLogger(ClassesController.class.toString()).log(
+					Level.WARNING, e.getMessage(), e);
+		}
+		return features;
 	}
 
 	/**
@@ -878,6 +901,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 
 			classes.get(filename).SetLevelTable(
 					FXCollections.observableArrayList(levelTable));
+			reader.close();
 		}
 
 		catch (FileNotFoundException e) {
