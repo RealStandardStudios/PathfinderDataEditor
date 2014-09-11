@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.RacesController">
+   <children>
+      <SplitPane dividerPositions="0.23497267759562843" layoutX="7.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tableRaces" layoutX="8.0" layoutY="6.0" prefHeight="698.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tableNameColumn" prefWidth="257.0" text="Race Name" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="830.0">
+                     <children>
+                        <GridPane prefHeight="866.0" prefWidth="830.0" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="0.0" prefWidth="136.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="0.0" prefWidth="701.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="100.0" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="100.0" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100.0" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100.0" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100.0" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="35.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="70.0" minHeight="-Infinity" prefHeight="20.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Race Name" />
+                              <Label text="Description" GridPane.rowIndex="1" />
+                              <Label text="Physical Description" GridPane.rowIndex="2" />
+                              <Label text="Society" GridPane.rowIndex="3" />
+                              <Label text="Race Relations" GridPane.rowIndex="4" />
+                              <Label text="Alignment and Religions" wrapText="true" GridPane.rowIndex="5" />
+                              <Label text="Adventures" GridPane.rowIndex="6" />
+                              <Label text="Racial Modifiers" GridPane.rowIndex="7" />
+                              <Label text="Size" GridPane.rowIndex="8" />
+                              <Label text="Speed" GridPane.rowIndex="9" />
+                              <Label text="Vision Types" GridPane.rowIndex="10" />
+                              <Label text="Racial Traits" GridPane.rowIndex="11" />
+                              <Label text="Weapon Familiarity" GridPane.rowIndex="12" />
+                              <Label text="Languages" GridPane.rowIndex="13" />
+                              <Label fx:id="lblName" prefHeight="17.0" prefWidth="111.0" text="Name" GridPane.columnIndex="1">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextArea fx:id="txtaDescription" editable="false" prefHeight="70.0" prefWidth="228.0" text="The Races Description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="80.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                              <TextArea fx:id="txtaPDescription" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Races physcial description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="80.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                              <TextArea fx:id="txtaSociety" editable="false" prefHeight="200.0" prefWidth="200.0" text="A description of the Races Society" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets right="80.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                              <TextArea fx:id="txtaRelations" editable="false" prefHeight="200.0" prefWidth="200.0" text="The Relations of the race with other races" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets right="80.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                              <TextArea fx:id="txtaReligion" editable="false" prefHeight="200.0" prefWidth="200.0" text="Alignment and Religions" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets right="80.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                              <TextArea fx:id="txtaAdventures" editable="false" prefHeight="200.0" prefWidth="200.0" text="The kinds of adventures the race would get up to" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets right="80.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                              <Button fx:id="btnEditSheet" mnemonicParsing="false" onAction="#handleEditSheet" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets left="630.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="btnEditTraits" mnemonicParsing="false" onAction="#handleEditTraits" prefHeight="25.0" prefWidth="60.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                 <GridPane.margin>
+                                    <Insets left="630.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Label fx:id="labelRacialModifiers" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="labelSize" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="labelSpeed" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="labelVision" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="labelTraits" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="labelWeapons" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="12">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="labelLanguages" maxWidth="625.0" minHeight="-Infinity" minWidth="-Infinity" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="13" GridPane.vgrow="ALWAYS">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

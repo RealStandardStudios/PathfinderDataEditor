@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="rootLayout" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RootLayoutController">
+	<left>
+		<Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+			<children>
+				<Label id="programName" fx:id="lblProgramName" layoutX="14.0" layoutY="42.0" prefWidth="134.0" text="Data Editor" />
+				<Button id="skillsButton" fx:id="btnClasses" layoutX="14.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleClassesAction" prefHeight="34.960837500002526" prefWidth="134.0" text="Classes" />
+				<Button id="combatStatsButton" fx:id="btnFeats" layoutX="14.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleFeatsAction" prefHeight="34.960837500002526" prefWidth="134.00009999999747" text="Feats" />
+				<Button id="itemsButton" fx:id="btnItems" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleItemsAction" prefHeight="34.9609375" prefWidth="134.0" text="Items" />
+				<Button id="racesButton" fx:id="btnRace" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleRaceAction" pickOnBounds="false" prefHeight="34.960837500002526" prefWidth="134.0" text="Races" />
+				<Button id="spellsButton" fx:id="btnSpells" layoutX="14.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleSpellsAction" prefHeight="34.960845947265625" prefWidth="134.0" text="Spells" />
+			</children>
+		</Pane>
+	</left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="Open...">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenClasses" text="Open Classes" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenFeats" text="Open Feats" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleOpenItems" text="Open Items" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenRaces" text="Open Races" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenSpells" text="Open Spells" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenAll" text="Open All" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Save...">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveClasses" text="Save Classes" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleSaveFeats" text="Save Feats" />
+                        <MenuItem fx:id="menuItemSaveItems" mnemonicParsing="false" onAction="#handleSaveItems" text="Save Items" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveRaces" text="Save Races" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveSpells" text="Save Spells" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAll" text="Save All" />
+                    </items>
+                  </Menu>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

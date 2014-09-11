@@ -3,6 +3,8 @@
 	<name>PathfinderDataEditor</name>
 	<comment></comment>
 	<projects>
+		<project>JefXif</project>
+		<project>PathfinderData</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

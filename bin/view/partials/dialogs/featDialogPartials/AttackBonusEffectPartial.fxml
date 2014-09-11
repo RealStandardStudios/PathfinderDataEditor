@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="150.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.featDialogPartials.AttackBonusEffectPartialController">
+   <children>
+      <Label layoutX="37.0" layoutY="14.0" text="Name" />
+      <Label layoutX="39.0" layoutY="43.0" text="Value" />
+      <Label layoutX="22.0" layoutY="73.0" text="Bonus vs" />
+      <Label layoutX="8.0" layoutY="101.0" text="Bonus Type" />
+      <TextField fx:id="txtEffectName" layoutX="73.0" layoutY="10.0" prefHeight="25.0" prefWidth="308.0" />
+      <TextField fx:id="txtEffectValue" layoutX="73.0" layoutY="39.0" prefHeight="25.0" prefWidth="308.0" />
+      <TextField fx:id="txtBonusVs" layoutX="73.0" layoutY="68.0" prefHeight="25.0" prefWidth="308.0" />
+      <TextField fx:id="txtBonusType" layoutX="73.0" layoutY="97.0" prefHeight="25.0" prefWidth="308.0" />
+   </children>
+</AnchorPane>

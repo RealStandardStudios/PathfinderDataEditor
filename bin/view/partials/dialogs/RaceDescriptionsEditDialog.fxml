@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="875.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.RaceDescriptionsEditDialogController">
+   <children>
+      <GridPane layoutY="6.0" prefHeight="826.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="138.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="466.0" minWidth="10.0" prefWidth="462.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="81.0" minHeight="6.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="81.0" minHeight="6.0" prefHeight="8.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="202.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="173.0" minHeight="4.0" prefHeight="8.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="156.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="183.0" minHeight="2.0" prefHeight="7.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="138.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="167.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="96.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Description" GridPane.rowIndex="2" />
+            <TextArea fx:id="txtaDescription" prefHeight="85.0" prefWidth="462.0" text="The Races Description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Physical Description" GridPane.rowIndex="4" />
+            <TextArea fx:id="txtaPDescription" prefHeight="200.0" prefWidth="200.0" text="The Races physcial description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Society" GridPane.rowIndex="6" />
+            <TextArea fx:id="txtaSociety" prefHeight="200.0" prefWidth="200.0" text="A description of the Races Society" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Race Relations" GridPane.rowIndex="8" />
+            <Label text="Alignment and Religions" wrapText="true" GridPane.rowIndex="10" />
+            <Label text="Adventures" GridPane.rowIndex="12" />
+            <TextArea fx:id="txtaReligion" prefHeight="200.0" prefWidth="200.0" text="Alignment and Religions" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextArea fx:id="txtaRelations" prefHeight="200.0" prefWidth="200.0" text="The Relations of the race with other races" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextArea fx:id="txtaAdventures" prefHeight="200.0" prefWidth="200.0" text="The kinds of adventures the race would get up to" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Race Name" />
+            <TextField fx:id="txtRaceName" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="534.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleOkay" text="Okay" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0" />
+      <Button layoutX="475.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="70.0" />
+   </children>
+</AnchorPane>

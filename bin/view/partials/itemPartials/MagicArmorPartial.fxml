@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="698.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.itemPartials.MagicArmorController">
+   <children>
+      <GridPane layoutX="10.0" layoutY="97.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="168.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="10.0" prefWidth="359.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="AC Bonus:" />
+            <Label text="Max Dex Bonus:" GridPane.rowIndex="1" />
+            <Label text="Armor Check penalty:" GridPane.rowIndex="2" />
+            <Label text="Arcane Spell Failure:" GridPane.rowIndex="3" />
+            <Label text="Speed, 30 ft:" GridPane.rowIndex="4" />
+            <Label text="Speed 20 ft:" GridPane.rowIndex="5" />
+            <Label text="Slot:" GridPane.rowIndex="6" />
+            <Label text="Aura Strength:" GridPane.rowIndex="7" />
+            <Label text="Caster Level:" GridPane.rowIndex="8" />
+            <Label text="Price:" GridPane.rowIndex="9" />
+            <Label text="Weight:" GridPane.rowIndex="10" />
+            <Label text="Description:" GridPane.rowIndex="13">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="Construction:" GridPane.rowIndex="12" />
+            <Label fx:id="lblACBonus" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblMaxDex" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="lblArmorCheckPenalty" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblArcaneSpellFalure" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lblSpeed30ft" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="lblSpeed20ft" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblSlot" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="lblAuraStrength" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="lblCasterLevel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="lblPrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="lblWeight" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label fx:id="lblDescription" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="13" GridPane.vgrow="ALWAYS" />
+            <Label fx:id="lblConstruction" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+         </children>
+      </GridPane>
+      <Label fx:id="lblArmorName" alignment="CENTER" layoutX="434.0" layoutY="14.0" text="No Magic Armor Selected" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="itemTable" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="itemNameColumn" prefWidth="301.0" text="Magic Armor" />
+        </columns>
+      </TableView>
+      <Button layoutX="869.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleEditMagicArmor" text="Edit" />
+   </children>
+</AnchorPane>
