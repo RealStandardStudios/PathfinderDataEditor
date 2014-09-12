@@ -235,6 +235,23 @@ public class ClassesController extends MainPartialController implements DataLoad
 	
 	TableColumn[] spellKnowenTableKnown;
 	
+	@FXML
+	private TableView<Feature> tableFeatures;
+	
+	@FXML
+	private TableColumn<Feature, String> columnFeatureName;
+	
+	@FXML
+	private TableColumn<Feature, String> columnFeatureType;
+	
+	@FXML
+	private TableColumn<Feature, String> columnFeatureDesctiption;
+	
+	@FXML
+	private TableColumn<Feature, String> columnFeatureEffect;
+	
+	TableColumn[] featuresTable;
+	
 	private ObservableList<Class> obsListClasses = FXCollections
 			.observableArrayList();
 
@@ -320,6 +337,11 @@ public class ClassesController extends MainPartialController implements DataLoad
 		columnAcBonus.setCellValueFactory(cellData -> cellData.getValue().getAcBonusProperty());
 		columnFastMovement.setCellValueFactory(cellData -> cellData.getValue().getFastMovementProperty());
 		
+		columnFeatureName.setCellValueFactory(cellData -> cellData.getValue().getNameProperty());
+		columnFeatureType.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
+		columnFeatureDesctiption.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
+		//columnFeatureEffect.setCellValueFactory(cellData -> cellData.getValue().getEffectProperty().get().getNameProperty());
+		
 		// Array of Table Columns
 		levelTableColumns = new TableColumn[] {
 				columnLevel, columnBAB, columnFort, columnRef, columnWill, columnSpecial
@@ -390,6 +412,25 @@ public class ClassesController extends MainPartialController implements DataLoad
 			}
 			
 		});
+		
+		featuresTable = new TableColumn[] {
+			columnFeatureName, columnFeatureType, columnFeatureDesctiption, columnFeatureEffect	
+		};
+		
+		tableFeatures.getColumns().addListener(new ListChangeListener<TableColumn<Feature,?>>(){
+			public boolean suspended;
+			
+			@Override
+			public void onChanged(Change<? extends TableColumn<Feature, ?>> change) {
+				change.next();
+				
+				if(change.wasReplaced() && !suspended) {
+					this.suspended = true;
+					tableFeatures.getColumns().setAll(featuresTable);
+					this.suspended = false;
+				}
+			}
+		});
 	}
 
 	/**
@@ -413,6 +454,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 			lblArmorProf.setText(c.getArmorProfsToString());
 			lblStartingWealthD6.setText(Integer.toString(c
 					.getStartingWealthD6()));
+			tableFeatures.setItems(c.getFeatures());
 		} else {
 			tableLevelTable.setDisable(true);
 			
@@ -425,6 +467,8 @@ public class ClassesController extends MainPartialController implements DataLoad
 			lblWeaponProf.setText("");
 			lblArmorProf.setText("");
 			lblStartingWealthD6.setText("");
+			
+			tableFeatures.setItems(null);
 		}
 		showClassProgression(c);
 	}

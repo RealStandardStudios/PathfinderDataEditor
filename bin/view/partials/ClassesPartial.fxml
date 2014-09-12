@@ -172,12 +172,12 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="tableFeatures" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn editable="false" prefWidth="98.00000154972076" resizable="false" sortable="false" text="Feature Name" />
-                                        <TableColumn editable="false" prefWidth="121.99999237060547" resizable="false" sortable="false" text="Feature Type" />
-                                          <TableColumn editable="false" prefWidth="406.0000305175781" resizable="false" sortable="false" text="Feature Description" />
-                                          <TableColumn editable="false" minWidth="6.0" prefWidth="143.0" resizable="false" sortable="false" text="Effect" />
+                                        <TableColumn fx:id="columnFeatureName" editable="false" prefWidth="98.00000154972076" resizable="false" sortable="false" text="Feature Name" />
+                                        <TableColumn fx:id="columnFeatureType" editable="false" prefWidth="121.99999237060547" resizable="false" sortable="false" text="Feature Type" />
+                                          <TableColumn fx:id="columnFeatureDesctiption" editable="false" prefWidth="406.0000305175781" resizable="false" sortable="false" text="Feature Description" />
+                                          <TableColumn fx:id="columnFeatureEffect" editable="false" minWidth="6.0" prefWidth="143.0" resizable="false" sortable="false" text="Effect" />
                                       </columns>
                                     </TableView>
                                  </children>

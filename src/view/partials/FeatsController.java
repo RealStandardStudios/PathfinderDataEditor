@@ -72,7 +72,7 @@ public class FeatsController extends MainPartialController implements DataLoader
 		benifitColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.benifitProperty());
 		effectColumn.setCellValueFactory(cellData -> cellData.getValue()
-				.effectProperty().getValue().NameProperty());
+				.effectProperty().getValue().getNameProperty());
 	}
 
 	/**
