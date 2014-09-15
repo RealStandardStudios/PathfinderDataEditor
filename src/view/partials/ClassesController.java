@@ -943,7 +943,7 @@ public class ClassesController extends MainPartialController implements DataLoad
 				
 			} //End while next line
 
-			classes.get(filename).SetLevelTable(
+			classes.get(filename).setLevelTable(
 					FXCollections.observableArrayList(levelTable));
 			reader.close();
 		}
