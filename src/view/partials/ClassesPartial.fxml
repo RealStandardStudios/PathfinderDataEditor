@@ -46,7 +46,7 @@
                                           <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label text="Description" />
+                                          <Label text="Name" />
                                           <Label text="Role" GridPane.rowIndex="1" />
                                           <Label text="Alignments" GridPane.rowIndex="2" />
                                           <Label text="Hit Dice" GridPane.rowIndex="3" />
