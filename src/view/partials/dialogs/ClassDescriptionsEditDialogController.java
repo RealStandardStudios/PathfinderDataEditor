@@ -72,7 +72,7 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 	}
 
 	@FXML
-	private void handleOkay() {
+	private void handleOkay(ActionEvent event) {
 		pClass.setSkillRanksPerLevel(Integer.parseInt(txtSkillRanksPerLevel.getText()));
 		pClass.setRole(txtaRole.getText());
 		pClass.setName(txtName.getText());
@@ -90,6 +90,10 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 		hitDice = FXCollections.observableArrayList(new DiceType[]{
 			DiceType.d6, DiceType.d8, DiceType.d10, DiceType.d12
 		});
+	}
+
+	public boolean isOkayClicked() {
+		return this.okayClicked;
 	}
 
 }

@@ -66,6 +66,7 @@
                                           <Label fx:id="lblStartingWealthD6" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                                        </children>
                                     </GridPane>
+                                    <Button layoutX="782.0" layoutY="554.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEditDetails" prefWidth="52.0" text="Edit" />
                                  </children>
                               </AnchorPane>
                         </content>
