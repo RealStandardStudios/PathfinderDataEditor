@@ -13,8 +13,6 @@ import pathfinder.data.Classes.Class;
 
 public class ClassDescriptionsEditDialogController extends DialogController {
 	
-	Boolean okayClicked = false;
-	
 	@FXML
 	TextField txtName;
 	
@@ -67,12 +65,7 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 	}
 
 	@FXML
-	private void handleCancel(ActionEvent event) {
-		getDialogStage().close();
-	}
-
-	@FXML
-	private void handleOkay(ActionEvent event) {
+	public void handleOkay(ActionEvent event) {
 		pClass.setSkillRanksPerLevel(Integer.parseInt(txtSkillRanksPerLevel.getText()));
 		pClass.setRole(txtaRole.getText());
 		pClass.setName(txtName.getText());
@@ -91,9 +84,4 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 			DiceType.d6, DiceType.d8, DiceType.d10, DiceType.d12
 		});
 	}
-
-	public boolean isOkayClicked() {
-		return this.okayClicked;
-	}
-
 }

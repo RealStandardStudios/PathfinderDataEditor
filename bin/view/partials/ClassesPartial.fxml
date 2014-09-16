@@ -81,7 +81,7 @@
                                           <content>
                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <TableView fx:id="tableLevelTable" cacheShape="false" centerShape="false" focusTraversable="false" onDragDetected="#handleDrag" pickOnBounds="false" prefHeight="554.0" prefWidth="834.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="tableLevelTable" cacheShape="false" centerShape="false" focusTraversable="false" onDragDetected="#handleDrag" pickOnBounds="false" prefHeight="554.0" prefWidth="754.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
                                                             <TableColumn fx:id="columnLevel" editable="false" prefWidth="70.0" resizable="false" sortable="false" text="Level" />
                                                             <TableColumn fx:id="columnBAB" editable="false" prefWidth="109.99999237060547" resizable="false" sortable="false" text="Base Attack Bonus" />
@@ -173,7 +173,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView fx:id="tableFeatures" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="tableFeatures" layoutX="19.6" layoutY="18.6" prefHeight="583.0" prefWidth="792.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="9.0">
                                       <columns>
                                         <TableColumn fx:id="columnFeatureName" editable="false" prefWidth="98.00000154972076" resizable="false" sortable="false" text="Feature Name" />
                                         <TableColumn fx:id="columnFeatureType" editable="false" prefWidth="121.99999237060547" resizable="false" sortable="false" text="Feature Type" />
@@ -181,6 +181,7 @@
                                           <TableColumn fx:id="columnFeatureEffect" editable="false" minWidth="6.0" prefWidth="143.0" resizable="false" sortable="false" text="Effect" />
                                       </columns>
                                     </TableView>
+                                    <Button layoutX="793.0" layoutY="557.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEditFeature" prefWidth="52.0" text="Edit" />
                                  </children>
                               </AnchorPane>
                         </content>

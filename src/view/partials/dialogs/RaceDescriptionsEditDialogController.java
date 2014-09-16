@@ -7,10 +7,7 @@ import javafx.scene.control.TextField;
 import jefXif.DialogController;
 import pathfinder.data.Races.Race;
 
-public class RaceDescriptionsEditDialogController extends DialogController{
-	
-	Boolean okayClicked = false;
-	
+public class RaceDescriptionsEditDialogController extends DialogController{	
 	@FXML
 	TextField txtRaceName;
 	@FXML
@@ -57,14 +54,9 @@ public class RaceDescriptionsEditDialogController extends DialogController{
 	public RaceDescriptionsEditDialogController() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	@FXML
-	private void handleCancel(ActionEvent event) {
-		getDialogStage().close();
-	}
 
 	@FXML
-	private void handleOkay() {
+	public void handleOkay(ActionEvent event) {
 		race.setName(txtRaceName.getText());
 		race.setDescription(txtaDescription.getText());
 		race.setPhysicalDescription(txtaPDescription.getText());
@@ -75,8 +67,4 @@ public class RaceDescriptionsEditDialogController extends DialogController{
 		okayClicked = true;
 		this.getDialogStage().close();
 	}
-
-	public boolean isOkayClicked() {
-		return this.okayClicked;
-	}	
 }

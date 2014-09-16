@@ -64,9 +64,9 @@ import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Classes.Objects.LevelTable.LevelTableRow;
 import pathfinder.data.Classes.Objects.LevelTable.MonkLevelTableRow;
 import pathfinder.data.Classes.Objects.LevelTable.SpellLevelTableRow;
-import pathfinder.data.Races.Race;
 import pathfinder.data.Spells.Spell;
 import view.partials.dialogs.ClassDescriptionsEditDialogController;
+import view.partials.dialogs.ClassFeatureEditDialogController;
 import editor.Tools;
 
 /**
@@ -488,7 +488,7 @@ public class ClassesController extends MainPartialController implements
 	}
 
 	@FXML
-	private void handleEditDetails(ActionEvent Event) {
+	private void handleEditDetails(ActionEvent event) {
 		Class selectedClass = tableClasses.getSelectionModel()
 				.getSelectedItem();
 		if (selectedClass != null) {
@@ -497,6 +497,48 @@ public class ClassesController extends MainPartialController implements
 			Dialogs.create().title("No Selection")
 					.masthead("No Class selected")
 					.message("Select a Class from the table.").showWarning();
+		}
+	}
+	
+	@FXML
+	private void handleEditFeature(ActionEvent event) {
+		Feature selectedFeature = tableFeatures.getSelectionModel().getSelectedItem();
+		if(selectedFeature!= null) {
+			boolean okayClicked = showEditFeatureDialog(selectedFeature);
+		} else {
+			Dialogs.create().title("No Selection")
+			.masthead("No Feature selected")
+			.message("Select a Feature from the table.").showWarning();
+		}
+	}
+
+	private boolean showEditFeatureDialog(Feature selectedFeature) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource(
+					"dialogs/ClassFeatureEditDialog.fxml"));
+
+			AnchorPane pane = (AnchorPane) loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Class Feature");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(getInterface().getPrimaryStage());
+			Scene scene = new Scene(pane);
+			dialogStage.setScene(scene);
+
+			ClassFeatureEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setFeature(selectedFeature);
+			dialogStage.showAndWait();
+			selectedFeature = controller.getFeature();
+			//showClassDetails(selectedClass);
+			return controller.isOkayClicked();
+		} catch (IOException e) {
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
+			return false;
 		}
 	}
 

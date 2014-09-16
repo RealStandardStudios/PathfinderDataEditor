@@ -18,7 +18,6 @@ import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Races.Race;
 
 public class RaceTraitsEditDialogController extends DialogController {
-	boolean okayClicked = false;
 	Race race;
 	@FXML
 	CheckBox cbDark;
@@ -136,14 +135,5 @@ public class RaceTraitsEditDialogController extends DialogController {
 		
 		okayClicked = true;
 		getDialogStage().close();
-	}
-	
-	@FXML
-	public void handleCancel(ActionEvent event) {
-		getDialogStage().close();
-	}
-
-	public boolean isOkayClicked() {
-		return this.okayClicked;
 	}
 }

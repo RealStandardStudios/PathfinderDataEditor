@@ -1,13 +1,16 @@
 package view.partials.itemPartials.dialogs;
 
-import org.controlsfx.dialog.Dialogs;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jefXif.DialogController;
+
+import org.controlsfx.dialog.Dialogs;
+
 import pathfinder.data.Items.Weapon;
 
-public class BasicWeaponEditController {
+public class BasicWeaponEditController extends DialogController{
 	
 	@FXML
 	private TextField nameField;
@@ -34,7 +37,6 @@ public class BasicWeaponEditController {
 	
 	private Stage dialogStage;
     private Weapon weapon;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -65,21 +67,6 @@ public class BasicWeaponEditController {
     	weightField.setText(w.getWeight());
     	
     }
-    
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
     
     private boolean isInputValid() {
         String errorMessage = "";
@@ -143,7 +130,7 @@ public class BasicWeaponEditController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             weapon.setName(nameField.getText());
             weapon.setWeaponType(weaponTypeField.getText());
@@ -158,7 +145,7 @@ public class BasicWeaponEditController {
             weapon.setCost(costField.getText());
             weapon.setWeight(weightField.getText());
 
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

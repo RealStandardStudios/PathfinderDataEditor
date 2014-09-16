@@ -1,14 +1,16 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicStaves;
 
-public class MagicStaveEditController {
+public class MagicStaveEditController extends DialogController{
 
 	@FXML
 	private TextField rodNameField;
@@ -27,7 +29,6 @@ public class MagicStaveEditController {
 	
 	private Stage dialogStage;
 	private MagicStaves stave;
-    private boolean okClicked = false;
 	
 	 public void initialize() {
 	    }
@@ -51,22 +52,7 @@ public class MagicStaveEditController {
 	    	constructionField.setText(s.getConstruction());
 	    	auraStrengthField.setText(s.getAuraStrength());
 	    	weightField.setText(s.getWeight());
-	    }    
-	    
-	    public boolean isOkClicked() {
-	        return okClicked;
 	    }
-	    /**
-	     * Called when the user clicks ok.
-	     */
-	       
-	    @FXML
-	    private void handleCancel() {
-	        dialogStage.close();
-	    }
-	    /**
-	     * Called when the user clicks cancel.
-	     */
 	    
 	    private boolean isInputValid() {
 	        String errorMessage = "";
@@ -112,7 +98,7 @@ public class MagicStaveEditController {
 	    }
 	    
 	    @FXML
-	    private void handleOk() {
+	    public void handleOkay(ActionEvent event) {
 	        if (isInputValid()) {            
 	            stave.setName(rodNameField.getText());
 	            stave.setAuraStrength(auraStrengthField.getText());
@@ -122,7 +108,7 @@ public class MagicStaveEditController {
 	            stave.setCasterLevel(casterLevelField.getText());
 	            stave.setWeight(weightField.getText());
 
-	            okClicked = true;
+	            okayClicked = true;
 	            dialogStage.close();
 	        }
 	    }

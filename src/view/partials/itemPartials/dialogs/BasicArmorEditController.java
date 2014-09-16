@@ -1,11 +1,13 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
+
 import pathfinder.data.Items.Armor;
 
 public class BasicArmorEditController extends DialogController {
@@ -32,7 +34,6 @@ public class BasicArmorEditController extends DialogController {
 	
 	private Stage dialogStage;
     private Armor armor;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -61,23 +62,7 @@ public class BasicArmorEditController extends DialogController {
     	weightField.setText(a.getWeight());
     	
     }    
-    
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
-    
-    
+        
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -130,7 +115,7 @@ public class BasicArmorEditController extends DialogController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             armor.setName(armorNameField.getText());
             armor.setCost(costField.getText());
@@ -142,7 +127,7 @@ public class BasicArmorEditController extends DialogController {
             armor.setSpeed20feet(speed20Field.getText());
             armor.setWeight(weightField.getText());
 
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

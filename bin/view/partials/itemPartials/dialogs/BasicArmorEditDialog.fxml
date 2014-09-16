@@ -45,7 +45,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button layoutX="442.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleOk" text="OK and Apply" />
+      <Button layoutX="442.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleOkay" text="OK and Apply" />
       <Button layoutX="538.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
    </children>
 </AnchorPane>

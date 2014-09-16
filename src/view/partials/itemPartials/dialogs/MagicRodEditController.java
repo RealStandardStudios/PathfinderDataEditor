@@ -1,5 +1,6 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -29,7 +30,6 @@ public class MagicRodEditController extends DialogController {
 	
 	private Stage dialogStage;
     private MagicRod rod;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -53,23 +53,7 @@ public class MagicRodEditController extends DialogController {
     	auraStrengthField.setText(r.getAuraStrength());
     	weightField.setText(r.getWeight());
 		
-	}
-
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
-    
+	}    
     
     private boolean isInputValid() {
     	String errorMessage = "";
@@ -115,7 +99,7 @@ public class MagicRodEditController extends DialogController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
     	if (isInputValid()) {            
             rod.setName(rodNameField.getText());
             rod.setAuraStrength(auraStrengthField.getText());
@@ -125,7 +109,7 @@ public class MagicRodEditController extends DialogController {
             rod.setCasterLevel(casterLevelField.getText());
             rod.setWeight(weightField.getText());
 
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

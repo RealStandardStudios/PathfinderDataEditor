@@ -1,5 +1,6 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -10,7 +11,6 @@ import org.controlsfx.dialog.Dialogs;
 import pathfinder.data.Items.MagicArmor;
 
 public class MagicArmorEditController extends DialogController {
-
 
 	@FXML
 	private TextField armorNameField;
@@ -44,7 +44,6 @@ public class MagicArmorEditController extends DialogController {
 	
 	private Stage dialogStage;
     private MagicArmor armor;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -78,23 +77,7 @@ public class MagicArmorEditController extends DialogController {
     	descriptionField.setText(a.getDescription());
     	constructionField.setText(a.getConstruction());
     	
-    } 
-
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
-    
+    }    
     
     private boolean isInputValid() {
     	String errorMessage = "";
@@ -168,7 +151,7 @@ public class MagicArmorEditController extends DialogController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             armor.setName(armorNameField.getText());
             armor.setCost(costField.getText());
@@ -185,7 +168,7 @@ public class MagicArmorEditController extends DialogController {
             armor.setDescription(descriptionField.getText());
             armor.setConstruction(constructionField.getText());
 
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

@@ -1,14 +1,16 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Goods;
 
-public class BasicGoodsEditController {
+public class BasicGoodsEditController extends DialogController{
 
 	@FXML
 	private TextField nameField;
@@ -19,7 +21,6 @@ public class BasicGoodsEditController {
 	
 	private Stage dialogStage;
     private Goods good;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -42,22 +43,7 @@ public class BasicGoodsEditController {
     	weightField.setText(g.getWeight());
     	
     } 
-    
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
-    
+        
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -88,13 +74,13 @@ public class BasicGoodsEditController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             good.setName(nameField.getText());
             good.setCost(costField.getText());
             good.setWeight(weightField.getText());
 
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

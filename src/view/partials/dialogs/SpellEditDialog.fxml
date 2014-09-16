@@ -58,7 +58,7 @@
             <TextField fx:id="spellTableField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
          </children>
       </GridPane>
-      <Button layoutX="637.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleOK" text="OK" />
+      <Button layoutX="637.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleOkay" text="OK" />
       <Button layoutX="688.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
    </children>
 </AnchorPane>

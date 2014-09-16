@@ -1,5 +1,6 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,7 +28,6 @@ public class MagicRingEditController extends DialogController {
 	
 	private Stage dialogStage;
     private MagicRing ring;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -53,22 +53,7 @@ public class MagicRingEditController extends DialogController {
     	constructionField.setText(r.getConstruction());
     	
     }    
-    
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
-    
+        
     
     private boolean isInputValid() {
         String errorMessage = "";
@@ -107,7 +92,7 @@ public class MagicRingEditController extends DialogController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             
         	ring.setName(nameField.getText());
@@ -116,7 +101,7 @@ public class MagicRingEditController extends DialogController {
         	ring.setCost(priceField.getText());
         	ring.setDescription(descriptionField.getText());
         	ring.setConstruction(constructionField.getText());
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

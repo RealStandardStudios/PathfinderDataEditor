@@ -66,6 +66,6 @@
          </rowConstraints>
       </GridPane>
       <Button layoutX="541.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
-      <Button layoutX="442.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleOk" text="OK and Apply" />
+      <Button layoutX="442.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleOkay" text="OK and Apply" />
    </children>
 </AnchorPane>

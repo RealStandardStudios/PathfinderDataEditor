@@ -4,9 +4,11 @@ import java.util.HashMap;
 
 import org.controlsfx.dialog.Dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jefXif.DialogController;
 import pathfinder.data.Spells.Spell;
 
 /**
@@ -14,7 +16,7 @@ import pathfinder.data.Spells.Spell;
  * 
  * @author Real Standard Studios - Kenneth Cooper
  */
-public class SpellEditDialogController {
+public class SpellEditDialogController extends DialogController{
 	@FXML
 	private TextField spellNameField;
 	@FXML
@@ -42,7 +44,6 @@ public class SpellEditDialogController {
 	
 	private Stage dialogStage;
 	private Spell spell;
-	private boolean okClicked = false;
 	
 	/**
 	 * Initialises the controller class.  This method is automatically called
@@ -51,15 +52,6 @@ public class SpellEditDialogController {
 	@FXML
 	private void initializes() {
 		
-	}
-	
-	/**
-	 * Sets the person to be edited in the dialog
-	 * 
-	 * @param dialogStage
-	 */
-	public void setDialogStage(Stage dialogStage) {
-		this.dialogStage = dialogStage;
 	}
 	
 	/**
@@ -85,17 +77,10 @@ public class SpellEditDialogController {
 	}
 	
 	/**
-	 * @return true if the user clicked OK, false otherwise.
-	 */
-	public boolean isOKClicked() {
-		return okClicked;
-	}
-	
-	/**
 	 * Called when the user clicks OK
 	 */
 	@FXML
-	private void handleOK() {
+	public void handleOkay(ActionEvent event) {
 		if (isInputValid()) {
 			spell.setName(spellNameField.getText());
 			spell.setSchool(schoolNameField.getText());
@@ -154,17 +139,9 @@ public class SpellEditDialogController {
 			spell.setDescription(descriptionField.getText());
 			spell.setTablePicture(spellTableField.getText());
 			
-			okClicked = true;
+			okayClicked = true;
 			dialogStage.close();
 		}
-	}
-	
-	/**
-	 * Called when the user clicks cancel.
-	 */
-	@FXML
-	private void handleCancel() {
-		dialogStage.close();
 	}
 	
 	/**

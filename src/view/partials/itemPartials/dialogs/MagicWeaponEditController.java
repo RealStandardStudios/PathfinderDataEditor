@@ -1,5 +1,6 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -44,7 +45,6 @@ public class MagicWeaponEditController extends DialogController {
 	
 	private Stage dialogStage;
     private MagicWeapon weapon;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -79,21 +79,10 @@ public class MagicWeaponEditController extends DialogController {
     	constructionField.setText(w.getConstruction());
     	
     }
-    
-    public boolean isOkClicked() {
-        return okClicked;
-    }
     /**
      * Called when the user clicks ok.
      */
        
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
-    /**
-     * Called when the user clicks cancel.
-     */
     
     private boolean isInputValid() {
         String errorMessage = "";
@@ -173,7 +162,7 @@ public class MagicWeaponEditController extends DialogController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             weapon.setName(nameField.getText());
             weapon.setWeaponType(weaponTypeField.getText());
@@ -191,7 +180,7 @@ public class MagicWeaponEditController extends DialogController {
             weapon.setCasterLevel(casterLevelField.getText());
             weapon.setDescription(descriptionField.getText());
             weapon.setDescription(descriptionField.getText());
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

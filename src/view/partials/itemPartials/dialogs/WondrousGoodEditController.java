@@ -1,14 +1,16 @@
 package view.partials.itemPartials.dialogs;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jefXif.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.WondrousGood;
 
-public class WondrousGoodEditController {
+public class WondrousGoodEditController extends DialogController{
 	
 	@FXML
 	private TextField rodNameField;
@@ -30,7 +32,6 @@ public class WondrousGoodEditController {
 	
 	private Stage dialogStage;
     private WondrousGood good;
-    private boolean okClicked = false;
     
     public void initialize() {
     }
@@ -57,17 +58,6 @@ public class WondrousGoodEditController {
     	weightField.setText(g.getWeight());
     }    
     
-    public boolean isOkClicked() {
-        return okClicked;
-    }
-    /**
-     * Called when the user clicks ok.
-     */
-       
-    @FXML
-    private void handleCancel() {
-        dialogStage.close();
-    }
     /**
      * Called when the user clicks cancel.
      */
@@ -119,7 +109,7 @@ public class WondrousGoodEditController {
     }
     
     @FXML
-    private void handleOk() {
+    public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             good.setName(rodNameField.getText());
             good.setAuraStrength(auraStrengthField.getText());
@@ -130,7 +120,7 @@ public class WondrousGoodEditController {
             good.setCasterLevel(casterLevelField.getText());
             good.setWeight(weightField.getText());
 
-            okClicked = true;
+            okayClicked = true;
             dialogStage.close();
         }
     }

@@ -18,7 +18,7 @@ import jefXif.PartialLoader;
 import jefXif.WindowController;
 import pathfinder.data.Feat;
 import pathfinder.data.FeatPrerequisite;
-import view.partials.dialogs.featDialogPartials.EffectPartialController;
+import view.partials.dialogs.effectDialogPartials.EffectPartialController;
 
 public class FeatEditDialogController extends DialogController implements
 		PartialLoader {
@@ -30,7 +30,6 @@ public class FeatEditDialogController extends DialogController implements
 			"FeintActionEffect", "MiscEffect", "OnCritEffect", "DamageEffect",
 			"DamageMultiplierEffect", "ItemCreationEffect", "MetaMagicEffect" };
 
-	Boolean okayClicked = false;
 	ObservableList<FeatPrerequisite> prerequistes;
 	ObservableList<String> effects;
 	HashMap<String, EffectPartialController> effectPartials;
@@ -56,12 +55,7 @@ public class FeatEditDialogController extends DialogController implements
 	}
 
 	@FXML
-	private void handleCancel(ActionEvent event) {
-		getDialogStage().close();
-	}
-
-	@FXML
-	private void handleOkay() {
+	public void handleOkay(ActionEvent event) {
 		feat.nameProperty().setValue(txtFeatName.getText());
 		feat.benifitProperty().setValue(txtaBenifit.getText());
 		if (feat.prerequisitePropety().getValue().getClass()
@@ -116,16 +110,12 @@ public class FeatEditDialogController extends DialogController implements
 	private WindowController loadPartial(String name) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource(
-				"featDialogPartials/" + name + "Partial.fxml"));
+				"effectDialogPartials/" + name + "Partial.fxml"));
 
 		Node node = loader.load();
 		WindowController controller = loader.getController();
 		controller.setNode(node);
 		return controller;
-	}
-
-	public boolean isOkayClicked() {
-		return this.okayClicked;
 	}
 
 	public void setData(ObservableList<Feat> feats) {
