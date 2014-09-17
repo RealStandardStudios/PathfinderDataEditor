@@ -67,6 +67,7 @@ import pathfinder.data.Classes.Objects.LevelTable.SpellLevelTableRow;
 import pathfinder.data.Spells.Spell;
 import view.partials.dialogs.ClassDescriptionsEditDialogController;
 import view.partials.dialogs.ClassFeatureEditDialogController;
+import view.partials.dialogs.LevelTableEditDialogController;
 import editor.Tools;
 
 /**
@@ -76,16 +77,14 @@ import editor.Tools;
  */
 public class ClassesController extends MainPartialController implements
 		DataLoader {
-
-	/*
-	 * Link Class table fxml entities to the Controller
-	 */
+	
 	@FXML
 	private TableView<Class> tableClasses;
 
 	@FXML
 	private TableColumn<Class, String> columnClassName;
 
+	//region Class Description Labels	
 	@FXML
 	private Label lblDescription;
 
@@ -112,10 +111,9 @@ public class ClassesController extends MainPartialController implements
 
 	@FXML
 	private Label lblStartingWealthD6;
+	//endregion
 
-	/*
-	 * Link Class Progression table fxml entities to the Controller
-	 */
+	//region Class Progression table
 	@FXML
 	private Tab tabLevelTable;
 
@@ -140,12 +138,10 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<LevelTableRow, String> columnSpecial;
 
-	TableColumn[] levelTableColumns;
+	TableColumn[] levelTable;
+	//endregion
 
-	/*
-	 * Link Class Progression Spells Per Day Table fxml entities to the
-	 * Controller
-	 */
+	//region Spells Per Level Table
 	@FXML
 	private Tab tabSpellLevelTable;
 
@@ -185,10 +181,10 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9th;
 
-	TableColumn[] spellLevelTableColumn;
-	/*
-	 * Link Class Progression Spells Known Table fxml entities to the Controller
-	 */
+	TableColumn[] spellLevelTable;
+	//endregion
+
+	//region Spells Knowen Table
 	@FXML
 	private Tab tabSpellsKnown;
 
@@ -227,7 +223,12 @@ public class ClassesController extends MainPartialController implements
 
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9thKnown;
+	
+	TableColumn[] spellKnowenTable;
+	
+	//endregion
 
+	//region Monk Level Table
 	@FXML
 	private Tab tabMonkSpecials;
 
@@ -245,9 +246,12 @@ public class ClassesController extends MainPartialController implements
 
 	@FXML
 	private TableColumn<MonkLevelTableRow, String> columnFastMovement;
+	
+	TableColumn[] monkTable;
 
-	TableColumn[] spellKnowenTableKnown;
+	//endregion
 
+	//region Class Features
 	@FXML
 	private TableView<Feature> tableFeatures;
 
@@ -264,6 +268,7 @@ public class ClassesController extends MainPartialController implements
 	private TableColumn<Feature, String> columnFeatureEffect;
 
 	TableColumn[] featuresTable;
+	//endregion
 
 	private ObservableList<Class> obsListClasses = FXCollections
 			.observableArrayList();
@@ -309,7 +314,7 @@ public class ClassesController extends MainPartialController implements
 				.addListener(
 						(observable, oldValue, newValue) -> showClassDetails(newValue));
 
-		// Init the Class Progression Level Table with columns
+		//region Init the Class Progression Level Table with columns
 		columnLevel.setCellValueFactory(cellData -> cellData.getValue()
 				.getLevelNumProperty());
 		columnBAB.setCellValueFactory(cellData -> cellData.getValue()
@@ -322,8 +327,9 @@ public class ClassesController extends MainPartialController implements
 				.getWillSave().getBaseValueProperty());
 		columnSpecial.setCellValueFactory(cellData -> cellData.getValue()
 				.getSpecialProperty());
+		//endregion
 
-		// Init the Class Progression Spell Level Table with columns
+		//region Init the Class Progression Spell Level Table with columns
 		columnLevelSpells.setCellValueFactory(cellData -> cellData.getValue()
 				.getLevelNumProperty());
 		column0.setCellValueFactory(cellData -> cellData.getValue().getSPD()[0]);
@@ -345,8 +351,9 @@ public class ClassesController extends MainPartialController implements
 				.setCellValueFactory(cellData -> cellData.getValue().getSPD()[8]);
 		column9th
 				.setCellValueFactory(cellData -> cellData.getValue().getSPD()[9]);
+		//endregion
 
-		// Init the Class Progression Spells Known Table with columns
+		//region Init the Class Progression Spells Known Table with columns
 		columnLevelSpellsKnown.setCellValueFactory(cellData -> cellData
 				.getValue().getLevelNumProperty());
 		column0Known.setCellValueFactory(cellData -> cellData.getValue()
@@ -369,7 +376,9 @@ public class ClassesController extends MainPartialController implements
 				.getSpellsKnown()[8]);
 		column9thKnown.setCellValueFactory(cellData -> cellData.getValue()
 				.getSpellsKnown()[9]);
+		//endregion
 
+		//region Init the Monk progression table with columns
 		columnFOB.setCellValueFactory(celldata -> celldata.getValue()
 				.getFlurryOfBlowsString());
 		columnUnarmed.setCellValueFactory(cellData -> cellData.getValue()
@@ -378,7 +387,9 @@ public class ClassesController extends MainPartialController implements
 				.getAcBonusProperty());
 		columnFastMovement.setCellValueFactory(cellData -> cellData.getValue()
 				.getFastMovementProperty());
-
+		//endregion
+		
+		//region Init the features table with columns
 		columnFeatureName.setCellValueFactory(cellData -> cellData.getValue()
 				.getNameProperty());
 		columnFeatureType.setCellValueFactory(cellData -> cellData.getValue()
@@ -387,9 +398,10 @@ public class ClassesController extends MainPartialController implements
 				.getValue().getDescriptionProperty());
 		// columnFeatureEffect.setCellValueFactory(cellData ->
 		// cellData.getValue().getEffectProperty().get().getNameProperty());
+		//endregion
 
 		// Array of Table Columns
-		levelTableColumns = new TableColumn[] { columnLevel, columnBAB,
+		levelTable = new TableColumn[] { columnLevel, columnBAB,
 				columnFort, columnRef, columnWill, columnSpecial };
 		// table.getcolumns().adListener(new
 		// ListChangeListenet<TableColumn<DataType,?>>() { }
@@ -406,7 +418,7 @@ public class ClassesController extends MainPartialController implements
 							this.suspended = true;
 							// array of table columns as defined above
 							tableLevelTable.getColumns().setAll(
-									levelTableColumns);
+									levelTable);
 							this.suspended = false;
 						}
 
@@ -414,7 +426,7 @@ public class ClassesController extends MainPartialController implements
 
 				});
 
-		spellLevelTableColumn = new TableColumn[] { columnLevelSpells, column0,
+		spellLevelTable = new TableColumn[] { columnLevelSpells, column0,
 				column1st, column2nd, column3rd, column4th, column5th,
 				column6th, column7th, column8th, column9th };
 
@@ -431,7 +443,7 @@ public class ClassesController extends MainPartialController implements
 							this.suspended = true;
 							// array of table columns as defined above
 							tableSpellLevelTable.getColumns().setAll(
-									spellLevelTableColumn);
+									spellLevelTable);
 							this.suspended = false;
 						}
 
@@ -439,11 +451,11 @@ public class ClassesController extends MainPartialController implements
 
 				});
 
-		spellKnowenTableKnown = new TableColumn[] { columnLevelSpellsKnown,
+		spellKnowenTable = new TableColumn[] { columnLevelSpellsKnown,
 				column0Known, column1stKnown, column2ndKnown, column3rdKnown,
 				column4thKnown, column5thKnown, column6thKnown, column7thKnown,
 				column8thKnown, column9thKnown };
-
+		
 		tableSpellsKnown.getColumns().addListener(
 				new ListChangeListener<TableColumn<SpellLevelTableRow, ?>>() {
 					public boolean suspended;
@@ -457,12 +469,32 @@ public class ClassesController extends MainPartialController implements
 							this.suspended = true;
 							// array of table columns as defined above
 							tableSpellsKnown.getColumns().setAll(
-									spellKnowenTableKnown);
+									spellKnowenTable);
 							this.suspended = false;
 						}
 
 					}
 
+				});
+
+		monkTable = new TableColumn[] {
+			columnFOB,columnUnarmed,columnAcBonus,columnFastMovement	
+		};
+		
+		tableMonkTable.getColumns().addListener(
+				new ListChangeListener<TableColumn<MonkLevelTableRow, ?>>(){
+					public boolean suspended;
+					
+					@Override
+					public void onChanged(Change<? extends TableColumn<MonkLevelTableRow,?>> change) {
+						change.next();
+						
+						if(change.wasReplaced() && !suspended) {
+							this.suspended = true;
+							
+							tableMonkTable.getColumns().setAll(monkTable);
+						}
+					}
 				});
 
 		featuresTable = new TableColumn[] { columnFeatureName,
@@ -509,6 +541,59 @@ public class ClassesController extends MainPartialController implements
 			Dialogs.create().title("No Selection")
 			.masthead("No Feature selected")
 			.message("Select a Feature from the table.").showWarning();
+		}
+	}
+	
+	@FXML
+	private void handleEditLevelTables(ActionEvent event) {
+		LevelTableRow[] levelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new LevelTableRow[20]);
+		if(levelTable!=null) {
+			boolean okayClicked = showEditLevelTableDialog(levelTable);
+		}
+	}
+	
+	@FXML
+	private void handleEditSpellLevelTable(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	private void handleEditSpellsKnowen(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	private void handleEditMonkTable(ActionEvent event) {
+		
+	}
+
+	private boolean showEditLevelTableDialog(LevelTableRow[] levelTable) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource(
+					"dialogs/LevelTableEditDialog.fxml"));
+
+			AnchorPane pane = (AnchorPane) loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Class Level Table");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(getInterface().getPrimaryStage());
+			Scene scene = new Scene(pane);
+			dialogStage.setScene(scene);
+
+			LevelTableEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setLevelTable(levelTable);
+			dialogStage.showAndWait();
+			levelTable = controller.getLevelTable();
+			//refresh table
+			return controller.isOkayClicked();
+		} catch (Exception e) {
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
+			return false;
 		}
 	}
 
