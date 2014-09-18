@@ -68,6 +68,8 @@ import pathfinder.data.Spells.Spell;
 import view.partials.dialogs.ClassDescriptionsEditDialogController;
 import view.partials.dialogs.ClassFeatureEditDialogController;
 import view.partials.dialogs.LevelTableEditDialogController;
+import view.partials.dialogs.SpellKnowenTableEditDialogController;
+import view.partials.dialogs.SpellLevelTableEditDialogController;
 import editor.Tools;
 
 /**
@@ -184,7 +186,7 @@ public class ClassesController extends MainPartialController implements
 	TableColumn[] spellLevelTable;
 	//endregion
 
-	//region Spells Knowen Table
+	//region Spells Known Table
 	@FXML
 	private Tab tabSpellsKnown;
 
@@ -550,21 +552,102 @@ public class ClassesController extends MainPartialController implements
 		if(levelTable!=null) {
 			boolean okayClicked = showEditLevelTableDialog(levelTable);
 		}
+		else {
+			Dialogs.create().title("Woah how'd this happen")
+			.masthead("There's no levelTable on this Class")
+			.message("Someone Screwed up here big time").showWarning();
+		}
 	}
 	
 	@FXML
 	private void handleEditSpellLevelTable(ActionEvent event) {
-		
+		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new SpellLevelTableRow[20]);
+		if(levelTable!=null) {
+			boolean okayClicked = showEditSpellLevelTableDialog(spellLevelTable);
+		}
+		else {
+			Dialogs.create().title("Woah how'd this happen")
+			.masthead("There's no SpellLevelTable on this Class")
+			.message("Someone Screwed up here big time").showWarning();
+		}
 	}
-	
+
 	@FXML
 	private void handleEditSpellsKnowen(ActionEvent event) {
-		
+		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new SpellLevelTableRow[20]);
+		if(levelTable!=null) {
+			boolean okayClicked = showEditSpellKnownTableDialog(spellLevelTable);
+		}
+		else {
+			Dialogs.create().title("Woah how'd this happen")
+			.masthead("There's no SpellLevelTable on this Class")
+			.message("Someone Screwed up here big time").showWarning();
+		}
 	}
-	
+
 	@FXML
 	private void handleEditMonkTable(ActionEvent event) {
 		
+	}
+	
+	private boolean showEditSpellKnownTableDialog(SpellLevelTableRow[] spellLevelTable) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource(
+					"dialogs/SpellKnowenTableEditDialog.fxml"));
+
+			AnchorPane pane = (AnchorPane) loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Class Spell Levels Per Day");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(getInterface().getPrimaryStage());
+			Scene scene = new Scene(pane);
+			dialogStage.setScene(scene);
+
+			SpellKnowenTableEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setSpellLevelTable(spellLevelTable);
+			dialogStage.showAndWait();
+			spellLevelTable = controller.getSpellLevelTable();
+			//refresh table
+			return controller.isOkayClicked();
+		} catch (Exception e) {
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	private boolean showEditSpellLevelTableDialog(SpellLevelTableRow[] spellLevelTable) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource(
+					"dialogs/SpellLevelTableEditDialog.fxml"));
+
+			AnchorPane pane = (AnchorPane) loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Class Spell Levels Per Day");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(getInterface().getPrimaryStage());
+			Scene scene = new Scene(pane);
+			dialogStage.setScene(scene);
+
+			SpellLevelTableEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setSpellLevelTable(spellLevelTable);
+			dialogStage.showAndWait();
+			spellLevelTable = controller.getSpellLevelTable();
+			//refresh table
+			return controller.isOkayClicked();
+		} catch (Exception e) {
+			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
+			.message(e.getMessage()).showWarning();
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	private boolean showEditLevelTableDialog(LevelTableRow[] levelTable) {
@@ -1229,23 +1312,27 @@ public class ClassesController extends MainPartialController implements
 		else if (filename == "Bard" || filename == "Inquisitor"
 				|| filename == "Summoner") {
 			spd[0] = new SimpleStringProperty("-");
-			for (int i = 6; i < lines.length - 7; i++) {
+			for (int i = 6; i < lines.length - 7; i++)
 				spd[i - 5] = new SimpleStringProperty(lines[i]);
-			}
+			for(int i=7;i<10;i++)
+				spd[i] = new SimpleStringProperty("-");
 			tableRow.setSPD(spd);
 
-			for (int i = 15; i < lines.length; i++) {
-				spk[i - 15] = new SimpleStringProperty(lines[i]);
-			}
+			for (int i = 12; i < lines.length; i++)
+				spk[i - 12] = new SimpleStringProperty(lines[i]);
+			for (int i=7;i<10;i++)
+				spk[i] = new SimpleStringProperty("-");
 			tableRow.setSpellsKnown(spk);
 		}
 
 		// Spells per day Levels 1-4
-		else if (filename == "Paladin" || filename == "ranger") {
+		else if (filename == "Paladin" || filename == "Ranger") {
 			spd[0] = new SimpleStringProperty("-");
 			for (int i = 6; i < lines.length; i++) {
 				spd[i - 5] = new SimpleStringProperty(lines[i]);
 			}
+			for (int i=5;i<10;i++) 
+				spd[i] = new SimpleStringProperty("-");
 			tableRow.setSPD(spd);
 		}
 
@@ -1254,6 +1341,9 @@ public class ClassesController extends MainPartialController implements
 			for (int i = 6; i < lines.length; i++) {
 				spd[i - 6] = new SimpleStringProperty(lines[i]);
 			}
+			for (int i = 7; i < 10; i++)
+				spd[i] = new SimpleStringProperty("-");
+			
 			tableRow.setSPD(spd);
 		}
 
@@ -1262,6 +1352,8 @@ public class ClassesController extends MainPartialController implements
 			for (int i = 6; i < lines.length; i++) {
 				spd[i - 6] = new SimpleStringProperty(lines[i]);
 			}
+			for (int i = 7; i<10;i++)
+				spd[i] = new SimpleStringProperty("-");
 			tableRow.setSPD(spd);
 		}
 		return tableRow;

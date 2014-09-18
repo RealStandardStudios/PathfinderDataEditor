@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="616.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.partials.dialogs.SpellKnowenTableEditDialogController">
+   <children>
+      <GridPane gridLinesVisible="true" layoutX="8.0" layoutY="6.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="1.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="20.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Level" GridPane.halignment="CENTER" />
+            <Label text="0 Level" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label text="1st Level" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Label text="2nd Level" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            <Label text="3rd Level" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+            <Label text="4th Level" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
+            <Label text="5th Level" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
+            <Label text="6th Level" GridPane.columnIndex="7" GridPane.halignment="CENTER" />
+            <Label text="7th Level" GridPane.columnIndex="8" GridPane.halignment="CENTER" />
+            <Label text="8th Level" GridPane.columnIndex="9" GridPane.halignment="CENTER" />
+            <Label text="9th Level" GridPane.columnIndex="10" GridPane.halignment="CENTER" />
+            <Label text="1" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="2" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label text="4" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label text="5" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label text="6" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label text="7" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <Label text="8" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <Label text="9" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+            <Label text="10" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+            <Label text="11" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+            <Label text="12" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            <Label text="13" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+            <Label text="14" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+            <Label text="15" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+            <Label text="16" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="16" />
+            <Label text="17" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
+            <Label text="18" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="18" />
+            <Label text="19" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="19" />
+            <Label text="20" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl10LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl20LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl30LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl40LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl50LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl60LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl70LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl80LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl90LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl100LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl110LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl120LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl130LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl140LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl150LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl160LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl170LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl180LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl190LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl200LevelSpells" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl11stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl21stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl31stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl41stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl51stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl61stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl71stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl81stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl91stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl101stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl111stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl121stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl131stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl141stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl151stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl161stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl171stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl181stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl191stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl201stLevelSpells" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl12ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl22ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl32ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl42ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl52ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl62ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl72ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl82ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl92ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl102ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl112ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl122ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl132ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl142ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl152ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl162ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl172ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl182ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl192ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl202ndLevelSpells" GridPane.columnIndex="3" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl13rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl23rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl33rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl43rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl53rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl63rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl73rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl83rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl93rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl103rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl113rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl123rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl133rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl143rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl153rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl163rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl173rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl183rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl193rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl203rdLevelSpells" GridPane.columnIndex="4" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl14thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl24thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl34thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl44thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl54thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl64thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl74thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl84thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl94thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl104thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl114thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl124thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl134thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl144thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl154thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl164thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl174thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl184thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl194thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl204thLevelSpells" GridPane.columnIndex="5" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl15thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl25thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl35thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl45thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl55thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl65thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl75thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl85thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl95thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl105thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl115thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl125thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl135thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl145thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl155thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl165thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl175thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl185thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl195thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl205thLevelSpells" GridPane.columnIndex="6" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl16thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl26thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl36thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl46thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl56thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl66thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl76thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl86thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl96thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl106thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl116thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl126thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl136thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl146thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl156thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl166thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl176thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl186thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl196thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl206thLevelSpells" GridPane.columnIndex="7" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl17thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl27thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl37thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl47thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl57thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl67thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl77thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl87thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl97thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl107thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl117thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl127thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl137thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl147thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl157thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl167thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl177thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl187thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl197thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl207thLevelSpells" GridPane.columnIndex="8" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl18thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl28thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl38thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl48thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl58thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl68thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl78thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl88thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl98thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl108thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl118thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl128thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl138thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl148thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl158thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl168thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl178thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl188thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl198thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl208thLevelSpells" GridPane.columnIndex="9" GridPane.rowIndex="20" />
+            <TextField fx:id="txtlvl19thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+            <TextField fx:id="txtlvl29thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="2" />
+            <TextField fx:id="txtlvl39thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="3" />
+            <TextField fx:id="txtlvl49thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="4" />
+            <TextField fx:id="txtlvl59thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="5" />
+            <TextField fx:id="txtlvl69thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="6" />
+            <TextField fx:id="txtlvl79thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="7" />
+            <TextField fx:id="txtlvl89thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="8" />
+            <TextField fx:id="txtlvl99thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="9" />
+            <TextField fx:id="txtlvl109thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="10" />
+            <TextField fx:id="txtlvl119thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="11" />
+            <TextField fx:id="txtlvl129thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="12" />
+            <TextField fx:id="txtlvl139thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="13" />
+            <TextField fx:id="txtlvl149thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="14" />
+            <TextField fx:id="txtlvl159thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="15" />
+            <TextField fx:id="txtlvl169thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="16" />
+            <TextField fx:id="txtlvl179thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="17" />
+            <TextField fx:id="txtlvl189thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="18" />
+            <TextField fx:id="txtlvl199thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="19" />
+            <TextField fx:id="txtlvl209thLevelSpells" GridPane.columnIndex="10" GridPane.rowIndex="20" />
+         </children>
+      </GridPane>
+      <Button layoutX="863.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleOkay" prefWidth="52.0" text="Okay" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="9.0" />
+      <Button layoutX="804.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="68.0" />
+   </children>
+</AnchorPane>
