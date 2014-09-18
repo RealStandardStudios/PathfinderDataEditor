@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -37,6 +38,27 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 	@FXML
 	TextField txtStartingWealth;
 	
+	//region alignment grid
+	@FXML
+	CheckBox cbLawfulGood;
+	@FXML
+	CheckBox cbNeutralGood;
+	@FXML
+	CheckBox cbChaoticGood;
+	@FXML
+	CheckBox cbLawfulNeutral;
+	@FXML
+	CheckBox cbTrueNeutral;
+	@FXML
+	CheckBox cbChaoticNeutral;
+	@FXML
+	CheckBox cbLawfulEvil;
+	@FXML
+	CheckBox cbNeutralEvil;
+	@FXML
+	CheckBox cbChaoticEvil;
+	//endregion
+	
 	Class pClass;
 	
 	ObservableList<DiceType> hitDice;
@@ -62,6 +84,9 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 		txtaArmorProficiency.setText(pClass.getArmorProfsToString());
 		txtStartingWealth.setText(Integer.toString(pClass.getStartingWealthD6()));
 		cboHitDice.setValue(pClass.getHitDice());
+		if(pClass.getRequireAlignments()!=null) {
+			
+		}
 	}
 
 	@FXML
