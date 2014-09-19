@@ -3,10 +3,6 @@ package view.partials.dialogs;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.controlsfx.dialog.Dialogs;
-
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +16,9 @@ import javafx.scene.layout.AnchorPane;
 import jefXif.DialogController;
 import jefXif.PartialLoader;
 import jefXif.WindowController;
+
+import org.controlsfx.dialog.Dialogs;
+
 import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Effects.Effect;
 import view.partials.dialogs.effectDialogPartials.EffectPartialController;

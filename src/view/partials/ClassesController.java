@@ -1365,37 +1365,12 @@ public class ClassesController extends MainPartialController implements
 	 */
 	@Override
 	public void loadData(File file) {
-		// load data through jefxif
-		readSummary();
-
-		// Melee classes. Generic Level Table information is fine.
-
-		readCommonLevelTable("Barbarian");
-		readCommonLevelTable("Cavalier");
-		readCommonLevelTable("Fighter");
-		readCommonLevelTable("Gunslinger");
-		readCommonLevelTable("Ninja");
-		readCommonLevelTable("Rogue");
-		readCommonLevelTable("Samurai");
-
-		// Caster classes. Use Generic Level Table, add on Spell Level Table
-		// information.
-		readCommonLevelTable("Alchemist");
-		readCommonLevelTable("Bard");
-		readCommonLevelTable("Cleric");
-		readCommonLevelTable("Druid");
-		readCommonLevelTable("Inquisitor");
-		readCommonLevelTable("Magus");
-		readCommonLevelTable("Oracle");
-		readCommonLevelTable("Paladin");
-		readCommonLevelTable("Ranger");
-		readCommonLevelTable("Sorcerer");
-		readCommonLevelTable("Summoner");
-		readCommonLevelTable("Witch");
-		readCommonLevelTable("Wizard");
-		readCommonLevelTable("Monk");
-
-		obsListClasses.setAll(classes.values());
+		try {
+			loadDataFromFile(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -1428,7 +1403,37 @@ public class ClassesController extends MainPartialController implements
 				+ pathfinderDataLoc);
 		File classFile = new File(file.getPath() + "\\Classes.cldf");
 		if (!classFile.exists()) {
+			// load data through jefxif
 			readSummary();
+
+			// Melee classes. Generic Level Table information is fine.
+
+			readCommonLevelTable("Barbarian");
+			readCommonLevelTable("Cavalier");
+			readCommonLevelTable("Fighter");
+			readCommonLevelTable("Gunslinger");
+			readCommonLevelTable("Ninja");
+			readCommonLevelTable("Rogue");
+			readCommonLevelTable("Samurai");
+
+			// Caster classes. Use Generic Level Table, add on Spell Level Table
+			// information.
+			readCommonLevelTable("Alchemist");
+			readCommonLevelTable("Bard");
+			readCommonLevelTable("Cleric");
+			readCommonLevelTable("Druid");
+			readCommonLevelTable("Inquisitor");
+			readCommonLevelTable("Magus");
+			readCommonLevelTable("Oracle");
+			readCommonLevelTable("Paladin");
+			readCommonLevelTable("Ranger");
+			readCommonLevelTable("Sorcerer");
+			readCommonLevelTable("Summoner");
+			readCommonLevelTable("Witch");
+			readCommonLevelTable("Wizard");
+			readCommonLevelTable("Monk");
+
+			obsListClasses.setAll(classes.values());
 		} else {
 			try {
 				obsListClasses.setAll(readDataFile(classFile, Class.class));

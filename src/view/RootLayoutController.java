@@ -189,17 +189,10 @@ public class RootLayoutController {
 	
 	@FXML
 	private void handleOpenAll(ActionEvent event) {
-		MainPartialController classesController = windowPartials.get("Classes");
-		MainPartialController featsController = windowPartials.get("Feats");
-		MainPartialController itemsController = windowPartials.get("Items");
-		MainPartialController racesController = windowPartials.get("Races");
-		MainPartialController spellsController = windowPartials.get("Spells");
 		try {
-			classesController.loadDataFromFile(ui.getProgramFilePath());
-			featsController.loadDataFromFile(ui.getProgramFilePath());
-			itemsController.loadDataFromFile(ui.getProgramFilePath());
-			racesController.loadDataFromFile(ui.getProgramFilePath());
-			spellsController.loadDataFromFile(ui.getProgramFilePath());
+			for (MainPartialController controller : windowPartials.values()) {
+				controller.loadDataFromFile(ui.getProgramFilePath());
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -208,17 +201,10 @@ public class RootLayoutController {
 	
 	@FXML
 	private void handleSaveAll(ActionEvent event) {
-		MainPartialController classesController = windowPartials.get("Classes");
-		MainPartialController featsController = windowPartials.get("Feats");
-		MainPartialController itemsController = windowPartials.get("Items");
-		MainPartialController racesController = windowPartials.get("Races");
-		MainPartialController spellsController = windowPartials.get("Spells");
 		try {
-			classesController.saveDataToFile(ui.getProgramFilePath());
-			featsController.saveDataToFile(ui.getProgramFilePath());
-			itemsController.saveDataToFile(ui.getProgramFilePath());
-			racesController.saveDataToFile(ui.getProgramFilePath());
-			spellsController.saveDataToFile(ui.getProgramFilePath());
+			for (MainPartialController controller : windowPartials.values()) {
+				controller.loadDataFromFile(ui.getProgramFilePath());
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
