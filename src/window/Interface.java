@@ -10,10 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import jefXif.DataLoader;
 import jefXif.Gui;
 import jefXif.MainPartialController;
 import jefXif.WindowController;
+import jefXif.interfaces.DataLoader;
 import view.RootLayoutController;
 
 import com.sun.istack.internal.logging.Logger;

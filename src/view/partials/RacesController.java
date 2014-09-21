@@ -23,8 +23,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jefXif.DataLoader;
 import jefXif.MainPartialController;
+import jefXif.interfaces.DataLoader;
 import jefXif.io.Data;
 
 import org.controlsfx.dialog.Dialogs;

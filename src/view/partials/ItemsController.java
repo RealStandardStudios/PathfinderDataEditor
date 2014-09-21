@@ -16,10 +16,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
-import jefXif.DataLoader;
 import jefXif.Gui;
 import jefXif.MainPartialController;
-import jefXif.PartialLoader;
+import jefXif.interfaces.DataLoader;
+import jefXif.interfaces.PartialLoader;
 import jefXif.io.Data;
 
 import org.controlsfx.dialog.Dialogs;
