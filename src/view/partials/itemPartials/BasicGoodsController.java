@@ -43,9 +43,9 @@ public class BasicGoodsController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((Goods)item).getName());
-			lblCost.setText(((Goods)item).getCost());
-			lblWeight.setText(((Goods)item).getWeight());
+			lblName.setText(((Goods)item).Name.get());
+			lblCost.setText(((Goods)item).Cost.get());
+			lblWeight.setText(((Goods)item).Weight.get());
 		}
 		else
 		{
@@ -58,7 +58,7 @@ public class BasicGoodsController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

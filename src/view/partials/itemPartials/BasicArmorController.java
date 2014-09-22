@@ -57,15 +57,15 @@ public class BasicArmorController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblArmorName.setText(((Armor)item).getName());
-			lblCost.setText(((Armor)item).getCost() + "");
-			lblACBonus.setText(((Armor)item).getArmorBonus() + "");
-			lblMaxDexBonus.setText(((Armor)item).getMaxDexBonus() + "");
-			lblArmorCheckPenalty.setText(((Armor)item).getArmorCheckPenalty() + "");
-			lblArcaneSpellFailure.setText(((Armor)item).getArcaneSpellFailiure() + "");
-			lblSpeed30.setText(((Armor)item).getSpeed30feet() + "");
-			lblSpeed20.setText(((Armor)item).getSpeed20feet() + "");
-			lblWeight.setText(((Armor)item).getWeight() + "");
+			lblArmorName.setText(((Armor)item).Name.get());
+			lblCost.setText(((Armor)item).Cost.get() + "");
+			lblACBonus.setText(((Armor)item).ArmorBonus.get() + "");
+			lblMaxDexBonus.setText(((Armor)item).MaxDexBonus.get() + "");
+			lblArmorCheckPenalty.setText(((Armor)item).ArmorCheckPenalty.get() + "");
+			lblArcaneSpellFailure.setText(((Armor)item).ArcaneSpellFailure.get() + "");
+			lblSpeed30.setText(((Armor)item).Speed30feet.get() + "");
+			lblSpeed20.setText(((Armor)item).Speed20feet.get() + "");
+			lblWeight.setText(((Armor)item).Weight.get() + "");
 		}
 		else
 		{
@@ -87,7 +87,7 @@ public class BasicArmorController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}

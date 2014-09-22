@@ -38,9 +38,9 @@ public class BasicGoodsEditController extends DialogController{
     {
     	good = g;
     	
-    	nameField.setText(g.getName());
-    	costField.setText(g.getCost());
-    	weightField.setText(g.getWeight());
+    	nameField.setText(g.Name.get());
+    	costField.setText(g.Cost.get());
+    	weightField.setText(g.Weight.get());
     	
     } 
         
@@ -76,9 +76,9 @@ public class BasicGoodsEditController extends DialogController{
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
-            good.setName(nameField.getText());
-            good.setCost(costField.getText());
-            good.setWeight(weightField.getText());
+            good.Name.set(nameField.getText());
+            good.Cost.set(costField.getText());
+            good.Weight.set(weightField.getText());
 
             okayClicked = true;
             dialogStage.close();

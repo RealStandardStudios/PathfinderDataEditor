@@ -68,21 +68,21 @@ public class MagicWeaponController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((MagicWeapon)item).getName());
-			lblCost.setText(((MagicWeapon)item).getCost());
-			lblDMGS.setText(((MagicWeapon)item).getDmgS());
-			lblDMGM.setText(((MagicWeapon)item).getDmgM());
-			lblCritical.setText(((MagicWeapon)item).getCritical());
-			lblRange.setText(((MagicWeapon)item).getRange());
-			lblWeight.setText(((MagicWeapon)item).getWeight());
-			lblDmgType.setText(((MagicWeapon)item).getWeaponDmgType());
-			lblSpecial.setText(((MagicWeapon)item).getSpecial());
+			lblName.setText(((MagicWeapon)item).Name.get());
+			lblCost.setText(((MagicWeapon)item).Cost.get());
+			lblDMGS.setText(((MagicWeapon)item).DmgS.get());
+			lblDMGM.setText(((MagicWeapon)item).DmgM.get());
+			lblCritical.setText(((MagicWeapon)item).Critical.get());
+			lblRange.setText(((MagicWeapon)item).Range.get());
+			lblWeight.setText(((MagicWeapon)item).Weight.get());
+			lblDmgType.setText(((MagicWeapon)item).WeaponDmgType.get());
+			lblSpecial.setText(((MagicWeapon)item).Special.get());
 			lblAura.setText(((MagicWeapon)item).getAuraStrength());
 			lblCasterLevel.setText(((MagicWeapon)item).getCasterLevel());
 			lblDescription.setText(((MagicWeapon)item).getDescription());
 			lblConstruction.setText(((MagicWeapon)item).getConstruction());
-			lblWeaponType.setText(((MagicWeapon)item).getWeaponType());
-			lblWieldStyle.setText(((MagicWeapon)item).getWieldStyle());
+			lblWeaponType.setText(((MagicWeapon)item).WeaponType.get());
+			lblWieldStyle.setText(((MagicWeapon)item).WieldStyle.get());
 		}
 		else
 		{
@@ -108,7 +108,7 @@ public class MagicWeaponController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

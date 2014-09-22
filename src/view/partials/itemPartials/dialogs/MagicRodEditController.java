@@ -45,13 +45,13 @@ public class MagicRodEditController extends DialogController {
     
     public void setMagicRod(MagicRod r) {
     	rod = r;
-    	rodNameField.setText(r.getName());
+    	rodNameField.setText(r.Name.get());
     	casterLevelField.setText(r.getCasterLevel());
-    	priceField.setText(r.getCost());
+    	priceField.setText(r.Cost.get());
     	descriptionField.setText(r.getDescription());
     	constructionField.setText(r.getConstruction());
     	auraStrengthField.setText(r.getAuraStrength());
-    	weightField.setText(r.getWeight());
+    	weightField.setText(r.Weight.get());
 		
 	}    
     
@@ -101,13 +101,13 @@ public class MagicRodEditController extends DialogController {
     @FXML
     public void handleOkay(ActionEvent event) {
     	if (isInputValid()) {            
-            rod.setName(rodNameField.getText());
+            rod.Name.set(rodNameField.getText());
+            rod.Cost.set(priceField.getText());
+            rod.Weight.set(weightField.getText());
             rod.setAuraStrength(auraStrengthField.getText());
             rod.setConstruction(constructionField.getText());
-            rod.setCost(priceField.getText());
             rod.setDescription(descriptionField.getText());
             rod.setCasterLevel(casterLevelField.getText());
-            rod.setWeight(weightField.getText());
 
             okayClicked = true;
             dialogStage.close();

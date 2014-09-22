@@ -45,10 +45,10 @@ public class MagicRingEditController extends DialogController {
     {
     	ring = r;
     	
-    	nameField.setText(r.getName());
+    	nameField.setText(r.Name.get());
     	auraField.setText(r.getAuraStrength());
     	casterLevelField.setText(r.getCasterLevel());
-    	priceField.setText(r.getCost());
+    	priceField.setText(r.Cost.get());
     	descriptionField.setText(r.getDescription());
     	constructionField.setText(r.getConstruction());
     	
@@ -95,10 +95,10 @@ public class MagicRingEditController extends DialogController {
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
             
-        	ring.setName(nameField.getText());
+        	ring.Name.set(nameField.getText());
+        	ring.Cost.set(priceField.getText());
         	ring.setAuraStrength(auraField.getText());
         	ring.setCasterLevel(casterLevelField.getText());
-        	ring.setCost(priceField.getText());
         	ring.setDescription(descriptionField.getText());
         	ring.setConstruction(constructionField.getText());
             okayClicked = true;

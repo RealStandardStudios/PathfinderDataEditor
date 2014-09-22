@@ -45,13 +45,13 @@ public class MagicStaveEditController extends DialogController{
 	    public void setMagicStave(MagicStaves s)
 	    {
 	    	stave = s;
-	    	rodNameField.setText(s.getName());
+	    	rodNameField.setText(s.Name.get());
 	    	casterLevelField.setText(s.getCasterLevel());
-	    	priceField.setText(s.getCost());
+	    	priceField.setText(s.Cost.get());
 	    	descriptionField.setText(s.getDescription());
 	    	constructionField.setText(s.getConstruction());
 	    	auraStrengthField.setText(s.getAuraStrength());
-	    	weightField.setText(s.getWeight());
+	    	weightField.setText(s.Weight.get());
 	    }
 	    
 	    private boolean isInputValid() {
@@ -100,13 +100,13 @@ public class MagicStaveEditController extends DialogController{
 	    @FXML
 	    public void handleOkay(ActionEvent event) {
 	        if (isInputValid()) {            
-	            stave.setName(rodNameField.getText());
+	            stave.Name.set(rodNameField.getText());
 	            stave.setAuraStrength(auraStrengthField.getText());
 	            stave.setConstruction(constructionField.getText());
-	            stave.setCost(priceField.getText());
+	            stave.Cost.set(priceField.getText());
 	            stave.setDescription(descriptionField.getText());
 	            stave.setCasterLevel(casterLevelField.getText());
-	            stave.setWeight(weightField.getText());
+	            stave.Weight.set(weightField.getText());
 
 	            okayClicked = true;
 	            dialogStage.close();

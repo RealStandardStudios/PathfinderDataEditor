@@ -59,17 +59,17 @@ public class BasicWeaponController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((Weapon)item).getName());
-			lblCost.setText(((Weapon)item).getCost());
-			lblDMGS.setText(((Weapon)item).getDmgS());
-			lblDMGM.setText(((Weapon)item).getDmgM());
-			lblCritical.setText(((Weapon)item).getCritical());
-			lblRange.setText(((Weapon)item).getRange());
-			lblWeight.setText(((Weapon)item).getWeight());
-			lblDmgType.setText(((Weapon)item).getWeaponDmgType());
-			lblSpecial.setText(((Weapon)item).getSpecial());
-			lblWeaponType.setText(((Weapon)item).getWeaponType());
-			lblWieldStyle.setText(((Weapon)item).getWieldStyle());
+			lblName.setText(((Weapon)item).Name.get());
+			lblCost.setText(((Weapon)item).Cost.get());
+			lblDMGS.setText(((Weapon)item).DmgS.get());
+			lblDMGM.setText(((Weapon)item).DmgM.get());
+			lblCritical.setText(((Weapon)item).Critical.get());
+			lblRange.setText(((Weapon)item).Range.get());
+			lblWeight.setText(((Weapon)item).Weight.get());
+			lblDmgType.setText(((Weapon)item).WeaponDmgType.get());
+			lblSpecial.setText(((Weapon)item).Special.get());
+			lblWeaponType.setText(((Weapon)item).WeaponType.get());
+			lblWieldStyle.setText(((Weapon)item).WieldStyle.get());
 		}
 		else
 		{
@@ -91,7 +91,7 @@ public class BasicWeaponController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

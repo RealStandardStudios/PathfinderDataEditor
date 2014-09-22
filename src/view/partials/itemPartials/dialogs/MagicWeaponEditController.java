@@ -62,17 +62,17 @@ public class MagicWeaponEditController extends DialogController {
     {
     	weapon = w;
     	
-    	nameField.setText(w.getName());
-    	weaponTypeField.setText(w.getWeaponType());
-    	wieldStyleField.setText(w.getWieldStyle());
-    	dmgSField.setText(w.getDmgS());
-    	dmgMField.setText(w.getDmgM());
-    	criticalField.setText(w.getCritical());
-    	rangeField.setText(w.getRange());
-    	dmgTypeField.setText(w.getWeaponDmgType());
-    	specialField.setText(w.getSpecial());
-    	costField.setText(w.getCost());
-    	weightField.setText(w.getWeight());
+    	nameField.setText(w.Name.get());
+    	weaponTypeField.setText(w.WeaponType.get());
+    	wieldStyleField.setText(w.WieldStyle.get());
+    	dmgSField.setText(w.DmgS.get());
+    	dmgMField.setText(w.DmgM.get());
+    	criticalField.setText(w.Critical.get());
+    	rangeField.setText(w.Range.get());
+    	dmgTypeField.setText(w.WeaponDmgType.get());
+    	specialField.setText(w.Special.get());
+    	costField.setText(w.Cost.get());
+    	weightField.setText(w.Weight.get());
     	auraStrengthField.setText(w.getAuraStrength());
     	casterLevelField.setText(w.getCasterLevel());
     	descriptionField.setText(w.getDescription());
@@ -164,18 +164,18 @@ public class MagicWeaponEditController extends DialogController {
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
-            weapon.setName(nameField.getText());
-            weapon.setWeaponType(weaponTypeField.getText());
-            weapon.setWieldStyle(wieldStyleField.getText());
-            weapon.setCritical(criticalField.getText());
-            weapon.setDmgS(dmgSField.getText());
-            weapon.setDmgM(dmgMField.getText());
-            weapon.setRange(rangeField.getText());
-            weapon.setWeaponDmgType(dmgTypeField.getText());
-            weapon.setSpecial(specialField.getText());
-            weapon.setWeight(weightField.getText());
-            weapon.setCost(costField.getText());
-            weapon.setWeight(weightField.getText());
+            weapon.Name.set(nameField.getText());
+            weapon.WeaponType.set(weaponTypeField.getText());
+            weapon.WieldStyle.set(wieldStyleField.getText());
+            weapon.Critical.set(criticalField.getText());
+            weapon.DmgS.set(dmgSField.getText());
+            weapon.DmgM.set(dmgMField.getText());
+            weapon.Range.set(rangeField.getText());
+            weapon.WeaponDmgType.set(dmgTypeField.getText());
+            weapon.Special.set(specialField.getText());
+            weapon.Weight.set(weightField.getText());
+            weapon.Cost.set(costField.getText());
+            weapon.Weight.set(weightField.getText());
             weapon.setAuraStrength(auraStrengthField.getText());
             weapon.setCasterLevel(casterLevelField.getText());
             weapon.setDescription(descriptionField.getText());

@@ -49,10 +49,10 @@ public class MagicRingController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((MagicRing)item).getName());
+			lblName.setText(((MagicRing)item).Name.get());
 			lblAura.setText(((MagicRing)item).getAuraStrength());
 			lblCasterLevel.setText(((MagicRing)item).getCasterLevel());
-			lblPrice.setText(((MagicRing)item).getCost());
+			lblPrice.setText(((MagicRing)item).Cost.get());
 			lblDescription.setText(((MagicRing)item).getDescription());
 			lblConstruction.setText(((MagicRing)item).getConstruction());
 		}
@@ -71,7 +71,7 @@ public class MagicRingController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}

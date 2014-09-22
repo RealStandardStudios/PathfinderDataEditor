@@ -52,11 +52,11 @@ public class MagicStavesController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((MagicStaves)item).getName());
+			lblName.setText(((MagicStaves)item).Name.get());
 			lblAura.setText(((MagicStaves)item).getAuraStrength());
 			lblCasterLevel.setText(((MagicStaves)item).getCasterLevel());
-			lblPrice.setText(((MagicStaves)item).getCost());
-			lblWeight.setText(((MagicStaves)item).getWeight());
+			lblPrice.setText(((MagicStaves)item).Cost.get());
+			lblWeight.setText(((MagicStaves)item).Weight.get());
 			lblDescription.setText(((MagicStaves)item).getDescription());
 			lblConstruction.setText(((MagicStaves)item).getConstruction());
 		}
@@ -76,7 +76,7 @@ public class MagicStavesController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

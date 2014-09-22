@@ -51,11 +51,11 @@ public class MagicRodController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblName.setText(((MagicRod)item).getName());
+			lblName.setText(((MagicRod)item).Name.get());
 			lblAura.setText(((MagicRod)item).getAuraStrength());
 			lblCasterLevel.setText(((MagicRod)item).getCasterLevel());
-			lblPrice.setText(((MagicRod)item).getCost());
-			lblWeight.setText(((MagicRod)item).getWeight());
+			lblPrice.setText(((MagicRod)item).Cost.get());
+			lblWeight.setText(((MagicRod)item).Weight.get());
 			lblDescription.setText(((MagicRod)item).getDescription());
 			lblConstruction.setText(((MagicRod)item).getConstruction());
 		}
@@ -75,7 +75,7 @@ public class MagicRodController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

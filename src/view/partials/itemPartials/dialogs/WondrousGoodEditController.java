@@ -48,14 +48,14 @@ public class WondrousGoodEditController extends DialogController{
     public void setWondrousGood(WondrousGood g)
     {
     	good = g;
-    	rodNameField.setText(g.getName());
+    	rodNameField.setText(g.Name.get());
     	casterLevelField.setText(g.getCasterLevel());
     	slotField.setText(g.getSlot());
-    	priceField.setText(g.getCost());
+    	priceField.setText(g.Cost.get());
     	descriptionField.setText(g.getDescription());
     	constructionField.setText(g.getConstruction());
     	auraStrengthField.setText(g.getAuraStrength());
-    	weightField.setText(g.getWeight());
+    	weightField.setText(g.Weight.get());
     }    
     
     /**
@@ -111,14 +111,14 @@ public class WondrousGoodEditController extends DialogController{
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
-            good.setName(rodNameField.getText());
+            good.Name.set(rodNameField.getText());
             good.setAuraStrength(auraStrengthField.getText());
             good.setConstruction(constructionField.getText());
             good.setSlot(slotField.getText());
-            good.setCost(priceField.getText());
+            good.Cost.set(priceField.getText());
             good.setDescription(descriptionField.getText());
             good.setCasterLevel(casterLevelField.getText());
-            good.setWeight(weightField.getText());
+            good.Weight.set(weightField.getText());
 
             okayClicked = true;
             dialogStage.close();

@@ -53,11 +53,11 @@ public class WondrousItemsController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(((WondrousGood)item) != null)
 		{
-			lblName.setText(((WondrousGood)item).getName());
+			lblName.setText(((WondrousGood)item).Name.get());
 			lblAura.setText(((WondrousGood)item).getAuraStrength());
 			lblCasterLevel.setText(((WondrousGood)item).getCasterLevel());
-			lblPrice.setText(((WondrousGood)item).getCost());
-			lblWeight.setText(((WondrousGood)item).getWeight());
+			lblPrice.setText(((WondrousGood)item).Cost.get());
+			lblWeight.setText(((WondrousGood)item).Weight.get());
 			lblDescription.setText(((WondrousGood)item).getDescription());
 			lblConstruction.setText(((WondrousGood)item).getConstruction());
 			lblSlot.setText(((WondrousGood)item).getSlot());
@@ -78,7 +78,7 @@ public class WondrousItemsController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

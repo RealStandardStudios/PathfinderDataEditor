@@ -65,18 +65,18 @@ public class MagicArmorController extends ItemPartialController {
 	public void setItemDetails(Item item) {
 		if(item != null)
 		{
-			lblArmorName.setText(((MagicArmor)item).getName());
-			lblACBonus.setText(((MagicArmor)item).getArmorBonus() + "");
-			lblMaxDex.setText(((MagicArmor)item).getMaxDexBonus() + "");
-			lblArmorCheckPenalty.setText(((MagicArmor)item).getArmorCheckPenalty()+"");
-			lblArcaneSpellFalure.setText(((MagicArmor)item).getArcaneSpellFailiure()+"");
-			lblSpeed30ft.setText(((MagicArmor)item).getSpeed30feet() +"");
-			lblSpeed20ft.setText(((MagicArmor)item).getSpeed20feet()+"");
+			lblArmorName.setText(((MagicArmor)item).Name.get());
+			lblACBonus.setText(((MagicArmor)item).ArmorBonus.get() + "");
+			lblMaxDex.setText(((MagicArmor)item).MaxDexBonus.get() + "");
+			lblArmorCheckPenalty.setText(((MagicArmor)item).ArmorCheckPenalty.get()+"");
+			lblArcaneSpellFalure.setText(((MagicArmor)item).ArcaneSpellFailure.get()+"");
+			lblSpeed30ft.setText(((MagicArmor)item).Speed30feet.get() +"");
+			lblSpeed20ft.setText(((MagicArmor)item).Speed20feet.get()+"");
 			lblSlot.setText(((MagicArmor)item).getSlot());
 			lblAuraStrength.setText(((MagicArmor)item).getAuraStrength());
 			lblCasterLevel.setText(((MagicArmor)item).getCasterLevel());
-			lblPrice.setText(((MagicArmor)item).getCost());
-			lblWeight.setText(((MagicArmor)item).getWeight());
+			lblPrice.setText(((MagicArmor)item).Cost.get());
+			lblWeight.setText(((MagicArmor)item).Weight.get());
 			lblDescription.setText(((MagicArmor)item).getDescription());
 			lblConstruction.setText(((MagicArmor)item).getConstruction());
 		}
@@ -103,7 +103,7 @@ public class MagicArmorController extends ItemPartialController {
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
-		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().getNameProperty());
+		itemNameColumn.setCellValueFactory(cellData->cellData.getValue().Name);
 		itemTable.getSelectionModel().selectedItemProperty().addListener
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		

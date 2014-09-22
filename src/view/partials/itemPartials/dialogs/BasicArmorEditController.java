@@ -51,15 +51,15 @@ public class BasicArmorEditController extends DialogController {
     {
     	armor = a;
     	
-    	armorNameField.setText(a.getName());
-    	costField.setText(a.getCost());
-    	acBonusField.setText(a.getArmorBonus());
-    	maxDexBonusField.setText(a.getMaxDexBonus());
-    	armorCheckPenaltyField.setText(a.getArmorCheckPenalty());
-    	arcaneSpellFailureField.setText(a.getArcaneSpellFailiure());
-    	speed30Field.setText(a.getSpeed30feet());
-    	speed20Field.setText(a.getSpeed20feet());
-    	weightField.setText(a.getWeight());
+    	armorNameField.setText(a.Name.get());
+    	costField.setText(a.Cost.get());
+    	acBonusField.setText(a.ArmorBonus.get());
+    	maxDexBonusField.setText(a.MaxDexBonus.get());
+    	armorCheckPenaltyField.setText(a.ArmorCheckPenalty.get());
+    	arcaneSpellFailureField.setText(a.ArcaneSpellFailure.get());
+    	speed30Field.setText(a.Speed30feet.get());
+    	speed20Field.setText(a.Speed20feet.get());
+    	weightField.setText(a.Weight.get());
     	
     }    
         
@@ -117,15 +117,15 @@ public class BasicArmorEditController extends DialogController {
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
-            armor.setName(armorNameField.getText());
-            armor.setCost(costField.getText());
-            armor.setArmorBonus(acBonusField.getText());
-            armor.setMaxDexBonus(maxDexBonusField.getText());
-            armor.setArmorCheckPenalty(armorCheckPenaltyField.getText());
-            armor.setArcaneSpellFailiure(arcaneSpellFailureField.getText());
-            armor.setSpeed30feet(speed30Field.getText());
-            armor.setSpeed20feet(speed20Field.getText());
-            armor.setWeight(weightField.getText());
+            armor.Name.set(armorNameField.getText());
+            armor.Cost.set(costField.getText());
+            armor.ArmorBonus.set(acBonusField.getText());
+            armor.MaxDexBonus.set(maxDexBonusField.getText());
+            armor.ArmorCheckPenalty.set(armorCheckPenaltyField.getText());
+            armor.ArcaneSpellFailure.set(arcaneSpellFailureField.getText());
+            armor.Speed30feet.set(speed30Field.getText());
+            armor.Speed20feet.set(speed20Field.getText());
+            armor.Weight.set(weightField.getText());
 
             okayClicked = true;
             dialogStage.close();
