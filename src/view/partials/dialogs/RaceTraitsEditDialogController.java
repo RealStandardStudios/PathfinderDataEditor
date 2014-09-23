@@ -17,6 +17,11 @@ import pathfinder.data.Attributes.AbilityName;
 import pathfinder.data.Effects.AbilityEffect;
 import pathfinder.data.Races.Race;
 
+/**
+ * the controller for the race traits edit dialog
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class RaceTraitsEditDialogController extends DialogController {
 	Race race;
 	@FXML
@@ -91,6 +96,9 @@ public class RaceTraitsEditDialogController extends DialogController {
 		cboSizes.setValue(race.getSize());
 	}
 	
+	/**
+	 * the constructor for the controller
+	 */
 	@SuppressWarnings("serial")
 	public RaceTraitsEditDialogController() {
 		sizes = FXCollections.observableArrayList(
@@ -110,6 +118,9 @@ public class RaceTraitsEditDialogController extends DialogController {
 		};
 	}
 
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@FXML
 	public void handleOkay(ActionEvent event) {
 		race.setSpeed(Integer.parseInt(txtSpeed.getText()));

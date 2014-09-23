@@ -288,6 +288,9 @@ public class SpellsController extends MainPartialController implements DataLoade
 		}
 	}
 
+	/**
+	 * a method for loading data
+	 */
 	@Override
 	public void loadData(File file) {
 		// This is where it will read in the file saved through the program or
@@ -356,6 +359,9 @@ public class SpellsController extends MainPartialController implements DataLoade
 		}
 	}
 
+	/**
+	 * a method for saving data to a file
+	 */
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
         	DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -377,6 +383,9 @@ public class SpellsController extends MainPartialController implements DataLoade
         }
 //	}
 
+	/**
+	 * a method for loading data from a file
+	 */
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
 		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);

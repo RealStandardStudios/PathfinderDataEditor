@@ -19,17 +19,25 @@ import view.RootLayoutController;
 import com.sun.istack.internal.logging.Logger;
 
 /**
- * @author Real Standard Studios - Matthew Meehan Loads and Initializes the main
- *         program
+ * Loads and Initializes the main
+ * program
+ * @author Real Standard Studios - Matthew Meehan 
  */
 public class Interface extends Gui {
 	private RootLayoutController rootLayoutController;
 
+	/**
+	 * construcftor for the interface
+	 * @param primaryStage
+	 */
 	public Interface(Stage primaryStage) {
 		super(primaryStage);
 		setProgramFilePath(new File(this.getClass().getResource("").toString()+"../../../"));
 	}
 
+	/**
+	 * initailises the root layout
+	 */
 	@Override
 	public void initRootLayout() {
 		try {
@@ -53,6 +61,9 @@ public class Interface extends Gui {
 		}
 	}
 
+	/**
+	 * this method loads all the partials
+	 */
 	@Override
 	public void loadPartials() throws IOException {
 		HashMap<String, MainPartialController> windowPartials = new HashMap<>();
@@ -63,6 +74,9 @@ public class Interface extends Gui {
 		rootLayoutController.setWindowPartials(windowPartials);
 	}
 
+	/**
+	 * this is the initialiser for the interface
+	 */
 	@Override
 	public void initialize() {
 		this.getPrimaryStage().setTitle("Data Editor");
@@ -79,6 +93,9 @@ public class Interface extends Gui {
 		loadData();
 	}
 
+	/**
+	 * this method loads the data
+	 */
 	@Override
 	public void loadData() {
 		// this is where all the views will load the data from their files

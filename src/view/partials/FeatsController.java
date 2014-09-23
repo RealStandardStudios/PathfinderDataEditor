@@ -54,7 +54,7 @@ public class FeatsController extends MainPartialController implements DataLoader
 	ObservableList<Feat> feats = FXCollections.observableArrayList();
 
 	/**
-	 * 
+	 * empty constructor for Kryo
 	 */
 	public FeatsController() {
 
@@ -205,6 +205,9 @@ public class FeatsController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a method for loading data
+	 */
 	@Override
 	public void loadData(File file) {
 		try {
@@ -215,6 +218,9 @@ public class FeatsController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a method for saving data to a file
+	 */
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
     	DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -235,6 +241,9 @@ public class FeatsController extends MainPartialController implements DataLoader
         }
     }
 
+	/**
+	 * a method for loading data from a file
+	 */
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
 		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);

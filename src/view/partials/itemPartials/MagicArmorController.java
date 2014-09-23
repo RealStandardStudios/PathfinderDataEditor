@@ -19,6 +19,11 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicArmor;
 import view.partials.itemPartials.dialogs.MagicArmorEditController;
 
+/**
+ * the controller for the magic armour partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicArmorController extends ItemPartialController {
 
 	@FXML
@@ -55,12 +60,18 @@ public class MagicArmorController extends ItemPartialController {
 	@FXML
 	private Label lblConstruction;
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 	
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -100,6 +111,9 @@ public class MagicArmorController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -109,6 +123,9 @@ public class MagicArmorController extends ItemPartialController {
 		
 	}
 	
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditMagicArmor() {
 	    Item selectedArmor = itemTable.getSelectionModel().getSelectedItem();
@@ -128,6 +145,9 @@ public class MagicArmorController extends ItemPartialController {
 	    }
 	}
 
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

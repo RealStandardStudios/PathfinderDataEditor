@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.WondrousGood;
 
+/**
+ * the controller for the wondrous goods edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class WondrousGoodEditController extends DialogController{
 	
 	@FXML
@@ -33,6 +38,9 @@ public class WondrousGoodEditController extends DialogController{
 	private Stage dialogStage;
     private WondrousGood good;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -45,6 +53,10 @@ public class WondrousGoodEditController extends DialogController{
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setWondrousGood(WondrousGood g)
     {
     	good = g;
@@ -59,9 +71,9 @@ public class WondrousGoodEditController extends DialogController{
     }    
     
     /**
-     * Called when the user clicks cancel.
+     * checks for valid input
+     * @returns true if correct
      */
-    
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -108,6 +120,9 @@ public class WondrousGoodEditController extends DialogController{
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            

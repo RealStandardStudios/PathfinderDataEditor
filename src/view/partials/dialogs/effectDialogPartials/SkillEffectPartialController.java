@@ -5,6 +5,11 @@ import javafx.scene.control.TextField;
 import pathfinder.data.Effects.Effect;
 import pathfinder.data.Effects.SkillEffect;
 
+/**
+ * the controller for the Skill effect partial
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class SkillEffectPartialController extends EffectPartialController {
 
 	@FXML
@@ -14,12 +19,18 @@ public class SkillEffectPartialController extends EffectPartialController {
 	@FXML
 	TextField txtBonusVs;
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * a method for setting the effect
+	 */
 	@Override
 	public void setEffect(Effect effect) {
 		this.effect = effect;
@@ -30,6 +41,9 @@ public class SkillEffectPartialController extends EffectPartialController {
 		this.txtBonusVs.setText(((SkillEffect)this.effect).getBonusVs());
 	}
 
+	/**
+	 * a method for getting an effect
+	 */
 	@Override
 	public Effect getEffect() {
 		this.effect.setName(txtEffectName.getText());

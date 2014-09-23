@@ -286,6 +286,10 @@ public class ClassesController extends MainPartialController implements
 		return obsListClasses;
 	}
 
+	/**
+	 * a handle method to prevent dragging
+	 * @param event
+	 */
 	@FXML
 	public void handleDrag(MouseEvent event) {
 		System.out.println("I am dragging, no one likes me");
@@ -521,6 +525,10 @@ public class ClassesController extends MainPartialController implements
 				});
 	}
 
+	/**
+	 * a handle method to allow editing of class details
+	 * @param event
+	 */
 	@FXML
 	private void handleEditDetails(ActionEvent event) {
 		Class selectedClass = tableClasses.getSelectionModel()
@@ -534,6 +542,10 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 	
+	/**
+	 * a handle method to allow editing of class features
+	 * @param event
+	 */
 	@FXML
 	private void handleEditFeature(ActionEvent event) {
 		Feature selectedFeature = tableFeatures.getSelectionModel().getSelectedItem();
@@ -546,6 +558,10 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 	
+	/**
+	 * a handle method to allow editing of class level tables
+	 * @param event
+	 */
 	@FXML
 	private void handleEditLevelTables(ActionEvent event) {
 		LevelTableRow[] levelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new LevelTableRow[20]);
@@ -559,6 +575,10 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 	
+	/**
+	 * a handle method to allow editing of class spell level tables
+	 * @param event
+	 */
 	@FXML
 	private void handleEditSpellLevelTable(ActionEvent event) {
 		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new SpellLevelTableRow[20]);
@@ -572,6 +592,10 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * a handle method to allow editing of class spells known
+	 * @param event
+	 */
 	@FXML
 	private void handleEditSpellsKnowen(ActionEvent event) {
 		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new SpellLevelTableRow[20]);
@@ -585,11 +609,20 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * a handle method to allow editing of monk's table
+	 * @param event
+	 */
 	@FXML
 	private void handleEditMonkTable(ActionEvent event) {
 		
 	}
 	
+	/**
+	 * shows a dailog to allow editing spells known
+	 * @param spellLevelTable
+	 * @return
+	 */
 	private boolean showEditSpellKnownTableDialog(SpellLevelTableRow[] spellLevelTable) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -620,6 +653,11 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 	
+	/**
+	 * shows a dialog that allows editing the spell level table
+	 * @param spellLevelTable
+	 * @return
+	 */
 	private boolean showEditSpellLevelTableDialog(SpellLevelTableRow[] spellLevelTable) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -650,6 +688,11 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * shows a dialog that allows editing of level table
+	 * @param levelTable
+	 * @return
+	 */
 	private boolean showEditLevelTableDialog(LevelTableRow[] levelTable) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -680,6 +723,11 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * shows a dialog that allows editing of features
+	 * @param selectedFeature
+	 * @return
+	 */
 	private boolean showEditFeatureDialog(Feature selectedFeature) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -710,6 +758,11 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * shows a dialog that allows editing of details
+	 * @param selectedClass
+	 * @return
+	 */
 	private boolean showEditDetailDialog(Class selectedClass) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -780,6 +833,10 @@ public class ClassesController extends MainPartialController implements
 		showClassProgression(c);
 	}
 
+	/**
+	 * shows the classes pregression tables
+	 * @param c
+	 */
 	private void showClassProgression(Class c) {
 		if (c != null) {
 			tabLevelTable.setDisable(false);
@@ -1170,6 +1227,11 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * A method for storing a class' features in an arraylist
+	 * @param className
+	 * @returns an ArrayList of Features
+	 */
 	private ArrayList<Feature> readFeatures(String className) {
 		Scanner reader;
 		ArrayList<Feature> features = new ArrayList<>();
@@ -1281,6 +1343,14 @@ public class ClassesController extends MainPartialController implements
 		}
 	} // End readCommonLevelTable
 
+	/**
+	 * Reads the Spell Level Table and sets spells per day
+	 * 
+	 * @param filename
+	 * @param lines
+	 * @param tableRow
+	 * @returns a LevelTableRow
+	 */
 	private LevelTableRow readSpellLevelTable(String filename, String[] lines,
 			SpellLevelTableRow tableRow) {
 		StringProperty[] spd = new StringProperty[10];
@@ -1373,6 +1443,9 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * A method for saving data to a file
+	 */
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -1397,6 +1470,9 @@ public class ClassesController extends MainPartialController implements
 		}
 	}
 
+	/**
+	 * a method for loading data from a file
+	 */
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
 		file = new File(this.getClass().getResource("").getPath()

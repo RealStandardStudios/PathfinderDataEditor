@@ -39,6 +39,11 @@ import view.partials.itemPartials.ItemPartialController;
 
 import com.sun.istack.internal.logging.Logger;
 
+/**
+ * the controller for the layout of the Item section
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class ItemsController extends MainPartialController implements PartialLoader, DataLoader{
 
     private HashMap<String, ItemPartialController> partials;
@@ -57,13 +62,21 @@ public class ItemsController extends MainPartialController implements PartialLoa
     ObservableList<Item> staves = FXCollections.observableArrayList();
     ObservableList<Item> wondrousGoods = FXCollections.observableArrayList();
 
+    /**
+     * a handle method for opening the goods and services tab
+     * @param event
+     */
     @FXML
     public void handleGoodsServices(ActionEvent event) {
         ItemPartialController p = partials.get("BasicGoods");
         p.inView(goodsAndServices);
         SwapPartial(p.getNode());
     }
-
+    
+    /**
+     * a handle method for opening the basic armour tab
+     * @param event
+     */
     @FXML
     public void handleBasicArmor(ActionEvent event) {
         ItemPartialController p = partials.get("BasicArmor"); 
@@ -71,6 +84,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(armors);
     }
 
+    /**
+     * a handle method for opening the basic weapons tab
+     * @param event
+     */
     @FXML
     public void handleBasicWeapon(ActionEvent event)
     {
@@ -79,6 +96,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(weapons);
     }
 
+    /**
+     * a handle methid for opening the magic armour tab
+     * @param event
+     */
     @FXML
     public void handleMagicArmor(ActionEvent event)
     {
@@ -87,6 +108,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(magicArmors);
     }
 
+    /**
+     * a handle method for opening the magic weapons tab
+     * @param event
+     */
     @FXML
     public void handleMagicWeapon(ActionEvent event)
     {		
@@ -95,6 +120,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(magicWeapons);
     }
 
+    /**
+     * a handle method for opening the magic ring tab
+     * @param event
+     */
     @FXML
     public void handleMagicRing(ActionEvent event)
     {
@@ -103,6 +132,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(magicRings);
     }
 
+    /**
+     * a handle method for opening the magic rod tab
+     * @param event
+     */
     @FXML
     public void handleMagicRod(ActionEvent event)
     {
@@ -111,6 +144,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(rods);
     }
 
+    /**
+     * a handle method for opening the magic stave tab
+     * @param event
+     */
     @FXML
     public void handleMagicStave(ActionEvent event)
     {	
@@ -119,6 +156,10 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(staves);
     }
 
+    /**
+     * a handle method for opening wondrous items tab
+     * @param event
+     */
     @FXML
     public void handleWondrousItems(ActionEvent event)
     {
@@ -127,19 +168,32 @@ public class ItemsController extends MainPartialController implements PartialLoa
         p.inView(wondrousGoods);
     }
 
+    /**
+     * a method that swaps the partials
+     * @param node
+     */
     private void SwapPartial(Node node) {
         ItemsPartialPane.getChildren().set(0, node);	
     }
 
+    /**
+     * constructor for items controller
+     */
     public ItemsController() {
         partials = new HashMap<>();
     }
 
+    /**
+     * inherited initialize method not used by controller
+     */
     @Override
     public void initialize() {
 
     }
 
+    /**
+     * a method for loading a partial
+     */
     @Override
     public ItemPartialController loadPartial(String name, Gui ui) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -459,7 +513,6 @@ public class ItemsController extends MainPartialController implements PartialLoa
     /**
      * this is the load method for importing MagicStaves from a tab delimited file and storing it in a observable list
      */
-
     private void loadMagicStaves()
     {
         String fileLoc = "data/items/Staves.tsv";
@@ -525,6 +578,9 @@ public class ItemsController extends MainPartialController implements PartialLoa
         }
     }
 
+    /**
+     * a method for saving changed data to a file
+     */
     @Override
     public void saveDataToFile(File filePath) throws IOException {
         //        if (filePath != null) {
@@ -567,6 +623,9 @@ public class ItemsController extends MainPartialController implements PartialLoa
     }
     //	}
 
+    /**
+     * a method for loading data from a file
+     */
     @Override
     public void loadDataFromFile(File file) throws IOException {
         file = new File(this.getClass().getResource("").getPath()+"\\..\\..\\..\\..\\PathfinderData\\Data");

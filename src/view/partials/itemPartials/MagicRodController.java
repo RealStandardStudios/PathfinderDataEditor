@@ -19,6 +19,11 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicRod;
 import view.partials.itemPartials.dialogs.MagicRodEditController;
 
+/**
+ * the controller for the magic rod partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicRodController extends ItemPartialController {
 
 	@FXML
@@ -41,12 +46,18 @@ public class MagicRodController extends ItemPartialController {
 	@FXML
 	private Label lblConstruction;
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -72,6 +83,9 @@ public class MagicRodController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -80,6 +94,10 @@ public class MagicRodController extends ItemPartialController {
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 		
 	}
+	
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditMagicRod() {
 	    Item selectedRod = itemTable.getSelectionModel().getSelectedItem();
@@ -99,6 +117,9 @@ public class MagicRodController extends ItemPartialController {
 	    }
 	}
 	
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

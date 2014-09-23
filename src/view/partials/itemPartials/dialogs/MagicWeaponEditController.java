@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicWeapon;
 
+/**
+ * the controller for the magic weapon edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicWeaponEditController extends DialogController {
 
 	@FXML
@@ -46,6 +51,9 @@ public class MagicWeaponEditController extends DialogController {
 	private Stage dialogStage;
     private MagicWeapon weapon;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -58,6 +66,10 @@ public class MagicWeaponEditController extends DialogController {
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setWeapon(MagicWeapon w)
     {
     	weapon = w;
@@ -79,11 +91,12 @@ public class MagicWeaponEditController extends DialogController {
     	constructionField.setText(w.getConstruction());
     	
     }
-    /**
-     * Called when the user clicks ok.
-     */
-       
     
+       
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -161,6 +174,9 @@ public class MagicWeaponEditController extends DialogController {
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            

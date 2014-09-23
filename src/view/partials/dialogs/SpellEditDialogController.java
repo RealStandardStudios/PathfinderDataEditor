@@ -77,7 +77,7 @@ public class SpellEditDialogController extends DialogController{
 	}
 	
 	/**
-	 * Called when the user clicks OK
+	 * a handle method that saves changes upon pressing the Ok button
 	 */
 	@FXML
 	public void handleOkay(ActionEvent event) {

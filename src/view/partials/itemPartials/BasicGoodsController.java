@@ -19,6 +19,11 @@ import pathfinder.data.Items.Goods;
 import pathfinder.data.Items.Item;
 import view.partials.itemPartials.dialogs.BasicGoodsEditController;
 
+/**
+ * the controller for basic goods partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class BasicGoodsController extends ItemPartialController {
 	
 	@FXML
@@ -35,10 +40,16 @@ public class BasicGoodsController extends ItemPartialController {
 	@FXML
 	private Label lblWeight;
 
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 	}
 
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -55,6 +66,9 @@ public class BasicGoodsController extends ItemPartialController {
 		}
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -64,6 +78,9 @@ public class BasicGoodsController extends ItemPartialController {
 		
 	}
 	
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditGoods() {
 	    Item selectedGood = itemTable.getSelectionModel().getSelectedItem();
@@ -83,6 +100,9 @@ public class BasicGoodsController extends ItemPartialController {
 	    }
 	}
 
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

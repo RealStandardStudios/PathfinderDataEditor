@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import jefXif.DialogController;
 
 /**
+ * the controller for the spell level table edit dialog
+ * 
  * @author RealStandardStudios - Matthew Meehan
  */
 public class SpellLevelTableEditDialogController extends DialogController {
@@ -546,6 +548,9 @@ public class SpellLevelTableEditDialogController extends DialogController {
 		}
 	}
 
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@Override
 	public void handleOkay(ActionEvent event) {
 		for (int i = 0; i < spellLevelTable.length; i++) {

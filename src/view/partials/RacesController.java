@@ -50,6 +50,11 @@ import pathfinder.data.Races.Traits.Trait;
 import view.partials.dialogs.RaceDescriptionsEditDialogController;
 import view.partials.dialogs.RaceTraitsEditDialogController;
 
+/**
+ * the controller for the layout of the Races section
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class RacesController extends MainPartialController implements DataLoader {
 	@FXML
 	TableView<Race> tableRaces;
@@ -105,6 +110,9 @@ public class RacesController extends MainPartialController implements DataLoader
 	HashMap<String, AbilityName> AbilityNames;
 	HashMap<String, Size> Sizes;
 
+	/**
+	 * the initialize method for RacesController
+	 */
 	@Override
 	public void initialize() {
 		tableRaces.setItems(races);
@@ -120,6 +128,11 @@ public class RacesController extends MainPartialController implements DataLoader
 						(observable, oldValue, newValue) -> showRaceDetails(newValue));
 	}
 
+	/**
+	 * displays Race details in the layout
+	 * 
+	 * @param r : Race
+	 */
 	private void showRaceDetails(Race r) {
 		if (r != null) {
 			lblName.setText(r.getName());
@@ -139,6 +152,11 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a handle method for editing races
+	 * 
+	 * @param event
+	 */
 	@FXML
 	public void handleEditSheet(ActionEvent event) {
 		Race selectedRace = tableRaces.getSelectionModel().getSelectedItem();
@@ -150,6 +168,11 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a method for displaying the edit dialog for race descriptions
+	 * @param race
+	 * @return
+	 */
 	private boolean showEditRaceDescriptions(Race race) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -178,6 +201,10 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a handle method for editing racial traits
+	 * @param event
+	 */
 	@FXML
 	public void handleEditTraits(ActionEvent event) {
 		Race selectedRace = tableRaces.getSelectionModel().getSelectedItem();
@@ -189,6 +216,11 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a method for displaying a dialog for racial traits
+	 * @param race
+	 * @return
+	 */
 	private boolean showEditRaceTraits(Race race) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -217,6 +249,9 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a method for loading data
+	 */
 	@SuppressWarnings("serial")
 	@Override
 	public void loadData(File file) {
@@ -253,6 +288,9 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * loads racial traits
+	 */
 	private void loadRaceTraits() {
 		try {
 			Scanner kb = new Scanner(new FileReader("data/RaceTraits.tsv"));
@@ -393,6 +431,9 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * loads the race sheet
+	 */
 	private void loadRaceSheet() {
 		try {
 			Scanner kb = new Scanner(new FileReader("data/Races.tsv"));
@@ -419,6 +460,9 @@ public class RacesController extends MainPartialController implements DataLoader
 		}
 	}
 
+	/**
+	 * a method for saving the data to a file
+	 */
 	@Override
 	public void saveDataToFile(File filePath) throws IOException {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -439,6 +483,9 @@ public class RacesController extends MainPartialController implements DataLoader
         }
 	}
 
+	/**
+	 * a method for loading data from a file
+	 */
 	@Override
 	public void loadDataFromFile(File file) throws IOException {
 		file = new File(this.getClass().getResource("").getPath()+pathfinderDataLoc);

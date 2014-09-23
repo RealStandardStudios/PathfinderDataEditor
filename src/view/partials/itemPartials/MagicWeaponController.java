@@ -19,7 +19,11 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicWeapon;
 import view.partials.itemPartials.dialogs.MagicWeaponEditController;
 
-
+/**
+ * the controller for magic weapon partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicWeaponController extends ItemPartialController {
 
 	@FXML
@@ -58,12 +62,18 @@ public class MagicWeaponController extends ItemPartialController {
 	@FXML
 	private Label lblConstruction;
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -105,6 +115,9 @@ public class MagicWeaponController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -114,6 +127,9 @@ public class MagicWeaponController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditWeapon() {
 	    Item selectedWeapon = itemTable.getSelectionModel().getSelectedItem();
@@ -133,6 +149,9 @@ public class MagicWeaponController extends ItemPartialController {
 	    }
 	}
 	
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicRod;
 
+/**
+ * the controller for the magic rod edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicRodEditController extends DialogController {
 
 	@FXML
@@ -31,6 +36,9 @@ public class MagicRodEditController extends DialogController {
 	private Stage dialogStage;
     private MagicRod rod;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -43,6 +51,10 @@ public class MagicRodEditController extends DialogController {
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setMagicRod(MagicRod r) {
     	rod = r;
     	rodNameField.setText(r.Name.get());
@@ -55,6 +67,10 @@ public class MagicRodEditController extends DialogController {
 		
 	}    
     
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
     	String errorMessage = "";
 
@@ -98,6 +114,9 @@ public class MagicRodEditController extends DialogController {
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
     	if (isInputValid()) {            

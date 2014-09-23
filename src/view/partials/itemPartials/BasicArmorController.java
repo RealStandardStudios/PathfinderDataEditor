@@ -19,6 +19,11 @@ import pathfinder.data.Items.Armor;
 import pathfinder.data.Items.Item;
 import view.partials.itemPartials.dialogs.BasicArmorEditController;
 
+/**
+ * the controller for the basic armour partial
+ * 
+ * @author Real Standard Strudios - Joshua Boyd
+ */
 public class BasicArmorController extends ItemPartialController {
 
 	@FXML
@@ -46,13 +51,18 @@ public class BasicArmorController extends ItemPartialController {
 	private Label lblWeight;
 	@Override
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 	
 	
-
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -83,7 +93,9 @@ public class BasicArmorController extends ItemPartialController {
 	}
 
 
-
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -92,6 +104,9 @@ public class BasicArmorController extends ItemPartialController {
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}
 	
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditArmor() {
 	    Item selectedArmor = itemTable.getSelectionModel().getSelectedItem();
@@ -111,6 +126,9 @@ public class BasicArmorController extends ItemPartialController {
 	    }
 	}
 	
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 	    try {

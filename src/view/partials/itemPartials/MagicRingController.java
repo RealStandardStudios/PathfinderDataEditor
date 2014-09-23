@@ -19,6 +19,11 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicRing;
 import view.partials.itemPartials.dialogs.MagicRingEditController;
 
+/**
+ * the controller for the magic ring partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicRingController extends ItemPartialController {
 	
 	@FXML
@@ -39,12 +44,18 @@ public class MagicRingController extends ItemPartialController {
 	@FXML
 	private Label lblConstruction;
 
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -68,6 +79,9 @@ public class MagicRingController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -76,6 +90,9 @@ public class MagicRingController extends ItemPartialController {
 		((observable, oldValue, newValue) -> this.setItemDetails(newValue));
 	}
 	
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditMagicRing() {
 	    Item selectedRing = itemTable.getSelectionModel().getSelectedItem();
@@ -95,6 +112,9 @@ public class MagicRingController extends ItemPartialController {
 	    }
 	}
 	
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

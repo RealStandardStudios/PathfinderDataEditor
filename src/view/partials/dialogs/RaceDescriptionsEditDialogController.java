@@ -7,6 +7,11 @@ import javafx.scene.control.TextField;
 import jefXif.DialogController;
 import pathfinder.data.Races.Race;
 
+/**
+ * the controller for the race descriptions edit dialog
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class RaceDescriptionsEditDialogController extends DialogController{	
 	@FXML
 	TextField txtRaceName;
@@ -51,10 +56,16 @@ public class RaceDescriptionsEditDialogController extends DialogController{
 		txtaAdventures.setText(race.getAdventures());
 	}
 
+	/**
+	 * the constructor for the controller
+	 */
 	public RaceDescriptionsEditDialogController() {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@FXML
 	public void handleOkay(ActionEvent event) {
 		race.setName(txtRaceName.getText());

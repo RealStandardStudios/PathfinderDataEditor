@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicRing;
 
+/**
+ * the controller for the magic ring edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicRingEditController extends DialogController {
 
 	@FXML
@@ -29,6 +34,9 @@ public class MagicRingEditController extends DialogController {
 	private Stage dialogStage;
     private MagicRing ring;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -41,6 +49,10 @@ public class MagicRingEditController extends DialogController {
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setRing(MagicRing r)
     {
     	ring = r;
@@ -54,7 +66,10 @@ public class MagicRingEditController extends DialogController {
     	
     }    
         
-    
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -91,6 +106,9 @@ public class MagicRingEditController extends DialogController {
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            

@@ -77,6 +77,10 @@ public class RootLayoutController {
 		SwapWindow(windowPartials.get("Items").getNode());
 	}
 	
+	/**
+	 * a handle method to save changes to races
+	 * @param event
+	 */
 	@FXML 
 	private void handleSaveRaces(ActionEvent event) {
 		MainPartialController racesController = windowPartials.get("Races");
@@ -88,6 +92,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to load races
+	 * @param event
+	 */
 	@FXML
 	private void handleOpenRaces(ActionEvent event) {
 		MainPartialController racesController = windowPartials.get("Races");
@@ -99,6 +107,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to save changes to items
+	 * @param event
+	 */
 	@FXML
 	private void handleSaveItems(ActionEvent event) {
 		MainPartialController itemController = windowPartials.get("Items");
@@ -110,6 +122,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to load items
+	 * @param event
+	 */
 	@FXML
 	private void handleOpenItems(ActionEvent event) {
 		MainPartialController itemController = windowPartials.get("Items");
@@ -121,6 +137,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle methid to load feats
+	 * @param event
+	 */
 	@FXML
 	private void handleOpenFeats(ActionEvent event) {
 		MainPartialController featsController = windowPartials.get("Feats");
@@ -132,6 +152,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to save changes to feats
+	 * @param event
+	 */
 	@FXML
 	private void handleSaveFeats(ActionEvent event) {
 		MainPartialController featsController = windowPartials.get("Feats");
@@ -143,6 +167,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to load spells
+	 * @param event
+	 */
 	@FXML
 	private void handleOpenSpells(ActionEvent event) {
 		MainPartialController spellsController = windowPartials.get("Spells");
@@ -154,6 +182,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to save changes to classes
+	 * @param event
+	 */
 	@FXML
 	private void handleSaveClasses(ActionEvent event) {
 		MainPartialController classesController = windowPartials.get("Classes");
@@ -165,6 +197,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to load classes
+	 * @param event
+	 */
 	@FXML
 	private void handleOpenClasses(ActionEvent event) {
 		MainPartialController classesController = windowPartials.get("Classes");
@@ -176,6 +212,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to save changes to spells
+	 * @param event
+	 */
 	@FXML
 	private void handleSaveSpells(ActionEvent event) {
 		MainPartialController spellsController = windowPartials.get("Spells");
@@ -187,6 +227,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to load all the things
+	 * @param event
+	 */
 	@FXML
 	private void handleOpenAll(ActionEvent event) {
 		try {
@@ -199,6 +243,10 @@ public class RootLayoutController {
 		}
 	}
 	
+	/**
+	 * a handle method to save changes
+	 * @param event
+	 */
 	@FXML
 	private void handleSaveAll(ActionEvent event) {
 		try {

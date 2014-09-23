@@ -19,6 +19,11 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.MagicStaves;
 import view.partials.itemPartials.dialogs.MagicStaveEditController;
 
+/**
+ * the controller for magic staves partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicStavesController extends ItemPartialController {
 
 
@@ -42,12 +47,18 @@ public class MagicStavesController extends ItemPartialController {
 	@FXML
 	private Label lblConstruction;
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(item != null)
@@ -73,6 +84,9 @@ public class MagicStavesController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -82,6 +96,9 @@ public class MagicStavesController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditMagicStave() {
 	    Item selectedStave = itemTable.getSelectionModel().getSelectedItem();
@@ -101,6 +118,9 @@ public class MagicStavesController extends ItemPartialController {
 	    }
 	}
 	
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

@@ -11,6 +11,7 @@ import jefXif.DialogController;
 import pathfinder.data.Classes.Objects.LevelTable.LevelTableRow;
 
 /**
+ * a controller for the level table edit dialog
  * 
  * @author RealStandardStudios - Matthew Meehan
  */
@@ -298,6 +299,9 @@ public class LevelTableEditDialogController extends DialogController {
 		}
 	}
 	
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@Override
 	public void handleOkay(ActionEvent event) {
 		for (int i = 0; i < levelTable.length; i++) {

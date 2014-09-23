@@ -19,6 +19,11 @@ import pathfinder.data.Items.Item;
 import pathfinder.data.Items.WondrousGood;
 import view.partials.itemPartials.dialogs.WondrousGoodEditController;
 
+/**
+ * the controller for the wondrous items partial
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class WondrousItemsController extends ItemPartialController {
 
 	@FXML
@@ -43,12 +48,18 @@ public class WondrousItemsController extends ItemPartialController {
 	@FXML
 	private Label lblConstruction;
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * this method sets the Item details
+	 */
 	@Override
 	public void setItemDetails(Item item) {
 		if(((WondrousGood)item) != null)
@@ -75,6 +86,9 @@ public class WondrousItemsController extends ItemPartialController {
 		}
 	}
 
+	/**
+	 * this method populates the partial
+	 */
 	@Override
 	public void inView(ObservableList<Item> items) {
 		itemTable.setItems(items);
@@ -84,6 +98,9 @@ public class WondrousItemsController extends ItemPartialController {
 		
 	}
 
+	/**
+	 * a handle method that allows for editing
+	 */
 	@FXML
 	private void handleEditWondrousGood() {
 	    Item selectedGood = itemTable.getSelectionModel().getSelectedItem();
@@ -103,6 +120,9 @@ public class WondrousItemsController extends ItemPartialController {
 	    }
 	}
 	
+	/**
+	 * a method that displays a dialog to allow editing
+	 */
 	@Override
 	public boolean showItemEditDialog(Item item) {
 		try {

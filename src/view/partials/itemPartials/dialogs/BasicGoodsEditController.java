@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Goods;
 
+/**
+ * the controller for the basic goods edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class BasicGoodsEditController extends DialogController{
 
 	@FXML
@@ -22,6 +27,9 @@ public class BasicGoodsEditController extends DialogController{
 	private Stage dialogStage;
     private Goods good;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -34,6 +42,10 @@ public class BasicGoodsEditController extends DialogController{
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setGood(Goods g)
     {
     	good = g;
@@ -44,6 +56,10 @@ public class BasicGoodsEditController extends DialogController{
     	
     } 
         
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -73,6 +89,9 @@ public class BasicGoodsEditController extends DialogController{
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            

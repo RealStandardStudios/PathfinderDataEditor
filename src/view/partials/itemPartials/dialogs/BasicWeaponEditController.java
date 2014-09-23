@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Weapon;
 
+/**
+ * the controller for the basic weapon edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class BasicWeaponEditController extends DialogController{
 	
 	@FXML
@@ -38,6 +43,9 @@ public class BasicWeaponEditController extends DialogController{
 	private Stage dialogStage;
     private Weapon weapon;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -50,6 +58,10 @@ public class BasicWeaponEditController extends DialogController{
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setWeapon(Weapon w)
     {
     	weapon = w;
@@ -68,6 +80,10 @@ public class BasicWeaponEditController extends DialogController{
     	
     }
     
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -129,6 +145,9 @@ public class BasicWeaponEditController extends DialogController{
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            

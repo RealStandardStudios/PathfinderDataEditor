@@ -23,6 +23,11 @@ import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Effects.Effect;
 import view.partials.dialogs.effectDialogPartials.EffectPartialController;
 
+/**
+ * the controller for the class feature edit dialog
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class ClassFeatureEditDialogController extends DialogController
 		implements PartialLoader {
 
@@ -48,6 +53,9 @@ public class ClassFeatureEditDialogController extends DialogController
 	@FXML
 	ComboBox<String> cboEffect;
 
+	/**
+	 * the controller
+	 */
 	public ClassFeatureEditDialogController() {
 		effects = FXCollections.observableArrayList();
 		for (String s : partials) {
@@ -55,6 +63,9 @@ public class ClassFeatureEditDialogController extends DialogController
 		}
 	}
 
+	/**
+	 * the initialize method for the controller
+	 */
 	@Override
 	public void initialize() {
 		cboEffect.setItems(effects);
@@ -74,6 +85,12 @@ public class ClassFeatureEditDialogController extends DialogController
 		}
 	}
 
+	/**
+	 * a method that loads the partial
+	 * @param name
+	 * @returns a WindowController
+	 * @throws IOException
+	 */
 	private WindowController loadPartial(String name) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource(
@@ -85,6 +102,10 @@ public class ClassFeatureEditDialogController extends DialogController
 		return controller;
 	}
 
+	/**
+	 * a handle method for changed effects
+	 * @param event
+	 */
 	@FXML
 	private void handleChangedEffect(ActionEvent event) {
 		if (cboEffect.getValue() != "" || !cboEffect.getValue().equals(null))
@@ -123,6 +144,9 @@ public class ClassFeatureEditDialogController extends DialogController
 		}
 	}
 
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@FXML
 	public void handleOkay(ActionEvent event) {
 		feature.setDescription(txtaFeatureDescription.getText());
@@ -133,6 +157,10 @@ public class ClassFeatureEditDialogController extends DialogController
 		this.getDialogStage().close();
 	}
 
+	/**
+	 * a method for setting Features
+	 * @param selectedFeature
+	 */
 	public void setFeature(Feature selectedFeature) {
 		this.feature = selectedFeature;
 		txtFeatureName.setText(feature.getNameProperty().get());
@@ -146,6 +174,10 @@ public class ClassFeatureEditDialogController extends DialogController
 		}
 	}
 
+	/**
+	 * a method for getting features
+	 * @return
+	 */
 	public Feature getFeature() {
 		return feature;
 	}

@@ -2,14 +2,25 @@ package view.partials.dialogs.effectDialogPartials;
 
 import pathfinder.data.Effects.Effect;
 
+/**
+ * the controller for the Combat Manuever bonus effect partial
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class CombatManeuverBonusEffectPartialController extends EffectPartialController {
 	
+	/**
+	 * the initialize method implemented from extension
+	 */
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * a method for setting the effect
+	 */
 	@Override
 	public void setEffect(Effect effect) {
 		this.effect = effect;
@@ -17,6 +28,9 @@ public class CombatManeuverBonusEffectPartialController extends EffectPartialCon
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 	}
 	
+	/**
+	 * a method for getting an effect
+	 */
 	@Override
 	public Effect getEffect() {
 		this.effect.setName(txtEffectName.getText());

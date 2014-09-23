@@ -15,6 +15,11 @@ import pathfinder.data.DiceType;
 import pathfinder.data.Character.Alignment;
 import pathfinder.data.Classes.Class;
 
+/**
+ * A controller class for the class description edit dialog
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class ClassDescriptionsEditDialogController extends DialogController {
 	
 	@FXML
@@ -124,6 +129,9 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 		}
 	}
 
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@FXML
 	public void handleOkay(ActionEvent event) {
 		pClass.setSkillRanksPerLevel(Integer.parseInt(txtSkillRanksPerLevel.getText()));
@@ -149,7 +157,9 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 		this.getDialogStage().close();
 	}
 	
-	
+	/**
+	 * the class constructor
+	 */
 	public ClassDescriptionsEditDialogController() {
 		hitDice = FXCollections.observableArrayList(new DiceType[]{
 			DiceType.d6, DiceType.d8, DiceType.d10, DiceType.d12

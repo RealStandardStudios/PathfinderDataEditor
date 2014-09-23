@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Armor;
 
+/**
+ * the controller for the basic armour edit dialog
+ * 
+ * @author real Standard Studios - Joshua Boyd
+ */
 public class BasicArmorEditController extends DialogController {
 
 	@FXML
@@ -35,6 +40,9 @@ public class BasicArmorEditController extends DialogController {
 	private Stage dialogStage;
     private Armor armor;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -47,6 +55,10 @@ public class BasicArmorEditController extends DialogController {
         this.dialogStage = dialogStage;
     }
     
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setArmor(Armor a)
     {
     	armor = a;
@@ -63,6 +75,10 @@ public class BasicArmorEditController extends DialogController {
     	
     }    
         
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -114,6 +130,9 @@ public class BasicArmorEditController extends DialogController {
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            

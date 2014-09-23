@@ -20,6 +20,11 @@ import pathfinder.data.Feat;
 import pathfinder.data.FeatPrerequisite;
 import view.partials.dialogs.effectDialogPartials.EffectPartialController;
 
+/**
+ * the controller for the feat edit dialog
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public class FeatEditDialogController extends DialogController implements
 		PartialLoader {
 
@@ -47,6 +52,10 @@ public class FeatEditDialogController extends DialogController implements
 	@FXML
 	ComboBox<String> cboEffect;
 
+	/**
+	 * a handle method for changed effects
+	 * @param event
+	 */
 	@FXML
 	private void handleChangedEffect(ActionEvent event) {
 		if (cboEffect.getValue() != "" || !cboEffect.getValue().equals(null))
@@ -54,6 +63,9 @@ public class FeatEditDialogController extends DialogController implements
 					effectPartials.get(cboEffect.getValue()).getNode());
 	}
 
+	/**
+	 * a handle method that saves changes upon pressing the Ok button
+	 */
 	@FXML
 	public void handleOkay(ActionEvent event) {
 		feat.nameProperty().setValue(txtFeatName.getText());
@@ -85,6 +97,9 @@ public class FeatEditDialogController extends DialogController implements
 		txtaBenifit.setText(feat.getBenefit());
 	}
 
+	/**
+	 * the constructor for the controller
+	 */
 	public FeatEditDialogController() {
 		effects = FXCollections.observableArrayList();
 		for (String s : partials) {
@@ -92,6 +107,9 @@ public class FeatEditDialogController extends DialogController implements
 		}
 	}
 
+	/**
+	 * the initialize method for the controller
+	 */
 	@Override
 	public void initialize() {
 		cboEffect.setItems(effects);
@@ -107,6 +125,12 @@ public class FeatEditDialogController extends DialogController implements
 		}
 	}
 
+	/**
+	 * a method that loads the Partial
+	 * @param name
+	 * @returns a WindowController
+	 * @throws IOException
+	 */
 	private WindowController loadPartial(String name) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(this.getClass().getResource(
@@ -118,6 +142,10 @@ public class FeatEditDialogController extends DialogController implements
 		return controller;
 	}
 
+	/**
+	 * a method that sets the data
+	 * @param feats
+	 */
 	public void setData(ObservableList<Feat> feats) {
 		this.prerequistes = FXCollections.observableArrayList();
 		// add each feat to the prerequisites except for the chosen feat

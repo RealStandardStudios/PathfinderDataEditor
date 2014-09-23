@@ -10,6 +10,11 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicArmor;
 
+/**
+ * the controller for the magic armour edit dialog
+ * 
+ * @author Real Standard Studios - Joshua Boyd
+ */
 public class MagicArmorEditController extends DialogController {
 
 	@FXML
@@ -45,6 +50,9 @@ public class MagicArmorEditController extends DialogController {
 	private Stage dialogStage;
     private MagicArmor armor;
     
+    /**
+	 * the initialize method implemented from extension
+	 */
     public void initialize() {
     }
 
@@ -57,7 +65,10 @@ public class MagicArmorEditController extends DialogController {
         this.dialogStage = dialogStage;
     }
     
-
+    /**
+     * populates the dialog
+     * @param a
+     */
     public void setArmor(MagicArmor a)
     {
     	armor = a;
@@ -79,6 +90,10 @@ public class MagicArmorEditController extends DialogController {
     	
     }    
     
+    /**
+     * checks for valid input
+     * @returns true if correct
+     */
     private boolean isInputValid() {
     	String errorMessage = "";
 
@@ -150,6 +165,9 @@ public class MagicArmorEditController extends DialogController {
         
     }
     
+    /**
+     * saves data when Ok button pressed
+     */
     @FXML
     public void handleOkay(ActionEvent event) {
         if (isInputValid()) {            
