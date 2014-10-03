@@ -137,7 +137,7 @@ public class ClassDescriptionsEditDialogController extends DialogController {
 		pClass.setSkillRanksPerLevel(Integer.parseInt(txtSkillRanksPerLevel.getText()));
 		pClass.setRole(txtaRole.getText());
 		pClass.setName(txtName.getText());
-		pClass.setSkillRanksPerLevel(Integer.parseInt(txtSkillRanksPerLevel.getText()));
+		pClass.setClassSkills(txtaClassSkills.getText().split(","));
 		pClass.setStartingWealthD6(Integer.parseInt(txtStartingWealth.getText()));
 		pClass.setArmorProficiencies(txtaArmorProficiency.getText().split(","));
 		pClass.setWeaponProficiencies(txtaWeaponProficiency.getText().split(","));
