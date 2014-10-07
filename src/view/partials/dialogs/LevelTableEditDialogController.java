@@ -292,9 +292,9 @@ public class LevelTableEditDialogController extends DialogController {
 			};
 		for (int i = 0; i < levelTable.length; i++) {
 			baseAttackBonus[i].setText(levelTable[i].getBABProperty().get());
-			fortitudeSaves[i].setText(levelTable[i].getFortSave().getBaseValueProperty().get().toString());
-			reflexSaves[i].setText(levelTable[i].getRefSave().getBaseValueProperty().get().toString());
-			willSaves[i].setText(levelTable[i].getWillSave().getBaseValueProperty().get().toString());
+			fortitudeSaves[i].setText(""+levelTable[i].getFort());
+			reflexSaves[i].setText(""+levelTable[i].getRef());
+			willSaves[i].setText(""+levelTable[i].getWill());
 			specials[i].setText(levelTable[i].getSpecialProperty().get());
 		}
 	}
@@ -306,9 +306,9 @@ public class LevelTableEditDialogController extends DialogController {
 	public void handleOkay(ActionEvent event) {
 		for (int i = 0; i < levelTable.length; i++) {
 			levelTable[i].setBAB(Tools.StringToIntArray(baseAttackBonus[i].getText().split("/")));
-			levelTable[i].getFortSave().setBaseValue(Integer.parseInt(fortitudeSaves[i].getText()));
-			levelTable[i].getRefSave().setBaseValue(Integer.parseInt(reflexSaves[i].getText()));
-			levelTable[i].getWillSave().setBaseValue(Integer.parseInt(willSaves[i].getText()));
+			levelTable[i].getFortProp().setValue(Integer.parseInt(fortitudeSaves[i].getText()));
+			levelTable[i].getRefProp().setValue(Integer.parseInt(reflexSaves[i].getText()));
+			levelTable[i].getWillProp().setValue(Integer.parseInt(willSaves[i].getText()));
 			levelTable[i].setSpecial(specials[i].getText());
 		}
 		okayClicked = true;

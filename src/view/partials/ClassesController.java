@@ -301,8 +301,6 @@ public class ClassesController extends MainPartialController implements
 	 */
 	@Override
 	public void initialize() {
-		// TODO Auto-generated method stub
-
 		// Init the Classes table with the column for class Name
 		columnClassName.setCellValueFactory(cellData -> cellData.getValue()
 				.getNameProperty());
@@ -327,11 +325,11 @@ public class ClassesController extends MainPartialController implements
 		columnBAB.setCellValueFactory(cellData -> cellData.getValue()
 				.getBABProperty());
 		columnFort.setCellValueFactory(cellData -> cellData.getValue()
-				.getFortSave().getBaseValueProperty());
+				.getFortProp());
 		columnRef.setCellValueFactory(cellData -> cellData.getValue()
-				.getRefSave().getBaseValueProperty());
+				.getRefProp());
 		columnWill.setCellValueFactory(cellData -> cellData.getValue()
-				.getWillSave().getBaseValueProperty());
+				.getWillProp());
 		columnSpecial.setCellValueFactory(cellData -> cellData.getValue()
 				.getSpecialProperty());
 		// endregion
@@ -403,8 +401,9 @@ public class ClassesController extends MainPartialController implements
 				.getTypeProperty());
 		columnFeatureDesctiption.setCellValueFactory(cellData -> cellData
 				.getValue().getDescriptionProperty());
-//		columnFeatureEffect.setCellValueFactory(cellData -> cellData.getValue()
-//				.getEffectProperty().get().getNameProperty());
+		// columnFeatureEffect.setCellValueFactory(cellData ->
+		// cellData.getValue()
+		// .getEffectProperty().get().getNameProperty());
 		// endregion
 
 		// Array of Table Columns
@@ -955,20 +954,20 @@ public class ClassesController extends MainPartialController implements
 				// new SpellLevelTableRow[] {}));
 				// break;
 
-//				case "Cleric":
-//					classes.put(
-//							lines[0],
-//							new Cleric(lines[0], lines[1], lines[2], 0,
-//									Alignments.Any, DiceType.d8, Integer
-//											.parseInt(lines[8]), Integer
-//											.parseInt(lines[6]), lines[5]
-//											.split(","),
-//									readFeatures(lines[0]),
-//									new String[] { lines[7] },
-//									new String[] { lines[7] },
-//									new HashMap<String, Spell>(),
-//									new SpellLevelTableRow[] {}));
-//					break;
+				// case "Cleric":
+				// classes.put(
+				// lines[0],
+				// new Cleric(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d8, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
 				case "Druid":
 					classes.put(
@@ -1225,19 +1224,19 @@ public class ClassesController extends MainPartialController implements
 									new LevelTableRow[] { new LevelTableRow() }));
 					break;
 
-//				case "Samurai":
-//					classes.put(
-//							lines[0],
-//							new Samurai(lines[0], lines[1], lines[2], 0,
-//									Alignments.Any, DiceType.d10, Integer
-//											.parseInt(lines[8]), Integer
-//											.parseInt(lines[6]), lines[5]
-//											.split(","),
-//									readFeatures(lines[0]),
-//									new String[] { lines[7] },
-//									new String[] { lines[7] },
-//									new LevelTableRow[] { new LevelTableRow() }));
-//					break;
+				// case "Samurai":
+				// classes.put(
+				// lines[0],
+				// new Samurai(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d10, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new LevelTableRow[] { new LevelTableRow() }));
+				// break;
 
 				default:
 					break;
@@ -1317,38 +1316,23 @@ public class ClassesController extends MainPartialController implements
 				LevelTableRow tableRow = null;
 				if (lines.length > 6) {
 					if (filename != "Monk") {
-						tableRow = new SpellLevelTableRow(levelNum, babs,
-								new SaveAttribute("Fortitude",
-										AbilityName.Constitution, fort),
-								new SaveAttribute("Reflex",
-										AbilityName.Dexterity, ref),
-								new SaveAttribute("Will", AbilityName.Wisdom,
-										will), lines[5].split(","),
+						tableRow = new SpellLevelTableRow(levelNum, babs, fort,
+								ref, will, lines[5].split(","),
 								new StringProperty[10], new StringProperty[10]);
 						tableRow = readSpellLevelTable(filename, lines,
 								(SpellLevelTableRow) tableRow);
 					} else {
 						String[] fobParts = lines[6].split("/");
-						tableRow = new MonkLevelTableRow(levelNum, babs,
-								new SaveAttribute("Fortitude",
-										AbilityName.Constitution, fort),
-								new SaveAttribute("Reflex",
-										AbilityName.Dexterity, ref),
-								new SaveAttribute("Will", AbilityName.Wisdom,
-										will), lines[5].split(","),
+						tableRow = new MonkLevelTableRow(levelNum, babs, fort,
+								ref, will, lines[5].split(","),
 								Tools.StringToIntArray(fobParts,
 										new String[] { "+" },
 										new String[] { "" }), lines[7],
 								lines[8].trim(), lines[9].trim());
 					}
 				} else
-					tableRow = new LevelTableRow(levelNum, babs,
-							new SaveAttribute("Fortitude",
-									AbilityName.Constitution, fort),
-							new SaveAttribute("Reflex", AbilityName.Dexterity,
-									ref), new SaveAttribute("Will",
-									AbilityName.Wisdom, will),
-							lines[5].split(","));
+					tableRow = new LevelTableRow(levelNum, babs, fort, ref,
+							will, lines[5].split(","));
 				levelTable[count] = tableRow;
 				count++;
 
@@ -1513,7 +1497,7 @@ public class ClassesController extends MainPartialController implements
 			readCommonLevelTable("Gunslinger");
 			readCommonLevelTable("Ninja");
 			readCommonLevelTable("Rogue");
-//			readCommonLevelTable("Samurai");
+			// readCommonLevelTable("Samurai");
 
 			// Caster classes. Use Generic Level Table, add on Spell Level Table
 			// information.
