@@ -27,7 +27,9 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Feat;
 import pathfinder.data.FeatPrerequisite;
+import pathfinder.data.Attributes.SaveAttribute;
 import pathfinder.data.Effects.Effect;
+import pathfinder.data.Effects.SaveAttributeEffect;
 import view.partials.dialogs.FeatEditDialogController;
 
 /**
