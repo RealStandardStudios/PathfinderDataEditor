@@ -79,14 +79,14 @@ import editor.Tools;
  */
 public class ClassesController extends MainPartialController implements
 		DataLoader {
-	
+
 	@FXML
 	private TableView<Class> tableClasses;
 
 	@FXML
 	private TableColumn<Class, String> columnClassName;
 
-	//region Class Description Labels	
+	// region Class Description Labels
 	@FXML
 	private Label lblDescription;
 
@@ -113,9 +113,9 @@ public class ClassesController extends MainPartialController implements
 
 	@FXML
 	private Label lblStartingWealthD6;
-	//endregion
+	// endregion
 
-	//region Class Progression table
+	// region Class Progression table
 	@FXML
 	private Tab tabLevelTable;
 
@@ -141,9 +141,9 @@ public class ClassesController extends MainPartialController implements
 	private TableColumn<LevelTableRow, String> columnSpecial;
 
 	TableColumn[] levelTable;
-	//endregion
+	// endregion
 
-	//region Spells Per Level Table
+	// region Spells Per Level Table
 	@FXML
 	private Tab tabSpellLevelTable;
 
@@ -184,9 +184,9 @@ public class ClassesController extends MainPartialController implements
 	private TableColumn<SpellLevelTableRow, String> column9th;
 
 	TableColumn[] spellLevelTable;
-	//endregion
+	// endregion
 
-	//region Spells Known Table
+	// region Spells Known Table
 	@FXML
 	private Tab tabSpellsKnown;
 
@@ -225,12 +225,12 @@ public class ClassesController extends MainPartialController implements
 
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9thKnown;
-	
-	TableColumn[] spellKnowenTable;
-	
-	//endregion
 
-	//region Monk Level Table
+	TableColumn[] spellKnowenTable;
+
+	// endregion
+
+	// region Monk Level Table
 	@FXML
 	private Tab tabMonkSpecials;
 
@@ -248,12 +248,12 @@ public class ClassesController extends MainPartialController implements
 
 	@FXML
 	private TableColumn<MonkLevelTableRow, String> columnFastMovement;
-	
+
 	TableColumn[] monkTable;
 
-	//endregion
+	// endregion
 
-	//region Class Features
+	// region Class Features
 	@FXML
 	private TableView<Feature> tableFeatures;
 
@@ -270,7 +270,7 @@ public class ClassesController extends MainPartialController implements
 	private TableColumn<Feature, String> columnFeatureEffect;
 
 	TableColumn[] featuresTable;
-	//endregion
+	// endregion
 
 	private ObservableList<Class> obsListClasses = FXCollections
 			.observableArrayList();
@@ -288,6 +288,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * a handle method to prevent dragging
+	 * 
 	 * @param event
 	 */
 	@FXML
@@ -320,7 +321,7 @@ public class ClassesController extends MainPartialController implements
 				.addListener(
 						(observable, oldValue, newValue) -> showClassDetails(newValue));
 
-		//region Init the Class Progression Level Table with columns
+		// region Init the Class Progression Level Table with columns
 		columnLevel.setCellValueFactory(cellData -> cellData.getValue()
 				.getLevelNumProperty());
 		columnBAB.setCellValueFactory(cellData -> cellData.getValue()
@@ -333,9 +334,9 @@ public class ClassesController extends MainPartialController implements
 				.getWillSave().getBaseValueProperty());
 		columnSpecial.setCellValueFactory(cellData -> cellData.getValue()
 				.getSpecialProperty());
-		//endregion
+		// endregion
 
-		//region Init the Class Progression Spell Level Table with columns
+		// region Init the Class Progression Spell Level Table with columns
 		columnLevelSpells.setCellValueFactory(cellData -> cellData.getValue()
 				.getLevelNumProperty());
 		column0.setCellValueFactory(cellData -> cellData.getValue().getSPD()[0]);
@@ -357,9 +358,9 @@ public class ClassesController extends MainPartialController implements
 				.setCellValueFactory(cellData -> cellData.getValue().getSPD()[8]);
 		column9th
 				.setCellValueFactory(cellData -> cellData.getValue().getSPD()[9]);
-		//endregion
+		// endregion
 
-		//region Init the Class Progression Spells Known Table with columns
+		// region Init the Class Progression Spells Known Table with columns
 		columnLevelSpellsKnown.setCellValueFactory(cellData -> cellData
 				.getValue().getLevelNumProperty());
 		column0Known.setCellValueFactory(cellData -> cellData.getValue()
@@ -382,9 +383,9 @@ public class ClassesController extends MainPartialController implements
 				.getSpellsKnown()[8]);
 		column9thKnown.setCellValueFactory(cellData -> cellData.getValue()
 				.getSpellsKnown()[9]);
-		//endregion
+		// endregion
 
-		//region Init the Monk progression table with columns
+		// region Init the Monk progression table with columns
 		columnFOB.setCellValueFactory(celldata -> celldata.getValue()
 				.getFlurryOfBlowsString());
 		columnUnarmed.setCellValueFactory(cellData -> cellData.getValue()
@@ -393,22 +394,22 @@ public class ClassesController extends MainPartialController implements
 				.getAcBonusProperty());
 		columnFastMovement.setCellValueFactory(cellData -> cellData.getValue()
 				.getFastMovementProperty());
-		//endregion
-		
-		//region Init the features table with columns
+		// endregion
+
+		// region Init the features table with columns
 		columnFeatureName.setCellValueFactory(cellData -> cellData.getValue()
 				.getNameProperty());
 		columnFeatureType.setCellValueFactory(cellData -> cellData.getValue()
 				.getTypeProperty());
 		columnFeatureDesctiption.setCellValueFactory(cellData -> cellData
 				.getValue().getDescriptionProperty());
-		// columnFeatureEffect.setCellValueFactory(cellData ->
-		// cellData.getValue().getEffectProperty().get().getNameProperty());
-		//endregion
+//		columnFeatureEffect.setCellValueFactory(cellData -> cellData.getValue()
+//				.getEffectProperty().get().getNameProperty());
+		// endregion
 
 		// Array of Table Columns
-		levelTable = new TableColumn[] { columnLevel, columnBAB,
-				columnFort, columnRef, columnWill, columnSpecial };
+		levelTable = new TableColumn[] { columnLevel, columnBAB, columnFort,
+				columnRef, columnWill, columnSpecial };
 		// table.getcolumns().adListener(new
 		// ListChangeListenet<TableColumn<DataType,?>>() { }
 		tableLevelTable.getColumns().addListener(
@@ -423,8 +424,7 @@ public class ClassesController extends MainPartialController implements
 						if (change.wasReplaced() && !suspended) {
 							this.suspended = true;
 							// array of table columns as defined above
-							tableLevelTable.getColumns().setAll(
-									levelTable);
+							tableLevelTable.getColumns().setAll(levelTable);
 							this.suspended = false;
 						}
 
@@ -461,7 +461,7 @@ public class ClassesController extends MainPartialController implements
 				column0Known, column1stKnown, column2ndKnown, column3rdKnown,
 				column4thKnown, column5thKnown, column6thKnown, column7thKnown,
 				column8thKnown, column9thKnown };
-		
+
 		tableSpellsKnown.getColumns().addListener(
 				new ListChangeListener<TableColumn<SpellLevelTableRow, ?>>() {
 					public boolean suspended;
@@ -483,21 +483,21 @@ public class ClassesController extends MainPartialController implements
 
 				});
 
-		monkTable = new TableColumn[] {
-			columnFOB,columnUnarmed,columnAcBonus,columnFastMovement	
-		};
-		
+		monkTable = new TableColumn[] { columnFOB, columnUnarmed,
+				columnAcBonus, columnFastMovement };
+
 		tableMonkTable.getColumns().addListener(
-				new ListChangeListener<TableColumn<MonkLevelTableRow, ?>>(){
+				new ListChangeListener<TableColumn<MonkLevelTableRow, ?>>() {
 					public boolean suspended;
-					
+
 					@Override
-					public void onChanged(Change<? extends TableColumn<MonkLevelTableRow,?>> change) {
+					public void onChanged(
+							Change<? extends TableColumn<MonkLevelTableRow, ?>> change) {
 						change.next();
-						
-						if(change.wasReplaced() && !suspended) {
+
+						if (change.wasReplaced() && !suspended) {
 							this.suspended = true;
-							
+
 							tableMonkTable.getColumns().setAll(monkTable);
 						}
 					}
@@ -527,6 +527,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * a handle method to allow editing of class details
+	 * 
 	 * @param event
 	 */
 	@FXML
@@ -541,96 +542,107 @@ public class ClassesController extends MainPartialController implements
 					.message("Select a Class from the table.").showWarning();
 		}
 	}
-	
+
 	/**
 	 * a handle method to allow editing of class features
+	 * 
 	 * @param event
 	 */
 	@FXML
 	private void handleEditFeature(ActionEvent event) {
-		Feature selectedFeature = tableFeatures.getSelectionModel().getSelectedItem();
-		if(selectedFeature!= null) {
+		Feature selectedFeature = tableFeatures.getSelectionModel()
+				.getSelectedItem();
+		if (selectedFeature != null) {
 			boolean okayClicked = showEditFeatureDialog(selectedFeature);
 		} else {
 			Dialogs.create().title("No Selection")
-			.masthead("No Feature selected")
-			.message("Select a Feature from the table.").showWarning();
+					.masthead("No Feature selected")
+					.message("Select a Feature from the table.").showWarning();
 		}
 	}
-	
+
 	/**
 	 * a handle method to allow editing of class level tables
+	 * 
 	 * @param event
 	 */
 	@FXML
 	private void handleEditLevelTables(ActionEvent event) {
-		LevelTableRow[] levelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new LevelTableRow[20]);
-		if(levelTable!=null) {
+		LevelTableRow[] levelTable = tableClasses.getSelectionModel()
+				.getSelectedItem().getLeveltableRow()
+				.toArray(new LevelTableRow[20]);
+		if (levelTable != null) {
 			boolean okayClicked = showEditLevelTableDialog(levelTable);
-		}
-		else {
+		} else {
 			Dialogs.create().title("Woah how'd this happen")
-			.masthead("There's no levelTable on this Class")
-			.message("Someone Screwed up here big time").showWarning();
+					.masthead("There's no levelTable on this Class")
+					.message("Someone Screwed up here big time").showWarning();
 		}
 	}
-	
+
 	/**
 	 * a handle method to allow editing of class spell level tables
+	 * 
 	 * @param event
 	 */
 	@FXML
 	private void handleEditSpellLevelTable(ActionEvent event) {
-		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new SpellLevelTableRow[20]);
-		if(levelTable!=null) {
+		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel()
+				.getSelectedItem().getLeveltableRow()
+				.toArray(new SpellLevelTableRow[20]);
+		if (levelTable != null) {
 			boolean okayClicked = showEditSpellLevelTableDialog(spellLevelTable);
-		}
-		else {
+		} else {
 			Dialogs.create().title("Woah how'd this happen")
-			.masthead("There's no SpellLevelTable on this Class")
-			.message("Someone Screwed up here big time").showWarning();
+					.masthead("There's no SpellLevelTable on this Class")
+					.message("Someone Screwed up here big time").showWarning();
 		}
 	}
 
 	/**
 	 * a handle method to allow editing of class spells known
+	 * 
 	 * @param event
 	 */
 	@FXML
 	private void handleEditSpellsKnowen(ActionEvent event) {
-		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel().getSelectedItem().getLeveltableRow().toArray(new SpellLevelTableRow[20]);
-		if(levelTable!=null) {
+		SpellLevelTableRow[] spellLevelTable = tableClasses.getSelectionModel()
+				.getSelectedItem().getLeveltableRow()
+				.toArray(new SpellLevelTableRow[20]);
+		if (levelTable != null) {
 			boolean okayClicked = showEditSpellKnownTableDialog(spellLevelTable);
-		}
-		else {
+		} else {
 			Dialogs.create().title("Woah how'd this happen")
-			.masthead("There's no SpellLevelTable on this Class")
-			.message("Someone Screwed up here big time").showWarning();
+					.masthead("There's no SpellLevelTable on this Class")
+					.message("Someone Screwed up here big time").showWarning();
 		}
 	}
 
 	/**
 	 * a handle method to allow editing of monk's table
+	 * 
 	 * @param event
 	 */
 	@FXML
 	private void handleEditMonkTable(ActionEvent event) {
-		
+
 	}
-	
+
 	/**
 	 * shows a dailog to allow editing spells known
+	 * 
 	 * @param spellLevelTable
 	 * @return
 	 */
-	private boolean showEditSpellKnownTableDialog(SpellLevelTableRow[] spellLevelTable) {
+	private boolean showEditSpellKnownTableDialog(
+			SpellLevelTableRow[] spellLevelTable) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(this.getClass().getResource(
 					"dialogs/SpellKnowenTableEditDialog.fxml"));
 
 			AnchorPane pane = (AnchorPane) loader.load();
-			
+
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Class Spell Levels Per Day");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -638,34 +650,37 @@ public class ClassesController extends MainPartialController implements
 			Scene scene = new Scene(pane);
 			dialogStage.setScene(scene);
 
-			SpellKnowenTableEditDialogController controller = loader.getController();
+			SpellKnowenTableEditDialogController controller = loader
+					.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setSpellLevelTable(spellLevelTable);
 			dialogStage.showAndWait();
 			spellLevelTable = controller.getSpellLevelTable();
-			//refresh table
+			// refresh table
 			return controller.isOkayClicked();
 		} catch (Exception e) {
 			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
-			.message(e.getMessage()).showWarning();
+					.message(e.getMessage()).showWarning();
 			e.printStackTrace();
 			return false;
 		}
 	}
-	
+
 	/**
 	 * shows a dialog that allows editing the spell level table
+	 * 
 	 * @param spellLevelTable
 	 * @return
 	 */
-	private boolean showEditSpellLevelTableDialog(SpellLevelTableRow[] spellLevelTable) {
+	private boolean showEditSpellLevelTableDialog(
+			SpellLevelTableRow[] spellLevelTable) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(this.getClass().getResource(
 					"dialogs/SpellLevelTableEditDialog.fxml"));
 
 			AnchorPane pane = (AnchorPane) loader.load();
-			
+
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Class Spell Levels Per Day");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -673,16 +688,17 @@ public class ClassesController extends MainPartialController implements
 			Scene scene = new Scene(pane);
 			dialogStage.setScene(scene);
 
-			SpellLevelTableEditDialogController controller = loader.getController();
+			SpellLevelTableEditDialogController controller = loader
+					.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setSpellLevelTable(spellLevelTable);
 			dialogStage.showAndWait();
 			spellLevelTable = controller.getSpellLevelTable();
-			//refresh table
+			// refresh table
 			return controller.isOkayClicked();
 		} catch (Exception e) {
 			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
-			.message(e.getMessage()).showWarning();
+					.message(e.getMessage()).showWarning();
 			e.printStackTrace();
 			return false;
 		}
@@ -690,6 +706,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * shows a dialog that allows editing of level table
+	 * 
 	 * @param levelTable
 	 * @return
 	 */
@@ -700,7 +717,7 @@ public class ClassesController extends MainPartialController implements
 					"dialogs/LevelTableEditDialog.fxml"));
 
 			AnchorPane pane = (AnchorPane) loader.load();
-			
+
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Class Level Table");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -713,11 +730,11 @@ public class ClassesController extends MainPartialController implements
 			controller.setLevelTable(levelTable);
 			dialogStage.showAndWait();
 			levelTable = controller.getLevelTable();
-			//refresh table
+			// refresh table
 			return controller.isOkayClicked();
 		} catch (Exception e) {
 			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
-			.message(e.getMessage()).showWarning();
+					.message(e.getMessage()).showWarning();
 			e.printStackTrace();
 			return false;
 		}
@@ -725,6 +742,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * shows a dialog that allows editing of features
+	 * 
 	 * @param selectedFeature
 	 * @return
 	 */
@@ -735,7 +753,7 @@ public class ClassesController extends MainPartialController implements
 					"dialogs/ClassFeatureEditDialog.fxml"));
 
 			AnchorPane pane = (AnchorPane) loader.load();
-			
+
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Class Feature");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -743,16 +761,17 @@ public class ClassesController extends MainPartialController implements
 			Scene scene = new Scene(pane);
 			dialogStage.setScene(scene);
 
-			ClassFeatureEditDialogController controller = loader.getController();
+			ClassFeatureEditDialogController controller = loader
+					.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setFeature(selectedFeature);
 			dialogStage.showAndWait();
 			selectedFeature = controller.getFeature();
-			//showClassDetails(selectedClass);
+			// showClassDetails(selectedClass);
 			return controller.isOkayClicked();
 		} catch (IOException e) {
 			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
-			.message(e.getMessage()).showWarning();
+					.message(e.getMessage()).showWarning();
 			e.printStackTrace();
 			return false;
 		}
@@ -760,6 +779,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * shows a dialog that allows editing of details
+	 * 
 	 * @param selectedClass
 	 * @return
 	 */
@@ -770,7 +790,7 @@ public class ClassesController extends MainPartialController implements
 					"dialogs/ClassDescriptionsEditDialog.fxml"));
 
 			AnchorPane pane = (AnchorPane) loader.load();
-			
+
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Edit Class Details");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -778,7 +798,8 @@ public class ClassesController extends MainPartialController implements
 			Scene scene = new Scene(pane);
 			dialogStage.setScene(scene);
 
-			ClassDescriptionsEditDialogController controller = loader.getController();
+			ClassDescriptionsEditDialogController controller = loader
+					.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setpClass(selectedClass);
 			dialogStage.showAndWait();
@@ -787,7 +808,7 @@ public class ClassesController extends MainPartialController implements
 			return controller.isOkayClicked();
 		} catch (IOException e) {
 			Dialogs.create().title("Error").masthead("Somthing Went Wrong")
-			.message(e.getMessage()).showWarning();
+					.message(e.getMessage()).showWarning();
 			e.printStackTrace();
 			return false;
 		}
@@ -835,6 +856,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * shows the classes pregression tables
+	 * 
 	 * @param c
 	 */
 	private void showClassProgression(Class c) {
@@ -918,35 +940,35 @@ public class ClassesController extends MainPartialController implements
 									new LevelTableRow[] { new LevelTableRow() }));
 					break;
 
-				case "Bard":
-					classes.put(
-							lines[0],
-							new Bard(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d8, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Bard":
+				// classes.put(
+				// lines[0],
+				// new Bard(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d8, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
-				case "Cleric":
-					classes.put(
-							lines[0],
-							new Cleric(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d8, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+//				case "Cleric":
+//					classes.put(
+//							lines[0],
+//							new Cleric(lines[0], lines[1], lines[2], 0,
+//									Alignments.Any, DiceType.d8, Integer
+//											.parseInt(lines[8]), Integer
+//											.parseInt(lines[6]), lines[5]
+//											.split(","),
+//									readFeatures(lines[0]),
+//									new String[] { lines[7] },
+//									new String[] { lines[7] },
+//									new HashMap<String, Spell>(),
+//									new SpellLevelTableRow[] {}));
+//					break;
 
 				case "Druid":
 					classes.put(
@@ -1041,64 +1063,64 @@ public class ClassesController extends MainPartialController implements
 									new LevelTableRow[] { new LevelTableRow() }));
 					break;
 
-				case "Sorcerer":
-					classes.put(
-							lines[0],
-							new Sorcerer(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d6, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Sorcerer":
+				// classes.put(
+				// lines[0],
+				// new Sorcerer(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d6, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
-				case "Wizard":
-					classes.put(
-							lines[0],
-							new Wizard(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d6, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Wizard":
+				// classes.put(
+				// lines[0],
+				// new Wizard(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d6, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
-				case "Alchemist":
-					classes.put(
-							lines[0],
-							new Alchemist(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d8, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Alchemist":
+				// classes.put(
+				// lines[0],
+				// new Alchemist(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d8, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
-				case "Cavalier":
-					classes.put(
-							lines[0],
-							new Cavalier(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d10, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new LevelTableRow[] { new LevelTableRow() }));
-					break;
+				// case "Cavalier":
+				// classes.put(
+				// lines[0],
+				// new Cavalier(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d10, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new LevelTableRow[] { new LevelTableRow() }));
+				// break;
 
 				case "Inquisitor":
 					classes.put(
@@ -1115,50 +1137,50 @@ public class ClassesController extends MainPartialController implements
 									new SpellLevelTableRow[] {}));
 					break;
 
-				case "Oracle":
-					classes.put(
-							lines[0],
-							new Oracle(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d8, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Oracle":
+				// classes.put(
+				// lines[0],
+				// new Oracle(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d8, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
-				case "Summoner":
-					classes.put(
-							lines[0],
-							new Summoner(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d8, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Summoner":
+				// classes.put(
+				// lines[0],
+				// new Summoner(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d8, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
-				case "Witch":
-					classes.put(
-							lines[0],
-							new Witch(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d6, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new HashMap<String, Spell>(),
-									new SpellLevelTableRow[] {}));
-					break;
+				// case "Witch":
+				// classes.put(
+				// lines[0],
+				// new Witch(lines[0], lines[1], lines[2], 0,
+				// Alignments.Any, DiceType.d6, Integer
+				// .parseInt(lines[8]), Integer
+				// .parseInt(lines[6]), lines[5]
+				// .split(","),
+				// readFeatures(lines[0]),
+				// new String[] { lines[7] },
+				// new String[] { lines[7] },
+				// new HashMap<String, Spell>(),
+				// new SpellLevelTableRow[] {}));
+				// break;
 
 				case "Magus":
 					classes.put(
@@ -1203,19 +1225,19 @@ public class ClassesController extends MainPartialController implements
 									new LevelTableRow[] { new LevelTableRow() }));
 					break;
 
-				case "Samurai":
-					classes.put(
-							lines[0],
-							new Samurai(lines[0], lines[1], lines[2], 0,
-									Alignments.Any, DiceType.d10, Integer
-											.parseInt(lines[8]), Integer
-											.parseInt(lines[6]), lines[5]
-											.split(","),
-									readFeatures(lines[0]),
-									new String[] { lines[7] },
-									new String[] { lines[7] },
-									new LevelTableRow[] { new LevelTableRow() }));
-					break;
+//				case "Samurai":
+//					classes.put(
+//							lines[0],
+//							new Samurai(lines[0], lines[1], lines[2], 0,
+//									Alignments.Any, DiceType.d10, Integer
+//											.parseInt(lines[8]), Integer
+//											.parseInt(lines[6]), lines[5]
+//											.split(","),
+//									readFeatures(lines[0]),
+//									new String[] { lines[7] },
+//									new String[] { lines[7] },
+//									new LevelTableRow[] { new LevelTableRow() }));
+//					break;
 
 				default:
 					break;
@@ -1229,6 +1251,7 @@ public class ClassesController extends MainPartialController implements
 
 	/**
 	 * A method for storing a class' features in an arraylist
+	 * 
 	 * @param className
 	 * @returns an ArrayList of Features
 	 */
@@ -1384,13 +1407,13 @@ public class ClassesController extends MainPartialController implements
 			spd[0] = new SimpleStringProperty("-");
 			for (int i = 6; i < lines.length - 7; i++)
 				spd[i - 5] = new SimpleStringProperty(lines[i]);
-			for(int i=7;i<10;i++)
+			for (int i = 7; i < 10; i++)
 				spd[i] = new SimpleStringProperty("-");
 			tableRow.setSPD(spd);
 
 			for (int i = 12; i < lines.length; i++)
 				spk[i - 12] = new SimpleStringProperty(lines[i]);
-			for (int i=7;i<10;i++)
+			for (int i = 7; i < 10; i++)
 				spk[i] = new SimpleStringProperty("-");
 			tableRow.setSpellsKnown(spk);
 		}
@@ -1401,7 +1424,7 @@ public class ClassesController extends MainPartialController implements
 			for (int i = 6; i < lines.length; i++) {
 				spd[i - 5] = new SimpleStringProperty(lines[i]);
 			}
-			for (int i=5;i<10;i++) 
+			for (int i = 5; i < 10; i++)
 				spd[i] = new SimpleStringProperty("-");
 			tableRow.setSPD(spd);
 		}
@@ -1413,7 +1436,7 @@ public class ClassesController extends MainPartialController implements
 			}
 			for (int i = 7; i < 10; i++)
 				spd[i] = new SimpleStringProperty("-");
-			
+
 			tableRow.setSPD(spd);
 		}
 
@@ -1422,7 +1445,7 @@ public class ClassesController extends MainPartialController implements
 			for (int i = 6; i < lines.length; i++) {
 				spd[i - 6] = new SimpleStringProperty(lines[i]);
 			}
-			for (int i = 7; i<10;i++)
+			for (int i = 7; i < 10; i++)
 				spd[i] = new SimpleStringProperty("-");
 			tableRow.setSPD(spd);
 		}
@@ -1485,28 +1508,28 @@ public class ClassesController extends MainPartialController implements
 			// Melee classes. Generic Level Table information is fine.
 
 			readCommonLevelTable("Barbarian");
-			readCommonLevelTable("Cavalier");
+			// readCommonLevelTable("Cavalier");
 			readCommonLevelTable("Fighter");
 			readCommonLevelTable("Gunslinger");
 			readCommonLevelTable("Ninja");
 			readCommonLevelTable("Rogue");
-			readCommonLevelTable("Samurai");
+//			readCommonLevelTable("Samurai");
 
 			// Caster classes. Use Generic Level Table, add on Spell Level Table
 			// information.
-			readCommonLevelTable("Alchemist");
-			readCommonLevelTable("Bard");
-			readCommonLevelTable("Cleric");
+			// readCommonLevelTable("Alchemist");
+			// readCommonLevelTable("Bard");
+			// readCommonLevelTable("Cleric");
 			readCommonLevelTable("Druid");
 			readCommonLevelTable("Inquisitor");
 			readCommonLevelTable("Magus");
-			readCommonLevelTable("Oracle");
+			// readCommonLevelTable("Oracle");
 			readCommonLevelTable("Paladin");
 			readCommonLevelTable("Ranger");
-			readCommonLevelTable("Sorcerer");
-			readCommonLevelTable("Summoner");
-			readCommonLevelTable("Witch");
-			readCommonLevelTable("Wizard");
+			// readCommonLevelTable("Sorcerer");
+			// readCommonLevelTable("Summoner");
+			// readCommonLevelTable("Witch");
+			// readCommonLevelTable("Wizard");
 			readCommonLevelTable("Monk");
 
 			obsListClasses.setAll(classes.values());

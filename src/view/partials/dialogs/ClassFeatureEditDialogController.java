@@ -108,40 +108,40 @@ public class ClassFeatureEditDialogController extends DialogController
 	 */
 	@FXML
 	private void handleChangedEffect(ActionEvent event) {
-		if (cboEffect.getValue() != "" || !cboEffect.getValue().equals(null))
-			EffectPartialPane.getChildren().setAll(effectPartials.get(cboEffect.getValue()).getNode());
-		if (feature.getEffectProperty().get() != null)
-			effectPartials.get(cboEffect.getValue()).setEffect(feature.getEffectProperty().get());
-		else {
-			// feature.getEffectProperty().set();
-			Effect effect = null;
-			try {
-				effect = (Effect) Class.forName(
-						"pathfinder.data.Effects." + cboEffect.getValue())
-						.newInstance();
-			} catch (ClassNotFoundException e) {
-				try {
-					effect = (Effect) Class.forName(
-							"pathfinder.data.Effects.Actions."
-									+ cboEffect.getValue()).newInstance();
-				} catch (InstantiationException | IllegalAccessException e1) {
-					e1.printStackTrace();
-				} catch (ClassNotFoundException e1) {
-					try {
-						effect = (Effect) Class.forName(
-								"pathfinder.data.Effects.NonValued."
-										+ cboEffect.getValue()).newInstance();
-					} catch (InstantiationException | IllegalAccessException
-							| ClassNotFoundException e2) {
-						e2.printStackTrace();
-					}
-				}
-			} catch (InstantiationException | IllegalAccessException e) {
-				e.printStackTrace();
-			}
-			feature.setEffect(effect);
-			effectPartials.get(cboEffect.getValue()).setEffect(feature.getEffectProperty().get());
-		}
+//		if (cboEffect.getValue() != "" || !cboEffect.getValue().equals(null))
+//			EffectPartialPane.getChildren().setAll(effectPartials.get(cboEffect.getValue()).getNode());
+//		if (feature.getEffectProperty().get() != null)
+//			effectPartials.get(cboEffect.getValue()).setEffect(feature.getEffectProperty().get());
+//		else {
+//			// feature.getEffectProperty().set();
+//			Effect effect = null;
+//			try {
+//				effect = (Effect) Class.forName(
+//						"pathfinder.data.Effects." + cboEffect.getValue())
+//						.newInstance();
+//			} catch (ClassNotFoundException e) {
+//				try {
+//					effect = (Effect) Class.forName(
+//							"pathfinder.data.Effects.Actions."
+//									+ cboEffect.getValue()).newInstance();
+//				} catch (InstantiationException | IllegalAccessException e1) {
+//					e1.printStackTrace();
+//				} catch (ClassNotFoundException e1) {
+//					try {
+//						effect = (Effect) Class.forName(
+//								"pathfinder.data.Effects.NonValued."
+//										+ cboEffect.getValue()).newInstance();
+//					} catch (InstantiationException | IllegalAccessException
+//							| ClassNotFoundException e2) {
+//						e2.printStackTrace();
+//					}
+//				}
+//			} catch (InstantiationException | IllegalAccessException e) {
+//				e.printStackTrace();
+//			}
+//			feature.setEffect(effect);
+//			effectPartials.get(cboEffect.getValue()).setEffect(feature.getEffectProperty().get());
+//		}
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class ClassFeatureEditDialogController extends DialogController
 		feature.setDescription(txtaFeatureDescription.getText());
 		feature.setType(txtFeatureType.getText());
 		feature.getNameProperty().set(txtFeatureName.getText());
-		feature.setEffect(effectPartials.get(
-				cboEffect.getSelectionModel().getSelectedItem()).getEffect());
+//		feature.setEffect(effectPartials.get(
+//				cboEffect.getSelectionModel().getSelectedItem()).getEffect());
 		this.getDialogStage().close();
 	}
 
@@ -166,12 +166,12 @@ public class ClassFeatureEditDialogController extends DialogController
 		txtFeatureName.setText(feature.getNameProperty().get());
 		txtFeatureType.setText(feature.getTypeProperty().get());
 		txtaFeatureDescription.setText(feature.getDescriptionProperty().get());
-		if (feature.getEffectProperty().get() != null)
-			cboEffect.getSelectionModel().select(
-					feature.getEffectProperty().get().getName());
-		else {
-			cboEffect.getSelectionModel().select("MiscEffect");
-		}
+//		if (feature.getEffectProperty().get() != null)
+//			cboEffect.getSelectionModel().select(
+//					feature.getEffectProperty().get().getName());
+//		else {
+//			cboEffect.getSelectionModel().select("MiscEffect");
+//		}
 	}
 
 	/**

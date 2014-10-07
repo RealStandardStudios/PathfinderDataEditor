@@ -29,7 +29,13 @@ public class SaveAttributeEffectPartialController extends EffectPartialControlle
 	 */
 	@Override
 	public void setEffect(Effect effect) {
-		this.effect = effect;
+		if(effect.getClass().isInstance(SaveAttributeEffect.class))
+			this.effect = effect;
+		else {
+			this.effect = new SaveAttributeEffect();
+			this.effect.setName(effect.getName());
+			this.effect.setValue(effect.getValue());
+		}
 		this.txtEffectName.setText(this.effect.getName());
 		this.txtEffectValue.setText(Integer.toString(this.effect.getValue()));
 		this.txtSaveAttributeName.setText(((SaveAttributeEffect)this.effect).getAttributeName());
