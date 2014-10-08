@@ -2,7 +2,7 @@ package view.partials.dialogs.effectDialogPartials;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import jefXif.WindowController;
+import jefXif.view.WindowController;
 import pathfinder.data.Effects.Effect;
 
 /**

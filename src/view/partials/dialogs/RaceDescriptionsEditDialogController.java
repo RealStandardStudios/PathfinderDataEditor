@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import jefXif.DialogController;
+import jefXif.view.DialogController;
 import pathfinder.data.Races.Race;
 
 /**

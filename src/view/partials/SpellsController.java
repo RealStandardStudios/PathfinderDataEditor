@@ -21,9 +21,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jefXif.MainPartialController;
 import jefXif.interfaces.DataLoader;
 import jefXif.io.Data;
+import jefXif.view.partial.MainPartialController;
 
 import org.controlsfx.dialog.Dialogs;
 

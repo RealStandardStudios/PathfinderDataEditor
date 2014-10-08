@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
-import jefXif.MainPartialController;
+import jefXif.view.Gui;
+import jefXif.view.RootLayoutController;
+import jefXif.view.partial.MainPartialController;
 import window.Interface;
 
 /**
@@ -16,8 +18,7 @@ import window.Interface;
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
-public class RootLayoutController {
-	private Interface ui;
+public class RootController extends RootLayoutController{
 	
 	private HashMap<String, MainPartialController> windowPartials;
 	
@@ -267,20 +268,6 @@ public class RootLayoutController {
 	private void SwapWindow(Node node) {
 		rootLayout.setCenter(node);
 	}
-
-	/**
-	 * @returns the ui
-	 */
-	public Interface getInterface() {
-		return ui;
-	}
-
-	/**
-	 * @param ui
-	 */
-	public void setInterface(Interface ui) {
-		this.ui = ui;
-	}
 	
 	/**
 	 * @param windowPartials
@@ -294,5 +281,10 @@ public class RootLayoutController {
 	 */
 	public HashMap<String,MainPartialController> getWindowPartials() {
 		return this.windowPartials;
+	}
+
+	@Override
+	public void setInterface(Gui ui) {
+		this.ui = (Interface) ui;
 	}
 }

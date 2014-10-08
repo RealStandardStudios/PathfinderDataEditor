@@ -10,7 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import jefXif.DialogController;
+import jefXif.view.DialogController;
 import pathfinder.data.Size;
 import pathfinder.data.VisionType;
 import pathfinder.data.Attributes.AbilityName;

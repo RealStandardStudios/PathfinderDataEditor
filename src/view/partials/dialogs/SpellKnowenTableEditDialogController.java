@@ -7,7 +7,7 @@ import pathfinder.data.Classes.Objects.LevelTable.SpellLevelTableRow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import jefXif.DialogController;
+import jefXif.view.DialogController;
 
 /**
  * the controller for the spell known table edit dialog

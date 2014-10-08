@@ -4,7 +4,7 @@
 package view.partials.itemPartials;
 
 import javafx.collections.ObservableList;
-import jefXif.WindowController;
+import jefXif.view.WindowController;
 import pathfinder.data.Items.Item;
 
 /**

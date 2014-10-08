@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import jefXif.DialogController;
+import jefXif.view.DialogController;
 
 import org.controlsfx.dialog.Dialogs;
 

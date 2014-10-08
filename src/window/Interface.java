@@ -10,11 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import jefXif.Gui;
-import jefXif.MainPartialController;
-import jefXif.WindowController;
 import jefXif.interfaces.DataLoader;
-import view.RootLayoutController;
+import jefXif.view.Gui;
+import jefXif.view.WindowController;
+import jefXif.view.partial.MainPartialController;
+import view.RootController;
 
 import com.sun.istack.internal.logging.Logger;
 
@@ -24,7 +24,6 @@ import com.sun.istack.internal.logging.Logger;
  * @author Real Standard Studios - Matthew Meehan 
  */
 public class Interface extends Gui {
-	private RootLayoutController rootLayoutController;
 
 	/**
 	 * construcftor for the interface
@@ -45,15 +44,17 @@ public class Interface extends Gui {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(this.getClass().getResource(
 					"../view/RootLayout.fxml"));
-			setRootLayout((BorderPane) loader.load());
+			BorderPane pane = loader.load();
+			
 
 			// Show the scene containing the root layout
-			Scene scene = new Scene(getRootLayout());
+			Scene scene = new Scene(pane);
 			getPrimaryStage().setScene(scene);
 
 			// Give the controller access to the main app.
-			rootLayoutController = loader.getController();
-			rootLayoutController.setInterface(this);
+			RootController controller = loader.getController();
+			controller.setInterface(this);
+			setRootLayout(controller);
 
 			getPrimaryStage().show();
 		} catch (IOException e) {
@@ -71,7 +72,7 @@ public class Interface extends Gui {
 		for (String string : Windows) {
 			windowPartials.put(string, (MainPartialController) loadPartial(string, this));
 		}
-		rootLayoutController.setWindowPartials(windowPartials);
+		((RootController) getRootLayout()).setWindowPartials(windowPartials);
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class Interface extends Gui {
 	@Override
 	public void loadData() {
 		// this is where all the views will load the data from their files
-		for (WindowController controller : rootLayoutController.getWindowPartials().values()) {
+		for (WindowController controller : ((RootController) getRootLayout()).getWindowPartials().values()) {
 			// If the interface DataLoader is implemented on the current controller
 			if(DataLoader.class.isAssignableFrom(controller.getClass())) {
 				DataLoader loader = (DataLoader) controller;

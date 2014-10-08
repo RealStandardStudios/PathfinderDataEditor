@@ -13,9 +13,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import jefXif.DialogController;
-import jefXif.WindowController;
 import jefXif.interfaces.PartialLoader;
+import jefXif.view.DialogController;
+import jefXif.view.WindowController;
 
 import org.controlsfx.dialog.Dialogs;
 
