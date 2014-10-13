@@ -50,8 +50,6 @@ public class MagicWeaponController extends ItemPartialController {
 	@FXML
 	private Label lblWeaponType;
 	@FXML
-	private Label lblWieldStyle;
-	@FXML
 	private Label lblSpecial;
 	@FXML
 	private Label lblAura;
@@ -61,6 +59,8 @@ public class MagicWeaponController extends ItemPartialController {
 	private Label lblDescription;
 	@FXML
 	private Label lblConstruction;
+	@FXML
+	private Label lblSlotType;
 	
 	/**
 	 * the initialize method implemented from extension
@@ -92,7 +92,6 @@ public class MagicWeaponController extends ItemPartialController {
 			lblDescription.setText(((MagicWeapon)item).getDescription());
 			lblConstruction.setText(((MagicWeapon)item).getConstruction());
 			lblWeaponType.setText(((MagicWeapon)item).WeaponType.get());
-			lblWieldStyle.setText(((MagicWeapon)item).WieldStyle.get());
 		}
 		else
 		{
@@ -110,7 +109,6 @@ public class MagicWeaponController extends ItemPartialController {
 			lblDescription.setText("");
 			lblConstruction.setText("");
 			lblWeaponType.setText("");
-			lblWieldStyle.setText("");
 		}
 		
 	}

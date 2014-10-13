@@ -59,6 +59,8 @@ public class MagicArmorController extends ItemPartialController {
 	private Label lblDescription;
 	@FXML
 	private Label lblConstruction;
+	@FXML
+	private Label lblSlotType;
 	
 	/**
 	 * the initialize method implemented from extension

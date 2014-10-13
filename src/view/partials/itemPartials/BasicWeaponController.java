@@ -50,8 +50,6 @@ public class BasicWeaponController extends ItemPartialController {
 	@FXML
 	private Label lblWeaponType;
 	@FXML
-	private Label lblWieldStyle;
-	@FXML
 	private Label lblSpecial;
 	
 	/**
@@ -80,7 +78,6 @@ public class BasicWeaponController extends ItemPartialController {
 			lblDmgType.setText(((Weapon)item).WeaponDmgType.get());
 			lblSpecial.setText(((Weapon)item).Special.get());
 			lblWeaponType.setText(((Weapon)item).WeaponType.get());
-			lblWieldStyle.setText(((Weapon)item).WieldStyle.get());
 		}
 		else
 		{
@@ -94,7 +91,6 @@ public class BasicWeaponController extends ItemPartialController {
 			lblDmgType.setText("");
 			lblSpecial.setText("");
 			lblWeaponType.setText("");
-			lblWieldStyle.setText("");
 		}
 		
 	}

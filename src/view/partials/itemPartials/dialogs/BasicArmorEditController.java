@@ -2,6 +2,7 @@ package view.partials.itemPartials.dialogs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jefXif.view.DialogController;
@@ -9,6 +10,7 @@ import jefXif.view.DialogController;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.Armor;
+import pathfinder.data.Items.SlotType;
 
 /**
  * the controller for the basic armour edit dialog
@@ -35,7 +37,8 @@ public class BasicArmorEditController extends DialogController {
 	private TextField speed20Field;
 	@FXML
 	private TextField weightField;
-	
+	@FXML
+	private ComboBox<SlotType> cboSlotType;
 	
 	private Stage dialogStage;
     private Armor armor;
@@ -44,6 +47,15 @@ public class BasicArmorEditController extends DialogController {
 	 * the initialize method implemented from extension
 	 */
     public void initialize() {
+    	cboSlotType.itemsProperty().get().add(SlotType.None);
+    	cboSlotType.itemsProperty().get().add(SlotType.Feet);
+    	cboSlotType.itemsProperty().get().add(SlotType.Hands);
+    	cboSlotType.itemsProperty().get().add(SlotType.Head);
+    	cboSlotType.itemsProperty().get().add(SlotType.Legs);
+    	cboSlotType.itemsProperty().get().add(SlotType.Ring);
+    	cboSlotType.itemsProperty().get().add(SlotType.Shield);
+    	cboSlotType.itemsProperty().get().add(SlotType.Torso);
+    	cboSlotType.itemsProperty().get().add(SlotType.Waist);
     }
 
     /**
@@ -72,7 +84,7 @@ public class BasicArmorEditController extends DialogController {
     	speed30Field.setText(a.Speed30feet.get());
     	speed20Field.setText(a.Speed20feet.get());
     	weightField.setText(a.Weight.get());
-    	
+    	cboSlotType.getSelectionModel().select(a.getSlotType());
     }    
         
     /**
@@ -145,7 +157,7 @@ public class BasicArmorEditController extends DialogController {
             armor.Speed30feet.set(speed30Field.getText());
             armor.Speed20feet.set(speed20Field.getText());
             armor.Weight.set(weightField.getText());
-
+            armor.setSlotType(cboSlotType.getSelectionModel().getSelectedItem());
             okayClicked = true;
             dialogStage.close();
         }

@@ -2,6 +2,7 @@ package view.partials.itemPartials.dialogs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jefXif.view.DialogController;
@@ -9,6 +10,7 @@ import jefXif.view.DialogController;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Items.MagicWeapon;
+import pathfinder.data.Items.SlotType;
 
 /**
  * the controller for the magic weapon edit dialog
@@ -21,8 +23,6 @@ public class MagicWeaponEditController extends DialogController {
 	private TextField nameField;
 	@FXML
 	private TextField weaponTypeField;
-	@FXML
-	private TextField wieldStyleField;
 	@FXML
 	private TextField dmgSField;
 	@FXML
@@ -47,6 +47,8 @@ public class MagicWeaponEditController extends DialogController {
 	private TextField descriptionField;
 	@FXML
 	private TextField constructionField;
+	@FXML
+	private ComboBox<SlotType> cboSlotType;
 	
 	private Stage dialogStage;
     private MagicWeapon weapon;
@@ -76,7 +78,6 @@ public class MagicWeaponEditController extends DialogController {
     	
     	nameField.setText(w.Name.get());
     	weaponTypeField.setText(w.WeaponType.get());
-    	wieldStyleField.setText(w.WieldStyle.get());
     	dmgSField.setText(w.DmgS.get());
     	dmgMField.setText(w.DmgM.get());
     	criticalField.setText(w.Critical.get());
@@ -106,10 +107,6 @@ public class MagicWeaponEditController extends DialogController {
         
         if (weaponTypeField.getText() == null || weaponTypeField.getText().length() == 0) {
             errorMessage += "No valid weapon type is set!\n"; 
-        }
-        
-        if (wieldStyleField.getText() == null || wieldStyleField.getText().length() == 0) {
-            errorMessage += "No valid wield style is set!\n"; 
         }
         
         if (criticalField.getText() == null || criticalField.getText().length() == 0) {
@@ -182,7 +179,6 @@ public class MagicWeaponEditController extends DialogController {
         if (isInputValid()) {            
             weapon.Name.set(nameField.getText());
             weapon.WeaponType.set(weaponTypeField.getText());
-            weapon.WieldStyle.set(wieldStyleField.getText());
             weapon.Critical.set(criticalField.getText());
             weapon.DmgS.set(dmgSField.getText());
             weapon.DmgM.set(dmgMField.getText());

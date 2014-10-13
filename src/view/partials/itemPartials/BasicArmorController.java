@@ -49,6 +49,8 @@ public class BasicArmorController extends ItemPartialController {
 	private Label lblSpeed20;
 	@FXML
 	private Label lblWeight;
+	@FXML
+	private Label lblSlotType;
 	@Override
 	
 	/**
@@ -76,6 +78,7 @@ public class BasicArmorController extends ItemPartialController {
 			lblSpeed30.setText(((Armor)item).Speed30feet.get() + "");
 			lblSpeed20.setText(((Armor)item).Speed20feet.get() + "");
 			lblWeight.setText(((Armor)item).Weight.get() + "");
+			lblSlotType.setText(item.getSlotType().name());
 		}
 		else
 		{
