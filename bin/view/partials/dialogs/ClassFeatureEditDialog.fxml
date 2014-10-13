@@ -24,7 +24,7 @@
             <Label text="Description" GridPane.rowIndex="2" />
             <TextField fx:id="txtFeatureName" GridPane.columnIndex="1" />
             <TextField fx:id="txtFeatureType" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextArea fx:id="txtaFeatureDescription" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="txtaFeatureDescription" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <center>
                   <AnchorPane fx:id="EffectPartialPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />

@@ -73,8 +73,8 @@
             <ComboBox fx:id="cboSizes" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtRacialModifiers" GridPane.columnIndex="1" />
             <TextField fx:id="txtSpeed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextArea fx:id="txtaWeaponFamiliarity" prefHeight="200.0" prefWidth="200.0" promptText="Write the weapons this race is familiar with separated by a comma here" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextArea fx:id="txtaLanguages" prefHeight="200.0" prefWidth="200.0" promptText="Write the lanuages this race knows separated by a comma" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextArea fx:id="txtaWeaponFamiliarity" prefHeight="200.0" prefWidth="200.0" promptText="Write the weapons this race is familiar with separated by a comma here" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextArea fx:id="txtaLanguages" prefHeight="200.0" prefWidth="200.0" promptText="Write the lanuages this race knows separated by a comma" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

@@ -25,7 +25,7 @@
             <Label text="Effect" GridPane.rowIndex="3" />
             <TextField fx:id="txtFeatName" GridPane.columnIndex="1" />
             <ComboBox fx:id="cboPrerequisiteFeat" prefHeight="25.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextArea fx:id="txtaBenifit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="txtaBenifit" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <top>
                   <ComboBox fx:id="cboEffect" onAction="#handleChangedEffect" prefHeight="25.0" prefWidth="396.0" BorderPane.alignment="CENTER" />
