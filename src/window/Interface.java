@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import jefXif.Strings;
 import jefXif.interfaces.DataLoader;
 import jefXif.view.Gui;
 import jefXif.view.WindowController;
@@ -31,6 +32,7 @@ public class Interface extends Gui {
 	 */
 	public Interface(Stage primaryStage) {
 		super(primaryStage);
+		Strings.ProgramTitle = "Data Editor";
 		setProgramFilePath(new File(this.getClass().getResource("").toString()+"../../../"));
 	}
 
@@ -80,7 +82,7 @@ public class Interface extends Gui {
 	 */
 	@Override
 	public void initialize() {
-		this.getPrimaryStage().setTitle("Data Editor");
+		this.getPrimaryStage().setTitle(Strings.ProgramTitle);
 		this.getPrimaryStage().getIcons()
 				.add(new Image("file:resources/images/Icon.png"));
 
