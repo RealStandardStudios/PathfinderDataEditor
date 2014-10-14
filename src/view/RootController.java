@@ -252,7 +252,7 @@ public class RootController extends RootLayoutController{
 	private void handleSaveAll(ActionEvent event) {
 		try {
 			for (MainPartialController controller : windowPartials.values()) {
-				controller.loadDataFromFile(ui.getProgramFilePath());
+				controller.saveDataToFile(ui.getProgramFilePath());
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

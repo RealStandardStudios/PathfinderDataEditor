@@ -481,6 +481,7 @@ public class RacesController extends MainPartialController implements DataLoader
         if (file != null) {
             Data.Write(file.getPath()+"\\Races.rdf", races.toArray());
         }
+        else System.out.println("The file was null lol");
 	}
 
 	/**
