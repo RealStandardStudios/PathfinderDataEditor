@@ -17,6 +17,7 @@ import pathfinder.data.Items.SlotType;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicWeaponEditController extends DialogController {
 
 	@FXML

@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.BasicArmorEditController;
  * 
  * @author Real Standard Strudios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class BasicArmorController extends ItemPartialController {
 
 	@FXML

@@ -27,9 +27,7 @@ import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Feat;
 import pathfinder.data.FeatPrerequisite;
-import pathfinder.data.Attributes.SaveAttribute;
 import pathfinder.data.Effects.Effect;
-import pathfinder.data.Effects.SaveAttributeEffect;
 import view.partials.dialogs.FeatEditDialogController;
 
 /**
@@ -38,6 +36,7 @@ import view.partials.dialogs.FeatEditDialogController;
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
+@SuppressWarnings("deprecation")
 public class FeatsController extends MainPartialController implements DataLoader {
 
 	@FXML
@@ -84,6 +83,7 @@ public class FeatsController extends MainPartialController implements DataLoader
 	public void handleEditFeat() {
 		Feat selectedFeat = tableFeats.getSelectionModel().getSelectedItem();
 		if (selectedFeat != null) {
+			@SuppressWarnings("unused")
 			boolean okClicked = showEditFeatDialog(selectedFeat);
 		} else {
 			Dialogs.create().title("No Selection").masthead("No Feat selected")

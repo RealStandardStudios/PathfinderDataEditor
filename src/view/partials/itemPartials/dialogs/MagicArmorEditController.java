@@ -15,6 +15,7 @@ import pathfinder.data.Items.MagicArmor;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicArmorEditController extends DialogController {
 
 	@FXML

@@ -15,6 +15,7 @@ import pathfinder.data.Items.Goods;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class BasicGoodsEditController extends DialogController{
 
 	@FXML

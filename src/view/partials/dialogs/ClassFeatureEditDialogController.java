@@ -20,7 +20,6 @@ import jefXif.view.WindowController;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.Classes.Objects.Feature;
-import pathfinder.data.Effects.Effect;
 import view.partials.dialogs.effectDialogPartials.EffectPartialController;
 
 /**
@@ -28,6 +27,7 @@ import view.partials.dialogs.effectDialogPartials.EffectPartialController;
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
+@SuppressWarnings("deprecation")
 public class ClassFeatureEditDialogController extends DialogController
 		implements PartialLoader {
 

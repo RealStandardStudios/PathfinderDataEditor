@@ -44,6 +44,7 @@ import com.sun.istack.internal.logging.Logger;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class ItemsController extends MainPartialController implements PartialLoader, DataLoader{
 
     private HashMap<String, ItemPartialController> partials;

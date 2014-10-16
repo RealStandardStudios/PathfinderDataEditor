@@ -35,6 +35,7 @@ import view.partials.dialogs.SpellEditDialogController;
  * 
  * @author Real Standard Studios - Kenneth Cooper
  */
+@SuppressWarnings("deprecation")
 public class SpellsController extends MainPartialController implements DataLoader {
 
 	private ObservableList<Spell> spellData = FXCollections

@@ -35,15 +35,9 @@ import jefXif.view.partial.MainPartialController;
 import org.controlsfx.dialog.Dialogs;
 
 import pathfinder.data.DiceType;
-import pathfinder.data.Attributes.AbilityName;
-import pathfinder.data.Attributes.SaveAttribute;
 import pathfinder.data.Character.Alignments;
-import pathfinder.data.Classes.Alchemist;
 import pathfinder.data.Classes.Barbarian;
-import pathfinder.data.Classes.Bard;
-import pathfinder.data.Classes.Cavalier;
 import pathfinder.data.Classes.Class;
-import pathfinder.data.Classes.Cleric;
 import pathfinder.data.Classes.Druid;
 import pathfinder.data.Classes.Fighter;
 import pathfinder.data.Classes.Gunslinger;
@@ -51,15 +45,9 @@ import pathfinder.data.Classes.Inquisitor;
 import pathfinder.data.Classes.Magus;
 import pathfinder.data.Classes.Monk;
 import pathfinder.data.Classes.Ninja;
-import pathfinder.data.Classes.Oracle;
 import pathfinder.data.Classes.Paladin;
 import pathfinder.data.Classes.Ranger;
 import pathfinder.data.Classes.Rogue;
-import pathfinder.data.Classes.Samurai;
-import pathfinder.data.Classes.Sorcerer;
-import pathfinder.data.Classes.Summoner;
-import pathfinder.data.Classes.Witch;
-import pathfinder.data.Classes.Wizard;
 import pathfinder.data.Classes.Objects.Feature;
 import pathfinder.data.Classes.Objects.LevelTable.LevelTableRow;
 import pathfinder.data.Classes.Objects.LevelTable.MonkLevelTableRow;
@@ -77,6 +65,7 @@ import editor.Tools;
  * 
  * @author Real Standard Studios - Matthew Meehan, Ian Larsen
  */
+@SuppressWarnings("deprecation")
 public class ClassesController extends MainPartialController implements
 		DataLoader {
 
@@ -140,7 +129,7 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<LevelTableRow, String> columnSpecial;
 
-	TableColumn[] levelTable;
+	TableColumn<LevelTableRow,?>[] levelTable;
 	// endregion
 
 	// region Spells Per Level Table
@@ -183,7 +172,7 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9th;
 
-	TableColumn[] spellLevelTable;
+	TableColumn<SpellLevelTableRow,?>[] spellLevelTable;
 	// endregion
 
 	// region Spells Known Table
@@ -226,7 +215,7 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<SpellLevelTableRow, String> column9thKnown;
 
-	TableColumn[] spellKnowenTable;
+	TableColumn<SpellLevelTableRow,?>[] spellKnowenTable;
 
 	// endregion
 
@@ -249,7 +238,7 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<MonkLevelTableRow, String> columnFastMovement;
 
-	TableColumn[] monkTable;
+	TableColumn<MonkLevelTableRow,String>[] monkTable;
 
 	// endregion
 
@@ -269,7 +258,7 @@ public class ClassesController extends MainPartialController implements
 	@FXML
 	private TableColumn<Feature, String> columnFeatureEffect;
 
-	TableColumn[] featuresTable;
+	TableColumn<Feature,String>[] featuresTable;
 	// endregion
 
 	private ObservableList<Class> obsListClasses = FXCollections

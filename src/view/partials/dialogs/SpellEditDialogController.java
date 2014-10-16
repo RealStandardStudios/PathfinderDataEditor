@@ -16,6 +16,7 @@ import pathfinder.data.Spells.Spell;
  * 
  * @author Real Standard Studios - Kenneth Cooper
  */
+@SuppressWarnings("deprecation")
 public class SpellEditDialogController extends DialogController{
 	@FXML
 	private TextField spellNameField;

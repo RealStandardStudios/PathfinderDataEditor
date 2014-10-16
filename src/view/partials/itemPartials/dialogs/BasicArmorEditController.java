@@ -17,6 +17,7 @@ import pathfinder.data.Items.SlotType;
  * 
  * @author real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class BasicArmorEditController extends DialogController {
 
 	@FXML

@@ -15,6 +15,7 @@ import pathfinder.data.Items.MagicStaves;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicStaveEditController extends DialogController {
 
 	@FXML

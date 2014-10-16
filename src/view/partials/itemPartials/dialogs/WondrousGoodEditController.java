@@ -15,6 +15,7 @@ import pathfinder.data.Items.WondrousGood;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class WondrousGoodEditController extends DialogController{
 	
 	@FXML

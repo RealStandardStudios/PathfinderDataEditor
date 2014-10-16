@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.MagicArmorEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicArmorController extends ItemPartialController {
 
 	@FXML

@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.MagicStaveEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicStavesController extends ItemPartialController {
 
 

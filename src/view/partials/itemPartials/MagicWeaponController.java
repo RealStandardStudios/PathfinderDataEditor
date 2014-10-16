@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.MagicWeaponEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicWeaponController extends ItemPartialController {
 
 	@FXML

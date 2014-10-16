@@ -15,6 +15,7 @@ import pathfinder.data.Items.MagicRod;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicRodEditController extends DialogController {
 
 	@FXML

@@ -55,6 +55,7 @@ import view.partials.dialogs.RaceTraitsEditDialogController;
  * 
  * @author Real Standard Studios - Matthew Meehan
  */
+@SuppressWarnings("deprecation")
 public class RacesController extends MainPartialController implements DataLoader {
 	@FXML
 	TableView<Race> tableRaces;
@@ -161,6 +162,7 @@ public class RacesController extends MainPartialController implements DataLoader
 	public void handleEditSheet(ActionEvent event) {
 		Race selectedRace = tableRaces.getSelectionModel().getSelectedItem();
 		if(selectedRace!=null) {
+			@SuppressWarnings("unused")
 			boolean okClicked = showEditRaceDescriptions(selectedRace);
 		} else {
 			Dialogs.create().title("No Selection").masthead("No race Selected")
@@ -209,6 +211,7 @@ public class RacesController extends MainPartialController implements DataLoader
 	public void handleEditTraits(ActionEvent event) {
 		Race selectedRace = tableRaces.getSelectionModel().getSelectedItem();
 		if(selectedRace!=null) {
+			@SuppressWarnings("unused")
 			boolean okClicked = showEditRaceTraits(selectedRace);
 		} else {
 			Dialogs.create().title("No Selection").masthead("No race Selected")

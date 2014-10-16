@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.MagicRingEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicRingController extends ItemPartialController {
 	
 	@FXML

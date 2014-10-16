@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.WondrousGoodEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class WondrousItemsController extends ItemPartialController {
 
 	@FXML

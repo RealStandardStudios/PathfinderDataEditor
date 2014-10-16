@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.MagicRodEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicRodController extends ItemPartialController {
 
 	@FXML

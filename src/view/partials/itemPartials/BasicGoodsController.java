@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.BasicGoodsEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class BasicGoodsController extends ItemPartialController {
 	
 	@FXML

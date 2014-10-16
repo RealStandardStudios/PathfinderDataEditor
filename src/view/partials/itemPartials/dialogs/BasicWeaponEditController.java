@@ -17,6 +17,7 @@ import pathfinder.data.Items.Weapon;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class BasicWeaponEditController extends DialogController{
 	
 	@FXML

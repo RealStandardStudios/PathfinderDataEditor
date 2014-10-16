@@ -15,6 +15,7 @@ import pathfinder.data.Items.MagicRing;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class MagicRingEditController extends DialogController {
 
 	@FXML

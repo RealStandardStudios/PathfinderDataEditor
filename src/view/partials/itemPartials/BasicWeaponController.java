@@ -24,6 +24,7 @@ import view.partials.itemPartials.dialogs.BasicWeaponEditController;
  * 
  * @author Real Standard Studios - Joshua Boyd
  */
+@SuppressWarnings("deprecation")
 public class BasicWeaponController extends ItemPartialController {
 
 	@FXML
