@@ -1,5 +1,6 @@
 package view.partials.dialogs;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javafx.collections.FXCollections;
@@ -125,11 +126,20 @@ public class RaceTraitsEditDialogController extends DialogController {
 	public void handleOkay(ActionEvent event) {
 		race.setSpeed(Integer.parseInt(txtSpeed.getText()));
 		race.setSize(cboSizes.getSelectionModel().getSelectedItem());
-		String[] parts = txtaLanguages.getText().split(",");
-		for (int i = 0; i < parts.length; i++) {
-			parts[i] = parts[i].trim();			
+		
+		String[] parts = txtaLanguages.getText().split(":");
+		ArrayList<String> languages = new ArrayList<>();
+		if(parts.length>1) {
+			languages.add(parts[0].replace(","," and"));
+			parts = parts[1].split(",");
 		}
-		race.setLanguages(parts);
+		else
+			parts = parts[0].split(",");
+		for (int i = 0; i < parts.length; i++) {
+			languages.add(parts[i].trim());			
+		}
+		race.setLanguages(languages.toArray(new String[languages.size()]));
+		
 		parts = txtaWeaponFamiliarity.getText().split(",");
 		for (int i = 0; i < parts.length; i++) {
 			parts[i] = parts[i].trim();			
